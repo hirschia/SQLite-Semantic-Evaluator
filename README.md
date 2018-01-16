@@ -4,7 +4,7 @@ SQLite Editor and Parser provides a very rich editing environment with full text
 
 Some distinguishing features of the SQLite Editor and Parser are:
 
-•	Syntax Highlighting: The SQL statements written inside the editor are properly highlighted to provide the rich editing environment. 
+•	Syntax Highlighting: The SQL statements written inside the editor are properly highlighted to provide the rich editing environment.
 •	Easy Debugging: All the SQL statements before being executed on the database are first parsed for any syntax errors and thus a lot of errors are caught in a much safer and in earlier steps. 
 •	Lightweight: The software is extremely lightweight and can run on any machine having JRE (Java Runtime Environment).
 •	Simple to use: The software is designed in a way so as to cater to the user’s ease. Its functionality is simple and easy to use as compared to SQLite’s command line.
