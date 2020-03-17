@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -52,8 +53,8 @@ public class SqlEditor extends javax.swing.JFrame implements ActionListener {
      */
     public SqlEditor() {
         initComponents();
-        //this.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("/luffy - Copy - Copy copy.png"));
-        this.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(getClass().getResource("/luffy - Copy - Copy copy.png")));
+        //this.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("/gui/luffy.png"));
+        this.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(getClass().getResource("/gui/luffy.png")));
         
         //Piyush- Using jsyntaxpane
         //-------------------------------------------------------
@@ -177,7 +178,7 @@ public class SqlEditor extends javax.swing.JFrame implements ActionListener {
         jToolBar1.setRollover(true);
         jToolBar1.add(jSeparator2);
 
-        b1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/luffy - Copy - Copy copy.png"))); // NOI18N
+        b1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/luffy.png"))); // NOI18N
         b1.setToolTipText("Execute the entered Query");
         b1.setFocusable(false);
         b1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -235,7 +236,7 @@ public class SqlEditor extends javax.swing.JFrame implements ActionListener {
         jMenu2.setText("Run");
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/luffy - Copy - Copy copy.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/luffy.png"))); // NOI18N
         jMenuItem2.setText("Execute command");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

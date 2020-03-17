@@ -1,912 +1,832 @@
-// Generated from C:\Users\Piyush\Documents\NetBeansProjects\TestingGrammar\src\sqlitesyntax\grammar\SQLiteSyntax.g4 by ANTLR 4.2.2
-package sqlitesyntax.grammar;
-import org.antlr.v4.runtime.misc.NotNull;
+// Generated from SQLite.g4 by ANTLR 4.8
+
+package parser.sqlite;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
  * This interface defines a complete listener for a parse tree produced by
- * {@link SQLiteSyntaxParser}.
+ * {@link SQLiteParser}.
  */
-public interface SQLiteSyntaxListener extends ParseTreeListener {
+public interface SQLiteListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#insert_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#parse}.
 	 * @param ctx the parse tree
 	 */
-	void enterInsert_stmt(@NotNull SQLiteSyntaxParser.Insert_stmtContext ctx);
+	void enterParse(SQLiteParser.ParseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#insert_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#parse}.
 	 * @param ctx the parse tree
 	 */
-	void exitInsert_stmt(@NotNull SQLiteSyntaxParser.Insert_stmtContext ctx);
-
+	void exitParse(SQLiteParser.ParseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#sql_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#error}.
 	 * @param ctx the parse tree
 	 */
-	void enterSql_stmt(@NotNull SQLiteSyntaxParser.Sql_stmtContext ctx);
+	void enterError(SQLiteParser.ErrorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#sql_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#error}.
 	 * @param ctx the parse tree
 	 */
-	void exitSql_stmt(@NotNull SQLiteSyntaxParser.Sql_stmtContext ctx);
-
+	void exitError(SQLiteParser.ErrorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#table_or_index_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#sql_stmt_list}.
 	 * @param ctx the parse tree
 	 */
-	void enterTable_or_index_name(@NotNull SQLiteSyntaxParser.Table_or_index_nameContext ctx);
+	void enterSql_stmt_list(SQLiteParser.Sql_stmt_listContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#table_or_index_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#sql_stmt_list}.
 	 * @param ctx the parse tree
 	 */
-	void exitTable_or_index_name(@NotNull SQLiteSyntaxParser.Table_or_index_nameContext ctx);
-
+	void exitSql_stmt_list(SQLiteParser.Sql_stmt_listContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#compound_operator}.
+	 * Enter a parse tree produced by {@link SQLiteParser#sql_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterCompound_operator(@NotNull SQLiteSyntaxParser.Compound_operatorContext ctx);
+	void enterSql_stmt(SQLiteParser.Sql_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#compound_operator}.
+	 * Exit a parse tree produced by {@link SQLiteParser#sql_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitCompound_operator(@NotNull SQLiteSyntaxParser.Compound_operatorContext ctx);
-
+	void exitSql_stmt(SQLiteParser.Sql_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#indexed_column}.
+	 * Enter a parse tree produced by {@link SQLiteParser#alter_table_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterIndexed_column(@NotNull SQLiteSyntaxParser.Indexed_columnContext ctx);
+	void enterAlter_table_stmt(SQLiteParser.Alter_table_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#indexed_column}.
+	 * Exit a parse tree produced by {@link SQLiteParser#alter_table_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitIndexed_column(@NotNull SQLiteSyntaxParser.Indexed_columnContext ctx);
-
+	void exitAlter_table_stmt(SQLiteParser.Alter_table_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#create_index_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#analyze_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterCreate_index_stmt(@NotNull SQLiteSyntaxParser.Create_index_stmtContext ctx);
+	void enterAnalyze_stmt(SQLiteParser.Analyze_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#create_index_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#analyze_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitCreate_index_stmt(@NotNull SQLiteSyntaxParser.Create_index_stmtContext ctx);
-
+	void exitAnalyze_stmt(SQLiteParser.Analyze_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#rollback_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#attach_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterRollback_stmt(@NotNull SQLiteSyntaxParser.Rollback_stmtContext ctx);
+	void enterAttach_stmt(SQLiteParser.Attach_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#rollback_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#attach_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitRollback_stmt(@NotNull SQLiteSyntaxParser.Rollback_stmtContext ctx);
-
+	void exitAttach_stmt(SQLiteParser.Attach_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#column_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#begin_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterColumn_name(@NotNull SQLiteSyntaxParser.Column_nameContext ctx);
+	void enterBegin_stmt(SQLiteParser.Begin_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#column_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#begin_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitColumn_name(@NotNull SQLiteSyntaxParser.Column_nameContext ctx);
-
+	void exitBegin_stmt(SQLiteParser.Begin_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#qualified_table_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#commit_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterQualified_table_name(@NotNull SQLiteSyntaxParser.Qualified_table_nameContext ctx);
+	void enterCommit_stmt(SQLiteParser.Commit_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#qualified_table_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#commit_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitQualified_table_name(@NotNull SQLiteSyntaxParser.Qualified_table_nameContext ctx);
-
+	void exitCommit_stmt(SQLiteParser.Commit_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#savepoint_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#compound_select_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterSavepoint_name(@NotNull SQLiteSyntaxParser.Savepoint_nameContext ctx);
+	void enterCompound_select_stmt(SQLiteParser.Compound_select_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#savepoint_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#compound_select_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitSavepoint_name(@NotNull SQLiteSyntaxParser.Savepoint_nameContext ctx);
-
+	void exitCompound_select_stmt(SQLiteParser.Compound_select_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#result_column}.
+	 * Enter a parse tree produced by {@link SQLiteParser#create_index_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterResult_column(@NotNull SQLiteSyntaxParser.Result_columnContext ctx);
+	void enterCreate_index_stmt(SQLiteParser.Create_index_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#result_column}.
+	 * Exit a parse tree produced by {@link SQLiteParser#create_index_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitResult_column(@NotNull SQLiteSyntaxParser.Result_columnContext ctx);
-
+	void exitCreate_index_stmt(SQLiteParser.Create_index_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#error_message}.
+	 * Enter a parse tree produced by {@link SQLiteParser#create_table_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterError_message(@NotNull SQLiteSyntaxParser.Error_messageContext ctx);
+	void enterCreate_table_stmt(SQLiteParser.Create_table_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#error_message}.
+	 * Exit a parse tree produced by {@link SQLiteParser#create_table_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitError_message(@NotNull SQLiteSyntaxParser.Error_messageContext ctx);
-
+	void exitCreate_table_stmt(SQLiteParser.Create_table_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#select_core}.
+	 * Enter a parse tree produced by {@link SQLiteParser#create_trigger_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterSelect_core(@NotNull SQLiteSyntaxParser.Select_coreContext ctx);
+	void enterCreate_trigger_stmt(SQLiteParser.Create_trigger_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#select_core}.
+	 * Exit a parse tree produced by {@link SQLiteParser#create_trigger_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitSelect_core(@NotNull SQLiteSyntaxParser.Select_coreContext ctx);
-
+	void exitCreate_trigger_stmt(SQLiteParser.Create_trigger_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#create_trigger_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#create_view_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterCreate_trigger_stmt(@NotNull SQLiteSyntaxParser.Create_trigger_stmtContext ctx);
+	void enterCreate_view_stmt(SQLiteParser.Create_view_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#create_trigger_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#create_view_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitCreate_trigger_stmt(@NotNull SQLiteSyntaxParser.Create_trigger_stmtContext ctx);
-
+	void exitCreate_view_stmt(SQLiteParser.Create_view_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#function_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#create_virtual_table_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunction_name(@NotNull SQLiteSyntaxParser.Function_nameContext ctx);
+	void enterCreate_virtual_table_stmt(SQLiteParser.Create_virtual_table_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#function_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#create_virtual_table_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunction_name(@NotNull SQLiteSyntaxParser.Function_nameContext ctx);
-
+	void exitCreate_virtual_table_stmt(SQLiteParser.Create_virtual_table_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#sql_stmt_list}.
+	 * Enter a parse tree produced by {@link SQLiteParser#delete_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterSql_stmt_list(@NotNull SQLiteSyntaxParser.Sql_stmt_listContext ctx);
+	void enterDelete_stmt(SQLiteParser.Delete_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#sql_stmt_list}.
+	 * Exit a parse tree produced by {@link SQLiteParser#delete_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitSql_stmt_list(@NotNull SQLiteSyntaxParser.Sql_stmt_listContext ctx);
-
+	void exitDelete_stmt(SQLiteParser.Delete_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#drop_table_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#delete_stmt_limited}.
 	 * @param ctx the parse tree
 	 */
-	void enterDrop_table_stmt(@NotNull SQLiteSyntaxParser.Drop_table_stmtContext ctx);
+	void enterDelete_stmt_limited(SQLiteParser.Delete_stmt_limitedContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#drop_table_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#delete_stmt_limited}.
 	 * @param ctx the parse tree
 	 */
-	void exitDrop_table_stmt(@NotNull SQLiteSyntaxParser.Drop_table_stmtContext ctx);
-
+	void exitDelete_stmt_limited(SQLiteParser.Delete_stmt_limitedContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#any_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#detach_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterAny_name(@NotNull SQLiteSyntaxParser.Any_nameContext ctx);
+	void enterDetach_stmt(SQLiteParser.Detach_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#any_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#detach_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitAny_name(@NotNull SQLiteSyntaxParser.Any_nameContext ctx);
-
+	void exitDetach_stmt(SQLiteParser.Detach_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#database_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#drop_index_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterDatabase_name(@NotNull SQLiteSyntaxParser.Database_nameContext ctx);
+	void enterDrop_index_stmt(SQLiteParser.Drop_index_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#database_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#drop_index_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitDatabase_name(@NotNull SQLiteSyntaxParser.Database_nameContext ctx);
-
+	void exitDrop_index_stmt(SQLiteParser.Drop_index_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#module_argument}.
+	 * Enter a parse tree produced by {@link SQLiteParser#drop_table_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterModule_argument(@NotNull SQLiteSyntaxParser.Module_argumentContext ctx);
+	void enterDrop_table_stmt(SQLiteParser.Drop_table_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#module_argument}.
+	 * Exit a parse tree produced by {@link SQLiteParser#drop_table_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitModule_argument(@NotNull SQLiteSyntaxParser.Module_argumentContext ctx);
-
+	void exitDrop_table_stmt(SQLiteParser.Drop_table_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#join_operator}.
+	 * Enter a parse tree produced by {@link SQLiteParser#drop_trigger_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterJoin_operator(@NotNull SQLiteSyntaxParser.Join_operatorContext ctx);
+	void enterDrop_trigger_stmt(SQLiteParser.Drop_trigger_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#join_operator}.
+	 * Exit a parse tree produced by {@link SQLiteParser#drop_trigger_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitJoin_operator(@NotNull SQLiteSyntaxParser.Join_operatorContext ctx);
-
+	void exitDrop_trigger_stmt(SQLiteParser.Drop_trigger_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#vacuum_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#drop_view_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterVacuum_stmt(@NotNull SQLiteSyntaxParser.Vacuum_stmtContext ctx);
+	void enterDrop_view_stmt(SQLiteParser.Drop_view_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#vacuum_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#drop_view_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitVacuum_stmt(@NotNull SQLiteSyntaxParser.Vacuum_stmtContext ctx);
-
+	void exitDrop_view_stmt(SQLiteParser.Drop_view_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#factored_select_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#factored_select_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterFactored_select_stmt(@NotNull SQLiteSyntaxParser.Factored_select_stmtContext ctx);
+	void enterFactored_select_stmt(SQLiteParser.Factored_select_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#factored_select_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#factored_select_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitFactored_select_stmt(@NotNull SQLiteSyntaxParser.Factored_select_stmtContext ctx);
-
+	void exitFactored_select_stmt(SQLiteParser.Factored_select_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#transaction_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#insert_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterTransaction_name(@NotNull SQLiteSyntaxParser.Transaction_nameContext ctx);
+	void enterInsert_stmt(SQLiteParser.Insert_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#transaction_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#insert_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitTransaction_name(@NotNull SQLiteSyntaxParser.Transaction_nameContext ctx);
-
+	void exitInsert_stmt(SQLiteParser.Insert_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#cte_table_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#pragma_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterCte_table_name(@NotNull SQLiteSyntaxParser.Cte_table_nameContext ctx);
+	void enterPragma_stmt(SQLiteParser.Pragma_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#cte_table_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#pragma_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitCte_table_name(@NotNull SQLiteSyntaxParser.Cte_table_nameContext ctx);
-
+	void exitPragma_stmt(SQLiteParser.Pragma_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#unary_operator}.
+	 * Enter a parse tree produced by {@link SQLiteParser#reindex_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterUnary_operator(@NotNull SQLiteSyntaxParser.Unary_operatorContext ctx);
+	void enterReindex_stmt(SQLiteParser.Reindex_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#unary_operator}.
+	 * Exit a parse tree produced by {@link SQLiteParser#reindex_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitUnary_operator(@NotNull SQLiteSyntaxParser.Unary_operatorContext ctx);
-
+	void exitReindex_stmt(SQLiteParser.Reindex_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#common_table_expression}.
+	 * Enter a parse tree produced by {@link SQLiteParser#release_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterCommon_table_expression(@NotNull SQLiteSyntaxParser.Common_table_expressionContext ctx);
+	void enterRelease_stmt(SQLiteParser.Release_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#common_table_expression}.
+	 * Exit a parse tree produced by {@link SQLiteParser#release_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitCommon_table_expression(@NotNull SQLiteSyntaxParser.Common_table_expressionContext ctx);
-
+	void exitRelease_stmt(SQLiteParser.Release_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#drop_trigger_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#rollback_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterDrop_trigger_stmt(@NotNull SQLiteSyntaxParser.Drop_trigger_stmtContext ctx);
+	void enterRollback_stmt(SQLiteParser.Rollback_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#drop_trigger_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#rollback_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitDrop_trigger_stmt(@NotNull SQLiteSyntaxParser.Drop_trigger_stmtContext ctx);
-
+	void exitRollback_stmt(SQLiteParser.Rollback_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#new_table_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#savepoint_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterNew_table_name(@NotNull SQLiteSyntaxParser.New_table_nameContext ctx);
+	void enterSavepoint_stmt(SQLiteParser.Savepoint_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#new_table_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#savepoint_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitNew_table_name(@NotNull SQLiteSyntaxParser.New_table_nameContext ctx);
-
+	void exitSavepoint_stmt(SQLiteParser.Savepoint_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#type_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#simple_select_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterType_name(@NotNull SQLiteSyntaxParser.Type_nameContext ctx);
+	void enterSimple_select_stmt(SQLiteParser.Simple_select_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#type_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#simple_select_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitType_name(@NotNull SQLiteSyntaxParser.Type_nameContext ctx);
-
+	void exitSimple_select_stmt(SQLiteParser.Simple_select_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#table_alias}.
+	 * Enter a parse tree produced by {@link SQLiteParser#select_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterTable_alias(@NotNull SQLiteSyntaxParser.Table_aliasContext ctx);
+	void enterSelect_stmt(SQLiteParser.Select_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#table_alias}.
+	 * Exit a parse tree produced by {@link SQLiteParser#select_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitTable_alias(@NotNull SQLiteSyntaxParser.Table_aliasContext ctx);
-
+	void exitSelect_stmt(SQLiteParser.Select_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#module_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#select_or_values}.
 	 * @param ctx the parse tree
 	 */
-	void enterModule_name(@NotNull SQLiteSyntaxParser.Module_nameContext ctx);
+	void enterSelect_or_values(SQLiteParser.Select_or_valuesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#module_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#select_or_values}.
 	 * @param ctx the parse tree
 	 */
-	void exitModule_name(@NotNull SQLiteSyntaxParser.Module_nameContext ctx);
-
+	void exitSelect_or_values(SQLiteParser.Select_or_valuesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#commit_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#update_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterCommit_stmt(@NotNull SQLiteSyntaxParser.Commit_stmtContext ctx);
+	void enterUpdate_stmt(SQLiteParser.Update_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#commit_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#update_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitCommit_stmt(@NotNull SQLiteSyntaxParser.Commit_stmtContext ctx);
-
+	void exitUpdate_stmt(SQLiteParser.Update_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#trigger_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#update_stmt_limited}.
 	 * @param ctx the parse tree
 	 */
-	void enterTrigger_name(@NotNull SQLiteSyntaxParser.Trigger_nameContext ctx);
+	void enterUpdate_stmt_limited(SQLiteParser.Update_stmt_limitedContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#trigger_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#update_stmt_limited}.
 	 * @param ctx the parse tree
 	 */
-	void exitTrigger_name(@NotNull SQLiteSyntaxParser.Trigger_nameContext ctx);
-
+	void exitUpdate_stmt_limited(SQLiteParser.Update_stmt_limitedContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#create_table_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#vacuum_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterCreate_table_stmt(@NotNull SQLiteSyntaxParser.Create_table_stmtContext ctx);
+	void enterVacuum_stmt(SQLiteParser.Vacuum_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#create_table_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#vacuum_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitCreate_table_stmt(@NotNull SQLiteSyntaxParser.Create_table_stmtContext ctx);
-
+	void exitVacuum_stmt(SQLiteParser.Vacuum_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#pragma_value}.
+	 * Enter a parse tree produced by {@link SQLiteParser#column_def}.
 	 * @param ctx the parse tree
 	 */
-	void enterPragma_value(@NotNull SQLiteSyntaxParser.Pragma_valueContext ctx);
+	void enterColumn_def(SQLiteParser.Column_defContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#pragma_value}.
+	 * Exit a parse tree produced by {@link SQLiteParser#column_def}.
 	 * @param ctx the parse tree
 	 */
-	void exitPragma_value(@NotNull SQLiteSyntaxParser.Pragma_valueContext ctx);
-
+	void exitColumn_def(SQLiteParser.Column_defContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#column_constraint}.
+	 * Enter a parse tree produced by {@link SQLiteParser#type_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterColumn_constraint(@NotNull SQLiteSyntaxParser.Column_constraintContext ctx);
+	void enterType_name(SQLiteParser.Type_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#column_constraint}.
+	 * Exit a parse tree produced by {@link SQLiteParser#type_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitColumn_constraint(@NotNull SQLiteSyntaxParser.Column_constraintContext ctx);
-
+	void exitType_name(SQLiteParser.Type_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#savepoint_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#column_constraint}.
 	 * @param ctx the parse tree
 	 */
-	void enterSavepoint_stmt(@NotNull SQLiteSyntaxParser.Savepoint_stmtContext ctx);
+	void enterColumn_constraint(SQLiteParser.Column_constraintContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#savepoint_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#column_constraint}.
 	 * @param ctx the parse tree
 	 */
-	void exitSavepoint_stmt(@NotNull SQLiteSyntaxParser.Savepoint_stmtContext ctx);
-
+	void exitColumn_constraint(SQLiteParser.Column_constraintContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#detach_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#conflict_clause}.
 	 * @param ctx the parse tree
 	 */
-	void enterDetach_stmt(@NotNull SQLiteSyntaxParser.Detach_stmtContext ctx);
+	void enterConflict_clause(SQLiteParser.Conflict_clauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#detach_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#conflict_clause}.
 	 * @param ctx the parse tree
 	 */
-	void exitDetach_stmt(@NotNull SQLiteSyntaxParser.Detach_stmtContext ctx);
-
+	void exitConflict_clause(SQLiteParser.Conflict_clauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#column_def}.
+	 * Enter a parse tree produced by {@link SQLiteParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterColumn_def(@NotNull SQLiteSyntaxParser.Column_defContext ctx);
+	void enterExpr(SQLiteParser.ExprContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#column_def}.
+	 * Exit a parse tree produced by {@link SQLiteParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitColumn_def(@NotNull SQLiteSyntaxParser.Column_defContext ctx);
-
+	void exitExpr(SQLiteParser.ExprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#table_constraint}.
+	 * Enter a parse tree produced by {@link SQLiteParser#foreign_key_clause}.
 	 * @param ctx the parse tree
 	 */
-	void enterTable_constraint(@NotNull SQLiteSyntaxParser.Table_constraintContext ctx);
+	void enterForeign_key_clause(SQLiteParser.Foreign_key_clauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#table_constraint}.
+	 * Exit a parse tree produced by {@link SQLiteParser#foreign_key_clause}.
 	 * @param ctx the parse tree
 	 */
-	void exitTable_constraint(@NotNull SQLiteSyntaxParser.Table_constraintContext ctx);
-
+	void exitForeign_key_clause(SQLiteParser.Foreign_key_clauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#column_alias}.
+	 * Enter a parse tree produced by {@link SQLiteParser#raise_function}.
 	 * @param ctx the parse tree
 	 */
-	void enterColumn_alias(@NotNull SQLiteSyntaxParser.Column_aliasContext ctx);
+	void enterRaise_function(SQLiteParser.Raise_functionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#column_alias}.
+	 * Exit a parse tree produced by {@link SQLiteParser#raise_function}.
 	 * @param ctx the parse tree
 	 */
-	void exitColumn_alias(@NotNull SQLiteSyntaxParser.Column_aliasContext ctx);
-
+	void exitRaise_function(SQLiteParser.Raise_functionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#delete_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#indexed_column}.
 	 * @param ctx the parse tree
 	 */
-	void enterDelete_stmt(@NotNull SQLiteSyntaxParser.Delete_stmtContext ctx);
+	void enterIndexed_column(SQLiteParser.Indexed_columnContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#delete_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#indexed_column}.
 	 * @param ctx the parse tree
 	 */
-	void exitDelete_stmt(@NotNull SQLiteSyntaxParser.Delete_stmtContext ctx);
-
+	void exitIndexed_column(SQLiteParser.Indexed_columnContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#release_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#table_constraint}.
 	 * @param ctx the parse tree
 	 */
-	void enterRelease_stmt(@NotNull SQLiteSyntaxParser.Release_stmtContext ctx);
+	void enterTable_constraint(SQLiteParser.Table_constraintContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#release_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#table_constraint}.
 	 * @param ctx the parse tree
 	 */
-	void exitRelease_stmt(@NotNull SQLiteSyntaxParser.Release_stmtContext ctx);
-
+	void exitTable_constraint(SQLiteParser.Table_constraintContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#foreign_table}.
+	 * Enter a parse tree produced by {@link SQLiteParser#with_clause}.
 	 * @param ctx the parse tree
 	 */
-	void enterForeign_table(@NotNull SQLiteSyntaxParser.Foreign_tableContext ctx);
+	void enterWith_clause(SQLiteParser.With_clauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#foreign_table}.
+	 * Exit a parse tree produced by {@link SQLiteParser#with_clause}.
 	 * @param ctx the parse tree
 	 */
-	void exitForeign_table(@NotNull SQLiteSyntaxParser.Foreign_tableContext ctx);
-
+	void exitWith_clause(SQLiteParser.With_clauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#create_view_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#qualified_table_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterCreate_view_stmt(@NotNull SQLiteSyntaxParser.Create_view_stmtContext ctx);
+	void enterQualified_table_name(SQLiteParser.Qualified_table_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#create_view_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#qualified_table_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitCreate_view_stmt(@NotNull SQLiteSyntaxParser.Create_view_stmtContext ctx);
-
+	void exitQualified_table_name(SQLiteParser.Qualified_table_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#expr}.
+	 * Enter a parse tree produced by {@link SQLiteParser#ordering_term}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(@NotNull SQLiteSyntaxParser.ExprContext ctx);
+	void enterOrdering_term(SQLiteParser.Ordering_termContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#expr}.
+	 * Exit a parse tree produced by {@link SQLiteParser#ordering_term}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(@NotNull SQLiteSyntaxParser.ExprContext ctx);
-
+	void exitOrdering_term(SQLiteParser.Ordering_termContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#signed_number}.
+	 * Enter a parse tree produced by {@link SQLiteParser#pragma_value}.
 	 * @param ctx the parse tree
 	 */
-	void enterSigned_number(@NotNull SQLiteSyntaxParser.Signed_numberContext ctx);
+	void enterPragma_value(SQLiteParser.Pragma_valueContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#signed_number}.
+	 * Exit a parse tree produced by {@link SQLiteParser#pragma_value}.
 	 * @param ctx the parse tree
 	 */
-	void exitSigned_number(@NotNull SQLiteSyntaxParser.Signed_numberContext ctx);
-
+	void exitPragma_value(SQLiteParser.Pragma_valueContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#delete_stmt_limited}.
+	 * Enter a parse tree produced by {@link SQLiteParser#common_table_expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterDelete_stmt_limited(@NotNull SQLiteSyntaxParser.Delete_stmt_limitedContext ctx);
+	void enterCommon_table_expression(SQLiteParser.Common_table_expressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#delete_stmt_limited}.
+	 * Exit a parse tree produced by {@link SQLiteParser#common_table_expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitDelete_stmt_limited(@NotNull SQLiteSyntaxParser.Delete_stmt_limitedContext ctx);
-
+	void exitCommon_table_expression(SQLiteParser.Common_table_expressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#index_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#result_column}.
 	 * @param ctx the parse tree
 	 */
-	void enterIndex_name(@NotNull SQLiteSyntaxParser.Index_nameContext ctx);
+	void enterResult_column(SQLiteParser.Result_columnContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#index_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#result_column}.
 	 * @param ctx the parse tree
 	 */
-	void exitIndex_name(@NotNull SQLiteSyntaxParser.Index_nameContext ctx);
-
+	void exitResult_column(SQLiteParser.Result_columnContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#select_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#table_or_subquery}.
 	 * @param ctx the parse tree
 	 */
-	void enterSelect_stmt(@NotNull SQLiteSyntaxParser.Select_stmtContext ctx);
+	void enterTable_or_subquery(SQLiteParser.Table_or_subqueryContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#select_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#table_or_subquery}.
 	 * @param ctx the parse tree
 	 */
-	void exitSelect_stmt(@NotNull SQLiteSyntaxParser.Select_stmtContext ctx);
-
+	void exitTable_or_subquery(SQLiteParser.Table_or_subqueryContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#create_virtual_table_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#join_clause}.
 	 * @param ctx the parse tree
 	 */
-	void enterCreate_virtual_table_stmt(@NotNull SQLiteSyntaxParser.Create_virtual_table_stmtContext ctx);
+	void enterJoin_clause(SQLiteParser.Join_clauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#create_virtual_table_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#join_clause}.
 	 * @param ctx the parse tree
 	 */
-	void exitCreate_virtual_table_stmt(@NotNull SQLiteSyntaxParser.Create_virtual_table_stmtContext ctx);
-
+	void exitJoin_clause(SQLiteParser.Join_clauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#alter_table_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#join_operator}.
 	 * @param ctx the parse tree
 	 */
-	void enterAlter_table_stmt(@NotNull SQLiteSyntaxParser.Alter_table_stmtContext ctx);
+	void enterJoin_operator(SQLiteParser.Join_operatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#alter_table_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#join_operator}.
 	 * @param ctx the parse tree
 	 */
-	void exitAlter_table_stmt(@NotNull SQLiteSyntaxParser.Alter_table_stmtContext ctx);
-
+	void exitJoin_operator(SQLiteParser.Join_operatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#attach_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#join_constraint}.
 	 * @param ctx the parse tree
 	 */
-	void enterAttach_stmt(@NotNull SQLiteSyntaxParser.Attach_stmtContext ctx);
+	void enterJoin_constraint(SQLiteParser.Join_constraintContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#attach_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#join_constraint}.
 	 * @param ctx the parse tree
 	 */
-	void exitAttach_stmt(@NotNull SQLiteSyntaxParser.Attach_stmtContext ctx);
-
+	void exitJoin_constraint(SQLiteParser.Join_constraintContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#pragma_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#select_core}.
 	 * @param ctx the parse tree
 	 */
-	void enterPragma_stmt(@NotNull SQLiteSyntaxParser.Pragma_stmtContext ctx);
+	void enterSelect_core(SQLiteParser.Select_coreContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#pragma_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#select_core}.
 	 * @param ctx the parse tree
 	 */
-	void exitPragma_stmt(@NotNull SQLiteSyntaxParser.Pragma_stmtContext ctx);
-
+	void exitSelect_core(SQLiteParser.Select_coreContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#table_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#compound_operator}.
 	 * @param ctx the parse tree
 	 */
-	void enterTable_name(@NotNull SQLiteSyntaxParser.Table_nameContext ctx);
+	void enterCompound_operator(SQLiteParser.Compound_operatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#table_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#compound_operator}.
 	 * @param ctx the parse tree
 	 */
-	void exitTable_name(@NotNull SQLiteSyntaxParser.Table_nameContext ctx);
-
+	void exitCompound_operator(SQLiteParser.Compound_operatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#cte_table_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterName(@NotNull SQLiteSyntaxParser.NameContext ctx);
+	void enterCte_table_name(SQLiteParser.Cte_table_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#cte_table_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitName(@NotNull SQLiteSyntaxParser.NameContext ctx);
-
+	void exitCte_table_name(SQLiteParser.Cte_table_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#join_constraint}.
+	 * Enter a parse tree produced by {@link SQLiteParser#signed_number}.
 	 * @param ctx the parse tree
 	 */
-	void enterJoin_constraint(@NotNull SQLiteSyntaxParser.Join_constraintContext ctx);
+	void enterSigned_number(SQLiteParser.Signed_numberContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#join_constraint}.
+	 * Exit a parse tree produced by {@link SQLiteParser#signed_number}.
 	 * @param ctx the parse tree
 	 */
-	void exitJoin_constraint(@NotNull SQLiteSyntaxParser.Join_constraintContext ctx);
-
+	void exitSigned_number(SQLiteParser.Signed_numberContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#reindex_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#literal_value}.
 	 * @param ctx the parse tree
 	 */
-	void enterReindex_stmt(@NotNull SQLiteSyntaxParser.Reindex_stmtContext ctx);
+	void enterLiteral_value(SQLiteParser.Literal_valueContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#reindex_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#literal_value}.
 	 * @param ctx the parse tree
 	 */
-	void exitReindex_stmt(@NotNull SQLiteSyntaxParser.Reindex_stmtContext ctx);
-
+	void exitLiteral_value(SQLiteParser.Literal_valueContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#parse}.
+	 * Enter a parse tree produced by {@link SQLiteParser#unary_operator}.
 	 * @param ctx the parse tree
 	 */
-	void enterParse(@NotNull SQLiteSyntaxParser.ParseContext ctx);
+	void enterUnary_operator(SQLiteParser.Unary_operatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#parse}.
+	 * Exit a parse tree produced by {@link SQLiteParser#unary_operator}.
 	 * @param ctx the parse tree
 	 */
-	void exitParse(@NotNull SQLiteSyntaxParser.ParseContext ctx);
-
+	void exitUnary_operator(SQLiteParser.Unary_operatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#begin_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#error_message}.
 	 * @param ctx the parse tree
 	 */
-	void enterBegin_stmt(@NotNull SQLiteSyntaxParser.Begin_stmtContext ctx);
+	void enterError_message(SQLiteParser.Error_messageContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#begin_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#error_message}.
 	 * @param ctx the parse tree
 	 */
-	void exitBegin_stmt(@NotNull SQLiteSyntaxParser.Begin_stmtContext ctx);
-
+	void exitError_message(SQLiteParser.Error_messageContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#table_or_subquery}.
+	 * Enter a parse tree produced by {@link SQLiteParser#module_argument}.
 	 * @param ctx the parse tree
 	 */
-	void enterTable_or_subquery(@NotNull SQLiteSyntaxParser.Table_or_subqueryContext ctx);
+	void enterModule_argument(SQLiteParser.Module_argumentContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#table_or_subquery}.
+	 * Exit a parse tree produced by {@link SQLiteParser#module_argument}.
 	 * @param ctx the parse tree
 	 */
-	void exitTable_or_subquery(@NotNull SQLiteSyntaxParser.Table_or_subqueryContext ctx);
-
+	void exitModule_argument(SQLiteParser.Module_argumentContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#error}.
+	 * Enter a parse tree produced by {@link SQLiteParser#column_alias}.
 	 * @param ctx the parse tree
 	 */
-	void enterError(@NotNull SQLiteSyntaxParser.ErrorContext ctx);
+	void enterColumn_alias(SQLiteParser.Column_aliasContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#error}.
+	 * Exit a parse tree produced by {@link SQLiteParser#column_alias}.
 	 * @param ctx the parse tree
 	 */
-	void exitError(@NotNull SQLiteSyntaxParser.ErrorContext ctx);
-
+	void exitColumn_alias(SQLiteParser.Column_aliasContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#ordering_term}.
+	 * Enter a parse tree produced by {@link SQLiteParser#keyword}.
 	 * @param ctx the parse tree
 	 */
-	void enterOrdering_term(@NotNull SQLiteSyntaxParser.Ordering_termContext ctx);
+	void enterKeyword(SQLiteParser.KeywordContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#ordering_term}.
+	 * Exit a parse tree produced by {@link SQLiteParser#keyword}.
 	 * @param ctx the parse tree
 	 */
-	void exitOrdering_term(@NotNull SQLiteSyntaxParser.Ordering_termContext ctx);
-
+	void exitKeyword(SQLiteParser.KeywordContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#keyword}.
+	 * Enter a parse tree produced by {@link SQLiteParser#name}.
 	 * @param ctx the parse tree
 	 */
-	void enterKeyword(@NotNull SQLiteSyntaxParser.KeywordContext ctx);
+	void enterName(SQLiteParser.NameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#keyword}.
+	 * Exit a parse tree produced by {@link SQLiteParser#name}.
 	 * @param ctx the parse tree
 	 */
-	void exitKeyword(@NotNull SQLiteSyntaxParser.KeywordContext ctx);
-
+	void exitName(SQLiteParser.NameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#with_clause}.
+	 * Enter a parse tree produced by {@link SQLiteParser#function_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterWith_clause(@NotNull SQLiteSyntaxParser.With_clauseContext ctx);
+	void enterFunction_name(SQLiteParser.Function_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#with_clause}.
+	 * Exit a parse tree produced by {@link SQLiteParser#function_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitWith_clause(@NotNull SQLiteSyntaxParser.With_clauseContext ctx);
-
+	void exitFunction_name(SQLiteParser.Function_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#pragma_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#database_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterPragma_name(@NotNull SQLiteSyntaxParser.Pragma_nameContext ctx);
+	void enterDatabase_name(SQLiteParser.Database_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#pragma_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#database_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitPragma_name(@NotNull SQLiteSyntaxParser.Pragma_nameContext ctx);
-
+	void exitDatabase_name(SQLiteParser.Database_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#select_or_values}.
+	 * Enter a parse tree produced by {@link SQLiteParser#table_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterSelect_or_values(@NotNull SQLiteSyntaxParser.Select_or_valuesContext ctx);
+	void enterTable_name(SQLiteParser.Table_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#select_or_values}.
+	 * Exit a parse tree produced by {@link SQLiteParser#table_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitSelect_or_values(@NotNull SQLiteSyntaxParser.Select_or_valuesContext ctx);
-
+	void exitTable_name(SQLiteParser.Table_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#simple_select_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#table_or_index_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterSimple_select_stmt(@NotNull SQLiteSyntaxParser.Simple_select_stmtContext ctx);
+	void enterTable_or_index_name(SQLiteParser.Table_or_index_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#simple_select_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#table_or_index_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitSimple_select_stmt(@NotNull SQLiteSyntaxParser.Simple_select_stmtContext ctx);
-
+	void exitTable_or_index_name(SQLiteParser.Table_or_index_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#view_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#new_table_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterView_name(@NotNull SQLiteSyntaxParser.View_nameContext ctx);
+	void enterNew_table_name(SQLiteParser.New_table_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#view_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#new_table_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitView_name(@NotNull SQLiteSyntaxParser.View_nameContext ctx);
-
+	void exitNew_table_name(SQLiteParser.New_table_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#join_clause}.
+	 * Enter a parse tree produced by {@link SQLiteParser#column_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterJoin_clause(@NotNull SQLiteSyntaxParser.Join_clauseContext ctx);
+	void enterColumn_name(SQLiteParser.Column_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#join_clause}.
+	 * Exit a parse tree produced by {@link SQLiteParser#column_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitJoin_clause(@NotNull SQLiteSyntaxParser.Join_clauseContext ctx);
-
+	void exitColumn_name(SQLiteParser.Column_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#foreign_key_clause}.
+	 * Enter a parse tree produced by {@link SQLiteParser#collation_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterForeign_key_clause(@NotNull SQLiteSyntaxParser.Foreign_key_clauseContext ctx);
+	void enterCollation_name(SQLiteParser.Collation_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#foreign_key_clause}.
+	 * Exit a parse tree produced by {@link SQLiteParser#collation_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitForeign_key_clause(@NotNull SQLiteSyntaxParser.Foreign_key_clauseContext ctx);
-
+	void exitCollation_name(SQLiteParser.Collation_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#literal_value}.
+	 * Enter a parse tree produced by {@link SQLiteParser#foreign_table}.
 	 * @param ctx the parse tree
 	 */
-	void enterLiteral_value(@NotNull SQLiteSyntaxParser.Literal_valueContext ctx);
+	void enterForeign_table(SQLiteParser.Foreign_tableContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#literal_value}.
+	 * Exit a parse tree produced by {@link SQLiteParser#foreign_table}.
 	 * @param ctx the parse tree
 	 */
-	void exitLiteral_value(@NotNull SQLiteSyntaxParser.Literal_valueContext ctx);
-
+	void exitForeign_table(SQLiteParser.Foreign_tableContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#drop_index_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#index_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterDrop_index_stmt(@NotNull SQLiteSyntaxParser.Drop_index_stmtContext ctx);
+	void enterIndex_name(SQLiteParser.Index_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#drop_index_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#index_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitDrop_index_stmt(@NotNull SQLiteSyntaxParser.Drop_index_stmtContext ctx);
-
+	void exitIndex_name(SQLiteParser.Index_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#compound_select_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#trigger_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterCompound_select_stmt(@NotNull SQLiteSyntaxParser.Compound_select_stmtContext ctx);
+	void enterTrigger_name(SQLiteParser.Trigger_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#compound_select_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#trigger_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitCompound_select_stmt(@NotNull SQLiteSyntaxParser.Compound_select_stmtContext ctx);
-
+	void exitTrigger_name(SQLiteParser.Trigger_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#update_stmt_limited}.
+	 * Enter a parse tree produced by {@link SQLiteParser#view_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterUpdate_stmt_limited(@NotNull SQLiteSyntaxParser.Update_stmt_limitedContext ctx);
+	void enterView_name(SQLiteParser.View_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#update_stmt_limited}.
+	 * Exit a parse tree produced by {@link SQLiteParser#view_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitUpdate_stmt_limited(@NotNull SQLiteSyntaxParser.Update_stmt_limitedContext ctx);
-
+	void exitView_name(SQLiteParser.View_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#collation_name}.
+	 * Enter a parse tree produced by {@link SQLiteParser#module_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterCollation_name(@NotNull SQLiteSyntaxParser.Collation_nameContext ctx);
+	void enterModule_name(SQLiteParser.Module_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#collation_name}.
+	 * Exit a parse tree produced by {@link SQLiteParser#module_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitCollation_name(@NotNull SQLiteSyntaxParser.Collation_nameContext ctx);
-
+	void exitModule_name(SQLiteParser.Module_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#update_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#pragma_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterUpdate_stmt(@NotNull SQLiteSyntaxParser.Update_stmtContext ctx);
+	void enterPragma_name(SQLiteParser.Pragma_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#update_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#pragma_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitUpdate_stmt(@NotNull SQLiteSyntaxParser.Update_stmtContext ctx);
-
+	void exitPragma_name(SQLiteParser.Pragma_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#drop_view_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#savepoint_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterDrop_view_stmt(@NotNull SQLiteSyntaxParser.Drop_view_stmtContext ctx);
+	void enterSavepoint_name(SQLiteParser.Savepoint_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#drop_view_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#savepoint_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitDrop_view_stmt(@NotNull SQLiteSyntaxParser.Drop_view_stmtContext ctx);
-
+	void exitSavepoint_name(SQLiteParser.Savepoint_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#raise_function}.
+	 * Enter a parse tree produced by {@link SQLiteParser#table_alias}.
 	 * @param ctx the parse tree
 	 */
-	void enterRaise_function(@NotNull SQLiteSyntaxParser.Raise_functionContext ctx);
+	void enterTable_alias(SQLiteParser.Table_aliasContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#raise_function}.
+	 * Exit a parse tree produced by {@link SQLiteParser#table_alias}.
 	 * @param ctx the parse tree
 	 */
-	void exitRaise_function(@NotNull SQLiteSyntaxParser.Raise_functionContext ctx);
-
+	void exitTable_alias(SQLiteParser.Table_aliasContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#conflict_clause}.
+	 * Enter a parse tree produced by {@link SQLiteParser#transaction_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterConflict_clause(@NotNull SQLiteSyntaxParser.Conflict_clauseContext ctx);
+	void enterTransaction_name(SQLiteParser.Transaction_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#conflict_clause}.
+	 * Exit a parse tree produced by {@link SQLiteParser#transaction_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitConflict_clause(@NotNull SQLiteSyntaxParser.Conflict_clauseContext ctx);
-
+	void exitTransaction_name(SQLiteParser.Transaction_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteSyntaxParser#analyze_stmt}.
+	 * Enter a parse tree produced by {@link SQLiteParser#any_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterAnalyze_stmt(@NotNull SQLiteSyntaxParser.Analyze_stmtContext ctx);
+	void enterAny_name(SQLiteParser.Any_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteSyntaxParser#analyze_stmt}.
+	 * Exit a parse tree produced by {@link SQLiteParser#any_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitAnalyze_stmt(@NotNull SQLiteSyntaxParser.Analyze_stmtContext ctx);
+	void exitAny_name(SQLiteParser.Any_nameContext ctx);
 }

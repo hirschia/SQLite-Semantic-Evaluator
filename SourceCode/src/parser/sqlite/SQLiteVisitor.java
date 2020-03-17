@@ -1,587 +1,507 @@
-// Generated from C:\Users\Piyush\Documents\NetBeansProjects\TestingGrammar\src\sqlitesyntax\grammar\SQLiteSyntax.g4 by ANTLR 4.2.2
-package sqlitesyntax.grammar;
-import org.antlr.v4.runtime.misc.NotNull;
+// Generated from SQLite.g4 by ANTLR 4.8
+
+package parser.sqlite;
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
  * This interface defines a complete generic visitor for a parse tree produced
- * by {@link SQLiteSyntaxParser}.
+ * by {@link SQLiteParser}.
  *
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public interface SQLiteSyntaxVisitor<T> extends ParseTreeVisitor<T> {
+public interface SQLiteVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#insert_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#parse}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInsert_stmt(@NotNull SQLiteSyntaxParser.Insert_stmtContext ctx);
-
+	T visitParse(SQLiteParser.ParseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#sql_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#error}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSql_stmt(@NotNull SQLiteSyntaxParser.Sql_stmtContext ctx);
-
+	T visitError(SQLiteParser.ErrorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#table_or_index_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#sql_stmt_list}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTable_or_index_name(@NotNull SQLiteSyntaxParser.Table_or_index_nameContext ctx);
-
+	T visitSql_stmt_list(SQLiteParser.Sql_stmt_listContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#compound_operator}.
+	 * Visit a parse tree produced by {@link SQLiteParser#sql_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCompound_operator(@NotNull SQLiteSyntaxParser.Compound_operatorContext ctx);
-
+	T visitSql_stmt(SQLiteParser.Sql_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#indexed_column}.
+	 * Visit a parse tree produced by {@link SQLiteParser#alter_table_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIndexed_column(@NotNull SQLiteSyntaxParser.Indexed_columnContext ctx);
-
+	T visitAlter_table_stmt(SQLiteParser.Alter_table_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#create_index_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#analyze_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCreate_index_stmt(@NotNull SQLiteSyntaxParser.Create_index_stmtContext ctx);
-
+	T visitAnalyze_stmt(SQLiteParser.Analyze_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#rollback_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#attach_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRollback_stmt(@NotNull SQLiteSyntaxParser.Rollback_stmtContext ctx);
-
+	T visitAttach_stmt(SQLiteParser.Attach_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#column_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#begin_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitColumn_name(@NotNull SQLiteSyntaxParser.Column_nameContext ctx);
-
+	T visitBegin_stmt(SQLiteParser.Begin_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#qualified_table_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#commit_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitQualified_table_name(@NotNull SQLiteSyntaxParser.Qualified_table_nameContext ctx);
-
+	T visitCommit_stmt(SQLiteParser.Commit_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#savepoint_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#compound_select_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSavepoint_name(@NotNull SQLiteSyntaxParser.Savepoint_nameContext ctx);
-
+	T visitCompound_select_stmt(SQLiteParser.Compound_select_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#result_column}.
+	 * Visit a parse tree produced by {@link SQLiteParser#create_index_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitResult_column(@NotNull SQLiteSyntaxParser.Result_columnContext ctx);
-
+	T visitCreate_index_stmt(SQLiteParser.Create_index_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#error_message}.
+	 * Visit a parse tree produced by {@link SQLiteParser#create_table_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitError_message(@NotNull SQLiteSyntaxParser.Error_messageContext ctx);
-
+	T visitCreate_table_stmt(SQLiteParser.Create_table_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#select_core}.
+	 * Visit a parse tree produced by {@link SQLiteParser#create_trigger_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSelect_core(@NotNull SQLiteSyntaxParser.Select_coreContext ctx);
-
+	T visitCreate_trigger_stmt(SQLiteParser.Create_trigger_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#create_trigger_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#create_view_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCreate_trigger_stmt(@NotNull SQLiteSyntaxParser.Create_trigger_stmtContext ctx);
-
+	T visitCreate_view_stmt(SQLiteParser.Create_view_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#function_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#create_virtual_table_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFunction_name(@NotNull SQLiteSyntaxParser.Function_nameContext ctx);
-
+	T visitCreate_virtual_table_stmt(SQLiteParser.Create_virtual_table_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#sql_stmt_list}.
+	 * Visit a parse tree produced by {@link SQLiteParser#delete_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSql_stmt_list(@NotNull SQLiteSyntaxParser.Sql_stmt_listContext ctx);
-
+	T visitDelete_stmt(SQLiteParser.Delete_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#drop_table_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#delete_stmt_limited}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDrop_table_stmt(@NotNull SQLiteSyntaxParser.Drop_table_stmtContext ctx);
-
+	T visitDelete_stmt_limited(SQLiteParser.Delete_stmt_limitedContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#any_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#detach_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAny_name(@NotNull SQLiteSyntaxParser.Any_nameContext ctx);
-
+	T visitDetach_stmt(SQLiteParser.Detach_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#database_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#drop_index_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDatabase_name(@NotNull SQLiteSyntaxParser.Database_nameContext ctx);
-
+	T visitDrop_index_stmt(SQLiteParser.Drop_index_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#module_argument}.
+	 * Visit a parse tree produced by {@link SQLiteParser#drop_table_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitModule_argument(@NotNull SQLiteSyntaxParser.Module_argumentContext ctx);
-
+	T visitDrop_table_stmt(SQLiteParser.Drop_table_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#join_operator}.
+	 * Visit a parse tree produced by {@link SQLiteParser#drop_trigger_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitJoin_operator(@NotNull SQLiteSyntaxParser.Join_operatorContext ctx);
-
+	T visitDrop_trigger_stmt(SQLiteParser.Drop_trigger_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#vacuum_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#drop_view_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVacuum_stmt(@NotNull SQLiteSyntaxParser.Vacuum_stmtContext ctx);
-
+	T visitDrop_view_stmt(SQLiteParser.Drop_view_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#factored_select_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#factored_select_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFactored_select_stmt(@NotNull SQLiteSyntaxParser.Factored_select_stmtContext ctx);
-
+	T visitFactored_select_stmt(SQLiteParser.Factored_select_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#transaction_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#insert_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTransaction_name(@NotNull SQLiteSyntaxParser.Transaction_nameContext ctx);
-
+	T visitInsert_stmt(SQLiteParser.Insert_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#cte_table_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#pragma_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCte_table_name(@NotNull SQLiteSyntaxParser.Cte_table_nameContext ctx);
-
+	T visitPragma_stmt(SQLiteParser.Pragma_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#unary_operator}.
+	 * Visit a parse tree produced by {@link SQLiteParser#reindex_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUnary_operator(@NotNull SQLiteSyntaxParser.Unary_operatorContext ctx);
-
+	T visitReindex_stmt(SQLiteParser.Reindex_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#common_table_expression}.
+	 * Visit a parse tree produced by {@link SQLiteParser#release_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCommon_table_expression(@NotNull SQLiteSyntaxParser.Common_table_expressionContext ctx);
-
+	T visitRelease_stmt(SQLiteParser.Release_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#drop_trigger_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#rollback_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDrop_trigger_stmt(@NotNull SQLiteSyntaxParser.Drop_trigger_stmtContext ctx);
-
+	T visitRollback_stmt(SQLiteParser.Rollback_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#new_table_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#savepoint_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNew_table_name(@NotNull SQLiteSyntaxParser.New_table_nameContext ctx);
-
+	T visitSavepoint_stmt(SQLiteParser.Savepoint_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#type_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#simple_select_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitType_name(@NotNull SQLiteSyntaxParser.Type_nameContext ctx);
-
+	T visitSimple_select_stmt(SQLiteParser.Simple_select_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#table_alias}.
+	 * Visit a parse tree produced by {@link SQLiteParser#select_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTable_alias(@NotNull SQLiteSyntaxParser.Table_aliasContext ctx);
-
+	T visitSelect_stmt(SQLiteParser.Select_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#module_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#select_or_values}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitModule_name(@NotNull SQLiteSyntaxParser.Module_nameContext ctx);
-
+	T visitSelect_or_values(SQLiteParser.Select_or_valuesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#commit_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#update_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCommit_stmt(@NotNull SQLiteSyntaxParser.Commit_stmtContext ctx);
-
+	T visitUpdate_stmt(SQLiteParser.Update_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#trigger_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#update_stmt_limited}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTrigger_name(@NotNull SQLiteSyntaxParser.Trigger_nameContext ctx);
-
+	T visitUpdate_stmt_limited(SQLiteParser.Update_stmt_limitedContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#create_table_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#vacuum_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCreate_table_stmt(@NotNull SQLiteSyntaxParser.Create_table_stmtContext ctx);
-
+	T visitVacuum_stmt(SQLiteParser.Vacuum_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#pragma_value}.
+	 * Visit a parse tree produced by {@link SQLiteParser#column_def}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPragma_value(@NotNull SQLiteSyntaxParser.Pragma_valueContext ctx);
-
+	T visitColumn_def(SQLiteParser.Column_defContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#column_constraint}.
+	 * Visit a parse tree produced by {@link SQLiteParser#type_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitColumn_constraint(@NotNull SQLiteSyntaxParser.Column_constraintContext ctx);
-
+	T visitType_name(SQLiteParser.Type_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#savepoint_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#column_constraint}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSavepoint_stmt(@NotNull SQLiteSyntaxParser.Savepoint_stmtContext ctx);
-
+	T visitColumn_constraint(SQLiteParser.Column_constraintContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#detach_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#conflict_clause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDetach_stmt(@NotNull SQLiteSyntaxParser.Detach_stmtContext ctx);
-
+	T visitConflict_clause(SQLiteParser.Conflict_clauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#column_def}.
+	 * Visit a parse tree produced by {@link SQLiteParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitColumn_def(@NotNull SQLiteSyntaxParser.Column_defContext ctx);
-
+	T visitExpr(SQLiteParser.ExprContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#table_constraint}.
+	 * Visit a parse tree produced by {@link SQLiteParser#foreign_key_clause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTable_constraint(@NotNull SQLiteSyntaxParser.Table_constraintContext ctx);
-
+	T visitForeign_key_clause(SQLiteParser.Foreign_key_clauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#column_alias}.
+	 * Visit a parse tree produced by {@link SQLiteParser#raise_function}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitColumn_alias(@NotNull SQLiteSyntaxParser.Column_aliasContext ctx);
-
+	T visitRaise_function(SQLiteParser.Raise_functionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#delete_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#indexed_column}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDelete_stmt(@NotNull SQLiteSyntaxParser.Delete_stmtContext ctx);
-
+	T visitIndexed_column(SQLiteParser.Indexed_columnContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#release_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#table_constraint}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRelease_stmt(@NotNull SQLiteSyntaxParser.Release_stmtContext ctx);
-
+	T visitTable_constraint(SQLiteParser.Table_constraintContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#foreign_table}.
+	 * Visit a parse tree produced by {@link SQLiteParser#with_clause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitForeign_table(@NotNull SQLiteSyntaxParser.Foreign_tableContext ctx);
-
+	T visitWith_clause(SQLiteParser.With_clauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#create_view_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#qualified_table_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCreate_view_stmt(@NotNull SQLiteSyntaxParser.Create_view_stmtContext ctx);
-
+	T visitQualified_table_name(SQLiteParser.Qualified_table_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#expr}.
+	 * Visit a parse tree produced by {@link SQLiteParser#ordering_term}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpr(@NotNull SQLiteSyntaxParser.ExprContext ctx);
-
+	T visitOrdering_term(SQLiteParser.Ordering_termContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#signed_number}.
+	 * Visit a parse tree produced by {@link SQLiteParser#pragma_value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSigned_number(@NotNull SQLiteSyntaxParser.Signed_numberContext ctx);
-
+	T visitPragma_value(SQLiteParser.Pragma_valueContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#delete_stmt_limited}.
+	 * Visit a parse tree produced by {@link SQLiteParser#common_table_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDelete_stmt_limited(@NotNull SQLiteSyntaxParser.Delete_stmt_limitedContext ctx);
-
+	T visitCommon_table_expression(SQLiteParser.Common_table_expressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#index_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#result_column}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIndex_name(@NotNull SQLiteSyntaxParser.Index_nameContext ctx);
-
+	T visitResult_column(SQLiteParser.Result_columnContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#select_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#table_or_subquery}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSelect_stmt(@NotNull SQLiteSyntaxParser.Select_stmtContext ctx);
-
+	T visitTable_or_subquery(SQLiteParser.Table_or_subqueryContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#create_virtual_table_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#join_clause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCreate_virtual_table_stmt(@NotNull SQLiteSyntaxParser.Create_virtual_table_stmtContext ctx);
-
+	T visitJoin_clause(SQLiteParser.Join_clauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#alter_table_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#join_operator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAlter_table_stmt(@NotNull SQLiteSyntaxParser.Alter_table_stmtContext ctx);
-
+	T visitJoin_operator(SQLiteParser.Join_operatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#attach_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#join_constraint}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAttach_stmt(@NotNull SQLiteSyntaxParser.Attach_stmtContext ctx);
-
+	T visitJoin_constraint(SQLiteParser.Join_constraintContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#pragma_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#select_core}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPragma_stmt(@NotNull SQLiteSyntaxParser.Pragma_stmtContext ctx);
-
+	T visitSelect_core(SQLiteParser.Select_coreContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#table_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#compound_operator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTable_name(@NotNull SQLiteSyntaxParser.Table_nameContext ctx);
-
+	T visitCompound_operator(SQLiteParser.Compound_operatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#cte_table_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitName(@NotNull SQLiteSyntaxParser.NameContext ctx);
-
+	T visitCte_table_name(SQLiteParser.Cte_table_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#join_constraint}.
+	 * Visit a parse tree produced by {@link SQLiteParser#signed_number}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitJoin_constraint(@NotNull SQLiteSyntaxParser.Join_constraintContext ctx);
-
+	T visitSigned_number(SQLiteParser.Signed_numberContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#reindex_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#literal_value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitReindex_stmt(@NotNull SQLiteSyntaxParser.Reindex_stmtContext ctx);
-
+	T visitLiteral_value(SQLiteParser.Literal_valueContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#parse}.
+	 * Visit a parse tree produced by {@link SQLiteParser#unary_operator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitParse(@NotNull SQLiteSyntaxParser.ParseContext ctx);
-
+	T visitUnary_operator(SQLiteParser.Unary_operatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#begin_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#error_message}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBegin_stmt(@NotNull SQLiteSyntaxParser.Begin_stmtContext ctx);
-
+	T visitError_message(SQLiteParser.Error_messageContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#table_or_subquery}.
+	 * Visit a parse tree produced by {@link SQLiteParser#module_argument}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTable_or_subquery(@NotNull SQLiteSyntaxParser.Table_or_subqueryContext ctx);
-
+	T visitModule_argument(SQLiteParser.Module_argumentContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#error}.
+	 * Visit a parse tree produced by {@link SQLiteParser#column_alias}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitError(@NotNull SQLiteSyntaxParser.ErrorContext ctx);
-
+	T visitColumn_alias(SQLiteParser.Column_aliasContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#ordering_term}.
+	 * Visit a parse tree produced by {@link SQLiteParser#keyword}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitOrdering_term(@NotNull SQLiteSyntaxParser.Ordering_termContext ctx);
-
+	T visitKeyword(SQLiteParser.KeywordContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#keyword}.
+	 * Visit a parse tree produced by {@link SQLiteParser#name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitKeyword(@NotNull SQLiteSyntaxParser.KeywordContext ctx);
-
+	T visitName(SQLiteParser.NameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#with_clause}.
+	 * Visit a parse tree produced by {@link SQLiteParser#function_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWith_clause(@NotNull SQLiteSyntaxParser.With_clauseContext ctx);
-
+	T visitFunction_name(SQLiteParser.Function_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#pragma_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#database_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPragma_name(@NotNull SQLiteSyntaxParser.Pragma_nameContext ctx);
-
+	T visitDatabase_name(SQLiteParser.Database_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#select_or_values}.
+	 * Visit a parse tree produced by {@link SQLiteParser#table_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSelect_or_values(@NotNull SQLiteSyntaxParser.Select_or_valuesContext ctx);
-
+	T visitTable_name(SQLiteParser.Table_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#simple_select_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#table_or_index_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSimple_select_stmt(@NotNull SQLiteSyntaxParser.Simple_select_stmtContext ctx);
-
+	T visitTable_or_index_name(SQLiteParser.Table_or_index_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#view_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#new_table_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitView_name(@NotNull SQLiteSyntaxParser.View_nameContext ctx);
-
+	T visitNew_table_name(SQLiteParser.New_table_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#join_clause}.
+	 * Visit a parse tree produced by {@link SQLiteParser#column_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitJoin_clause(@NotNull SQLiteSyntaxParser.Join_clauseContext ctx);
-
+	T visitColumn_name(SQLiteParser.Column_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#foreign_key_clause}.
+	 * Visit a parse tree produced by {@link SQLiteParser#collation_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitForeign_key_clause(@NotNull SQLiteSyntaxParser.Foreign_key_clauseContext ctx);
-
+	T visitCollation_name(SQLiteParser.Collation_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#literal_value}.
+	 * Visit a parse tree produced by {@link SQLiteParser#foreign_table}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLiteral_value(@NotNull SQLiteSyntaxParser.Literal_valueContext ctx);
-
+	T visitForeign_table(SQLiteParser.Foreign_tableContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#drop_index_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#index_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDrop_index_stmt(@NotNull SQLiteSyntaxParser.Drop_index_stmtContext ctx);
-
+	T visitIndex_name(SQLiteParser.Index_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#compound_select_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#trigger_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCompound_select_stmt(@NotNull SQLiteSyntaxParser.Compound_select_stmtContext ctx);
-
+	T visitTrigger_name(SQLiteParser.Trigger_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#update_stmt_limited}.
+	 * Visit a parse tree produced by {@link SQLiteParser#view_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUpdate_stmt_limited(@NotNull SQLiteSyntaxParser.Update_stmt_limitedContext ctx);
-
+	T visitView_name(SQLiteParser.View_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#collation_name}.
+	 * Visit a parse tree produced by {@link SQLiteParser#module_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCollation_name(@NotNull SQLiteSyntaxParser.Collation_nameContext ctx);
-
+	T visitModule_name(SQLiteParser.Module_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#update_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#pragma_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUpdate_stmt(@NotNull SQLiteSyntaxParser.Update_stmtContext ctx);
-
+	T visitPragma_name(SQLiteParser.Pragma_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#drop_view_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#savepoint_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDrop_view_stmt(@NotNull SQLiteSyntaxParser.Drop_view_stmtContext ctx);
-
+	T visitSavepoint_name(SQLiteParser.Savepoint_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#raise_function}.
+	 * Visit a parse tree produced by {@link SQLiteParser#table_alias}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRaise_function(@NotNull SQLiteSyntaxParser.Raise_functionContext ctx);
-
+	T visitTable_alias(SQLiteParser.Table_aliasContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#conflict_clause}.
+	 * Visit a parse tree produced by {@link SQLiteParser#transaction_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitConflict_clause(@NotNull SQLiteSyntaxParser.Conflict_clauseContext ctx);
-
+	T visitTransaction_name(SQLiteParser.Transaction_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteSyntaxParser#analyze_stmt}.
+	 * Visit a parse tree produced by {@link SQLiteParser#any_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAnalyze_stmt(@NotNull SQLiteSyntaxParser.Analyze_stmtContext ctx);
+	T visitAny_name(SQLiteParser.Any_nameContext ctx);
 }

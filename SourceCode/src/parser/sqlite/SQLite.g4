@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-grammar SQLiteSyntax;
+grammar SQLite;
 /*
  * The MIT License (MIT)
  *

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+package gui;
+
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.*;
@@ -16,9 +18,9 @@ import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.TokenSource;
 import org.antlr.v4.runtime.TokenStream;
-import sqlitesyntax.grammar.SQLiteSyntaxLexer;
-import sqlitesyntax.grammar.SQLiteSyntaxParser;
-import sqlitesyntax.grammar.SQLiteSyntaxParser.ParseContext;
+import parser.sqlite.SQLiteLexer;
+import parser.sqlite.SQLiteParser;
+import parser.sqlite.SQLiteParser.ParseContext;
 
 
 /**
@@ -30,9 +32,9 @@ public class CheckSyntax {
 
     public static String testing(String s) throws IOException {
         CharStream inputCharStream = new ANTLRInputStream(new StringReader(s));
-         SQLiteSyntaxLexer lexer = new SQLiteSyntaxLexer(inputCharStream);
+        SQLiteLexer lexer = new SQLiteLexer(inputCharStream);
         CommonTokenStream inputTokenStream = new CommonTokenStream(lexer);
-        SQLiteSyntaxParser parser = new SQLiteSyntaxParser(inputTokenStream);
+        SQLiteParser parser = new SQLiteParser(inputTokenStream);
         
         st="No Errors";
         lexer.removeErrorListeners();

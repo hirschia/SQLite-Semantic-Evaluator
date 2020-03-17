@@ -1,1105 +1,1024 @@
-// Generated from C:\Users\Piyush\Documents\NetBeansProjects\TestingGrammar\src\sqlitesyntax\grammar\SQLiteSyntax.g4 by ANTLR 4.2.2
-package sqlitesyntax.grammar;
+// Generated from SQLite.g4 by ANTLR 4.8
+
+package parser.sqlite;
 
 import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link SQLiteSyntaxListener},
+ * This class provides an empty implementation of {@link SQLiteListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class SQLiteSyntaxBaseListener implements SQLiteSyntaxListener {
+public class SQLiteBaseListener implements SQLiteListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInsert_stmt(@NotNull SQLiteSyntaxParser.Insert_stmtContext ctx) { }
+	@Override public void enterParse(SQLiteParser.ParseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInsert_stmt(@NotNull SQLiteSyntaxParser.Insert_stmtContext ctx) { }
-
+	@Override public void exitParse(SQLiteParser.ParseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSql_stmt(@NotNull SQLiteSyntaxParser.Sql_stmtContext ctx) { }
+	@Override public void enterError(SQLiteParser.ErrorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSql_stmt(@NotNull SQLiteSyntaxParser.Sql_stmtContext ctx) { }
-
+	@Override public void exitError(SQLiteParser.ErrorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTable_or_index_name(@NotNull SQLiteSyntaxParser.Table_or_index_nameContext ctx) { }
+	@Override public void enterSql_stmt_list(SQLiteParser.Sql_stmt_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTable_or_index_name(@NotNull SQLiteSyntaxParser.Table_or_index_nameContext ctx) { }
-
+	@Override public void exitSql_stmt_list(SQLiteParser.Sql_stmt_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCompound_operator(@NotNull SQLiteSyntaxParser.Compound_operatorContext ctx) { }
+	@Override public void enterSql_stmt(SQLiteParser.Sql_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCompound_operator(@NotNull SQLiteSyntaxParser.Compound_operatorContext ctx) { }
-
+	@Override public void exitSql_stmt(SQLiteParser.Sql_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIndexed_column(@NotNull SQLiteSyntaxParser.Indexed_columnContext ctx) { }
+	@Override public void enterAlter_table_stmt(SQLiteParser.Alter_table_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIndexed_column(@NotNull SQLiteSyntaxParser.Indexed_columnContext ctx) { }
-
+	@Override public void exitAlter_table_stmt(SQLiteParser.Alter_table_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate_index_stmt(@NotNull SQLiteSyntaxParser.Create_index_stmtContext ctx) { }
+	@Override public void enterAnalyze_stmt(SQLiteParser.Analyze_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate_index_stmt(@NotNull SQLiteSyntaxParser.Create_index_stmtContext ctx) { }
-
+	@Override public void exitAnalyze_stmt(SQLiteParser.Analyze_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRollback_stmt(@NotNull SQLiteSyntaxParser.Rollback_stmtContext ctx) { }
+	@Override public void enterAttach_stmt(SQLiteParser.Attach_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRollback_stmt(@NotNull SQLiteSyntaxParser.Rollback_stmtContext ctx) { }
-
+	@Override public void exitAttach_stmt(SQLiteParser.Attach_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterColumn_name(@NotNull SQLiteSyntaxParser.Column_nameContext ctx) { }
+	@Override public void enterBegin_stmt(SQLiteParser.Begin_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitColumn_name(@NotNull SQLiteSyntaxParser.Column_nameContext ctx) { }
-
+	@Override public void exitBegin_stmt(SQLiteParser.Begin_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterQualified_table_name(@NotNull SQLiteSyntaxParser.Qualified_table_nameContext ctx) { }
+	@Override public void enterCommit_stmt(SQLiteParser.Commit_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitQualified_table_name(@NotNull SQLiteSyntaxParser.Qualified_table_nameContext ctx) { }
-
+	@Override public void exitCommit_stmt(SQLiteParser.Commit_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSavepoint_name(@NotNull SQLiteSyntaxParser.Savepoint_nameContext ctx) { }
+	@Override public void enterCompound_select_stmt(SQLiteParser.Compound_select_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSavepoint_name(@NotNull SQLiteSyntaxParser.Savepoint_nameContext ctx) { }
-
+	@Override public void exitCompound_select_stmt(SQLiteParser.Compound_select_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterResult_column(@NotNull SQLiteSyntaxParser.Result_columnContext ctx) { }
+	@Override public void enterCreate_index_stmt(SQLiteParser.Create_index_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitResult_column(@NotNull SQLiteSyntaxParser.Result_columnContext ctx) { }
-
+	@Override public void exitCreate_index_stmt(SQLiteParser.Create_index_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterError_message(@NotNull SQLiteSyntaxParser.Error_messageContext ctx) { }
+	@Override public void enterCreate_table_stmt(SQLiteParser.Create_table_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitError_message(@NotNull SQLiteSyntaxParser.Error_messageContext ctx) { }
-
+	@Override public void exitCreate_table_stmt(SQLiteParser.Create_table_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSelect_core(@NotNull SQLiteSyntaxParser.Select_coreContext ctx) { }
+	@Override public void enterCreate_trigger_stmt(SQLiteParser.Create_trigger_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSelect_core(@NotNull SQLiteSyntaxParser.Select_coreContext ctx) { }
-
+	@Override public void exitCreate_trigger_stmt(SQLiteParser.Create_trigger_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate_trigger_stmt(@NotNull SQLiteSyntaxParser.Create_trigger_stmtContext ctx) { }
+	@Override public void enterCreate_view_stmt(SQLiteParser.Create_view_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate_trigger_stmt(@NotNull SQLiteSyntaxParser.Create_trigger_stmtContext ctx) { }
-
+	@Override public void exitCreate_view_stmt(SQLiteParser.Create_view_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunction_name(@NotNull SQLiteSyntaxParser.Function_nameContext ctx) { }
+	@Override public void enterCreate_virtual_table_stmt(SQLiteParser.Create_virtual_table_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunction_name(@NotNull SQLiteSyntaxParser.Function_nameContext ctx) { }
-
+	@Override public void exitCreate_virtual_table_stmt(SQLiteParser.Create_virtual_table_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSql_stmt_list(@NotNull SQLiteSyntaxParser.Sql_stmt_listContext ctx) { }
+	@Override public void enterDelete_stmt(SQLiteParser.Delete_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSql_stmt_list(@NotNull SQLiteSyntaxParser.Sql_stmt_listContext ctx) { }
-
+	@Override public void exitDelete_stmt(SQLiteParser.Delete_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDrop_table_stmt(@NotNull SQLiteSyntaxParser.Drop_table_stmtContext ctx) { }
+	@Override public void enterDelete_stmt_limited(SQLiteParser.Delete_stmt_limitedContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDrop_table_stmt(@NotNull SQLiteSyntaxParser.Drop_table_stmtContext ctx) { }
-
+	@Override public void exitDelete_stmt_limited(SQLiteParser.Delete_stmt_limitedContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAny_name(@NotNull SQLiteSyntaxParser.Any_nameContext ctx) { }
+	@Override public void enterDetach_stmt(SQLiteParser.Detach_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAny_name(@NotNull SQLiteSyntaxParser.Any_nameContext ctx) { }
-
+	@Override public void exitDetach_stmt(SQLiteParser.Detach_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDatabase_name(@NotNull SQLiteSyntaxParser.Database_nameContext ctx) { }
+	@Override public void enterDrop_index_stmt(SQLiteParser.Drop_index_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDatabase_name(@NotNull SQLiteSyntaxParser.Database_nameContext ctx) { }
-
+	@Override public void exitDrop_index_stmt(SQLiteParser.Drop_index_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterModule_argument(@NotNull SQLiteSyntaxParser.Module_argumentContext ctx) { }
+	@Override public void enterDrop_table_stmt(SQLiteParser.Drop_table_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitModule_argument(@NotNull SQLiteSyntaxParser.Module_argumentContext ctx) { }
-
+	@Override public void exitDrop_table_stmt(SQLiteParser.Drop_table_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterJoin_operator(@NotNull SQLiteSyntaxParser.Join_operatorContext ctx) { }
+	@Override public void enterDrop_trigger_stmt(SQLiteParser.Drop_trigger_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitJoin_operator(@NotNull SQLiteSyntaxParser.Join_operatorContext ctx) { }
-
+	@Override public void exitDrop_trigger_stmt(SQLiteParser.Drop_trigger_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVacuum_stmt(@NotNull SQLiteSyntaxParser.Vacuum_stmtContext ctx) { }
+	@Override public void enterDrop_view_stmt(SQLiteParser.Drop_view_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVacuum_stmt(@NotNull SQLiteSyntaxParser.Vacuum_stmtContext ctx) { }
-
+	@Override public void exitDrop_view_stmt(SQLiteParser.Drop_view_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFactored_select_stmt(@NotNull SQLiteSyntaxParser.Factored_select_stmtContext ctx) { }
+	@Override public void enterFactored_select_stmt(SQLiteParser.Factored_select_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFactored_select_stmt(@NotNull SQLiteSyntaxParser.Factored_select_stmtContext ctx) { }
-
+	@Override public void exitFactored_select_stmt(SQLiteParser.Factored_select_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTransaction_name(@NotNull SQLiteSyntaxParser.Transaction_nameContext ctx) { }
+	@Override public void enterInsert_stmt(SQLiteParser.Insert_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTransaction_name(@NotNull SQLiteSyntaxParser.Transaction_nameContext ctx) { }
-
+	@Override public void exitInsert_stmt(SQLiteParser.Insert_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCte_table_name(@NotNull SQLiteSyntaxParser.Cte_table_nameContext ctx) { }
+	@Override public void enterPragma_stmt(SQLiteParser.Pragma_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCte_table_name(@NotNull SQLiteSyntaxParser.Cte_table_nameContext ctx) { }
-
+	@Override public void exitPragma_stmt(SQLiteParser.Pragma_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUnary_operator(@NotNull SQLiteSyntaxParser.Unary_operatorContext ctx) { }
+	@Override public void enterReindex_stmt(SQLiteParser.Reindex_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUnary_operator(@NotNull SQLiteSyntaxParser.Unary_operatorContext ctx) { }
-
+	@Override public void exitReindex_stmt(SQLiteParser.Reindex_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCommon_table_expression(@NotNull SQLiteSyntaxParser.Common_table_expressionContext ctx) { }
+	@Override public void enterRelease_stmt(SQLiteParser.Release_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCommon_table_expression(@NotNull SQLiteSyntaxParser.Common_table_expressionContext ctx) { }
-
+	@Override public void exitRelease_stmt(SQLiteParser.Release_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDrop_trigger_stmt(@NotNull SQLiteSyntaxParser.Drop_trigger_stmtContext ctx) { }
+	@Override public void enterRollback_stmt(SQLiteParser.Rollback_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDrop_trigger_stmt(@NotNull SQLiteSyntaxParser.Drop_trigger_stmtContext ctx) { }
-
+	@Override public void exitRollback_stmt(SQLiteParser.Rollback_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNew_table_name(@NotNull SQLiteSyntaxParser.New_table_nameContext ctx) { }
+	@Override public void enterSavepoint_stmt(SQLiteParser.Savepoint_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNew_table_name(@NotNull SQLiteSyntaxParser.New_table_nameContext ctx) { }
-
+	@Override public void exitSavepoint_stmt(SQLiteParser.Savepoint_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterType_name(@NotNull SQLiteSyntaxParser.Type_nameContext ctx) { }
+	@Override public void enterSimple_select_stmt(SQLiteParser.Simple_select_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitType_name(@NotNull SQLiteSyntaxParser.Type_nameContext ctx) { }
-
+	@Override public void exitSimple_select_stmt(SQLiteParser.Simple_select_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTable_alias(@NotNull SQLiteSyntaxParser.Table_aliasContext ctx) { }
+	@Override public void enterSelect_stmt(SQLiteParser.Select_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTable_alias(@NotNull SQLiteSyntaxParser.Table_aliasContext ctx) { }
-
+	@Override public void exitSelect_stmt(SQLiteParser.Select_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterModule_name(@NotNull SQLiteSyntaxParser.Module_nameContext ctx) { }
+	@Override public void enterSelect_or_values(SQLiteParser.Select_or_valuesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitModule_name(@NotNull SQLiteSyntaxParser.Module_nameContext ctx) { }
-
+	@Override public void exitSelect_or_values(SQLiteParser.Select_or_valuesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCommit_stmt(@NotNull SQLiteSyntaxParser.Commit_stmtContext ctx) { }
+	@Override public void enterUpdate_stmt(SQLiteParser.Update_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCommit_stmt(@NotNull SQLiteSyntaxParser.Commit_stmtContext ctx) { }
-
+	@Override public void exitUpdate_stmt(SQLiteParser.Update_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTrigger_name(@NotNull SQLiteSyntaxParser.Trigger_nameContext ctx) { }
+	@Override public void enterUpdate_stmt_limited(SQLiteParser.Update_stmt_limitedContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTrigger_name(@NotNull SQLiteSyntaxParser.Trigger_nameContext ctx) { }
-
+	@Override public void exitUpdate_stmt_limited(SQLiteParser.Update_stmt_limitedContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate_table_stmt(@NotNull SQLiteSyntaxParser.Create_table_stmtContext ctx) { }
+	@Override public void enterVacuum_stmt(SQLiteParser.Vacuum_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate_table_stmt(@NotNull SQLiteSyntaxParser.Create_table_stmtContext ctx) { }
-
+	@Override public void exitVacuum_stmt(SQLiteParser.Vacuum_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPragma_value(@NotNull SQLiteSyntaxParser.Pragma_valueContext ctx) { }
+	@Override public void enterColumn_def(SQLiteParser.Column_defContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPragma_value(@NotNull SQLiteSyntaxParser.Pragma_valueContext ctx) { }
-
+	@Override public void exitColumn_def(SQLiteParser.Column_defContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterColumn_constraint(@NotNull SQLiteSyntaxParser.Column_constraintContext ctx) { }
+	@Override public void enterType_name(SQLiteParser.Type_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitColumn_constraint(@NotNull SQLiteSyntaxParser.Column_constraintContext ctx) { }
-
+	@Override public void exitType_name(SQLiteParser.Type_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSavepoint_stmt(@NotNull SQLiteSyntaxParser.Savepoint_stmtContext ctx) { }
+	@Override public void enterColumn_constraint(SQLiteParser.Column_constraintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSavepoint_stmt(@NotNull SQLiteSyntaxParser.Savepoint_stmtContext ctx) { }
-
+	@Override public void exitColumn_constraint(SQLiteParser.Column_constraintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDetach_stmt(@NotNull SQLiteSyntaxParser.Detach_stmtContext ctx) { }
+	@Override public void enterConflict_clause(SQLiteParser.Conflict_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDetach_stmt(@NotNull SQLiteSyntaxParser.Detach_stmtContext ctx) { }
-
+	@Override public void exitConflict_clause(SQLiteParser.Conflict_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterColumn_def(@NotNull SQLiteSyntaxParser.Column_defContext ctx) { }
+	@Override public void enterExpr(SQLiteParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitColumn_def(@NotNull SQLiteSyntaxParser.Column_defContext ctx) { }
-
+	@Override public void exitExpr(SQLiteParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTable_constraint(@NotNull SQLiteSyntaxParser.Table_constraintContext ctx) { }
+	@Override public void enterForeign_key_clause(SQLiteParser.Foreign_key_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTable_constraint(@NotNull SQLiteSyntaxParser.Table_constraintContext ctx) { }
-
+	@Override public void exitForeign_key_clause(SQLiteParser.Foreign_key_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterColumn_alias(@NotNull SQLiteSyntaxParser.Column_aliasContext ctx) { }
+	@Override public void enterRaise_function(SQLiteParser.Raise_functionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitColumn_alias(@NotNull SQLiteSyntaxParser.Column_aliasContext ctx) { }
-
+	@Override public void exitRaise_function(SQLiteParser.Raise_functionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDelete_stmt(@NotNull SQLiteSyntaxParser.Delete_stmtContext ctx) { }
+	@Override public void enterIndexed_column(SQLiteParser.Indexed_columnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDelete_stmt(@NotNull SQLiteSyntaxParser.Delete_stmtContext ctx) { }
-
+	@Override public void exitIndexed_column(SQLiteParser.Indexed_columnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRelease_stmt(@NotNull SQLiteSyntaxParser.Release_stmtContext ctx) { }
+	@Override public void enterTable_constraint(SQLiteParser.Table_constraintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRelease_stmt(@NotNull SQLiteSyntaxParser.Release_stmtContext ctx) { }
-
+	@Override public void exitTable_constraint(SQLiteParser.Table_constraintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterForeign_table(@NotNull SQLiteSyntaxParser.Foreign_tableContext ctx) { }
+	@Override public void enterWith_clause(SQLiteParser.With_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitForeign_table(@NotNull SQLiteSyntaxParser.Foreign_tableContext ctx) { }
-
+	@Override public void exitWith_clause(SQLiteParser.With_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate_view_stmt(@NotNull SQLiteSyntaxParser.Create_view_stmtContext ctx) { }
+	@Override public void enterQualified_table_name(SQLiteParser.Qualified_table_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate_view_stmt(@NotNull SQLiteSyntaxParser.Create_view_stmtContext ctx) { }
-
+	@Override public void exitQualified_table_name(SQLiteParser.Qualified_table_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr(@NotNull SQLiteSyntaxParser.ExprContext ctx) { }
+	@Override public void enterOrdering_term(SQLiteParser.Ordering_termContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr(@NotNull SQLiteSyntaxParser.ExprContext ctx) { }
-
+	@Override public void exitOrdering_term(SQLiteParser.Ordering_termContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSigned_number(@NotNull SQLiteSyntaxParser.Signed_numberContext ctx) { }
+	@Override public void enterPragma_value(SQLiteParser.Pragma_valueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSigned_number(@NotNull SQLiteSyntaxParser.Signed_numberContext ctx) { }
-
+	@Override public void exitPragma_value(SQLiteParser.Pragma_valueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDelete_stmt_limited(@NotNull SQLiteSyntaxParser.Delete_stmt_limitedContext ctx) { }
+	@Override public void enterCommon_table_expression(SQLiteParser.Common_table_expressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDelete_stmt_limited(@NotNull SQLiteSyntaxParser.Delete_stmt_limitedContext ctx) { }
-
+	@Override public void exitCommon_table_expression(SQLiteParser.Common_table_expressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIndex_name(@NotNull SQLiteSyntaxParser.Index_nameContext ctx) { }
+	@Override public void enterResult_column(SQLiteParser.Result_columnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIndex_name(@NotNull SQLiteSyntaxParser.Index_nameContext ctx) { }
-
+	@Override public void exitResult_column(SQLiteParser.Result_columnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSelect_stmt(@NotNull SQLiteSyntaxParser.Select_stmtContext ctx) { }
+	@Override public void enterTable_or_subquery(SQLiteParser.Table_or_subqueryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSelect_stmt(@NotNull SQLiteSyntaxParser.Select_stmtContext ctx) { }
-
+	@Override public void exitTable_or_subquery(SQLiteParser.Table_or_subqueryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate_virtual_table_stmt(@NotNull SQLiteSyntaxParser.Create_virtual_table_stmtContext ctx) { }
+	@Override public void enterJoin_clause(SQLiteParser.Join_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate_virtual_table_stmt(@NotNull SQLiteSyntaxParser.Create_virtual_table_stmtContext ctx) { }
-
+	@Override public void exitJoin_clause(SQLiteParser.Join_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAlter_table_stmt(@NotNull SQLiteSyntaxParser.Alter_table_stmtContext ctx) { }
+	@Override public void enterJoin_operator(SQLiteParser.Join_operatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAlter_table_stmt(@NotNull SQLiteSyntaxParser.Alter_table_stmtContext ctx) { }
-
+	@Override public void exitJoin_operator(SQLiteParser.Join_operatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAttach_stmt(@NotNull SQLiteSyntaxParser.Attach_stmtContext ctx) { }
+	@Override public void enterJoin_constraint(SQLiteParser.Join_constraintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAttach_stmt(@NotNull SQLiteSyntaxParser.Attach_stmtContext ctx) { }
-
+	@Override public void exitJoin_constraint(SQLiteParser.Join_constraintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPragma_stmt(@NotNull SQLiteSyntaxParser.Pragma_stmtContext ctx) { }
+	@Override public void enterSelect_core(SQLiteParser.Select_coreContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPragma_stmt(@NotNull SQLiteSyntaxParser.Pragma_stmtContext ctx) { }
-
+	@Override public void exitSelect_core(SQLiteParser.Select_coreContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTable_name(@NotNull SQLiteSyntaxParser.Table_nameContext ctx) { }
+	@Override public void enterCompound_operator(SQLiteParser.Compound_operatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTable_name(@NotNull SQLiteSyntaxParser.Table_nameContext ctx) { }
-
+	@Override public void exitCompound_operator(SQLiteParser.Compound_operatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterName(@NotNull SQLiteSyntaxParser.NameContext ctx) { }
+	@Override public void enterCte_table_name(SQLiteParser.Cte_table_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitName(@NotNull SQLiteSyntaxParser.NameContext ctx) { }
-
+	@Override public void exitCte_table_name(SQLiteParser.Cte_table_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterJoin_constraint(@NotNull SQLiteSyntaxParser.Join_constraintContext ctx) { }
+	@Override public void enterSigned_number(SQLiteParser.Signed_numberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitJoin_constraint(@NotNull SQLiteSyntaxParser.Join_constraintContext ctx) { }
-
+	@Override public void exitSigned_number(SQLiteParser.Signed_numberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReindex_stmt(@NotNull SQLiteSyntaxParser.Reindex_stmtContext ctx) { }
+	@Override public void enterLiteral_value(SQLiteParser.Literal_valueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReindex_stmt(@NotNull SQLiteSyntaxParser.Reindex_stmtContext ctx) { }
-
+	@Override public void exitLiteral_value(SQLiteParser.Literal_valueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParse(@NotNull SQLiteSyntaxParser.ParseContext ctx) { }
+	@Override public void enterUnary_operator(SQLiteParser.Unary_operatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParse(@NotNull SQLiteSyntaxParser.ParseContext ctx) { }
-
+	@Override public void exitUnary_operator(SQLiteParser.Unary_operatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBegin_stmt(@NotNull SQLiteSyntaxParser.Begin_stmtContext ctx) { }
+	@Override public void enterError_message(SQLiteParser.Error_messageContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBegin_stmt(@NotNull SQLiteSyntaxParser.Begin_stmtContext ctx) { }
-
+	@Override public void exitError_message(SQLiteParser.Error_messageContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTable_or_subquery(@NotNull SQLiteSyntaxParser.Table_or_subqueryContext ctx) { }
+	@Override public void enterModule_argument(SQLiteParser.Module_argumentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTable_or_subquery(@NotNull SQLiteSyntaxParser.Table_or_subqueryContext ctx) { }
-
+	@Override public void exitModule_argument(SQLiteParser.Module_argumentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterError(@NotNull SQLiteSyntaxParser.ErrorContext ctx) { }
+	@Override public void enterColumn_alias(SQLiteParser.Column_aliasContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitError(@NotNull SQLiteSyntaxParser.ErrorContext ctx) { }
-
+	@Override public void exitColumn_alias(SQLiteParser.Column_aliasContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOrdering_term(@NotNull SQLiteSyntaxParser.Ordering_termContext ctx) { }
+	@Override public void enterKeyword(SQLiteParser.KeywordContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOrdering_term(@NotNull SQLiteSyntaxParser.Ordering_termContext ctx) { }
-
+	@Override public void exitKeyword(SQLiteParser.KeywordContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterKeyword(@NotNull SQLiteSyntaxParser.KeywordContext ctx) { }
+	@Override public void enterName(SQLiteParser.NameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitKeyword(@NotNull SQLiteSyntaxParser.KeywordContext ctx) { }
-
+	@Override public void exitName(SQLiteParser.NameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWith_clause(@NotNull SQLiteSyntaxParser.With_clauseContext ctx) { }
+	@Override public void enterFunction_name(SQLiteParser.Function_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWith_clause(@NotNull SQLiteSyntaxParser.With_clauseContext ctx) { }
-
+	@Override public void exitFunction_name(SQLiteParser.Function_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPragma_name(@NotNull SQLiteSyntaxParser.Pragma_nameContext ctx) { }
+	@Override public void enterDatabase_name(SQLiteParser.Database_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPragma_name(@NotNull SQLiteSyntaxParser.Pragma_nameContext ctx) { }
-
+	@Override public void exitDatabase_name(SQLiteParser.Database_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSelect_or_values(@NotNull SQLiteSyntaxParser.Select_or_valuesContext ctx) { }
+	@Override public void enterTable_name(SQLiteParser.Table_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSelect_or_values(@NotNull SQLiteSyntaxParser.Select_or_valuesContext ctx) { }
-
+	@Override public void exitTable_name(SQLiteParser.Table_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSimple_select_stmt(@NotNull SQLiteSyntaxParser.Simple_select_stmtContext ctx) { }
+	@Override public void enterTable_or_index_name(SQLiteParser.Table_or_index_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSimple_select_stmt(@NotNull SQLiteSyntaxParser.Simple_select_stmtContext ctx) { }
-
+	@Override public void exitTable_or_index_name(SQLiteParser.Table_or_index_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterView_name(@NotNull SQLiteSyntaxParser.View_nameContext ctx) { }
+	@Override public void enterNew_table_name(SQLiteParser.New_table_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitView_name(@NotNull SQLiteSyntaxParser.View_nameContext ctx) { }
-
+	@Override public void exitNew_table_name(SQLiteParser.New_table_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterJoin_clause(@NotNull SQLiteSyntaxParser.Join_clauseContext ctx) { }
+	@Override public void enterColumn_name(SQLiteParser.Column_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitJoin_clause(@NotNull SQLiteSyntaxParser.Join_clauseContext ctx) { }
-
+	@Override public void exitColumn_name(SQLiteParser.Column_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterForeign_key_clause(@NotNull SQLiteSyntaxParser.Foreign_key_clauseContext ctx) { }
+	@Override public void enterCollation_name(SQLiteParser.Collation_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitForeign_key_clause(@NotNull SQLiteSyntaxParser.Foreign_key_clauseContext ctx) { }
-
+	@Override public void exitCollation_name(SQLiteParser.Collation_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLiteral_value(@NotNull SQLiteSyntaxParser.Literal_valueContext ctx) { }
+	@Override public void enterForeign_table(SQLiteParser.Foreign_tableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLiteral_value(@NotNull SQLiteSyntaxParser.Literal_valueContext ctx) { }
-
+	@Override public void exitForeign_table(SQLiteParser.Foreign_tableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDrop_index_stmt(@NotNull SQLiteSyntaxParser.Drop_index_stmtContext ctx) { }
+	@Override public void enterIndex_name(SQLiteParser.Index_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDrop_index_stmt(@NotNull SQLiteSyntaxParser.Drop_index_stmtContext ctx) { }
-
+	@Override public void exitIndex_name(SQLiteParser.Index_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCompound_select_stmt(@NotNull SQLiteSyntaxParser.Compound_select_stmtContext ctx) { }
+	@Override public void enterTrigger_name(SQLiteParser.Trigger_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCompound_select_stmt(@NotNull SQLiteSyntaxParser.Compound_select_stmtContext ctx) { }
-
+	@Override public void exitTrigger_name(SQLiteParser.Trigger_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUpdate_stmt_limited(@NotNull SQLiteSyntaxParser.Update_stmt_limitedContext ctx) { }
+	@Override public void enterView_name(SQLiteParser.View_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUpdate_stmt_limited(@NotNull SQLiteSyntaxParser.Update_stmt_limitedContext ctx) { }
-
+	@Override public void exitView_name(SQLiteParser.View_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCollation_name(@NotNull SQLiteSyntaxParser.Collation_nameContext ctx) { }
+	@Override public void enterModule_name(SQLiteParser.Module_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCollation_name(@NotNull SQLiteSyntaxParser.Collation_nameContext ctx) { }
-
+	@Override public void exitModule_name(SQLiteParser.Module_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUpdate_stmt(@NotNull SQLiteSyntaxParser.Update_stmtContext ctx) { }
+	@Override public void enterPragma_name(SQLiteParser.Pragma_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUpdate_stmt(@NotNull SQLiteSyntaxParser.Update_stmtContext ctx) { }
-
+	@Override public void exitPragma_name(SQLiteParser.Pragma_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDrop_view_stmt(@NotNull SQLiteSyntaxParser.Drop_view_stmtContext ctx) { }
+	@Override public void enterSavepoint_name(SQLiteParser.Savepoint_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDrop_view_stmt(@NotNull SQLiteSyntaxParser.Drop_view_stmtContext ctx) { }
-
+	@Override public void exitSavepoint_name(SQLiteParser.Savepoint_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRaise_function(@NotNull SQLiteSyntaxParser.Raise_functionContext ctx) { }
+	@Override public void enterTable_alias(SQLiteParser.Table_aliasContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRaise_function(@NotNull SQLiteSyntaxParser.Raise_functionContext ctx) { }
-
+	@Override public void exitTable_alias(SQLiteParser.Table_aliasContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConflict_clause(@NotNull SQLiteSyntaxParser.Conflict_clauseContext ctx) { }
+	@Override public void enterTransaction_name(SQLiteParser.Transaction_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitConflict_clause(@NotNull SQLiteSyntaxParser.Conflict_clauseContext ctx) { }
-
+	@Override public void exitTransaction_name(SQLiteParser.Transaction_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnalyze_stmt(@NotNull SQLiteSyntaxParser.Analyze_stmtContext ctx) { }
+	@Override public void enterAny_name(SQLiteParser.Any_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnalyze_stmt(@NotNull SQLiteSyntaxParser.Analyze_stmtContext ctx) { }
+	@Override public void exitAny_name(SQLiteParser.Any_nameContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEveryRule(@NotNull ParserRuleContext ctx) { }
+	@Override public void enterEveryRule(ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEveryRule(@NotNull ParserRuleContext ctx) { }
+	@Override public void exitEveryRule(ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void visitTerminal(@NotNull TerminalNode node) { }
+	@Override public void visitTerminal(TerminalNode node) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void visitErrorNode(@NotNull ErrorNode node) { }
+	@Override public void visitErrorNode(ErrorNode node) { }
 }

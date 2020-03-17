@@ -1,5 +1,7 @@
-// Generated from C:\Users\Piyush\Documents\NetBeansProjects\TestingGrammar\src\sqlitesyntax\grammar\SQLiteSyntax.g4 by ANTLR 4.2.2
-package sqlitesyntax.grammar;
+// Generated from SQLite.g4 by ANTLR 4.8
+
+package parser.sqlite;
+
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -10,7 +12,9 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class SQLiteSyntaxParser extends Parser {
+public class SQLiteParser extends Parser {
+	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
+
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
@@ -39,29 +43,6 @@ public class SQLiteSyntaxParser extends Parser {
 		IDENTIFIER=149, NUMERIC_LITERAL=150, BIND_PARAMETER=151, STRING_LITERAL=152, 
 		BLOB_LITERAL=153, SINGLE_LINE_COMMENT=154, MULTILINE_COMMENT=155, SPACES=156, 
 		UNEXPECTED_CHAR=157;
-	public static final String[] tokenNames = {
-		"<INVALID>", "';'", "'.'", "'('", "')'", "','", "'='", "'*'", "'+'", "'-'", 
-		"'~'", "'||'", "'/'", "'%'", "'<<'", "'>>'", "'&'", "'|'", "'<'", "'<='", 
-		"'>'", "'>='", "'=='", "'!='", "'<>'", "ABORT", "ACTION", "ADD", "AFTER", 
-		"ALL", "ALTER", "ANALYZE", "AND", "AS", "ASC", "ATTACH", "AUTOINCREMENT", 
-		"BEFORE", "BEGIN", "BETWEEN", "BY", "CASCADE", "CASE", "CAST", "CHECK", 
-		"COLLATE", "COLUMN", "COMMIT", "CONFLICT", "CONSTRAINT", "CREATE", "CROSS", 
-		"CURRENT_DATE", "CURRENT_TIME", "CURRENT_TIMESTAMP", "DATABASE", "DEFAULT", 
-		"DEFERRABLE", "DEFERRED", "DELETE", "DESC", "DETACH", "DISTINCT", "DROP", 
-		"EACH", "ELSE", "END", "ESCAPE", "EXCEPT", "EXCLUSIVE", "EXISTS", "EXPLAIN", 
-		"FAIL", "FOR", "FOREIGN", "FROM", "FULL", "GLOB", "GROUP", "HAVING", "IF", 
-		"IGNORE", "IMMEDIATE", "IN", "INDEX", "INDEXED", "INITIALLY", "INNER", 
-		"INSERT", "INSTEAD", "INTERSECT", "INTO", "IS", "ISNULL", "JOIN", "KEY", 
-		"LEFT", "LIKE", "LIMIT", "MATCH", "NATURAL", "NO", "NOT", "NOTNULL", "NULL", 
-		"OF", "OFFSET", "ON", "OR", "ORDER", "OUTER", "PLAN", "PRAGMA", "PRIMARY", 
-		"QUERY", "RAISE", "RECURSIVE", "REFERENCES", "REGEXP", "REINDEX", "RELEASE", 
-		"RENAME", "REPLACE", "RESTRICT", "RIGHT", "ROLLBACK", "ROW", "SAVEPOINT", 
-		"SELECT", "SET", "TABLE", "TEMP", "TEMPORARY", "THEN", "TO", "TRANSACTION", 
-		"TRIGGER", "UNION", "UNIQUE", "UPDATE", "USING", "VACUUM", "VALUES", "VIEW", 
-		"VIRTUAL", "WHEN", "WHERE", "WITH", "WITHOUT", "IDENTIFIER", "NUMERIC_LITERAL", 
-		"BIND_PARAMETER", "STRING_LITERAL", "BLOB_LITERAL", "SINGLE_LINE_COMMENT", 
-		"MULTILINE_COMMENT", "SPACES", "UNEXPECTED_CHAR"
-	};
 	public static final int
 		RULE_parse = 0, RULE_error = 1, RULE_sql_stmt_list = 2, RULE_sql_stmt = 3, 
 		RULE_alter_table_stmt = 4, RULE_analyze_stmt = 5, RULE_attach_stmt = 6, 
@@ -89,32 +70,101 @@ public class SQLiteSyntaxParser extends Parser {
 		RULE_foreign_table = 72, RULE_index_name = 73, RULE_trigger_name = 74, 
 		RULE_view_name = 75, RULE_module_name = 76, RULE_pragma_name = 77, RULE_savepoint_name = 78, 
 		RULE_table_alias = 79, RULE_transaction_name = 80, RULE_any_name = 81;
-	public static final String[] ruleNames = {
-		"parse", "error", "sql_stmt_list", "sql_stmt", "alter_table_stmt", "analyze_stmt", 
-		"attach_stmt", "begin_stmt", "commit_stmt", "compound_select_stmt", "create_index_stmt", 
-		"create_table_stmt", "create_trigger_stmt", "create_view_stmt", "create_virtual_table_stmt", 
-		"delete_stmt", "delete_stmt_limited", "detach_stmt", "drop_index_stmt", 
-		"drop_table_stmt", "drop_trigger_stmt", "drop_view_stmt", "factored_select_stmt", 
-		"insert_stmt", "pragma_stmt", "reindex_stmt", "release_stmt", "rollback_stmt", 
-		"savepoint_stmt", "simple_select_stmt", "select_stmt", "select_or_values", 
-		"update_stmt", "update_stmt_limited", "vacuum_stmt", "column_def", "type_name", 
-		"column_constraint", "conflict_clause", "expr", "foreign_key_clause", 
-		"raise_function", "indexed_column", "table_constraint", "with_clause", 
-		"qualified_table_name", "ordering_term", "pragma_value", "common_table_expression", 
-		"result_column", "table_or_subquery", "join_clause", "join_operator", 
-		"join_constraint", "select_core", "compound_operator", "cte_table_name", 
-		"signed_number", "literal_value", "unary_operator", "error_message", "module_argument", 
-		"column_alias", "keyword", "name", "function_name", "database_name", "table_name", 
-		"table_or_index_name", "new_table_name", "column_name", "collation_name", 
-		"foreign_table", "index_name", "trigger_name", "view_name", "module_name", 
-		"pragma_name", "savepoint_name", "table_alias", "transaction_name", "any_name"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"parse", "error", "sql_stmt_list", "sql_stmt", "alter_table_stmt", "analyze_stmt", 
+			"attach_stmt", "begin_stmt", "commit_stmt", "compound_select_stmt", "create_index_stmt", 
+			"create_table_stmt", "create_trigger_stmt", "create_view_stmt", "create_virtual_table_stmt", 
+			"delete_stmt", "delete_stmt_limited", "detach_stmt", "drop_index_stmt", 
+			"drop_table_stmt", "drop_trigger_stmt", "drop_view_stmt", "factored_select_stmt", 
+			"insert_stmt", "pragma_stmt", "reindex_stmt", "release_stmt", "rollback_stmt", 
+			"savepoint_stmt", "simple_select_stmt", "select_stmt", "select_or_values", 
+			"update_stmt", "update_stmt_limited", "vacuum_stmt", "column_def", "type_name", 
+			"column_constraint", "conflict_clause", "expr", "foreign_key_clause", 
+			"raise_function", "indexed_column", "table_constraint", "with_clause", 
+			"qualified_table_name", "ordering_term", "pragma_value", "common_table_expression", 
+			"result_column", "table_or_subquery", "join_clause", "join_operator", 
+			"join_constraint", "select_core", "compound_operator", "cte_table_name", 
+			"signed_number", "literal_value", "unary_operator", "error_message", 
+			"module_argument", "column_alias", "keyword", "name", "function_name", 
+			"database_name", "table_name", "table_or_index_name", "new_table_name", 
+			"column_name", "collation_name", "foreign_table", "index_name", "trigger_name", 
+			"view_name", "module_name", "pragma_name", "savepoint_name", "table_alias", 
+			"transaction_name", "any_name"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
+
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, "';'", "'.'", "'('", "')'", "','", "'='", "'*'", "'+'", "'-'", 
+			"'~'", "'||'", "'/'", "'%'", "'<<'", "'>>'", "'&'", "'|'", "'<'", "'<='", 
+			"'>'", "'>='", "'=='", "'!='", "'<>'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, "SCOL", "DOT", "OPEN_PAR", "CLOSE_PAR", "COMMA", "ASSIGN", "STAR", 
+			"PLUS", "MINUS", "TILDE", "PIPE2", "DIV", "MOD", "LT2", "GT2", "AMP", 
+			"PIPE", "LT", "LT_EQ", "GT", "GT_EQ", "EQ", "NOT_EQ1", "NOT_EQ2", "ABORT", 
+			"ACTION", "ADD", "AFTER", "ALL", "ALTER", "ANALYZE", "AND", "AS", "ASC", 
+			"ATTACH", "AUTOINCREMENT", "BEFORE", "BEGIN", "BETWEEN", "BY", "CASCADE", 
+			"CASE", "CAST", "CHECK", "COLLATE", "COLUMN", "COMMIT", "CONFLICT", "CONSTRAINT", 
+			"CREATE", "CROSS", "CURRENT_DATE", "CURRENT_TIME", "CURRENT_TIMESTAMP", 
+			"DATABASE", "DEFAULT", "DEFERRABLE", "DEFERRED", "DELETE", "DESC", "DETACH", 
+			"DISTINCT", "DROP", "EACH", "ELSE", "END", "ESCAPE", "EXCEPT", "EXCLUSIVE", 
+			"EXISTS", "EXPLAIN", "FAIL", "FOR", "FOREIGN", "FROM", "FULL", "GLOB", 
+			"GROUP", "HAVING", "IF", "IGNORE", "IMMEDIATE", "IN", "INDEX", "INDEXED", 
+			"INITIALLY", "INNER", "INSERT", "INSTEAD", "INTERSECT", "INTO", "IS", 
+			"ISNULL", "JOIN", "KEY", "LEFT", "LIKE", "LIMIT", "MATCH", "NATURAL", 
+			"NO", "NOT", "NOTNULL", "NULL", "OF", "OFFSET", "ON", "OR", "ORDER", 
+			"OUTER", "PLAN", "PRAGMA", "PRIMARY", "QUERY", "RAISE", "RECURSIVE", 
+			"REFERENCES", "REGEXP", "REINDEX", "RELEASE", "RENAME", "REPLACE", "RESTRICT", 
+			"RIGHT", "ROLLBACK", "ROW", "SAVEPOINT", "SELECT", "SET", "TABLE", "TEMP", 
+			"TEMPORARY", "THEN", "TO", "TRANSACTION", "TRIGGER", "UNION", "UNIQUE", 
+			"UPDATE", "USING", "VACUUM", "VALUES", "VIEW", "VIRTUAL", "WHEN", "WHERE", 
+			"WITH", "WITHOUT", "IDENTIFIER", "NUMERIC_LITERAL", "BIND_PARAMETER", 
+			"STRING_LITERAL", "BLOB_LITERAL", "SINGLE_LINE_COMMENT", "MULTILINE_COMMENT", 
+			"SPACES", "UNEXPECTED_CHAR"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
+	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
+
+	/**
+	 * @deprecated Use {@link #VOCABULARY} instead.
+	 */
+	@Deprecated
+	public static final String[] tokenNames;
+	static {
+		tokenNames = new String[_SYMBOLIC_NAMES.length];
+		for (int i = 0; i < tokenNames.length; i++) {
+			tokenNames[i] = VOCABULARY.getLiteralName(i);
+			if (tokenNames[i] == null) {
+				tokenNames[i] = VOCABULARY.getSymbolicName(i);
+			}
+
+			if (tokenNames[i] == null) {
+				tokenNames[i] = "<INVALID>";
+			}
+		}
+	}
 
 	@Override
-	public String getGrammarFileName() { return "SQLiteSyntax.g4"; }
+	@Deprecated
+	public String[] getTokenNames() {
+		return tokenNames;
+	}
 
 	@Override
-	public String[] getTokenNames() { return tokenNames; }
+
+	public Vocabulary getVocabulary() {
+		return VOCABULARY;
+	}
+
+	@Override
+	public String getGrammarFileName() { return "SQLite.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -125,23 +175,24 @@ public class SQLiteSyntaxParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public SQLiteSyntaxParser(TokenStream input) {
+	public SQLiteParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
+
 	public static class ParseContext extends ParserRuleContext {
+		public TerminalNode EOF() { return getToken(SQLiteParser.EOF, 0); }
 		public List<Sql_stmt_listContext> sql_stmt_list() {
 			return getRuleContexts(Sql_stmt_listContext.class);
 		}
-		public TerminalNode EOF() { return getToken(SQLiteSyntaxParser.EOF, 0); }
+		public Sql_stmt_listContext sql_stmt_list(int i) {
+			return getRuleContext(Sql_stmt_listContext.class,i);
+		}
 		public List<ErrorContext> error() {
 			return getRuleContexts(ErrorContext.class);
 		}
 		public ErrorContext error(int i) {
 			return getRuleContext(ErrorContext.class,i);
-		}
-		public Sql_stmt_listContext sql_stmt_list(int i) {
-			return getRuleContext(Sql_stmt_listContext.class,i);
 		}
 		public ParseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -149,15 +200,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_parse; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterParse(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterParse(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitParse(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitParse(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitParse(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitParse(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -175,6 +226,7 @@ public class SQLiteSyntaxParser extends Parser {
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << SCOL) | (1L << ALTER) | (1L << ANALYZE) | (1L << ATTACH) | (1L << BEGIN) | (1L << COMMIT) | (1L << CREATE) | (1L << DELETE) | (1L << DETACH) | (1L << DROP))) != 0) || ((((_la - 66)) & ~0x3f) == 0 && ((1L << (_la - 66)) & ((1L << (END - 66)) | (1L << (EXPLAIN - 66)) | (1L << (INSERT - 66)) | (1L << (PRAGMA - 66)) | (1L << (REINDEX - 66)) | (1L << (RELEASE - 66)) | (1L << (REPLACE - 66)) | (1L << (ROLLBACK - 66)) | (1L << (SAVEPOINT - 66)) | (1L << (SELECT - 66)))) != 0) || ((((_la - 139)) & ~0x3f) == 0 && ((1L << (_la - 139)) & ((1L << (UPDATE - 139)) | (1L << (VACUUM - 139)) | (1L << (VALUES - 139)) | (1L << (WITH - 139)) | (1L << (UNEXPECTED_CHAR - 139)))) != 0)) {
 				{
 				setState(166);
+				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case SCOL:
 				case ALTER:
@@ -201,12 +253,14 @@ public class SQLiteSyntaxParser extends Parser {
 				case VALUES:
 				case WITH:
 					{
-					setState(164); sql_stmt_list();
+					setState(164);
+					sql_stmt_list();
 					}
 					break;
 				case UNEXPECTED_CHAR:
 					{
-					setState(165); error();
+					setState(165);
+					error();
 					}
 					break;
 				default:
@@ -217,7 +271,8 @@ public class SQLiteSyntaxParser extends Parser {
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(171); match(EOF);
+			setState(171);
+			match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -233,22 +288,22 @@ public class SQLiteSyntaxParser extends Parser {
 
 	public static class ErrorContext extends ParserRuleContext {
 		public Token UNEXPECTED_CHAR;
-		public TerminalNode UNEXPECTED_CHAR() { return getToken(SQLiteSyntaxParser.UNEXPECTED_CHAR, 0); }
+		public TerminalNode UNEXPECTED_CHAR() { return getToken(SQLiteParser.UNEXPECTED_CHAR, 0); }
 		public ErrorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_error; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterError(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterError(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitError(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitError(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitError(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitError(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -259,7 +314,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(173); ((ErrorContext)_localctx).UNEXPECTED_CHAR = match(UNEXPECTED_CHAR);
+			setState(173);
+			((ErrorContext)_localctx).UNEXPECTED_CHAR = match(UNEXPECTED_CHAR);
 			 
 			     throw new RuntimeException("UNEXPECTED_CHAR=" + (((ErrorContext)_localctx).UNEXPECTED_CHAR!=null?((ErrorContext)_localctx).UNEXPECTED_CHAR.getText():null)); 
 			   
@@ -277,11 +333,15 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Sql_stmt_listContext extends ParserRuleContext {
+		public List<Sql_stmtContext> sql_stmt() {
+			return getRuleContexts(Sql_stmtContext.class);
+		}
 		public Sql_stmtContext sql_stmt(int i) {
 			return getRuleContext(Sql_stmtContext.class,i);
 		}
-		public List<Sql_stmtContext> sql_stmt() {
-			return getRuleContexts(Sql_stmtContext.class);
+		public List<TerminalNode> SCOL() { return getTokens(SQLiteParser.SCOL); }
+		public TerminalNode SCOL(int i) {
+			return getToken(SQLiteParser.SCOL, i);
 		}
 		public Sql_stmt_listContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -289,15 +349,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_sql_stmt_list; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterSql_stmt_list(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterSql_stmt_list(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitSql_stmt_list(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitSql_stmt_list(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitSql_stmt_list(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitSql_stmt_list(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -316,18 +376,20 @@ public class SQLiteSyntaxParser extends Parser {
 			while (_la==SCOL) {
 				{
 				{
-				setState(176); match(SCOL);
+				setState(176);
+				match(SCOL);
 				}
 				}
 				setState(181);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(182); sql_stmt();
+			setState(182);
+			sql_stmt();
 			setState(191);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
-			while ( _alt!=2 && _alt!=ATN.INVALID_ALT_NUMBER ) {
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
@@ -337,14 +399,16 @@ public class SQLiteSyntaxParser extends Parser {
 					do {
 						{
 						{
-						setState(183); match(SCOL);
+						setState(183);
+						match(SCOL);
 						}
 						}
 						setState(186); 
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 					} while ( _la==SCOL );
-					setState(188); sql_stmt();
+					setState(188);
+					sql_stmt();
 					}
 					} 
 				}
@@ -355,11 +419,12 @@ public class SQLiteSyntaxParser extends Parser {
 			setState(197);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
-			while ( _alt!=2 && _alt!=ATN.INVALID_ALT_NUMBER ) {
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(194); match(SCOL);
+					setState(194);
+					match(SCOL);
 					}
 					} 
 				}
@@ -381,114 +446,114 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Sql_stmtContext extends ParserRuleContext {
-		public Release_stmtContext release_stmt() {
-			return getRuleContext(Release_stmtContext.class,0);
-		}
-		public Drop_view_stmtContext drop_view_stmt() {
-			return getRuleContext(Drop_view_stmtContext.class,0);
-		}
-		public Begin_stmtContext begin_stmt() {
-			return getRuleContext(Begin_stmtContext.class,0);
-		}
-		public Detach_stmtContext detach_stmt() {
-			return getRuleContext(Detach_stmtContext.class,0);
-		}
-		public Create_trigger_stmtContext create_trigger_stmt() {
-			return getRuleContext(Create_trigger_stmtContext.class,0);
-		}
-		public Drop_trigger_stmtContext drop_trigger_stmt() {
-			return getRuleContext(Drop_trigger_stmtContext.class,0);
-		}
-		public Attach_stmtContext attach_stmt() {
-			return getRuleContext(Attach_stmtContext.class,0);
-		}
-		public Pragma_stmtContext pragma_stmt() {
-			return getRuleContext(Pragma_stmtContext.class,0);
-		}
-		public TerminalNode EXPLAIN() { return getToken(SQLiteSyntaxParser.EXPLAIN, 0); }
-		public Delete_stmtContext delete_stmt() {
-			return getRuleContext(Delete_stmtContext.class,0);
-		}
-		public Insert_stmtContext insert_stmt() {
-			return getRuleContext(Insert_stmtContext.class,0);
-		}
-		public Vacuum_stmtContext vacuum_stmt() {
-			return getRuleContext(Vacuum_stmtContext.class,0);
-		}
-		public Simple_select_stmtContext simple_select_stmt() {
-			return getRuleContext(Simple_select_stmtContext.class,0);
-		}
-		public Create_view_stmtContext create_view_stmt() {
-			return getRuleContext(Create_view_stmtContext.class,0);
-		}
-		public Compound_select_stmtContext compound_select_stmt() {
-			return getRuleContext(Compound_select_stmtContext.class,0);
-		}
-		public Update_stmtContext update_stmt() {
-			return getRuleContext(Update_stmtContext.class,0);
-		}
-		public TerminalNode QUERY() { return getToken(SQLiteSyntaxParser.QUERY, 0); }
-		public Rollback_stmtContext rollback_stmt() {
-			return getRuleContext(Rollback_stmtContext.class,0);
-		}
-		public TerminalNode PLAN() { return getToken(SQLiteSyntaxParser.PLAN, 0); }
 		public Alter_table_stmtContext alter_table_stmt() {
 			return getRuleContext(Alter_table_stmtContext.class,0);
-		}
-		public Update_stmt_limitedContext update_stmt_limited() {
-			return getRuleContext(Update_stmt_limitedContext.class,0);
 		}
 		public Analyze_stmtContext analyze_stmt() {
 			return getRuleContext(Analyze_stmtContext.class,0);
 		}
+		public Attach_stmtContext attach_stmt() {
+			return getRuleContext(Attach_stmtContext.class,0);
+		}
+		public Begin_stmtContext begin_stmt() {
+			return getRuleContext(Begin_stmtContext.class,0);
+		}
 		public Commit_stmtContext commit_stmt() {
 			return getRuleContext(Commit_stmtContext.class,0);
 		}
-		public Create_table_stmtContext create_table_stmt() {
-			return getRuleContext(Create_table_stmtContext.class,0);
-		}
-		public Reindex_stmtContext reindex_stmt() {
-			return getRuleContext(Reindex_stmtContext.class,0);
-		}
-		public Create_virtual_table_stmtContext create_virtual_table_stmt() {
-			return getRuleContext(Create_virtual_table_stmtContext.class,0);
+		public Compound_select_stmtContext compound_select_stmt() {
+			return getRuleContext(Compound_select_stmtContext.class,0);
 		}
 		public Create_index_stmtContext create_index_stmt() {
 			return getRuleContext(Create_index_stmtContext.class,0);
 		}
+		public Create_table_stmtContext create_table_stmt() {
+			return getRuleContext(Create_table_stmtContext.class,0);
+		}
+		public Create_trigger_stmtContext create_trigger_stmt() {
+			return getRuleContext(Create_trigger_stmtContext.class,0);
+		}
+		public Create_view_stmtContext create_view_stmt() {
+			return getRuleContext(Create_view_stmtContext.class,0);
+		}
+		public Create_virtual_table_stmtContext create_virtual_table_stmt() {
+			return getRuleContext(Create_virtual_table_stmtContext.class,0);
+		}
+		public Delete_stmtContext delete_stmt() {
+			return getRuleContext(Delete_stmtContext.class,0);
+		}
 		public Delete_stmt_limitedContext delete_stmt_limited() {
 			return getRuleContext(Delete_stmt_limitedContext.class,0);
 		}
-		public Drop_table_stmtContext drop_table_stmt() {
-			return getRuleContext(Drop_table_stmtContext.class,0);
-		}
-		public Savepoint_stmtContext savepoint_stmt() {
-			return getRuleContext(Savepoint_stmtContext.class,0);
-		}
-		public Select_stmtContext select_stmt() {
-			return getRuleContext(Select_stmtContext.class,0);
+		public Detach_stmtContext detach_stmt() {
+			return getRuleContext(Detach_stmtContext.class,0);
 		}
 		public Drop_index_stmtContext drop_index_stmt() {
 			return getRuleContext(Drop_index_stmtContext.class,0);
 		}
+		public Drop_table_stmtContext drop_table_stmt() {
+			return getRuleContext(Drop_table_stmtContext.class,0);
+		}
+		public Drop_trigger_stmtContext drop_trigger_stmt() {
+			return getRuleContext(Drop_trigger_stmtContext.class,0);
+		}
+		public Drop_view_stmtContext drop_view_stmt() {
+			return getRuleContext(Drop_view_stmtContext.class,0);
+		}
 		public Factored_select_stmtContext factored_select_stmt() {
 			return getRuleContext(Factored_select_stmtContext.class,0);
 		}
+		public Insert_stmtContext insert_stmt() {
+			return getRuleContext(Insert_stmtContext.class,0);
+		}
+		public Pragma_stmtContext pragma_stmt() {
+			return getRuleContext(Pragma_stmtContext.class,0);
+		}
+		public Reindex_stmtContext reindex_stmt() {
+			return getRuleContext(Reindex_stmtContext.class,0);
+		}
+		public Release_stmtContext release_stmt() {
+			return getRuleContext(Release_stmtContext.class,0);
+		}
+		public Rollback_stmtContext rollback_stmt() {
+			return getRuleContext(Rollback_stmtContext.class,0);
+		}
+		public Savepoint_stmtContext savepoint_stmt() {
+			return getRuleContext(Savepoint_stmtContext.class,0);
+		}
+		public Simple_select_stmtContext simple_select_stmt() {
+			return getRuleContext(Simple_select_stmtContext.class,0);
+		}
+		public Select_stmtContext select_stmt() {
+			return getRuleContext(Select_stmtContext.class,0);
+		}
+		public Update_stmtContext update_stmt() {
+			return getRuleContext(Update_stmtContext.class,0);
+		}
+		public Update_stmt_limitedContext update_stmt_limited() {
+			return getRuleContext(Update_stmt_limitedContext.class,0);
+		}
+		public Vacuum_stmtContext vacuum_stmt() {
+			return getRuleContext(Vacuum_stmtContext.class,0);
+		}
+		public TerminalNode EXPLAIN() { return getToken(SQLiteParser.EXPLAIN, 0); }
+		public TerminalNode QUERY() { return getToken(SQLiteParser.QUERY, 0); }
+		public TerminalNode PLAN() { return getToken(SQLiteParser.PLAN, 0); }
 		public Sql_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_sql_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterSql_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterSql_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitSql_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitSql_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitSql_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitSql_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -501,16 +566,21 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(205);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==EXPLAIN) {
 				{
-				setState(200); match(EXPLAIN);
+				setState(200);
+				match(EXPLAIN);
 				setState(203);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==QUERY) {
 					{
-					setState(201); match(QUERY);
-					setState(202); match(PLAN);
+					setState(201);
+					match(QUERY);
+					setState(202);
+					match(PLAN);
 					}
 				}
 
@@ -518,184 +588,186 @@ public class SQLiteSyntaxParser extends Parser {
 			}
 
 			setState(237);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
 			case 1:
 				{
-				setState(207); alter_table_stmt();
+				setState(207);
+				alter_table_stmt();
 				}
 				break;
-
 			case 2:
 				{
-				setState(208); analyze_stmt();
+				setState(208);
+				analyze_stmt();
 				}
 				break;
-
 			case 3:
 				{
-				setState(209); attach_stmt();
+				setState(209);
+				attach_stmt();
 				}
 				break;
-
 			case 4:
 				{
-				setState(210); begin_stmt();
+				setState(210);
+				begin_stmt();
 				}
 				break;
-
 			case 5:
 				{
-				setState(211); commit_stmt();
+				setState(211);
+				commit_stmt();
 				}
 				break;
-
 			case 6:
 				{
-				setState(212); compound_select_stmt();
+				setState(212);
+				compound_select_stmt();
 				}
 				break;
-
 			case 7:
 				{
-				setState(213); create_index_stmt();
+				setState(213);
+				create_index_stmt();
 				}
 				break;
-
 			case 8:
 				{
-				setState(214); create_table_stmt();
+				setState(214);
+				create_table_stmt();
 				}
 				break;
-
 			case 9:
 				{
-				setState(215); create_trigger_stmt();
+				setState(215);
+				create_trigger_stmt();
 				}
 				break;
-
 			case 10:
 				{
-				setState(216); create_view_stmt();
+				setState(216);
+				create_view_stmt();
 				}
 				break;
-
 			case 11:
 				{
-				setState(217); create_virtual_table_stmt();
+				setState(217);
+				create_virtual_table_stmt();
 				}
 				break;
-
 			case 12:
 				{
-				setState(218); delete_stmt();
+				setState(218);
+				delete_stmt();
 				}
 				break;
-
 			case 13:
 				{
-				setState(219); delete_stmt_limited();
+				setState(219);
+				delete_stmt_limited();
 				}
 				break;
-
 			case 14:
 				{
-				setState(220); detach_stmt();
+				setState(220);
+				detach_stmt();
 				}
 				break;
-
 			case 15:
 				{
-				setState(221); drop_index_stmt();
+				setState(221);
+				drop_index_stmt();
 				}
 				break;
-
 			case 16:
 				{
-				setState(222); drop_table_stmt();
+				setState(222);
+				drop_table_stmt();
 				}
 				break;
-
 			case 17:
 				{
-				setState(223); drop_trigger_stmt();
+				setState(223);
+				drop_trigger_stmt();
 				}
 				break;
-
 			case 18:
 				{
-				setState(224); drop_view_stmt();
+				setState(224);
+				drop_view_stmt();
 				}
 				break;
-
 			case 19:
 				{
-				setState(225); factored_select_stmt();
+				setState(225);
+				factored_select_stmt();
 				}
 				break;
-
 			case 20:
 				{
-				setState(226); insert_stmt();
+				setState(226);
+				insert_stmt();
 				}
 				break;
-
 			case 21:
 				{
-				setState(227); pragma_stmt();
+				setState(227);
+				pragma_stmt();
 				}
 				break;
-
 			case 22:
 				{
-				setState(228); reindex_stmt();
+				setState(228);
+				reindex_stmt();
 				}
 				break;
-
 			case 23:
 				{
-				setState(229); release_stmt();
+				setState(229);
+				release_stmt();
 				}
 				break;
-
 			case 24:
 				{
-				setState(230); rollback_stmt();
+				setState(230);
+				rollback_stmt();
 				}
 				break;
-
 			case 25:
 				{
-				setState(231); savepoint_stmt();
+				setState(231);
+				savepoint_stmt();
 				}
 				break;
-
 			case 26:
 				{
-				setState(232); simple_select_stmt();
+				setState(232);
+				simple_select_stmt();
 				}
 				break;
-
 			case 27:
 				{
-				setState(233); select_stmt();
+				setState(233);
+				select_stmt();
 				}
 				break;
-
 			case 28:
 				{
-				setState(234); update_stmt();
+				setState(234);
+				update_stmt();
 				}
 				break;
-
 			case 29:
 				{
-				setState(235); update_stmt_limited();
+				setState(235);
+				update_stmt_limited();
 				}
 				break;
-
 			case 30:
 				{
-				setState(236); vacuum_stmt();
+				setState(236);
+				vacuum_stmt();
 				}
 				break;
 			}
@@ -713,39 +785,40 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Alter_table_stmtContext extends ParserRuleContext {
-		public TerminalNode COLUMN() { return getToken(SQLiteSyntaxParser.COLUMN, 0); }
-		public New_table_nameContext new_table_name() {
-			return getRuleContext(New_table_nameContext.class,0);
-		}
-		public TerminalNode ALTER() { return getToken(SQLiteSyntaxParser.ALTER, 0); }
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
-		}
-		public TerminalNode RENAME() { return getToken(SQLiteSyntaxParser.RENAME, 0); }
-		public TerminalNode TABLE() { return getToken(SQLiteSyntaxParser.TABLE, 0); }
-		public Column_defContext column_def() {
-			return getRuleContext(Column_defContext.class,0);
-		}
-		public TerminalNode TO() { return getToken(SQLiteSyntaxParser.TO, 0); }
+		public TerminalNode ALTER() { return getToken(SQLiteParser.ALTER, 0); }
+		public TerminalNode TABLE() { return getToken(SQLiteParser.TABLE, 0); }
 		public Table_nameContext table_name() {
 			return getRuleContext(Table_nameContext.class,0);
 		}
-		public TerminalNode ADD() { return getToken(SQLiteSyntaxParser.ADD, 0); }
+		public TerminalNode RENAME() { return getToken(SQLiteParser.RENAME, 0); }
+		public TerminalNode TO() { return getToken(SQLiteParser.TO, 0); }
+		public New_table_nameContext new_table_name() {
+			return getRuleContext(New_table_nameContext.class,0);
+		}
+		public TerminalNode ADD() { return getToken(SQLiteParser.ADD, 0); }
+		public Column_defContext column_def() {
+			return getRuleContext(Column_defContext.class,0);
+		}
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public TerminalNode COLUMN() { return getToken(SQLiteParser.COLUMN, 0); }
 		public Alter_table_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_alter_table_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterAlter_table_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterAlter_table_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitAlter_table_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitAlter_table_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitAlter_table_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitAlter_table_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -756,39 +829,53 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(239); match(ALTER);
-			setState(240); match(TABLE);
+			setState(239);
+			match(ALTER);
+			setState(240);
+			match(TABLE);
 			setState(244);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 			case 1:
 				{
-				setState(241); database_name();
-				setState(242); match(DOT);
+				setState(241);
+				database_name();
+				setState(242);
+				match(DOT);
 				}
 				break;
 			}
-			setState(246); table_name();
+			setState(246);
+			table_name();
 			setState(255);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case RENAME:
 				{
-				setState(247); match(RENAME);
-				setState(248); match(TO);
-				setState(249); new_table_name();
+				setState(247);
+				match(RENAME);
+				setState(248);
+				match(TO);
+				setState(249);
+				new_table_name();
 				}
 				break;
 			case ADD:
 				{
-				setState(250); match(ADD);
+				setState(250);
+				match(ADD);
 				setState(252);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 				case 1:
 					{
-					setState(251); match(COLUMN);
+					setState(251);
+					match(COLUMN);
 					}
 					break;
 				}
-				setState(254); column_def();
+				setState(254);
+				column_def();
 				}
 				break;
 			default:
@@ -808,28 +895,29 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Analyze_stmtContext extends ParserRuleContext {
-		public TerminalNode ANALYZE() { return getToken(SQLiteSyntaxParser.ANALYZE, 0); }
-		public Table_or_index_nameContext table_or_index_name() {
-			return getRuleContext(Table_or_index_nameContext.class,0);
-		}
+		public TerminalNode ANALYZE() { return getToken(SQLiteParser.ANALYZE, 0); }
 		public Database_nameContext database_name() {
 			return getRuleContext(Database_nameContext.class,0);
 		}
+		public Table_or_index_nameContext table_or_index_name() {
+			return getRuleContext(Table_or_index_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
 		public Analyze_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_analyze_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterAnalyze_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterAnalyze_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitAnalyze_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitAnalyze_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitAnalyze_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitAnalyze_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -840,26 +928,31 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(257); match(ANALYZE);
+			setState(257);
+			match(ANALYZE);
 			setState(264);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
-				setState(258); database_name();
+				setState(258);
+				database_name();
 				}
 				break;
-
 			case 2:
 				{
-				setState(259); table_or_index_name();
+				setState(259);
+				table_or_index_name();
 				}
 				break;
-
 			case 3:
 				{
-				setState(260); database_name();
-				setState(261); match(DOT);
-				setState(262); table_or_index_name();
+				setState(260);
+				database_name();
+				setState(261);
+				match(DOT);
+				setState(262);
+				table_or_index_name();
 				}
 				break;
 			}
@@ -877,30 +970,30 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Attach_stmtContext extends ParserRuleContext {
-		public TerminalNode AS() { return getToken(SQLiteSyntaxParser.AS, 0); }
-		public TerminalNode DATABASE() { return getToken(SQLiteSyntaxParser.DATABASE, 0); }
-		public TerminalNode ATTACH() { return getToken(SQLiteSyntaxParser.ATTACH, 0); }
+		public TerminalNode ATTACH() { return getToken(SQLiteParser.ATTACH, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
+		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
 		public Database_nameContext database_name() {
 			return getRuleContext(Database_nameContext.class,0);
 		}
+		public TerminalNode DATABASE() { return getToken(SQLiteParser.DATABASE, 0); }
 		public Attach_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_attach_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterAttach_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterAttach_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitAttach_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitAttach_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitAttach_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitAttach_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -911,18 +1004,24 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(266); match(ATTACH);
+			setState(266);
+			match(ATTACH);
 			setState(268);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
 			case 1:
 				{
-				setState(267); match(DATABASE);
+				setState(267);
+				match(DATABASE);
 				}
 				break;
 			}
-			setState(270); expr(0);
-			setState(271); match(AS);
-			setState(272); database_name();
+			setState(270);
+			expr(0);
+			setState(271);
+			match(AS);
+			setState(272);
+			database_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -937,29 +1036,29 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Begin_stmtContext extends ParserRuleContext {
-		public TerminalNode EXCLUSIVE() { return getToken(SQLiteSyntaxParser.EXCLUSIVE, 0); }
-		public TerminalNode DEFERRED() { return getToken(SQLiteSyntaxParser.DEFERRED, 0); }
-		public TerminalNode TRANSACTION() { return getToken(SQLiteSyntaxParser.TRANSACTION, 0); }
+		public TerminalNode BEGIN() { return getToken(SQLiteParser.BEGIN, 0); }
+		public TerminalNode TRANSACTION() { return getToken(SQLiteParser.TRANSACTION, 0); }
+		public TerminalNode DEFERRED() { return getToken(SQLiteParser.DEFERRED, 0); }
+		public TerminalNode IMMEDIATE() { return getToken(SQLiteParser.IMMEDIATE, 0); }
+		public TerminalNode EXCLUSIVE() { return getToken(SQLiteParser.EXCLUSIVE, 0); }
 		public Transaction_nameContext transaction_name() {
 			return getRuleContext(Transaction_nameContext.class,0);
 		}
-		public TerminalNode IMMEDIATE() { return getToken(SQLiteSyntaxParser.IMMEDIATE, 0); }
-		public TerminalNode BEGIN() { return getToken(SQLiteSyntaxParser.BEGIN, 0); }
 		public Begin_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_begin_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterBegin_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterBegin_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitBegin_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitBegin_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitBegin_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitBegin_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -971,8 +1070,10 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(274); match(BEGIN);
+			setState(274);
+			match(BEGIN);
 			setState(276);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (((((_la - 58)) & ~0x3f) == 0 && ((1L << (_la - 58)) & ((1L << (DEFERRED - 58)) | (1L << (EXCLUSIVE - 58)) | (1L << (IMMEDIATE - 58)))) != 0)) {
 				{
@@ -981,20 +1082,28 @@ public class SQLiteSyntaxParser extends Parser {
 				if ( !(((((_la - 58)) & ~0x3f) == 0 && ((1L << (_la - 58)) & ((1L << (DEFERRED - 58)) | (1L << (EXCLUSIVE - 58)) | (1L << (IMMEDIATE - 58)))) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
-				consume();
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				}
 			}
 
 			setState(282);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==TRANSACTION) {
 				{
-				setState(278); match(TRANSACTION);
+				setState(278);
+				match(TRANSACTION);
 				setState(280);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 				case 1:
 					{
-					setState(279); transaction_name();
+					setState(279);
+					transaction_name();
 					}
 					break;
 				}
@@ -1015,27 +1124,27 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Commit_stmtContext extends ParserRuleContext {
-		public TerminalNode TRANSACTION() { return getToken(SQLiteSyntaxParser.TRANSACTION, 0); }
-		public TerminalNode COMMIT() { return getToken(SQLiteSyntaxParser.COMMIT, 0); }
+		public TerminalNode COMMIT() { return getToken(SQLiteParser.COMMIT, 0); }
+		public TerminalNode END() { return getToken(SQLiteParser.END, 0); }
+		public TerminalNode TRANSACTION() { return getToken(SQLiteParser.TRANSACTION, 0); }
 		public Transaction_nameContext transaction_name() {
 			return getRuleContext(Transaction_nameContext.class,0);
 		}
-		public TerminalNode END() { return getToken(SQLiteSyntaxParser.END, 0); }
 		public Commit_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_commit_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCommit_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCommit_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCommit_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCommit_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCommit_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCommit_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1052,17 +1161,25 @@ public class SQLiteSyntaxParser extends Parser {
 			if ( !(_la==COMMIT || _la==END) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			setState(289);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==TRANSACTION) {
 				{
-				setState(285); match(TRANSACTION);
+				setState(285);
+				match(TRANSACTION);
 				setState(287);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 				case 1:
 					{
-					setState(286); transaction_name();
+					setState(286);
+					transaction_name();
 					}
 					break;
 				}
@@ -1083,51 +1200,55 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Compound_select_stmtContext extends ParserRuleContext {
-		public List<TerminalNode> EXCEPT() { return getTokens(SQLiteSyntaxParser.EXCEPT); }
-		public TerminalNode LIMIT() { return getToken(SQLiteSyntaxParser.LIMIT, 0); }
-		public List<TerminalNode> ALL() { return getTokens(SQLiteSyntaxParser.ALL); }
-		public List<TerminalNode> INTERSECT() { return getTokens(SQLiteSyntaxParser.INTERSECT); }
-		public TerminalNode WITH() { return getToken(SQLiteSyntaxParser.WITH, 0); }
-		public TerminalNode UNION(int i) {
-			return getToken(SQLiteSyntaxParser.UNION, i);
-		}
-		public Ordering_termContext ordering_term(int i) {
-			return getRuleContext(Ordering_termContext.class,i);
-		}
-		public List<TerminalNode> UNION() { return getTokens(SQLiteSyntaxParser.UNION); }
-		public List<Common_table_expressionContext> common_table_expression() {
-			return getRuleContexts(Common_table_expressionContext.class);
-		}
-		public TerminalNode EXCEPT(int i) {
-			return getToken(SQLiteSyntaxParser.EXCEPT, i);
-		}
 		public List<Select_coreContext> select_core() {
 			return getRuleContexts(Select_coreContext.class);
 		}
-		public TerminalNode OFFSET() { return getToken(SQLiteSyntaxParser.OFFSET, 0); }
-		public TerminalNode ALL(int i) {
-			return getToken(SQLiteSyntaxParser.ALL, i);
-		}
-		public TerminalNode ORDER() { return getToken(SQLiteSyntaxParser.ORDER, 0); }
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
-		public List<Ordering_termContext> ordering_term() {
-			return getRuleContexts(Ordering_termContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public TerminalNode RECURSIVE() { return getToken(SQLiteSyntaxParser.RECURSIVE, 0); }
 		public Select_coreContext select_core(int i) {
 			return getRuleContext(Select_coreContext.class,i);
+		}
+		public TerminalNode WITH() { return getToken(SQLiteParser.WITH, 0); }
+		public List<Common_table_expressionContext> common_table_expression() {
+			return getRuleContexts(Common_table_expressionContext.class);
 		}
 		public Common_table_expressionContext common_table_expression(int i) {
 			return getRuleContext(Common_table_expressionContext.class,i);
 		}
+		public TerminalNode ORDER() { return getToken(SQLiteParser.ORDER, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public List<Ordering_termContext> ordering_term() {
+			return getRuleContexts(Ordering_termContext.class);
+		}
+		public Ordering_termContext ordering_term(int i) {
+			return getRuleContext(Ordering_termContext.class,i);
+		}
+		public TerminalNode LIMIT() { return getToken(SQLiteParser.LIMIT, 0); }
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public List<TerminalNode> UNION() { return getTokens(SQLiteParser.UNION); }
+		public TerminalNode UNION(int i) {
+			return getToken(SQLiteParser.UNION, i);
+		}
+		public List<TerminalNode> INTERSECT() { return getTokens(SQLiteParser.INTERSECT); }
 		public TerminalNode INTERSECT(int i) {
-			return getToken(SQLiteSyntaxParser.INTERSECT, i);
+			return getToken(SQLiteParser.INTERSECT, i);
+		}
+		public List<TerminalNode> EXCEPT() { return getTokens(SQLiteParser.EXCEPT); }
+		public TerminalNode EXCEPT(int i) {
+			return getToken(SQLiteParser.EXCEPT, i);
+		}
+		public TerminalNode RECURSIVE() { return getToken(SQLiteParser.RECURSIVE, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public TerminalNode OFFSET() { return getToken(SQLiteParser.OFFSET, 0); }
+		public List<TerminalNode> ALL() { return getTokens(SQLiteParser.ALL); }
+		public TerminalNode ALL(int i) {
+			return getToken(SQLiteParser.ALL, i);
 		}
 		public Compound_select_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1135,15 +1256,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_compound_select_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCompound_select_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCompound_select_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCompound_select_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCompound_select_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCompound_select_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCompound_select_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1156,27 +1277,34 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(303);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WITH) {
 				{
-				setState(291); match(WITH);
+				setState(291);
+				match(WITH);
 				setState(293);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
 				case 1:
 					{
-					setState(292); match(RECURSIVE);
+					setState(292);
+					match(RECURSIVE);
 					}
 					break;
 				}
-				setState(295); common_table_expression();
+				setState(295);
+				common_table_expression();
 				setState(300);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(296); match(COMMA);
-					setState(297); common_table_expression();
+					setState(296);
+					match(COMMA);
+					setState(297);
+					common_table_expression();
 					}
 					}
 					setState(302);
@@ -1186,7 +1314,8 @@ public class SQLiteSyntaxParser extends Parser {
 				}
 			}
 
-			setState(305); select_core();
+			setState(305);
+			select_core();
 			setState(315); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -1194,15 +1323,19 @@ public class SQLiteSyntaxParser extends Parser {
 				{
 				{
 				setState(312);
+				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case UNION:
 					{
-					setState(306); match(UNION);
+					setState(306);
+					match(UNION);
 					setState(308);
+					_errHandler.sync(this);
 					_la = _input.LA(1);
 					if (_la==ALL) {
 						{
-						setState(307); match(ALL);
+						setState(307);
+						match(ALL);
 						}
 					}
 
@@ -1210,18 +1343,21 @@ public class SQLiteSyntaxParser extends Parser {
 					break;
 				case INTERSECT:
 					{
-					setState(310); match(INTERSECT);
+					setState(310);
+					match(INTERSECT);
 					}
 					break;
 				case EXCEPT:
 					{
-					setState(311); match(EXCEPT);
+					setState(311);
+					match(EXCEPT);
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(314); select_core();
+				setState(314);
+				select_core();
 				}
 				}
 				setState(317); 
@@ -1229,20 +1365,26 @@ public class SQLiteSyntaxParser extends Parser {
 				_la = _input.LA(1);
 			} while ( _la==EXCEPT || _la==INTERSECT || _la==UNION );
 			setState(329);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ORDER) {
 				{
-				setState(319); match(ORDER);
-				setState(320); match(BY);
-				setState(321); ordering_term();
+				setState(319);
+				match(ORDER);
+				setState(320);
+				match(BY);
+				setState(321);
+				ordering_term();
 				setState(326);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(322); match(COMMA);
-					setState(323); ordering_term();
+					setState(322);
+					match(COMMA);
+					setState(323);
+					ordering_term();
 					}
 					}
 					setState(328);
@@ -1253,12 +1395,16 @@ public class SQLiteSyntaxParser extends Parser {
 			}
 
 			setState(337);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==LIMIT) {
 				{
-				setState(331); match(LIMIT);
-				setState(332); expr(0);
+				setState(331);
+				match(LIMIT);
+				setState(332);
+				expr(0);
 				setState(335);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMMA || _la==OFFSET) {
 					{
@@ -1267,8 +1413,13 @@ public class SQLiteSyntaxParser extends Parser {
 					if ( !(_la==COMMA || _la==OFFSET) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
-					setState(334); expr(0);
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
+					setState(334);
+					expr(0);
 					}
 				}
 
@@ -1289,47 +1440,54 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Create_index_stmtContext extends ParserRuleContext {
-		public TerminalNode WHERE() { return getToken(SQLiteSyntaxParser.WHERE, 0); }
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public Indexed_columnContext indexed_column(int i) {
-			return getRuleContext(Indexed_columnContext.class,i);
-		}
-		public List<Indexed_columnContext> indexed_column() {
-			return getRuleContexts(Indexed_columnContext.class);
-		}
-		public TerminalNode ON() { return getToken(SQLiteSyntaxParser.ON, 0); }
-		public TerminalNode CREATE() { return getToken(SQLiteSyntaxParser.CREATE, 0); }
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
-		}
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
+		public TerminalNode CREATE() { return getToken(SQLiteParser.CREATE, 0); }
+		public TerminalNode INDEX() { return getToken(SQLiteParser.INDEX, 0); }
 		public Index_nameContext index_name() {
 			return getRuleContext(Index_nameContext.class,0);
 		}
+		public TerminalNode ON() { return getToken(SQLiteParser.ON, 0); }
 		public Table_nameContext table_name() {
 			return getRuleContext(Table_nameContext.class,0);
 		}
-		public TerminalNode UNIQUE() { return getToken(SQLiteSyntaxParser.UNIQUE, 0); }
-		public TerminalNode INDEX() { return getToken(SQLiteSyntaxParser.INDEX, 0); }
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public List<Indexed_columnContext> indexed_column() {
+			return getRuleContexts(Indexed_columnContext.class);
+		}
+		public Indexed_columnContext indexed_column(int i) {
+			return getRuleContext(Indexed_columnContext.class,i);
+		}
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public TerminalNode UNIQUE() { return getToken(SQLiteParser.UNIQUE, 0); }
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public TerminalNode WHERE() { return getToken(SQLiteParser.WHERE, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
 		public Create_index_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_create_index_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCreate_index_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCreate_index_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCreate_index_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCreate_index_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCreate_index_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCreate_index_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1341,61 +1499,83 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(339); match(CREATE);
+			setState(339);
+			match(CREATE);
 			setState(341);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==UNIQUE) {
 				{
-				setState(340); match(UNIQUE);
+				setState(340);
+				match(UNIQUE);
 				}
 			}
 
-			setState(343); match(INDEX);
+			setState(343);
+			match(INDEX);
 			setState(347);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,30,_ctx) ) {
 			case 1:
 				{
-				setState(344); match(IF);
-				setState(345); match(NOT);
-				setState(346); match(EXISTS);
+				setState(344);
+				match(IF);
+				setState(345);
+				match(NOT);
+				setState(346);
+				match(EXISTS);
 				}
 				break;
 			}
 			setState(352);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,31,_ctx) ) {
 			case 1:
 				{
-				setState(349); database_name();
-				setState(350); match(DOT);
+				setState(349);
+				database_name();
+				setState(350);
+				match(DOT);
 				}
 				break;
 			}
-			setState(354); index_name();
-			setState(355); match(ON);
-			setState(356); table_name();
-			setState(357); match(OPEN_PAR);
-			setState(358); indexed_column();
+			setState(354);
+			index_name();
+			setState(355);
+			match(ON);
+			setState(356);
+			table_name();
+			setState(357);
+			match(OPEN_PAR);
+			setState(358);
+			indexed_column();
 			setState(363);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(359); match(COMMA);
-				setState(360); indexed_column();
+				setState(359);
+				match(COMMA);
+				setState(360);
+				indexed_column();
 				}
 				}
 				setState(365);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(366); match(CLOSE_PAR);
+			setState(366);
+			match(CLOSE_PAR);
 			setState(369);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WHERE) {
 				{
-				setState(367); match(WHERE);
-				setState(368); expr(0);
+				setState(367);
+				match(WHERE);
+				setState(368);
+				expr(0);
 				}
 			}
 
@@ -1413,52 +1593,59 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Create_table_stmtContext extends ParserRuleContext {
-		public TerminalNode AS() { return getToken(SQLiteSyntaxParser.AS, 0); }
-		public TerminalNode CREATE() { return getToken(SQLiteSyntaxParser.CREATE, 0); }
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
-		public TerminalNode TEMPORARY() { return getToken(SQLiteSyntaxParser.TEMPORARY, 0); }
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
+		public TerminalNode CREATE() { return getToken(SQLiteParser.CREATE, 0); }
+		public TerminalNode TABLE() { return getToken(SQLiteParser.TABLE, 0); }
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
 		}
-		public List<Table_constraintContext> table_constraint() {
-			return getRuleContexts(Table_constraintContext.class);
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public List<Column_defContext> column_def() {
+			return getRuleContexts(Column_defContext.class);
 		}
 		public Column_defContext column_def(int i) {
 			return getRuleContext(Column_defContext.class,i);
 		}
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public TerminalNode IDENTIFIER() { return getToken(SQLiteSyntaxParser.IDENTIFIER, 0); }
-		public Table_constraintContext table_constraint(int i) {
-			return getRuleContext(Table_constraintContext.class,i);
-		}
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
-		public TerminalNode TABLE() { return getToken(SQLiteSyntaxParser.TABLE, 0); }
-		public TerminalNode TEMP() { return getToken(SQLiteSyntaxParser.TEMP, 0); }
-		public List<Column_defContext> column_def() {
-			return getRuleContexts(Column_defContext.class);
-		}
-		public TerminalNode WITHOUT() { return getToken(SQLiteSyntaxParser.WITHOUT, 0); }
-		public Table_nameContext table_name() {
-			return getRuleContext(Table_nameContext.class,0);
-		}
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
 		public Select_stmtContext select_stmt() {
 			return getRuleContext(Select_stmtContext.class,0);
 		}
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public TerminalNode TEMP() { return getToken(SQLiteParser.TEMP, 0); }
+		public TerminalNode TEMPORARY() { return getToken(SQLiteParser.TEMPORARY, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public List<Table_constraintContext> table_constraint() {
+			return getRuleContexts(Table_constraintContext.class);
+		}
+		public Table_constraintContext table_constraint(int i) {
+			return getRuleContext(Table_constraintContext.class,i);
+		}
+		public TerminalNode WITHOUT() { return getToken(SQLiteParser.WITHOUT, 0); }
+		public TerminalNode IDENTIFIER() { return getToken(SQLiteParser.IDENTIFIER, 0); }
 		public Create_table_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_create_table_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCreate_table_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCreate_table_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCreate_table_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCreate_table_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCreate_table_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCreate_table_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1471,8 +1658,10 @@ public class SQLiteSyntaxParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(371); match(CREATE);
+			setState(371);
+			match(CREATE);
 			setState(373);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==TEMP || _la==TEMPORARY) {
 				{
@@ -1481,46 +1670,64 @@ public class SQLiteSyntaxParser extends Parser {
 				if ( !(_la==TEMP || _la==TEMPORARY) ) {
 				_errHandler.recoverInline(this);
 				}
-				consume();
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				}
 			}
 
-			setState(375); match(TABLE);
+			setState(375);
+			match(TABLE);
 			setState(379);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,35,_ctx) ) {
 			case 1:
 				{
-				setState(376); match(IF);
-				setState(377); match(NOT);
-				setState(378); match(EXISTS);
+				setState(376);
+				match(IF);
+				setState(377);
+				match(NOT);
+				setState(378);
+				match(EXISTS);
 				}
 				break;
 			}
 			setState(384);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,36,_ctx) ) {
 			case 1:
 				{
-				setState(381); database_name();
-				setState(382); match(DOT);
+				setState(381);
+				database_name();
+				setState(382);
+				match(DOT);
 				}
 				break;
 			}
-			setState(386); table_name();
+			setState(386);
+			table_name();
 			setState(410);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case OPEN_PAR:
 				{
-				setState(387); match(OPEN_PAR);
-				setState(388); column_def();
+				setState(387);
+				match(OPEN_PAR);
+				setState(388);
+				column_def();
 				setState(393);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,37,_ctx);
-				while ( _alt!=2 && _alt!=ATN.INVALID_ALT_NUMBER ) {
+				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(389); match(COMMA);
-						setState(390); column_def();
+						setState(389);
+						match(COMMA);
+						setState(390);
+						column_def();
 						}
 						} 
 					}
@@ -1534,21 +1741,27 @@ public class SQLiteSyntaxParser extends Parser {
 				while (_la==COMMA) {
 					{
 					{
-					setState(396); match(COMMA);
-					setState(397); table_constraint();
+					setState(396);
+					match(COMMA);
+					setState(397);
+					table_constraint();
 					}
 					}
 					setState(402);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(403); match(CLOSE_PAR);
+				setState(403);
+				match(CLOSE_PAR);
 				setState(406);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==WITHOUT) {
 					{
-					setState(404); match(WITHOUT);
-					setState(405); match(IDENTIFIER);
+					setState(404);
+					match(WITHOUT);
+					setState(405);
+					match(IDENTIFIER);
 					}
 				}
 
@@ -1556,8 +1769,10 @@ public class SQLiteSyntaxParser extends Parser {
 				break;
 			case AS:
 				{
-				setState(408); match(AS);
-				setState(409); select_stmt();
+				setState(408);
+				match(AS);
+				setState(409);
+				select_stmt();
 				}
 				break;
 			default:
@@ -1577,90 +1792,102 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Create_trigger_stmtContext extends ParserRuleContext {
-		public Insert_stmtContext insert_stmt(int i) {
-			return getRuleContext(Insert_stmtContext.class,i);
+		public TerminalNode CREATE() { return getToken(SQLiteParser.CREATE, 0); }
+		public TerminalNode TRIGGER() { return getToken(SQLiteParser.TRIGGER, 0); }
+		public Trigger_nameContext trigger_name() {
+			return getRuleContext(Trigger_nameContext.class,0);
 		}
+		public TerminalNode ON() { return getToken(SQLiteParser.ON, 0); }
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
+		}
+		public TerminalNode BEGIN() { return getToken(SQLiteParser.BEGIN, 0); }
+		public TerminalNode END() { return getToken(SQLiteParser.END, 0); }
+		public TerminalNode DELETE() { return getToken(SQLiteParser.DELETE, 0); }
+		public TerminalNode INSERT() { return getToken(SQLiteParser.INSERT, 0); }
+		public TerminalNode UPDATE() { return getToken(SQLiteParser.UPDATE, 0); }
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public List<Database_nameContext> database_name() {
+			return getRuleContexts(Database_nameContext.class);
+		}
+		public Database_nameContext database_name(int i) {
+			return getRuleContext(Database_nameContext.class,i);
+		}
+		public List<TerminalNode> DOT() { return getTokens(SQLiteParser.DOT); }
+		public TerminalNode DOT(int i) {
+			return getToken(SQLiteParser.DOT, i);
+		}
+		public TerminalNode BEFORE() { return getToken(SQLiteParser.BEFORE, 0); }
+		public TerminalNode AFTER() { return getToken(SQLiteParser.AFTER, 0); }
+		public TerminalNode INSTEAD() { return getToken(SQLiteParser.INSTEAD, 0); }
+		public List<TerminalNode> OF() { return getTokens(SQLiteParser.OF); }
+		public TerminalNode OF(int i) {
+			return getToken(SQLiteParser.OF, i);
+		}
+		public TerminalNode FOR() { return getToken(SQLiteParser.FOR, 0); }
+		public TerminalNode EACH() { return getToken(SQLiteParser.EACH, 0); }
+		public TerminalNode ROW() { return getToken(SQLiteParser.ROW, 0); }
+		public TerminalNode WHEN() { return getToken(SQLiteParser.WHEN, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public List<TerminalNode> SCOL() { return getTokens(SQLiteParser.SCOL); }
+		public TerminalNode SCOL(int i) {
+			return getToken(SQLiteParser.SCOL, i);
+		}
+		public TerminalNode TEMP() { return getToken(SQLiteParser.TEMP, 0); }
+		public TerminalNode TEMPORARY() { return getToken(SQLiteParser.TEMPORARY, 0); }
 		public List<Column_nameContext> column_name() {
 			return getRuleContexts(Column_nameContext.class);
-		}
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
-		public List<Delete_stmtContext> delete_stmt() {
-			return getRuleContexts(Delete_stmtContext.class);
 		}
 		public Column_nameContext column_name(int i) {
 			return getRuleContext(Column_nameContext.class,i);
 		}
-		public TerminalNode BEFORE() { return getToken(SQLiteSyntaxParser.BEFORE, 0); }
-		public List<Insert_stmtContext> insert_stmt() {
-			return getRuleContexts(Insert_stmtContext.class);
-		}
-		public TerminalNode OF(int i) {
-			return getToken(SQLiteSyntaxParser.OF, i);
-		}
-		public TerminalNode INSERT() { return getToken(SQLiteSyntaxParser.INSERT, 0); }
-		public TerminalNode EACH() { return getToken(SQLiteSyntaxParser.EACH, 0); }
-		public Trigger_nameContext trigger_name() {
-			return getRuleContext(Trigger_nameContext.class,0);
-		}
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public Select_stmtContext select_stmt(int i) {
-			return getRuleContext(Select_stmtContext.class,i);
-		}
-		public TerminalNode ON() { return getToken(SQLiteSyntaxParser.ON, 0); }
 		public List<Update_stmtContext> update_stmt() {
 			return getRuleContexts(Update_stmtContext.class);
 		}
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public TerminalNode ROW() { return getToken(SQLiteSyntaxParser.ROW, 0); }
-		public Database_nameContext database_name(int i) {
-			return getRuleContext(Database_nameContext.class,i);
-		}
-		public TerminalNode INSTEAD() { return getToken(SQLiteSyntaxParser.INSTEAD, 0); }
-		public List<TerminalNode> OF() { return getTokens(SQLiteSyntaxParser.OF); }
-		public TerminalNode TEMP() { return getToken(SQLiteSyntaxParser.TEMP, 0); }
-		public TerminalNode DELETE() { return getToken(SQLiteSyntaxParser.DELETE, 0); }
-		public TerminalNode UPDATE() { return getToken(SQLiteSyntaxParser.UPDATE, 0); }
-		public Table_nameContext table_name() {
-			return getRuleContext(Table_nameContext.class,0);
-		}
-		public TerminalNode WHEN() { return getToken(SQLiteSyntaxParser.WHEN, 0); }
 		public Update_stmtContext update_stmt(int i) {
 			return getRuleContext(Update_stmtContext.class,i);
+		}
+		public List<Insert_stmtContext> insert_stmt() {
+			return getRuleContexts(Insert_stmtContext.class);
+		}
+		public Insert_stmtContext insert_stmt(int i) {
+			return getRuleContext(Insert_stmtContext.class,i);
+		}
+		public List<Delete_stmtContext> delete_stmt() {
+			return getRuleContexts(Delete_stmtContext.class);
 		}
 		public Delete_stmtContext delete_stmt(int i) {
 			return getRuleContext(Delete_stmtContext.class,i);
 		}
-		public TerminalNode CREATE() { return getToken(SQLiteSyntaxParser.CREATE, 0); }
-		public TerminalNode TEMPORARY() { return getToken(SQLiteSyntaxParser.TEMPORARY, 0); }
-		public List<Database_nameContext> database_name() {
-			return getRuleContexts(Database_nameContext.class);
-		}
-		public TerminalNode TRIGGER() { return getToken(SQLiteSyntaxParser.TRIGGER, 0); }
-		public TerminalNode FOR() { return getToken(SQLiteSyntaxParser.FOR, 0); }
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
-		public TerminalNode BEGIN() { return getToken(SQLiteSyntaxParser.BEGIN, 0); }
-		public TerminalNode AFTER() { return getToken(SQLiteSyntaxParser.AFTER, 0); }
 		public List<Select_stmtContext> select_stmt() {
 			return getRuleContexts(Select_stmtContext.class);
 		}
-		public TerminalNode END() { return getToken(SQLiteSyntaxParser.END, 0); }
+		public Select_stmtContext select_stmt(int i) {
+			return getRuleContext(Select_stmtContext.class,i);
+		}
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
 		public Create_trigger_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_create_trigger_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCreate_trigger_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCreate_trigger_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCreate_trigger_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCreate_trigger_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCreate_trigger_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCreate_trigger_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1672,8 +1899,10 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(412); match(CREATE);
+			setState(412);
+			match(CREATE);
 			setState(414);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==TEMP || _la==TEMPORARY) {
 				{
@@ -1682,47 +1911,65 @@ public class SQLiteSyntaxParser extends Parser {
 				if ( !(_la==TEMP || _la==TEMPORARY) ) {
 				_errHandler.recoverInline(this);
 				}
-				consume();
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				}
 			}
 
-			setState(416); match(TRIGGER);
+			setState(416);
+			match(TRIGGER);
 			setState(420);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,42,_ctx) ) {
 			case 1:
 				{
-				setState(417); match(IF);
-				setState(418); match(NOT);
-				setState(419); match(EXISTS);
+				setState(417);
+				match(IF);
+				setState(418);
+				match(NOT);
+				setState(419);
+				match(EXISTS);
 				}
 				break;
 			}
 			setState(425);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,43,_ctx) ) {
 			case 1:
 				{
-				setState(422); database_name();
-				setState(423); match(DOT);
+				setState(422);
+				database_name();
+				setState(423);
+				match(DOT);
 				}
 				break;
 			}
-			setState(427); trigger_name();
+			setState(427);
+			trigger_name();
 			setState(432);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case BEFORE:
 				{
-				setState(428); match(BEFORE);
+				setState(428);
+				match(BEFORE);
 				}
 				break;
 			case AFTER:
 				{
-				setState(429); match(AFTER);
+				setState(429);
+				match(AFTER);
 				}
 				break;
 			case INSTEAD:
 				{
-				setState(430); match(INSTEAD);
-				setState(431); match(OF);
+				setState(430);
+				match(INSTEAD);
+				setState(431);
+				match(OF);
 				}
 				break;
 			case DELETE:
@@ -1730,37 +1977,46 @@ public class SQLiteSyntaxParser extends Parser {
 			case UPDATE:
 				break;
 			default:
-				throw new NoViableAltException(this);
+				break;
 			}
 			setState(448);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case DELETE:
 				{
-				setState(434); match(DELETE);
+				setState(434);
+				match(DELETE);
 				}
 				break;
 			case INSERT:
 				{
-				setState(435); match(INSERT);
+				setState(435);
+				match(INSERT);
 				}
 				break;
 			case UPDATE:
 				{
-				setState(436); match(UPDATE);
+				setState(436);
+				match(UPDATE);
 				setState(446);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==OF) {
 					{
-					setState(437); match(OF);
-					setState(438); column_name();
+					setState(437);
+					match(OF);
+					setState(438);
+					column_name();
 					setState(443);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(439); match(COMMA);
-						setState(440); column_name();
+						setState(439);
+						match(COMMA);
+						setState(440);
+						column_name();
 						}
 						}
 						setState(445);
@@ -1775,37 +2031,50 @@ public class SQLiteSyntaxParser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(450); match(ON);
+			setState(450);
+			match(ON);
 			setState(454);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,48,_ctx) ) {
 			case 1:
 				{
-				setState(451); database_name();
-				setState(452); match(DOT);
+				setState(451);
+				database_name();
+				setState(452);
+				match(DOT);
 				}
 				break;
 			}
-			setState(456); table_name();
+			setState(456);
+			table_name();
 			setState(460);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==FOR) {
 				{
-				setState(457); match(FOR);
-				setState(458); match(EACH);
-				setState(459); match(ROW);
+				setState(457);
+				match(FOR);
+				setState(458);
+				match(EACH);
+				setState(459);
+				match(ROW);
 				}
 			}
 
 			setState(464);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WHEN) {
 				{
-				setState(462); match(WHEN);
-				setState(463); expr(0);
+				setState(462);
+				match(WHEN);
+				setState(463);
+				expr(0);
 				}
 			}
 
-			setState(466); match(BEGIN);
+			setState(466);
+			match(BEGIN);
 			setState(475); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -1813,39 +2082,43 @@ public class SQLiteSyntaxParser extends Parser {
 				{
 				{
 				setState(471);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,51,_ctx) ) {
 				case 1:
 					{
-					setState(467); update_stmt();
+					setState(467);
+					update_stmt();
 					}
 					break;
-
 				case 2:
 					{
-					setState(468); insert_stmt();
+					setState(468);
+					insert_stmt();
 					}
 					break;
-
 				case 3:
 					{
-					setState(469); delete_stmt();
+					setState(469);
+					delete_stmt();
 					}
 					break;
-
 				case 4:
 					{
-					setState(470); select_stmt();
+					setState(470);
+					select_stmt();
 					}
 					break;
 				}
-				setState(473); match(SCOL);
+				setState(473);
+				match(SCOL);
 				}
 				}
 				setState(477); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==DELETE || ((((_la - 88)) & ~0x3f) == 0 && ((1L << (_la - 88)) & ((1L << (INSERT - 88)) | (1L << (REPLACE - 88)) | (1L << (SELECT - 88)) | (1L << (UPDATE - 88)) | (1L << (VALUES - 88)) | (1L << (WITH - 88)))) != 0) );
-			setState(479); match(END);
+			setState(479);
+			match(END);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1860,38 +2133,39 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Create_view_stmtContext extends ParserRuleContext {
-		public TerminalNode AS() { return getToken(SQLiteSyntaxParser.AS, 0); }
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public TerminalNode VIEW() { return getToken(SQLiteSyntaxParser.VIEW, 0); }
-		public TerminalNode CREATE() { return getToken(SQLiteSyntaxParser.CREATE, 0); }
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
+		public TerminalNode CREATE() { return getToken(SQLiteParser.CREATE, 0); }
+		public TerminalNode VIEW() { return getToken(SQLiteParser.VIEW, 0); }
 		public View_nameContext view_name() {
 			return getRuleContext(View_nameContext.class,0);
 		}
-		public TerminalNode TEMPORARY() { return getToken(SQLiteSyntaxParser.TEMPORARY, 0); }
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
-		}
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
-		public TerminalNode TEMP() { return getToken(SQLiteSyntaxParser.TEMP, 0); }
+		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
 		public Select_stmtContext select_stmt() {
 			return getRuleContext(Select_stmtContext.class,0);
 		}
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public TerminalNode TEMP() { return getToken(SQLiteParser.TEMP, 0); }
+		public TerminalNode TEMPORARY() { return getToken(SQLiteParser.TEMPORARY, 0); }
 		public Create_view_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_create_view_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCreate_view_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCreate_view_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCreate_view_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCreate_view_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCreate_view_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCreate_view_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1903,8 +2177,10 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(481); match(CREATE);
+			setState(481);
+			match(CREATE);
 			setState(483);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==TEMP || _la==TEMPORARY) {
 				{
@@ -1913,33 +2189,48 @@ public class SQLiteSyntaxParser extends Parser {
 				if ( !(_la==TEMP || _la==TEMPORARY) ) {
 				_errHandler.recoverInline(this);
 				}
-				consume();
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				}
 			}
 
-			setState(485); match(VIEW);
+			setState(485);
+			match(VIEW);
 			setState(489);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,54,_ctx) ) {
 			case 1:
 				{
-				setState(486); match(IF);
-				setState(487); match(NOT);
-				setState(488); match(EXISTS);
+				setState(486);
+				match(IF);
+				setState(487);
+				match(NOT);
+				setState(488);
+				match(EXISTS);
 				}
 				break;
 			}
 			setState(494);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,55,_ctx) ) {
 			case 1:
 				{
-				setState(491); database_name();
-				setState(492); match(DOT);
+				setState(491);
+				database_name();
+				setState(492);
+				match(DOT);
 				}
 				break;
 			}
-			setState(496); view_name();
-			setState(497); match(AS);
-			setState(498); select_stmt();
+			setState(496);
+			view_name();
+			setState(497);
+			match(AS);
+			setState(498);
+			select_stmt();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1954,43 +2245,50 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Create_virtual_table_stmtContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public TerminalNode CREATE() { return getToken(SQLiteSyntaxParser.CREATE, 0); }
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
+		public TerminalNode CREATE() { return getToken(SQLiteParser.CREATE, 0); }
+		public TerminalNode VIRTUAL() { return getToken(SQLiteParser.VIRTUAL, 0); }
+		public TerminalNode TABLE() { return getToken(SQLiteParser.TABLE, 0); }
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
+		}
+		public TerminalNode USING() { return getToken(SQLiteParser.USING, 0); }
+		public Module_nameContext module_name() {
+			return getRuleContext(Module_nameContext.class,0);
+		}
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
 		public List<Module_argumentContext> module_argument() {
 			return getRuleContexts(Module_argumentContext.class);
 		}
 		public Module_argumentContext module_argument(int i) {
 			return getRuleContext(Module_argumentContext.class,i);
 		}
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
 		}
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
-		public TerminalNode USING() { return getToken(SQLiteSyntaxParser.USING, 0); }
-		public TerminalNode TABLE() { return getToken(SQLiteSyntaxParser.TABLE, 0); }
-		public Module_nameContext module_name() {
-			return getRuleContext(Module_nameContext.class,0);
-		}
-		public Table_nameContext table_name() {
-			return getRuleContext(Table_nameContext.class,0);
-		}
-		public TerminalNode VIRTUAL() { return getToken(SQLiteSyntaxParser.VIRTUAL, 0); }
 		public Create_virtual_table_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_create_virtual_table_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCreate_virtual_table_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCreate_virtual_table_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCreate_virtual_table_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCreate_virtual_table_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCreate_virtual_table_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCreate_virtual_table_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2002,52 +2300,71 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(500); match(CREATE);
-			setState(501); match(VIRTUAL);
-			setState(502); match(TABLE);
+			setState(500);
+			match(CREATE);
+			setState(501);
+			match(VIRTUAL);
+			setState(502);
+			match(TABLE);
 			setState(506);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,56,_ctx) ) {
 			case 1:
 				{
-				setState(503); match(IF);
-				setState(504); match(NOT);
-				setState(505); match(EXISTS);
+				setState(503);
+				match(IF);
+				setState(504);
+				match(NOT);
+				setState(505);
+				match(EXISTS);
 				}
 				break;
 			}
 			setState(511);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,57,_ctx) ) {
 			case 1:
 				{
-				setState(508); database_name();
-				setState(509); match(DOT);
+				setState(508);
+				database_name();
+				setState(509);
+				match(DOT);
 				}
 				break;
 			}
-			setState(513); table_name();
-			setState(514); match(USING);
-			setState(515); module_name();
+			setState(513);
+			table_name();
+			setState(514);
+			match(USING);
+			setState(515);
+			module_name();
 			setState(527);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==OPEN_PAR) {
 				{
-				setState(516); match(OPEN_PAR);
-				setState(517); module_argument();
+				setState(516);
+				match(OPEN_PAR);
+				setState(517);
+				module_argument();
 				setState(522);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(518); match(COMMA);
-					setState(519); module_argument();
+					setState(518);
+					match(COMMA);
+					setState(519);
+					module_argument();
 					}
 					}
 					setState(524);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(525); match(CLOSE_PAR);
+				setState(525);
+				match(CLOSE_PAR);
 				}
 			}
 
@@ -2065,33 +2382,33 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Delete_stmtContext extends ParserRuleContext {
-		public TerminalNode WHERE() { return getToken(SQLiteSyntaxParser.WHERE, 0); }
-		public With_clauseContext with_clause() {
-			return getRuleContext(With_clauseContext.class,0);
-		}
+		public TerminalNode DELETE() { return getToken(SQLiteParser.DELETE, 0); }
+		public TerminalNode FROM() { return getToken(SQLiteParser.FROM, 0); }
 		public Qualified_table_nameContext qualified_table_name() {
 			return getRuleContext(Qualified_table_nameContext.class,0);
 		}
+		public With_clauseContext with_clause() {
+			return getRuleContext(With_clauseContext.class,0);
+		}
+		public TerminalNode WHERE() { return getToken(SQLiteParser.WHERE, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public TerminalNode DELETE() { return getToken(SQLiteSyntaxParser.DELETE, 0); }
-		public TerminalNode FROM() { return getToken(SQLiteSyntaxParser.FROM, 0); }
 		public Delete_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_delete_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterDelete_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterDelete_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitDelete_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitDelete_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitDelete_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitDelete_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2104,22 +2421,30 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(530);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WITH) {
 				{
-				setState(529); with_clause();
+				setState(529);
+				with_clause();
 				}
 			}
 
-			setState(532); match(DELETE);
-			setState(533); match(FROM);
-			setState(534); qualified_table_name();
+			setState(532);
+			match(DELETE);
+			setState(533);
+			match(FROM);
+			setState(534);
+			qualified_table_name();
 			setState(537);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WHERE) {
 				{
-				setState(535); match(WHERE);
-				setState(536); expr(0);
+				setState(535);
+				match(WHERE);
+				setState(536);
+				expr(0);
 				}
 			}
 
@@ -2137,46 +2462,50 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Delete_stmt_limitedContext extends ParserRuleContext {
-		public TerminalNode WHERE() { return getToken(SQLiteSyntaxParser.WHERE, 0); }
-		public TerminalNode LIMIT() { return getToken(SQLiteSyntaxParser.LIMIT, 0); }
-		public With_clauseContext with_clause() {
-			return getRuleContext(With_clauseContext.class,0);
-		}
+		public TerminalNode DELETE() { return getToken(SQLiteParser.DELETE, 0); }
+		public TerminalNode FROM() { return getToken(SQLiteParser.FROM, 0); }
 		public Qualified_table_nameContext qualified_table_name() {
 			return getRuleContext(Qualified_table_nameContext.class,0);
 		}
-		public TerminalNode OFFSET() { return getToken(SQLiteSyntaxParser.OFFSET, 0); }
-		public TerminalNode ORDER() { return getToken(SQLiteSyntaxParser.ORDER, 0); }
+		public With_clauseContext with_clause() {
+			return getRuleContext(With_clauseContext.class,0);
+		}
+		public TerminalNode WHERE() { return getToken(SQLiteParser.WHERE, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
-		public List<Ordering_termContext> ordering_term() {
-			return getRuleContexts(Ordering_termContext.class);
-		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode LIMIT() { return getToken(SQLiteParser.LIMIT, 0); }
+		public TerminalNode ORDER() { return getToken(SQLiteParser.ORDER, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public List<Ordering_termContext> ordering_term() {
+			return getRuleContexts(Ordering_termContext.class);
 		}
 		public Ordering_termContext ordering_term(int i) {
 			return getRuleContext(Ordering_termContext.class,i);
 		}
-		public TerminalNode DELETE() { return getToken(SQLiteSyntaxParser.DELETE, 0); }
-		public TerminalNode FROM() { return getToken(SQLiteSyntaxParser.FROM, 0); }
+		public TerminalNode OFFSET() { return getToken(SQLiteParser.OFFSET, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
 		public Delete_stmt_limitedContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_delete_stmt_limited; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterDelete_stmt_limited(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterDelete_stmt_limited(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitDelete_stmt_limited(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitDelete_stmt_limited(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitDelete_stmt_limited(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitDelete_stmt_limited(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2189,44 +2518,59 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(540);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WITH) {
 				{
-				setState(539); with_clause();
+				setState(539);
+				with_clause();
 				}
 			}
 
-			setState(542); match(DELETE);
-			setState(543); match(FROM);
-			setState(544); qualified_table_name();
+			setState(542);
+			match(DELETE);
+			setState(543);
+			match(FROM);
+			setState(544);
+			qualified_table_name();
 			setState(547);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WHERE) {
 				{
-				setState(545); match(WHERE);
-				setState(546); expr(0);
+				setState(545);
+				match(WHERE);
+				setState(546);
+				expr(0);
 				}
 			}
 
 			setState(567);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==LIMIT || _la==ORDER) {
 				{
 				setState(559);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==ORDER) {
 					{
-					setState(549); match(ORDER);
-					setState(550); match(BY);
-					setState(551); ordering_term();
+					setState(549);
+					match(ORDER);
+					setState(550);
+					match(BY);
+					setState(551);
+					ordering_term();
 					setState(556);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(552); match(COMMA);
-						setState(553); ordering_term();
+						setState(552);
+						match(COMMA);
+						setState(553);
+						ordering_term();
 						}
 						}
 						setState(558);
@@ -2236,9 +2580,12 @@ public class SQLiteSyntaxParser extends Parser {
 					}
 				}
 
-				setState(561); match(LIMIT);
-				setState(562); expr(0);
+				setState(561);
+				match(LIMIT);
+				setState(562);
+				expr(0);
 				setState(565);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMMA || _la==OFFSET) {
 					{
@@ -2247,8 +2594,13 @@ public class SQLiteSyntaxParser extends Parser {
 					if ( !(_la==COMMA || _la==OFFSET) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
-					setState(564); expr(0);
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
+					setState(564);
+					expr(0);
 					}
 				}
 
@@ -2269,26 +2621,26 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Detach_stmtContext extends ParserRuleContext {
-		public TerminalNode DATABASE() { return getToken(SQLiteSyntaxParser.DATABASE, 0); }
+		public TerminalNode DETACH() { return getToken(SQLiteParser.DETACH, 0); }
 		public Database_nameContext database_name() {
 			return getRuleContext(Database_nameContext.class,0);
 		}
-		public TerminalNode DETACH() { return getToken(SQLiteSyntaxParser.DETACH, 0); }
+		public TerminalNode DATABASE() { return getToken(SQLiteParser.DATABASE, 0); }
 		public Detach_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_detach_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterDetach_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterDetach_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitDetach_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitDetach_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitDetach_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitDetach_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2299,16 +2651,20 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(569); match(DETACH);
+			setState(569);
+			match(DETACH);
 			setState(571);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,68,_ctx) ) {
 			case 1:
 				{
-				setState(570); match(DATABASE);
+				setState(570);
+				match(DATABASE);
 				}
 				break;
 			}
-			setState(573); database_name();
+			setState(573);
+			database_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2323,31 +2679,32 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Drop_index_stmtContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
-		}
+		public TerminalNode DROP() { return getToken(SQLiteParser.DROP, 0); }
+		public TerminalNode INDEX() { return getToken(SQLiteParser.INDEX, 0); }
 		public Index_nameContext index_name() {
 			return getRuleContext(Index_nameContext.class,0);
 		}
-		public TerminalNode DROP() { return getToken(SQLiteSyntaxParser.DROP, 0); }
-		public TerminalNode INDEX() { return getToken(SQLiteSyntaxParser.INDEX, 0); }
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
 		public Drop_index_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_drop_index_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterDrop_index_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterDrop_index_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitDrop_index_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitDrop_index_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitDrop_index_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitDrop_index_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2358,27 +2715,36 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(575); match(DROP);
-			setState(576); match(INDEX);
+			setState(575);
+			match(DROP);
+			setState(576);
+			match(INDEX);
 			setState(579);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,69,_ctx) ) {
 			case 1:
 				{
-				setState(577); match(IF);
-				setState(578); match(EXISTS);
+				setState(577);
+				match(IF);
+				setState(578);
+				match(EXISTS);
 				}
 				break;
 			}
 			setState(584);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,70,_ctx) ) {
 			case 1:
 				{
-				setState(581); database_name();
-				setState(582); match(DOT);
+				setState(581);
+				database_name();
+				setState(582);
+				match(DOT);
 				}
 				break;
 			}
-			setState(586); index_name();
+			setState(586);
+			index_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2393,31 +2759,32 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Drop_table_stmtContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
-		}
-		public TerminalNode TABLE() { return getToken(SQLiteSyntaxParser.TABLE, 0); }
+		public TerminalNode DROP() { return getToken(SQLiteParser.DROP, 0); }
+		public TerminalNode TABLE() { return getToken(SQLiteParser.TABLE, 0); }
 		public Table_nameContext table_name() {
 			return getRuleContext(Table_nameContext.class,0);
 		}
-		public TerminalNode DROP() { return getToken(SQLiteSyntaxParser.DROP, 0); }
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
 		public Drop_table_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_drop_table_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterDrop_table_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterDrop_table_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitDrop_table_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitDrop_table_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitDrop_table_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitDrop_table_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2428,27 +2795,36 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(588); match(DROP);
-			setState(589); match(TABLE);
+			setState(588);
+			match(DROP);
+			setState(589);
+			match(TABLE);
 			setState(592);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,71,_ctx) ) {
 			case 1:
 				{
-				setState(590); match(IF);
-				setState(591); match(EXISTS);
+				setState(590);
+				match(IF);
+				setState(591);
+				match(EXISTS);
 				}
 				break;
 			}
 			setState(597);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,72,_ctx) ) {
 			case 1:
 				{
-				setState(594); database_name();
-				setState(595); match(DOT);
+				setState(594);
+				database_name();
+				setState(595);
+				match(DOT);
 				}
 				break;
 			}
-			setState(599); table_name();
+			setState(599);
+			table_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2463,31 +2839,32 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Drop_trigger_stmtContext extends ParserRuleContext {
-		public TerminalNode TRIGGER() { return getToken(SQLiteSyntaxParser.TRIGGER, 0); }
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
-		}
-		public TerminalNode DROP() { return getToken(SQLiteSyntaxParser.DROP, 0); }
+		public TerminalNode DROP() { return getToken(SQLiteParser.DROP, 0); }
+		public TerminalNode TRIGGER() { return getToken(SQLiteParser.TRIGGER, 0); }
 		public Trigger_nameContext trigger_name() {
 			return getRuleContext(Trigger_nameContext.class,0);
 		}
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
 		public Drop_trigger_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_drop_trigger_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterDrop_trigger_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterDrop_trigger_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitDrop_trigger_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitDrop_trigger_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitDrop_trigger_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitDrop_trigger_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2498,27 +2875,36 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(601); match(DROP);
-			setState(602); match(TRIGGER);
+			setState(601);
+			match(DROP);
+			setState(602);
+			match(TRIGGER);
 			setState(605);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,73,_ctx) ) {
 			case 1:
 				{
-				setState(603); match(IF);
-				setState(604); match(EXISTS);
+				setState(603);
+				match(IF);
+				setState(604);
+				match(EXISTS);
 				}
 				break;
 			}
 			setState(610);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,74,_ctx) ) {
 			case 1:
 				{
-				setState(607); database_name();
-				setState(608); match(DOT);
+				setState(607);
+				database_name();
+				setState(608);
+				match(DOT);
 				}
 				break;
 			}
-			setState(612); trigger_name();
+			setState(612);
+			trigger_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2533,31 +2919,32 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Drop_view_stmtContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public TerminalNode VIEW() { return getToken(SQLiteSyntaxParser.VIEW, 0); }
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
+		public TerminalNode DROP() { return getToken(SQLiteParser.DROP, 0); }
+		public TerminalNode VIEW() { return getToken(SQLiteParser.VIEW, 0); }
 		public View_nameContext view_name() {
 			return getRuleContext(View_nameContext.class,0);
 		}
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
 		public Database_nameContext database_name() {
 			return getRuleContext(Database_nameContext.class,0);
 		}
-		public TerminalNode DROP() { return getToken(SQLiteSyntaxParser.DROP, 0); }
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
 		public Drop_view_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_drop_view_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterDrop_view_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterDrop_view_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitDrop_view_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitDrop_view_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitDrop_view_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitDrop_view_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2568,27 +2955,36 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(614); match(DROP);
-			setState(615); match(VIEW);
+			setState(614);
+			match(DROP);
+			setState(615);
+			match(VIEW);
 			setState(618);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,75,_ctx) ) {
 			case 1:
 				{
-				setState(616); match(IF);
-				setState(617); match(EXISTS);
+				setState(616);
+				match(IF);
+				setState(617);
+				match(EXISTS);
 				}
 				break;
 			}
 			setState(623);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,76,_ctx) ) {
 			case 1:
 				{
-				setState(620); database_name();
-				setState(621); match(DOT);
+				setState(620);
+				database_name();
+				setState(621);
+				match(DOT);
 				}
 				break;
 			}
-			setState(625); view_name();
+			setState(625);
+			view_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2603,57 +2999,61 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Factored_select_stmtContext extends ParserRuleContext {
-		public TerminalNode LIMIT() { return getToken(SQLiteSyntaxParser.LIMIT, 0); }
-		public TerminalNode WITH() { return getToken(SQLiteSyntaxParser.WITH, 0); }
-		public Ordering_termContext ordering_term(int i) {
-			return getRuleContext(Ordering_termContext.class,i);
-		}
-		public List<Common_table_expressionContext> common_table_expression() {
-			return getRuleContexts(Common_table_expressionContext.class);
-		}
-		public List<Compound_operatorContext> compound_operator() {
-			return getRuleContexts(Compound_operatorContext.class);
-		}
 		public List<Select_coreContext> select_core() {
 			return getRuleContexts(Select_coreContext.class);
-		}
-		public TerminalNode OFFSET() { return getToken(SQLiteSyntaxParser.OFFSET, 0); }
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public TerminalNode ORDER() { return getToken(SQLiteSyntaxParser.ORDER, 0); }
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
-		public List<Ordering_termContext> ordering_term() {
-			return getRuleContexts(Ordering_termContext.class);
-		}
-		public TerminalNode RECURSIVE() { return getToken(SQLiteSyntaxParser.RECURSIVE, 0); }
-		public Compound_operatorContext compound_operator(int i) {
-			return getRuleContext(Compound_operatorContext.class,i);
 		}
 		public Select_coreContext select_core(int i) {
 			return getRuleContext(Select_coreContext.class,i);
 		}
+		public TerminalNode WITH() { return getToken(SQLiteParser.WITH, 0); }
+		public List<Common_table_expressionContext> common_table_expression() {
+			return getRuleContexts(Common_table_expressionContext.class);
+		}
 		public Common_table_expressionContext common_table_expression(int i) {
 			return getRuleContext(Common_table_expressionContext.class,i);
 		}
+		public List<Compound_operatorContext> compound_operator() {
+			return getRuleContexts(Compound_operatorContext.class);
+		}
+		public Compound_operatorContext compound_operator(int i) {
+			return getRuleContext(Compound_operatorContext.class,i);
+		}
+		public TerminalNode ORDER() { return getToken(SQLiteParser.ORDER, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public List<Ordering_termContext> ordering_term() {
+			return getRuleContexts(Ordering_termContext.class);
+		}
+		public Ordering_termContext ordering_term(int i) {
+			return getRuleContext(Ordering_termContext.class,i);
+		}
+		public TerminalNode LIMIT() { return getToken(SQLiteParser.LIMIT, 0); }
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode RECURSIVE() { return getToken(SQLiteParser.RECURSIVE, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public TerminalNode OFFSET() { return getToken(SQLiteParser.OFFSET, 0); }
 		public Factored_select_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_factored_select_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterFactored_select_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterFactored_select_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitFactored_select_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitFactored_select_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitFactored_select_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitFactored_select_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2666,27 +3066,34 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(639);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WITH) {
 				{
-				setState(627); match(WITH);
+				setState(627);
+				match(WITH);
 				setState(629);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,77,_ctx) ) {
 				case 1:
 					{
-					setState(628); match(RECURSIVE);
+					setState(628);
+					match(RECURSIVE);
 					}
 					break;
 				}
-				setState(631); common_table_expression();
+				setState(631);
+				common_table_expression();
 				setState(636);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(632); match(COMMA);
-					setState(633); common_table_expression();
+					setState(632);
+					match(COMMA);
+					setState(633);
+					common_table_expression();
 					}
 					}
 					setState(638);
@@ -2696,15 +3103,18 @@ public class SQLiteSyntaxParser extends Parser {
 				}
 			}
 
-			setState(641); select_core();
+			setState(641);
+			select_core();
 			setState(647);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==EXCEPT || _la==INTERSECT || _la==UNION) {
 				{
 				{
-				setState(642); compound_operator();
-				setState(643); select_core();
+				setState(642);
+				compound_operator();
+				setState(643);
+				select_core();
 				}
 				}
 				setState(649);
@@ -2712,20 +3122,26 @@ public class SQLiteSyntaxParser extends Parser {
 				_la = _input.LA(1);
 			}
 			setState(660);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ORDER) {
 				{
-				setState(650); match(ORDER);
-				setState(651); match(BY);
-				setState(652); ordering_term();
+				setState(650);
+				match(ORDER);
+				setState(651);
+				match(BY);
+				setState(652);
+				ordering_term();
 				setState(657);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(653); match(COMMA);
-					setState(654); ordering_term();
+					setState(653);
+					match(COMMA);
+					setState(654);
+					ordering_term();
 					}
 					}
 					setState(659);
@@ -2736,12 +3152,16 @@ public class SQLiteSyntaxParser extends Parser {
 			}
 
 			setState(668);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==LIMIT) {
 				{
-				setState(662); match(LIMIT);
-				setState(663); expr(0);
+				setState(662);
+				match(LIMIT);
+				setState(663);
+				expr(0);
 				setState(666);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMMA || _la==OFFSET) {
 					{
@@ -2750,8 +3170,13 @@ public class SQLiteSyntaxParser extends Parser {
 					if ( !(_la==COMMA || _la==OFFSET) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
-					setState(665); expr(0);
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
+					setState(665);
+					expr(0);
 					}
 				}
 
@@ -2772,39 +3197,52 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Insert_stmtContext extends ParserRuleContext {
-		public TerminalNode ABORT() { return getToken(SQLiteSyntaxParser.ABORT, 0); }
-		public List<Column_nameContext> column_name() {
-			return getRuleContexts(Column_nameContext.class);
+		public TerminalNode INTO() { return getToken(SQLiteParser.INTO, 0); }
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
+		}
+		public TerminalNode INSERT() { return getToken(SQLiteParser.INSERT, 0); }
+		public TerminalNode REPLACE() { return getToken(SQLiteParser.REPLACE, 0); }
+		public TerminalNode OR() { return getToken(SQLiteParser.OR, 0); }
+		public TerminalNode ROLLBACK() { return getToken(SQLiteParser.ROLLBACK, 0); }
+		public TerminalNode ABORT() { return getToken(SQLiteParser.ABORT, 0); }
+		public TerminalNode FAIL() { return getToken(SQLiteParser.FAIL, 0); }
+		public TerminalNode IGNORE() { return getToken(SQLiteParser.IGNORE, 0); }
+		public TerminalNode VALUES() { return getToken(SQLiteParser.VALUES, 0); }
+		public List<TerminalNode> OPEN_PAR() { return getTokens(SQLiteParser.OPEN_PAR); }
+		public TerminalNode OPEN_PAR(int i) {
+			return getToken(SQLiteParser.OPEN_PAR, i);
+		}
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public List<TerminalNode> CLOSE_PAR() { return getTokens(SQLiteParser.CLOSE_PAR); }
+		public TerminalNode CLOSE_PAR(int i) {
+			return getToken(SQLiteParser.CLOSE_PAR, i);
+		}
+		public Select_stmtContext select_stmt() {
+			return getRuleContext(Select_stmtContext.class,0);
+		}
+		public TerminalNode DEFAULT() { return getToken(SQLiteParser.DEFAULT, 0); }
+		public With_clauseContext with_clause() {
+			return getRuleContext(With_clauseContext.class,0);
 		}
 		public Database_nameContext database_name() {
 			return getRuleContext(Database_nameContext.class,0);
 		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public List<Column_nameContext> column_name() {
+			return getRuleContexts(Column_nameContext.class);
+		}
 		public Column_nameContext column_name(int i) {
 			return getRuleContext(Column_nameContext.class,i);
 		}
-		public TerminalNode INTO() { return getToken(SQLiteSyntaxParser.INTO, 0); }
-		public TerminalNode OR() { return getToken(SQLiteSyntaxParser.OR, 0); }
-		public TerminalNode INSERT() { return getToken(SQLiteSyntaxParser.INSERT, 0); }
-		public TerminalNode IGNORE() { return getToken(SQLiteSyntaxParser.IGNORE, 0); }
-		public TerminalNode FAIL() { return getToken(SQLiteSyntaxParser.FAIL, 0); }
-		public With_clauseContext with_clause() {
-			return getRuleContext(With_clauseContext.class,0);
-		}
-		public TerminalNode DEFAULT() { return getToken(SQLiteSyntaxParser.DEFAULT, 0); }
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public TerminalNode ROLLBACK() { return getToken(SQLiteSyntaxParser.ROLLBACK, 0); }
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public TerminalNode REPLACE() { return getToken(SQLiteSyntaxParser.REPLACE, 0); }
-		public Table_nameContext table_name() {
-			return getRuleContext(Table_nameContext.class,0);
-		}
-		public TerminalNode VALUES() { return getToken(SQLiteSyntaxParser.VALUES, 0); }
-		public Select_stmtContext select_stmt() {
-			return getRuleContext(Select_stmtContext.class,0);
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
 		}
 		public Insert_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2812,15 +3250,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_insert_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterInsert_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterInsert_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitInsert_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitInsert_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitInsert_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitInsert_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2833,148 +3271,186 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(671);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WITH) {
 				{
-				setState(670); with_clause();
+				setState(670);
+				with_clause();
 				}
 			}
 
 			setState(690);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,86,_ctx) ) {
 			case 1:
 				{
-				setState(673); match(INSERT);
+				setState(673);
+				match(INSERT);
 				}
 				break;
-
 			case 2:
 				{
-				setState(674); match(REPLACE);
+				setState(674);
+				match(REPLACE);
 				}
 				break;
-
 			case 3:
 				{
-				setState(675); match(INSERT);
-				setState(676); match(OR);
-				setState(677); match(REPLACE);
+				setState(675);
+				match(INSERT);
+				setState(676);
+				match(OR);
+				setState(677);
+				match(REPLACE);
 				}
 				break;
-
 			case 4:
 				{
-				setState(678); match(INSERT);
-				setState(679); match(OR);
-				setState(680); match(ROLLBACK);
+				setState(678);
+				match(INSERT);
+				setState(679);
+				match(OR);
+				setState(680);
+				match(ROLLBACK);
 				}
 				break;
-
 			case 5:
 				{
-				setState(681); match(INSERT);
-				setState(682); match(OR);
-				setState(683); match(ABORT);
+				setState(681);
+				match(INSERT);
+				setState(682);
+				match(OR);
+				setState(683);
+				match(ABORT);
 				}
 				break;
-
 			case 6:
 				{
-				setState(684); match(INSERT);
-				setState(685); match(OR);
-				setState(686); match(FAIL);
+				setState(684);
+				match(INSERT);
+				setState(685);
+				match(OR);
+				setState(686);
+				match(FAIL);
 				}
 				break;
-
 			case 7:
 				{
-				setState(687); match(INSERT);
-				setState(688); match(OR);
-				setState(689); match(IGNORE);
+				setState(687);
+				match(INSERT);
+				setState(688);
+				match(OR);
+				setState(689);
+				match(IGNORE);
 				}
 				break;
 			}
-			setState(692); match(INTO);
+			setState(692);
+			match(INTO);
 			setState(696);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,87,_ctx) ) {
 			case 1:
 				{
-				setState(693); database_name();
-				setState(694); match(DOT);
+				setState(693);
+				database_name();
+				setState(694);
+				match(DOT);
 				}
 				break;
 			}
-			setState(698); table_name();
+			setState(698);
+			table_name();
 			setState(710);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==OPEN_PAR) {
 				{
-				setState(699); match(OPEN_PAR);
-				setState(700); column_name();
+				setState(699);
+				match(OPEN_PAR);
+				setState(700);
+				column_name();
 				setState(705);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(701); match(COMMA);
-					setState(702); column_name();
+					setState(701);
+					match(COMMA);
+					setState(702);
+					column_name();
 					}
 					}
 					setState(707);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(708); match(CLOSE_PAR);
+				setState(708);
+				match(CLOSE_PAR);
 				}
 			}
 
 			setState(743);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,93,_ctx) ) {
 			case 1:
 				{
-				setState(712); match(VALUES);
-				setState(713); match(OPEN_PAR);
-				setState(714); expr(0);
+				setState(712);
+				match(VALUES);
+				setState(713);
+				match(OPEN_PAR);
+				setState(714);
+				expr(0);
 				setState(719);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(715); match(COMMA);
-					setState(716); expr(0);
+					setState(715);
+					match(COMMA);
+					setState(716);
+					expr(0);
 					}
 					}
 					setState(721);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(722); match(CLOSE_PAR);
+				setState(722);
+				match(CLOSE_PAR);
 				setState(737);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(723); match(COMMA);
-					setState(724); match(OPEN_PAR);
-					setState(725); expr(0);
+					setState(723);
+					match(COMMA);
+					setState(724);
+					match(OPEN_PAR);
+					setState(725);
+					expr(0);
 					setState(730);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(726); match(COMMA);
-						setState(727); expr(0);
+						setState(726);
+						match(COMMA);
+						setState(727);
+						expr(0);
 						}
 						}
 						setState(732);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 					}
-					setState(733); match(CLOSE_PAR);
+					setState(733);
+					match(CLOSE_PAR);
 					}
 					}
 					setState(739);
@@ -2983,17 +3459,18 @@ public class SQLiteSyntaxParser extends Parser {
 				}
 				}
 				break;
-
 			case 2:
 				{
-				setState(740); select_stmt();
+				setState(740);
+				select_stmt();
 				}
 				break;
-
 			case 3:
 				{
-				setState(741); match(DEFAULT);
-				setState(742); match(VALUES);
+				setState(741);
+				match(DEFAULT);
+				setState(742);
+				match(VALUES);
 				}
 				break;
 			}
@@ -3011,31 +3488,35 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Pragma_stmtContext extends ParserRuleContext {
-		public TerminalNode PRAGMA() { return getToken(SQLiteSyntaxParser.PRAGMA, 0); }
+		public TerminalNode PRAGMA() { return getToken(SQLiteParser.PRAGMA, 0); }
 		public Pragma_nameContext pragma_name() {
 			return getRuleContext(Pragma_nameContext.class,0);
 		}
 		public Database_nameContext database_name() {
 			return getRuleContext(Database_nameContext.class,0);
 		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public TerminalNode ASSIGN() { return getToken(SQLiteParser.ASSIGN, 0); }
 		public Pragma_valueContext pragma_value() {
 			return getRuleContext(Pragma_valueContext.class,0);
 		}
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
 		public Pragma_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_pragma_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterPragma_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterPragma_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitPragma_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitPragma_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitPragma_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitPragma_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3046,30 +3527,41 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(745); match(PRAGMA);
+			setState(745);
+			match(PRAGMA);
 			setState(749);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,94,_ctx) ) {
 			case 1:
 				{
-				setState(746); database_name();
-				setState(747); match(DOT);
+				setState(746);
+				database_name();
+				setState(747);
+				match(DOT);
 				}
 				break;
 			}
-			setState(751); pragma_name();
+			setState(751);
+			pragma_name();
 			setState(758);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ASSIGN:
 				{
-				setState(752); match(ASSIGN);
-				setState(753); pragma_value();
+				setState(752);
+				match(ASSIGN);
+				setState(753);
+				pragma_value();
 				}
 				break;
 			case OPEN_PAR:
 				{
-				setState(754); match(OPEN_PAR);
-				setState(755); pragma_value();
-				setState(756); match(CLOSE_PAR);
+				setState(754);
+				match(OPEN_PAR);
+				setState(755);
+				pragma_value();
+				setState(756);
+				match(CLOSE_PAR);
 				}
 				break;
 			case EOF:
@@ -3100,7 +3592,7 @@ public class SQLiteSyntaxParser extends Parser {
 			case UNEXPECTED_CHAR:
 				break;
 			default:
-				throw new NoViableAltException(this);
+				break;
 			}
 			}
 		}
@@ -3116,34 +3608,35 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Reindex_stmtContext extends ParserRuleContext {
+		public TerminalNode REINDEX() { return getToken(SQLiteParser.REINDEX, 0); }
 		public Collation_nameContext collation_name() {
 			return getRuleContext(Collation_nameContext.class,0);
 		}
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
 		}
 		public Index_nameContext index_name() {
 			return getRuleContext(Index_nameContext.class,0);
 		}
-		public TerminalNode REINDEX() { return getToken(SQLiteSyntaxParser.REINDEX, 0); }
-		public Table_nameContext table_name() {
-			return getRuleContext(Table_nameContext.class,0);
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
 		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
 		public Reindex_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_reindex_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterReindex_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterReindex_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitReindex_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitReindex_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitReindex_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitReindex_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3154,37 +3647,44 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(760); match(REINDEX);
+			setState(760);
+			match(REINDEX);
 			setState(771);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,98,_ctx) ) {
 			case 1:
 				{
-				setState(761); collation_name();
+				setState(761);
+				collation_name();
 				}
 				break;
-
 			case 2:
 				{
 				setState(765);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,96,_ctx) ) {
 				case 1:
 					{
-					setState(762); database_name();
-					setState(763); match(DOT);
+					setState(762);
+					database_name();
+					setState(763);
+					match(DOT);
 					}
 					break;
 				}
 				setState(769);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,97,_ctx) ) {
 				case 1:
 					{
-					setState(767); table_name();
+					setState(767);
+					table_name();
 					}
 					break;
-
 				case 2:
 					{
-					setState(768); index_name();
+					setState(768);
+					index_name();
 					}
 					break;
 				}
@@ -3205,26 +3705,26 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Release_stmtContext extends ParserRuleContext {
-		public TerminalNode RELEASE() { return getToken(SQLiteSyntaxParser.RELEASE, 0); }
+		public TerminalNode RELEASE() { return getToken(SQLiteParser.RELEASE, 0); }
 		public Savepoint_nameContext savepoint_name() {
 			return getRuleContext(Savepoint_nameContext.class,0);
 		}
-		public TerminalNode SAVEPOINT() { return getToken(SQLiteSyntaxParser.SAVEPOINT, 0); }
+		public TerminalNode SAVEPOINT() { return getToken(SQLiteParser.SAVEPOINT, 0); }
 		public Release_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_release_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterRelease_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterRelease_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitRelease_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitRelease_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitRelease_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitRelease_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3235,16 +3735,20 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(773); match(RELEASE);
+			setState(773);
+			match(RELEASE);
 			setState(775);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,99,_ctx) ) {
 			case 1:
 				{
-				setState(774); match(SAVEPOINT);
+				setState(774);
+				match(SAVEPOINT);
 				}
 				break;
 			}
-			setState(777); savepoint_name();
+			setState(777);
+			savepoint_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3259,31 +3763,31 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Rollback_stmtContext extends ParserRuleContext {
-		public TerminalNode TRANSACTION() { return getToken(SQLiteSyntaxParser.TRANSACTION, 0); }
+		public TerminalNode ROLLBACK() { return getToken(SQLiteParser.ROLLBACK, 0); }
+		public TerminalNode TRANSACTION() { return getToken(SQLiteParser.TRANSACTION, 0); }
+		public TerminalNode TO() { return getToken(SQLiteParser.TO, 0); }
 		public Savepoint_nameContext savepoint_name() {
 			return getRuleContext(Savepoint_nameContext.class,0);
 		}
-		public TerminalNode ROLLBACK() { return getToken(SQLiteSyntaxParser.ROLLBACK, 0); }
-		public TerminalNode SAVEPOINT() { return getToken(SQLiteSyntaxParser.SAVEPOINT, 0); }
 		public Transaction_nameContext transaction_name() {
 			return getRuleContext(Transaction_nameContext.class,0);
 		}
-		public TerminalNode TO() { return getToken(SQLiteSyntaxParser.TO, 0); }
+		public TerminalNode SAVEPOINT() { return getToken(SQLiteParser.SAVEPOINT, 0); }
 		public Rollback_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_rollback_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterRollback_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterRollback_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitRollback_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitRollback_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitRollback_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitRollback_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3295,17 +3799,22 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(779); match(ROLLBACK);
+			setState(779);
+			match(ROLLBACK);
 			setState(784);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==TRANSACTION) {
 				{
-				setState(780); match(TRANSACTION);
+				setState(780);
+				match(TRANSACTION);
 				setState(782);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,100,_ctx) ) {
 				case 1:
 					{
-					setState(781); transaction_name();
+					setState(781);
+					transaction_name();
 					}
 					break;
 				}
@@ -3313,19 +3822,24 @@ public class SQLiteSyntaxParser extends Parser {
 			}
 
 			setState(791);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==TO) {
 				{
-				setState(786); match(TO);
+				setState(786);
+				match(TO);
 				setState(788);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,102,_ctx) ) {
 				case 1:
 					{
-					setState(787); match(SAVEPOINT);
+					setState(787);
+					match(SAVEPOINT);
 					}
 					break;
 				}
-				setState(790); savepoint_name();
+				setState(790);
+				savepoint_name();
 				}
 			}
 
@@ -3343,25 +3857,25 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Savepoint_stmtContext extends ParserRuleContext {
+		public TerminalNode SAVEPOINT() { return getToken(SQLiteParser.SAVEPOINT, 0); }
 		public Savepoint_nameContext savepoint_name() {
 			return getRuleContext(Savepoint_nameContext.class,0);
 		}
-		public TerminalNode SAVEPOINT() { return getToken(SQLiteSyntaxParser.SAVEPOINT, 0); }
 		public Savepoint_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_savepoint_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterSavepoint_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterSavepoint_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitSavepoint_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitSavepoint_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitSavepoint_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitSavepoint_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3372,8 +3886,10 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(793); match(SAVEPOINT);
-			setState(794); savepoint_name();
+			setState(793);
+			match(SAVEPOINT);
+			setState(794);
+			savepoint_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3388,48 +3904,52 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Simple_select_stmtContext extends ParserRuleContext {
-		public TerminalNode LIMIT() { return getToken(SQLiteSyntaxParser.LIMIT, 0); }
-		public List<Common_table_expressionContext> common_table_expression() {
-			return getRuleContexts(Common_table_expressionContext.class);
-		}
 		public Select_coreContext select_core() {
 			return getRuleContext(Select_coreContext.class,0);
 		}
-		public TerminalNode OFFSET() { return getToken(SQLiteSyntaxParser.OFFSET, 0); }
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public TerminalNode ORDER() { return getToken(SQLiteSyntaxParser.ORDER, 0); }
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public List<Ordering_termContext> ordering_term() {
-			return getRuleContexts(Ordering_termContext.class);
-		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
-		public TerminalNode RECURSIVE() { return getToken(SQLiteSyntaxParser.RECURSIVE, 0); }
-		public TerminalNode WITH() { return getToken(SQLiteSyntaxParser.WITH, 0); }
-		public Ordering_termContext ordering_term(int i) {
-			return getRuleContext(Ordering_termContext.class,i);
+		public TerminalNode WITH() { return getToken(SQLiteParser.WITH, 0); }
+		public List<Common_table_expressionContext> common_table_expression() {
+			return getRuleContexts(Common_table_expressionContext.class);
 		}
 		public Common_table_expressionContext common_table_expression(int i) {
 			return getRuleContext(Common_table_expressionContext.class,i);
 		}
+		public TerminalNode ORDER() { return getToken(SQLiteParser.ORDER, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public List<Ordering_termContext> ordering_term() {
+			return getRuleContexts(Ordering_termContext.class);
+		}
+		public Ordering_termContext ordering_term(int i) {
+			return getRuleContext(Ordering_termContext.class,i);
+		}
+		public TerminalNode LIMIT() { return getToken(SQLiteParser.LIMIT, 0); }
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode RECURSIVE() { return getToken(SQLiteParser.RECURSIVE, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public TerminalNode OFFSET() { return getToken(SQLiteParser.OFFSET, 0); }
 		public Simple_select_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_simple_select_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterSimple_select_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterSimple_select_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitSimple_select_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitSimple_select_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitSimple_select_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitSimple_select_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3442,27 +3962,34 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(808);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WITH) {
 				{
-				setState(796); match(WITH);
+				setState(796);
+				match(WITH);
 				setState(798);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,104,_ctx) ) {
 				case 1:
 					{
-					setState(797); match(RECURSIVE);
+					setState(797);
+					match(RECURSIVE);
 					}
 					break;
 				}
-				setState(800); common_table_expression();
+				setState(800);
+				common_table_expression();
 				setState(805);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(801); match(COMMA);
-					setState(802); common_table_expression();
+					setState(801);
+					match(COMMA);
+					setState(802);
+					common_table_expression();
 					}
 					}
 					setState(807);
@@ -3472,22 +3999,29 @@ public class SQLiteSyntaxParser extends Parser {
 				}
 			}
 
-			setState(810); select_core();
+			setState(810);
+			select_core();
 			setState(821);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ORDER) {
 				{
-				setState(811); match(ORDER);
-				setState(812); match(BY);
-				setState(813); ordering_term();
+				setState(811);
+				match(ORDER);
+				setState(812);
+				match(BY);
+				setState(813);
+				ordering_term();
 				setState(818);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(814); match(COMMA);
-					setState(815); ordering_term();
+					setState(814);
+					match(COMMA);
+					setState(815);
+					ordering_term();
 					}
 					}
 					setState(820);
@@ -3498,12 +4032,16 @@ public class SQLiteSyntaxParser extends Parser {
 			}
 
 			setState(829);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==LIMIT) {
 				{
-				setState(823); match(LIMIT);
-				setState(824); expr(0);
+				setState(823);
+				match(LIMIT);
+				setState(824);
+				expr(0);
 				setState(827);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMMA || _la==OFFSET) {
 					{
@@ -3512,8 +4050,13 @@ public class SQLiteSyntaxParser extends Parser {
 					if ( !(_la==COMMA || _la==OFFSET) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
-					setState(826); expr(0);
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
+					setState(826);
+					expr(0);
 					}
 				}
 
@@ -3534,57 +4077,61 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Select_stmtContext extends ParserRuleContext {
-		public TerminalNode LIMIT() { return getToken(SQLiteSyntaxParser.LIMIT, 0); }
-		public TerminalNode WITH() { return getToken(SQLiteSyntaxParser.WITH, 0); }
-		public Ordering_termContext ordering_term(int i) {
-			return getRuleContext(Ordering_termContext.class,i);
-		}
 		public List<Select_or_valuesContext> select_or_values() {
 			return getRuleContexts(Select_or_valuesContext.class);
-		}
-		public List<Common_table_expressionContext> common_table_expression() {
-			return getRuleContexts(Common_table_expressionContext.class);
-		}
-		public List<Compound_operatorContext> compound_operator() {
-			return getRuleContexts(Compound_operatorContext.class);
-		}
-		public TerminalNode OFFSET() { return getToken(SQLiteSyntaxParser.OFFSET, 0); }
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public TerminalNode ORDER() { return getToken(SQLiteSyntaxParser.ORDER, 0); }
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
-		public List<Ordering_termContext> ordering_term() {
-			return getRuleContexts(Ordering_termContext.class);
-		}
-		public TerminalNode RECURSIVE() { return getToken(SQLiteSyntaxParser.RECURSIVE, 0); }
-		public Compound_operatorContext compound_operator(int i) {
-			return getRuleContext(Compound_operatorContext.class,i);
-		}
-		public Common_table_expressionContext common_table_expression(int i) {
-			return getRuleContext(Common_table_expressionContext.class,i);
 		}
 		public Select_or_valuesContext select_or_values(int i) {
 			return getRuleContext(Select_or_valuesContext.class,i);
 		}
+		public TerminalNode WITH() { return getToken(SQLiteParser.WITH, 0); }
+		public List<Common_table_expressionContext> common_table_expression() {
+			return getRuleContexts(Common_table_expressionContext.class);
+		}
+		public Common_table_expressionContext common_table_expression(int i) {
+			return getRuleContext(Common_table_expressionContext.class,i);
+		}
+		public List<Compound_operatorContext> compound_operator() {
+			return getRuleContexts(Compound_operatorContext.class);
+		}
+		public Compound_operatorContext compound_operator(int i) {
+			return getRuleContext(Compound_operatorContext.class,i);
+		}
+		public TerminalNode ORDER() { return getToken(SQLiteParser.ORDER, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public List<Ordering_termContext> ordering_term() {
+			return getRuleContexts(Ordering_termContext.class);
+		}
+		public Ordering_termContext ordering_term(int i) {
+			return getRuleContext(Ordering_termContext.class,i);
+		}
+		public TerminalNode LIMIT() { return getToken(SQLiteParser.LIMIT, 0); }
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode RECURSIVE() { return getToken(SQLiteParser.RECURSIVE, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public TerminalNode OFFSET() { return getToken(SQLiteParser.OFFSET, 0); }
 		public Select_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_select_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterSelect_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterSelect_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitSelect_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitSelect_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitSelect_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitSelect_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3597,27 +4144,34 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(843);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WITH) {
 				{
-				setState(831); match(WITH);
+				setState(831);
+				match(WITH);
 				setState(833);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,111,_ctx) ) {
 				case 1:
 					{
-					setState(832); match(RECURSIVE);
+					setState(832);
+					match(RECURSIVE);
 					}
 					break;
 				}
-				setState(835); common_table_expression();
+				setState(835);
+				common_table_expression();
 				setState(840);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(836); match(COMMA);
-					setState(837); common_table_expression();
+					setState(836);
+					match(COMMA);
+					setState(837);
+					common_table_expression();
 					}
 					}
 					setState(842);
@@ -3627,15 +4181,18 @@ public class SQLiteSyntaxParser extends Parser {
 				}
 			}
 
-			setState(845); select_or_values();
+			setState(845);
+			select_or_values();
 			setState(851);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==EXCEPT || _la==INTERSECT || _la==UNION) {
 				{
 				{
-				setState(846); compound_operator();
-				setState(847); select_or_values();
+				setState(846);
+				compound_operator();
+				setState(847);
+				select_or_values();
 				}
 				}
 				setState(853);
@@ -3643,20 +4200,26 @@ public class SQLiteSyntaxParser extends Parser {
 				_la = _input.LA(1);
 			}
 			setState(864);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ORDER) {
 				{
-				setState(854); match(ORDER);
-				setState(855); match(BY);
-				setState(856); ordering_term();
+				setState(854);
+				match(ORDER);
+				setState(855);
+				match(BY);
+				setState(856);
+				ordering_term();
 				setState(861);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(857); match(COMMA);
-					setState(858); ordering_term();
+					setState(857);
+					match(COMMA);
+					setState(858);
+					ordering_term();
 					}
 					}
 					setState(863);
@@ -3667,12 +4230,16 @@ public class SQLiteSyntaxParser extends Parser {
 			}
 
 			setState(872);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==LIMIT) {
 				{
-				setState(866); match(LIMIT);
-				setState(867); expr(0);
+				setState(866);
+				match(LIMIT);
+				setState(867);
+				expr(0);
 				setState(870);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMMA || _la==OFFSET) {
 					{
@@ -3681,8 +4248,13 @@ public class SQLiteSyntaxParser extends Parser {
 					if ( !(_la==COMMA || _la==OFFSET) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
-					setState(869); expr(0);
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
+					setState(869);
+					expr(0);
 					}
 				}
 
@@ -3703,51 +4275,63 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Select_or_valuesContext extends ParserRuleContext {
+		public TerminalNode SELECT() { return getToken(SQLiteParser.SELECT, 0); }
 		public List<Result_columnContext> result_column() {
 			return getRuleContexts(Result_columnContext.class);
-		}
-		public TerminalNode ALL() { return getToken(SQLiteSyntaxParser.ALL, 0); }
-		public TerminalNode SELECT() { return getToken(SQLiteSyntaxParser.SELECT, 0); }
-		public List<Table_or_subqueryContext> table_or_subquery() {
-			return getRuleContexts(Table_or_subqueryContext.class);
-		}
-		public TerminalNode WHERE() { return getToken(SQLiteSyntaxParser.WHERE, 0); }
-		public Join_clauseContext join_clause() {
-			return getRuleContext(Join_clauseContext.class,0);
 		}
 		public Result_columnContext result_column(int i) {
 			return getRuleContext(Result_columnContext.class,i);
 		}
-		public TerminalNode HAVING() { return getToken(SQLiteSyntaxParser.HAVING, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public TerminalNode FROM() { return getToken(SQLiteParser.FROM, 0); }
+		public TerminalNode WHERE() { return getToken(SQLiteParser.WHERE, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
-		public TerminalNode DISTINCT() { return getToken(SQLiteSyntaxParser.DISTINCT, 0); }
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
+		public TerminalNode GROUP() { return getToken(SQLiteParser.GROUP, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public TerminalNode DISTINCT() { return getToken(SQLiteParser.DISTINCT, 0); }
+		public TerminalNode ALL() { return getToken(SQLiteParser.ALL, 0); }
+		public List<Table_or_subqueryContext> table_or_subquery() {
+			return getRuleContexts(Table_or_subqueryContext.class);
+		}
 		public Table_or_subqueryContext table_or_subquery(int i) {
 			return getRuleContext(Table_or_subqueryContext.class,i);
 		}
-		public TerminalNode VALUES() { return getToken(SQLiteSyntaxParser.VALUES, 0); }
-		public TerminalNode FROM() { return getToken(SQLiteSyntaxParser.FROM, 0); }
-		public TerminalNode GROUP() { return getToken(SQLiteSyntaxParser.GROUP, 0); }
+		public Join_clauseContext join_clause() {
+			return getRuleContext(Join_clauseContext.class,0);
+		}
+		public TerminalNode HAVING() { return getToken(SQLiteParser.HAVING, 0); }
+		public TerminalNode VALUES() { return getToken(SQLiteParser.VALUES, 0); }
+		public List<TerminalNode> OPEN_PAR() { return getTokens(SQLiteParser.OPEN_PAR); }
+		public TerminalNode OPEN_PAR(int i) {
+			return getToken(SQLiteParser.OPEN_PAR, i);
+		}
+		public List<TerminalNode> CLOSE_PAR() { return getTokens(SQLiteParser.CLOSE_PAR); }
+		public TerminalNode CLOSE_PAR(int i) {
+			return getToken(SQLiteParser.CLOSE_PAR, i);
+		}
 		public Select_or_valuesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_select_or_values; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterSelect_or_values(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterSelect_or_values(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitSelect_or_values(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitSelect_or_values(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitSelect_or_values(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitSelect_or_values(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3758,12 +4342,15 @@ public class SQLiteSyntaxParser extends Parser {
 		int _la;
 		try {
 			setState(948);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SELECT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(874); match(SELECT);
+				setState(874);
+				match(SELECT);
 				setState(876);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,119,_ctx) ) {
 				case 1:
 					{
@@ -3772,19 +4359,26 @@ public class SQLiteSyntaxParser extends Parser {
 					if ( !(_la==ALL || _la==DISTINCT) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
 					}
 					break;
 				}
-				setState(878); result_column();
+				setState(878);
+				result_column();
 				setState(883);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(879); match(COMMA);
-					setState(880); result_column();
+					setState(879);
+					match(COMMA);
+					setState(880);
+					result_column();
 					}
 					}
 					setState(885);
@@ -3792,23 +4386,29 @@ public class SQLiteSyntaxParser extends Parser {
 					_la = _input.LA(1);
 				}
 				setState(898);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==FROM) {
 					{
-					setState(886); match(FROM);
+					setState(886);
+					match(FROM);
 					setState(896);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,122,_ctx) ) {
 					case 1:
 						{
-						setState(887); table_or_subquery();
+						setState(887);
+						table_or_subquery();
 						setState(892);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 						while (_la==COMMA) {
 							{
 							{
-							setState(888); match(COMMA);
-							setState(889); table_or_subquery();
+							setState(888);
+							match(COMMA);
+							setState(889);
+							table_or_subquery();
 							}
 							}
 							setState(894);
@@ -3817,10 +4417,10 @@ public class SQLiteSyntaxParser extends Parser {
 						}
 						}
 						break;
-
 					case 2:
 						{
-						setState(895); join_clause();
+						setState(895);
+						join_clause();
 						}
 						break;
 					}
@@ -3828,29 +4428,38 @@ public class SQLiteSyntaxParser extends Parser {
 				}
 
 				setState(902);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==WHERE) {
 					{
-					setState(900); match(WHERE);
-					setState(901); expr(0);
+					setState(900);
+					match(WHERE);
+					setState(901);
+					expr(0);
 					}
 				}
 
 				setState(918);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==GROUP) {
 					{
-					setState(904); match(GROUP);
-					setState(905); match(BY);
-					setState(906); expr(0);
+					setState(904);
+					match(GROUP);
+					setState(905);
+					match(BY);
+					setState(906);
+					expr(0);
 					setState(911);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(907); match(COMMA);
-						setState(908); expr(0);
+						setState(907);
+						match(COMMA);
+						setState(908);
+						expr(0);
 						}
 						}
 						setState(913);
@@ -3858,11 +4467,14 @@ public class SQLiteSyntaxParser extends Parser {
 						_la = _input.LA(1);
 					}
 					setState(916);
+					_errHandler.sync(this);
 					_la = _input.LA(1);
 					if (_la==HAVING) {
 						{
-						setState(914); match(HAVING);
-						setState(915); expr(0);
+						setState(914);
+						match(HAVING);
+						setState(915);
+						expr(0);
 						}
 					}
 
@@ -3874,48 +4486,60 @@ public class SQLiteSyntaxParser extends Parser {
 			case VALUES:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(920); match(VALUES);
-				setState(921); match(OPEN_PAR);
-				setState(922); expr(0);
+				setState(920);
+				match(VALUES);
+				setState(921);
+				match(OPEN_PAR);
+				setState(922);
+				expr(0);
 				setState(927);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(923); match(COMMA);
-					setState(924); expr(0);
+					setState(923);
+					match(COMMA);
+					setState(924);
+					expr(0);
 					}
 					}
 					setState(929);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(930); match(CLOSE_PAR);
+				setState(930);
+				match(CLOSE_PAR);
 				setState(945);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(931); match(COMMA);
-					setState(932); match(OPEN_PAR);
-					setState(933); expr(0);
+					setState(931);
+					match(COMMA);
+					setState(932);
+					match(OPEN_PAR);
+					setState(933);
+					expr(0);
 					setState(938);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(934); match(COMMA);
-						setState(935); expr(0);
+						setState(934);
+						match(COMMA);
+						setState(935);
+						expr(0);
 						}
 						}
 						setState(940);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 					}
-					setState(941); match(CLOSE_PAR);
+					setState(941);
+					match(CLOSE_PAR);
 					}
 					}
 					setState(947);
@@ -3940,23 +4564,20 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Update_stmtContext extends ParserRuleContext {
-		public TerminalNode SET() { return getToken(SQLiteSyntaxParser.SET, 0); }
-		public TerminalNode ABORT() { return getToken(SQLiteSyntaxParser.ABORT, 0); }
+		public TerminalNode UPDATE() { return getToken(SQLiteParser.UPDATE, 0); }
+		public Qualified_table_nameContext qualified_table_name() {
+			return getRuleContext(Qualified_table_nameContext.class,0);
+		}
+		public TerminalNode SET() { return getToken(SQLiteParser.SET, 0); }
 		public List<Column_nameContext> column_name() {
 			return getRuleContexts(Column_nameContext.class);
 		}
 		public Column_nameContext column_name(int i) {
 			return getRuleContext(Column_nameContext.class,i);
 		}
-		public TerminalNode OR() { return getToken(SQLiteSyntaxParser.OR, 0); }
-		public TerminalNode IGNORE() { return getToken(SQLiteSyntaxParser.IGNORE, 0); }
-		public TerminalNode FAIL() { return getToken(SQLiteSyntaxParser.FAIL, 0); }
-		public TerminalNode WHERE() { return getToken(SQLiteSyntaxParser.WHERE, 0); }
-		public With_clauseContext with_clause() {
-			return getRuleContext(With_clauseContext.class,0);
-		}
-		public Qualified_table_nameContext qualified_table_name() {
-			return getRuleContext(Qualified_table_nameContext.class,0);
+		public List<TerminalNode> ASSIGN() { return getTokens(SQLiteParser.ASSIGN); }
+		public TerminalNode ASSIGN(int i) {
+			return getToken(SQLiteParser.ASSIGN, i);
 		}
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -3964,24 +4585,35 @@ public class SQLiteSyntaxParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode ROLLBACK() { return getToken(SQLiteSyntaxParser.ROLLBACK, 0); }
-		public TerminalNode REPLACE() { return getToken(SQLiteSyntaxParser.REPLACE, 0); }
-		public TerminalNode UPDATE() { return getToken(SQLiteSyntaxParser.UPDATE, 0); }
+		public With_clauseContext with_clause() {
+			return getRuleContext(With_clauseContext.class,0);
+		}
+		public TerminalNode OR() { return getToken(SQLiteParser.OR, 0); }
+		public TerminalNode ROLLBACK() { return getToken(SQLiteParser.ROLLBACK, 0); }
+		public TerminalNode ABORT() { return getToken(SQLiteParser.ABORT, 0); }
+		public TerminalNode REPLACE() { return getToken(SQLiteParser.REPLACE, 0); }
+		public TerminalNode FAIL() { return getToken(SQLiteParser.FAIL, 0); }
+		public TerminalNode IGNORE() { return getToken(SQLiteParser.IGNORE, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public TerminalNode WHERE() { return getToken(SQLiteParser.WHERE, 0); }
 		public Update_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_update_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterUpdate_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterUpdate_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitUpdate_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitUpdate_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitUpdate_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitUpdate_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3994,66 +4626,85 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(951);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WITH) {
 				{
-				setState(950); with_clause();
+				setState(950);
+				with_clause();
 				}
 			}
 
-			setState(953); match(UPDATE);
+			setState(953);
+			match(UPDATE);
 			setState(964);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,133,_ctx) ) {
 			case 1:
 				{
-				setState(954); match(OR);
-				setState(955); match(ROLLBACK);
+				setState(954);
+				match(OR);
+				setState(955);
+				match(ROLLBACK);
 				}
 				break;
-
 			case 2:
 				{
-				setState(956); match(OR);
-				setState(957); match(ABORT);
+				setState(956);
+				match(OR);
+				setState(957);
+				match(ABORT);
 				}
 				break;
-
 			case 3:
 				{
-				setState(958); match(OR);
-				setState(959); match(REPLACE);
+				setState(958);
+				match(OR);
+				setState(959);
+				match(REPLACE);
 				}
 				break;
-
 			case 4:
 				{
-				setState(960); match(OR);
-				setState(961); match(FAIL);
+				setState(960);
+				match(OR);
+				setState(961);
+				match(FAIL);
 				}
 				break;
-
 			case 5:
 				{
-				setState(962); match(OR);
-				setState(963); match(IGNORE);
+				setState(962);
+				match(OR);
+				setState(963);
+				match(IGNORE);
 				}
 				break;
 			}
-			setState(966); qualified_table_name();
-			setState(967); match(SET);
-			setState(968); column_name();
-			setState(969); match(ASSIGN);
-			setState(970); expr(0);
+			setState(966);
+			qualified_table_name();
+			setState(967);
+			match(SET);
+			setState(968);
+			column_name();
+			setState(969);
+			match(ASSIGN);
+			setState(970);
+			expr(0);
 			setState(978);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(971); match(COMMA);
-				setState(972); column_name();
-				setState(973); match(ASSIGN);
-				setState(974); expr(0);
+				setState(971);
+				match(COMMA);
+				setState(972);
+				column_name();
+				setState(973);
+				match(ASSIGN);
+				setState(974);
+				expr(0);
 				}
 				}
 				setState(980);
@@ -4061,11 +4712,14 @@ public class SQLiteSyntaxParser extends Parser {
 				_la = _input.LA(1);
 			}
 			setState(983);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WHERE) {
 				{
-				setState(981); match(WHERE);
-				setState(982); expr(0);
+				setState(981);
+				match(WHERE);
+				setState(982);
+				expr(0);
 				}
 			}
 
@@ -4083,58 +4737,66 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Update_stmt_limitedContext extends ParserRuleContext {
-		public TerminalNode SET() { return getToken(SQLiteSyntaxParser.SET, 0); }
-		public TerminalNode LIMIT() { return getToken(SQLiteSyntaxParser.LIMIT, 0); }
-		public TerminalNode ABORT() { return getToken(SQLiteSyntaxParser.ABORT, 0); }
+		public TerminalNode UPDATE() { return getToken(SQLiteParser.UPDATE, 0); }
+		public Qualified_table_nameContext qualified_table_name() {
+			return getRuleContext(Qualified_table_nameContext.class,0);
+		}
+		public TerminalNode SET() { return getToken(SQLiteParser.SET, 0); }
 		public List<Column_nameContext> column_name() {
 			return getRuleContexts(Column_nameContext.class);
 		}
 		public Column_nameContext column_name(int i) {
 			return getRuleContext(Column_nameContext.class,i);
 		}
-		public TerminalNode OR() { return getToken(SQLiteSyntaxParser.OR, 0); }
-		public Ordering_termContext ordering_term(int i) {
-			return getRuleContext(Ordering_termContext.class,i);
+		public List<TerminalNode> ASSIGN() { return getTokens(SQLiteParser.ASSIGN); }
+		public TerminalNode ASSIGN(int i) {
+			return getToken(SQLiteParser.ASSIGN, i);
 		}
-		public TerminalNode IGNORE() { return getToken(SQLiteSyntaxParser.IGNORE, 0); }
-		public TerminalNode FAIL() { return getToken(SQLiteSyntaxParser.FAIL, 0); }
-		public TerminalNode WHERE() { return getToken(SQLiteSyntaxParser.WHERE, 0); }
-		public With_clauseContext with_clause() {
-			return getRuleContext(With_clauseContext.class,0);
-		}
-		public Qualified_table_nameContext qualified_table_name() {
-			return getRuleContext(Qualified_table_nameContext.class,0);
-		}
-		public TerminalNode OFFSET() { return getToken(SQLiteSyntaxParser.OFFSET, 0); }
-		public TerminalNode ORDER() { return getToken(SQLiteSyntaxParser.ORDER, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
-		public List<Ordering_termContext> ordering_term() {
-			return getRuleContexts(Ordering_termContext.class);
-		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode ROLLBACK() { return getToken(SQLiteSyntaxParser.ROLLBACK, 0); }
-		public TerminalNode REPLACE() { return getToken(SQLiteSyntaxParser.REPLACE, 0); }
-		public TerminalNode UPDATE() { return getToken(SQLiteSyntaxParser.UPDATE, 0); }
+		public With_clauseContext with_clause() {
+			return getRuleContext(With_clauseContext.class,0);
+		}
+		public TerminalNode OR() { return getToken(SQLiteParser.OR, 0); }
+		public TerminalNode ROLLBACK() { return getToken(SQLiteParser.ROLLBACK, 0); }
+		public TerminalNode ABORT() { return getToken(SQLiteParser.ABORT, 0); }
+		public TerminalNode REPLACE() { return getToken(SQLiteParser.REPLACE, 0); }
+		public TerminalNode FAIL() { return getToken(SQLiteParser.FAIL, 0); }
+		public TerminalNode IGNORE() { return getToken(SQLiteParser.IGNORE, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public TerminalNode WHERE() { return getToken(SQLiteParser.WHERE, 0); }
+		public TerminalNode LIMIT() { return getToken(SQLiteParser.LIMIT, 0); }
+		public TerminalNode ORDER() { return getToken(SQLiteParser.ORDER, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public List<Ordering_termContext> ordering_term() {
+			return getRuleContexts(Ordering_termContext.class);
+		}
+		public Ordering_termContext ordering_term(int i) {
+			return getRuleContext(Ordering_termContext.class,i);
+		}
+		public TerminalNode OFFSET() { return getToken(SQLiteParser.OFFSET, 0); }
 		public Update_stmt_limitedContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_update_stmt_limited; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterUpdate_stmt_limited(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterUpdate_stmt_limited(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitUpdate_stmt_limited(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitUpdate_stmt_limited(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitUpdate_stmt_limited(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitUpdate_stmt_limited(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4147,66 +4809,85 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(986);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WITH) {
 				{
-				setState(985); with_clause();
+				setState(985);
+				with_clause();
 				}
 			}
 
-			setState(988); match(UPDATE);
+			setState(988);
+			match(UPDATE);
 			setState(999);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,137,_ctx) ) {
 			case 1:
 				{
-				setState(989); match(OR);
-				setState(990); match(ROLLBACK);
+				setState(989);
+				match(OR);
+				setState(990);
+				match(ROLLBACK);
 				}
 				break;
-
 			case 2:
 				{
-				setState(991); match(OR);
-				setState(992); match(ABORT);
+				setState(991);
+				match(OR);
+				setState(992);
+				match(ABORT);
 				}
 				break;
-
 			case 3:
 				{
-				setState(993); match(OR);
-				setState(994); match(REPLACE);
+				setState(993);
+				match(OR);
+				setState(994);
+				match(REPLACE);
 				}
 				break;
-
 			case 4:
 				{
-				setState(995); match(OR);
-				setState(996); match(FAIL);
+				setState(995);
+				match(OR);
+				setState(996);
+				match(FAIL);
 				}
 				break;
-
 			case 5:
 				{
-				setState(997); match(OR);
-				setState(998); match(IGNORE);
+				setState(997);
+				match(OR);
+				setState(998);
+				match(IGNORE);
 				}
 				break;
 			}
-			setState(1001); qualified_table_name();
-			setState(1002); match(SET);
-			setState(1003); column_name();
-			setState(1004); match(ASSIGN);
-			setState(1005); expr(0);
+			setState(1001);
+			qualified_table_name();
+			setState(1002);
+			match(SET);
+			setState(1003);
+			column_name();
+			setState(1004);
+			match(ASSIGN);
+			setState(1005);
+			expr(0);
 			setState(1013);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(1006); match(COMMA);
-				setState(1007); column_name();
-				setState(1008); match(ASSIGN);
-				setState(1009); expr(0);
+				setState(1006);
+				match(COMMA);
+				setState(1007);
+				column_name();
+				setState(1008);
+				match(ASSIGN);
+				setState(1009);
+				expr(0);
 				}
 				}
 				setState(1015);
@@ -4214,33 +4895,43 @@ public class SQLiteSyntaxParser extends Parser {
 				_la = _input.LA(1);
 			}
 			setState(1018);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==WHERE) {
 				{
-				setState(1016); match(WHERE);
-				setState(1017); expr(0);
+				setState(1016);
+				match(WHERE);
+				setState(1017);
+				expr(0);
 				}
 			}
 
 			setState(1038);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==LIMIT || _la==ORDER) {
 				{
 				setState(1030);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==ORDER) {
 					{
-					setState(1020); match(ORDER);
-					setState(1021); match(BY);
-					setState(1022); ordering_term();
+					setState(1020);
+					match(ORDER);
+					setState(1021);
+					match(BY);
+					setState(1022);
+					ordering_term();
 					setState(1027);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(1023); match(COMMA);
-						setState(1024); ordering_term();
+						setState(1023);
+						match(COMMA);
+						setState(1024);
+						ordering_term();
 						}
 						}
 						setState(1029);
@@ -4250,9 +4941,12 @@ public class SQLiteSyntaxParser extends Parser {
 					}
 				}
 
-				setState(1032); match(LIMIT);
-				setState(1033); expr(0);
+				setState(1032);
+				match(LIMIT);
+				setState(1033);
+				expr(0);
 				setState(1036);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==COMMA || _la==OFFSET) {
 					{
@@ -4261,8 +4955,13 @@ public class SQLiteSyntaxParser extends Parser {
 					if ( !(_la==COMMA || _la==OFFSET) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
-					setState(1035); expr(0);
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
+					setState(1035);
+					expr(0);
 					}
 				}
 
@@ -4283,22 +4982,22 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Vacuum_stmtContext extends ParserRuleContext {
-		public TerminalNode VACUUM() { return getToken(SQLiteSyntaxParser.VACUUM, 0); }
+		public TerminalNode VACUUM() { return getToken(SQLiteParser.VACUUM, 0); }
 		public Vacuum_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_vacuum_stmt; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterVacuum_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterVacuum_stmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitVacuum_stmt(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitVacuum_stmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitVacuum_stmt(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitVacuum_stmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4309,7 +5008,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1040); match(VACUUM);
+			setState(1040);
+			match(VACUUM);
 			}
 		}
 		catch (RecognitionException re) {
@@ -4327,11 +5027,11 @@ public class SQLiteSyntaxParser extends Parser {
 		public Column_nameContext column_name() {
 			return getRuleContext(Column_nameContext.class,0);
 		}
-		public List<Column_constraintContext> column_constraint() {
-			return getRuleContexts(Column_constraintContext.class);
-		}
 		public Type_nameContext type_name() {
 			return getRuleContext(Type_nameContext.class,0);
+		}
+		public List<Column_constraintContext> column_constraint() {
+			return getRuleContexts(Column_constraintContext.class);
 		}
 		public Column_constraintContext column_constraint(int i) {
 			return getRuleContext(Column_constraintContext.class,i);
@@ -4342,15 +5042,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_column_def; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterColumn_def(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterColumn_def(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitColumn_def(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitColumn_def(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitColumn_def(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitColumn_def(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4362,12 +5062,15 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1042); column_name();
+			setState(1042);
+			column_name();
 			setState(1044);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,144,_ctx) ) {
 			case 1:
 				{
-				setState(1043); type_name();
+				setState(1043);
+				type_name();
 				}
 				break;
 			}
@@ -4377,7 +5080,8 @@ public class SQLiteSyntaxParser extends Parser {
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << CHECK) | (1L << COLLATE) | (1L << CONSTRAINT) | (1L << DEFAULT))) != 0) || ((((_la - 102)) & ~0x3f) == 0 && ((1L << (_la - 102)) & ((1L << (NOT - 102)) | (1L << (NULL - 102)) | (1L << (PRIMARY - 102)) | (1L << (REFERENCES - 102)) | (1L << (UNIQUE - 102)))) != 0)) {
 				{
 				{
-				setState(1046); column_constraint();
+				setState(1046);
+				column_constraint();
 				}
 				}
 				setState(1051);
@@ -4398,33 +5102,36 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Type_nameContext extends ParserRuleContext {
-		public Signed_numberContext signed_number(int i) {
-			return getRuleContext(Signed_numberContext.class,i);
-		}
-		public List<Signed_numberContext> signed_number() {
-			return getRuleContexts(Signed_numberContext.class);
+		public List<NameContext> name() {
+			return getRuleContexts(NameContext.class);
 		}
 		public NameContext name(int i) {
 			return getRuleContext(NameContext.class,i);
 		}
-		public List<NameContext> name() {
-			return getRuleContexts(NameContext.class);
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public List<Signed_numberContext> signed_number() {
+			return getRuleContexts(Signed_numberContext.class);
 		}
+		public Signed_numberContext signed_number(int i) {
+			return getRuleContext(Signed_numberContext.class,i);
+		}
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public TerminalNode COMMA() { return getToken(SQLiteParser.COMMA, 0); }
 		public Type_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_type_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterType_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterType_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitType_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitType_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitType_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitType_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4444,7 +5151,8 @@ public class SQLiteSyntaxParser extends Parser {
 				case 1:
 					{
 					{
-					setState(1052); name();
+					setState(1052);
+					name();
 					}
 					}
 					break;
@@ -4454,24 +5162,32 @@ public class SQLiteSyntaxParser extends Parser {
 				setState(1055); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,146,_ctx);
-			} while ( _alt!=2 && _alt!=ATN.INVALID_ALT_NUMBER );
+			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 			setState(1067);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,147,_ctx) ) {
 			case 1:
 				{
-				setState(1057); match(OPEN_PAR);
-				setState(1058); signed_number();
-				setState(1059); match(CLOSE_PAR);
+				setState(1057);
+				match(OPEN_PAR);
+				setState(1058);
+				signed_number();
+				setState(1059);
+				match(CLOSE_PAR);
 				}
 				break;
-
 			case 2:
 				{
-				setState(1061); match(OPEN_PAR);
-				setState(1062); signed_number();
-				setState(1063); match(COMMA);
-				setState(1064); signed_number();
-				setState(1065); match(CLOSE_PAR);
+				setState(1061);
+				match(OPEN_PAR);
+				setState(1062);
+				signed_number();
+				setState(1063);
+				match(COMMA);
+				setState(1064);
+				signed_number();
+				setState(1065);
+				match(CLOSE_PAR);
 				}
 				break;
 			}
@@ -4489,54 +5205,56 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Column_constraintContext extends ParserRuleContext {
-		public TerminalNode CHECK() { return getToken(SQLiteSyntaxParser.CHECK, 0); }
-		public Signed_numberContext signed_number() {
-			return getRuleContext(Signed_numberContext.class,0);
+		public TerminalNode PRIMARY() { return getToken(SQLiteParser.PRIMARY, 0); }
+		public TerminalNode KEY() { return getToken(SQLiteParser.KEY, 0); }
+		public Conflict_clauseContext conflict_clause() {
+			return getRuleContext(Conflict_clauseContext.class,0);
 		}
-		public TerminalNode ASC() { return getToken(SQLiteSyntaxParser.ASC, 0); }
-		public TerminalNode KEY() { return getToken(SQLiteSyntaxParser.KEY, 0); }
+		public TerminalNode NULL() { return getToken(SQLiteParser.NULL, 0); }
+		public TerminalNode UNIQUE() { return getToken(SQLiteParser.UNIQUE, 0); }
+		public TerminalNode CHECK() { return getToken(SQLiteParser.CHECK, 0); }
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public TerminalNode DEFAULT() { return getToken(SQLiteParser.DEFAULT, 0); }
+		public TerminalNode COLLATE() { return getToken(SQLiteParser.COLLATE, 0); }
+		public Collation_nameContext collation_name() {
+			return getRuleContext(Collation_nameContext.class,0);
+		}
 		public Foreign_key_clauseContext foreign_key_clause() {
 			return getRuleContext(Foreign_key_clauseContext.class,0);
+		}
+		public TerminalNode CONSTRAINT() { return getToken(SQLiteParser.CONSTRAINT, 0); }
+		public NameContext name() {
+			return getRuleContext(NameContext.class,0);
+		}
+		public Signed_numberContext signed_number() {
+			return getRuleContext(Signed_numberContext.class,0);
 		}
 		public Literal_valueContext literal_value() {
 			return getRuleContext(Literal_valueContext.class,0);
 		}
-		public TerminalNode UNIQUE() { return getToken(SQLiteSyntaxParser.UNIQUE, 0); }
-		public NameContext name() {
-			return getRuleContext(NameContext.class,0);
-		}
-		public Conflict_clauseContext conflict_clause() {
-			return getRuleContext(Conflict_clauseContext.class,0);
-		}
-		public TerminalNode DESC() { return getToken(SQLiteSyntaxParser.DESC, 0); }
-		public TerminalNode DEFAULT() { return getToken(SQLiteSyntaxParser.DEFAULT, 0); }
-		public TerminalNode COLLATE() { return getToken(SQLiteSyntaxParser.COLLATE, 0); }
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public Collation_nameContext collation_name() {
-			return getRuleContext(Collation_nameContext.class,0);
-		}
-		public TerminalNode AUTOINCREMENT() { return getToken(SQLiteSyntaxParser.AUTOINCREMENT, 0); }
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
-		public TerminalNode PRIMARY() { return getToken(SQLiteSyntaxParser.PRIMARY, 0); }
-		public TerminalNode CONSTRAINT() { return getToken(SQLiteSyntaxParser.CONSTRAINT, 0); }
-		public TerminalNode NULL() { return getToken(SQLiteSyntaxParser.NULL, 0); }
+		public TerminalNode AUTOINCREMENT() { return getToken(SQLiteParser.AUTOINCREMENT, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode ASC() { return getToken(SQLiteParser.ASC, 0); }
+		public TerminalNode DESC() { return getToken(SQLiteParser.DESC, 0); }
 		public Column_constraintContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_column_constraint; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterColumn_constraint(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterColumn_constraint(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitColumn_constraint(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitColumn_constraint(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitColumn_constraint(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitColumn_constraint(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4549,21 +5267,28 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1071);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==CONSTRAINT) {
 				{
-				setState(1069); match(CONSTRAINT);
-				setState(1070); name();
+				setState(1069);
+				match(CONSTRAINT);
+				setState(1070);
+				name();
 				}
 			}
 
 			setState(1106);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case PRIMARY:
 				{
-				setState(1073); match(PRIMARY);
-				setState(1074); match(KEY);
+				setState(1073);
+				match(PRIMARY);
+				setState(1074);
+				match(KEY);
 				setState(1076);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==ASC || _la==DESC) {
 					{
@@ -4572,16 +5297,23 @@ public class SQLiteSyntaxParser extends Parser {
 					if ( !(_la==ASC || _la==DESC) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
 					}
 				}
 
-				setState(1078); conflict_clause();
+				setState(1078);
+				conflict_clause();
 				setState(1080);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==AUTOINCREMENT) {
 					{
-					setState(1079); match(AUTOINCREMENT);
+					setState(1079);
+					match(AUTOINCREMENT);
 					}
 				}
 
@@ -4591,53 +5323,68 @@ public class SQLiteSyntaxParser extends Parser {
 			case NULL:
 				{
 				setState(1083);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==NOT) {
 					{
-					setState(1082); match(NOT);
+					setState(1082);
+					match(NOT);
 					}
 				}
 
-				setState(1085); match(NULL);
-				setState(1086); conflict_clause();
+				setState(1085);
+				match(NULL);
+				setState(1086);
+				conflict_clause();
 				}
 				break;
 			case UNIQUE:
 				{
-				setState(1087); match(UNIQUE);
-				setState(1088); conflict_clause();
+				setState(1087);
+				match(UNIQUE);
+				setState(1088);
+				conflict_clause();
 				}
 				break;
 			case CHECK:
 				{
-				setState(1089); match(CHECK);
-				setState(1090); match(OPEN_PAR);
-				setState(1091); expr(0);
-				setState(1092); match(CLOSE_PAR);
+				setState(1089);
+				match(CHECK);
+				setState(1090);
+				match(OPEN_PAR);
+				setState(1091);
+				expr(0);
+				setState(1092);
+				match(CLOSE_PAR);
 				}
 				break;
 			case DEFAULT:
 				{
-				setState(1094); match(DEFAULT);
+				setState(1094);
+				match(DEFAULT);
 				setState(1101);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,152,_ctx) ) {
 				case 1:
 					{
-					setState(1095); signed_number();
+					setState(1095);
+					signed_number();
 					}
 					break;
-
 				case 2:
 					{
-					setState(1096); literal_value();
+					setState(1096);
+					literal_value();
 					}
 					break;
-
 				case 3:
 					{
-					setState(1097); match(OPEN_PAR);
-					setState(1098); expr(0);
-					setState(1099); match(CLOSE_PAR);
+					setState(1097);
+					match(OPEN_PAR);
+					setState(1098);
+					expr(0);
+					setState(1099);
+					match(CLOSE_PAR);
 					}
 					break;
 				}
@@ -4645,13 +5392,16 @@ public class SQLiteSyntaxParser extends Parser {
 				break;
 			case COLLATE:
 				{
-				setState(1103); match(COLLATE);
-				setState(1104); collation_name();
+				setState(1103);
+				match(COLLATE);
+				setState(1104);
+				collation_name();
 				}
 				break;
 			case REFERENCES:
 				{
-				setState(1105); foreign_key_clause();
+				setState(1105);
+				foreign_key_clause();
 				}
 				break;
 			default:
@@ -4671,28 +5421,28 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Conflict_clauseContext extends ParserRuleContext {
-		public TerminalNode CONFLICT() { return getToken(SQLiteSyntaxParser.CONFLICT, 0); }
-		public TerminalNode ABORT() { return getToken(SQLiteSyntaxParser.ABORT, 0); }
-		public TerminalNode ON() { return getToken(SQLiteSyntaxParser.ON, 0); }
-		public TerminalNode ROLLBACK() { return getToken(SQLiteSyntaxParser.ROLLBACK, 0); }
-		public TerminalNode REPLACE() { return getToken(SQLiteSyntaxParser.REPLACE, 0); }
-		public TerminalNode IGNORE() { return getToken(SQLiteSyntaxParser.IGNORE, 0); }
-		public TerminalNode FAIL() { return getToken(SQLiteSyntaxParser.FAIL, 0); }
+		public TerminalNode ON() { return getToken(SQLiteParser.ON, 0); }
+		public TerminalNode CONFLICT() { return getToken(SQLiteParser.CONFLICT, 0); }
+		public TerminalNode ROLLBACK() { return getToken(SQLiteParser.ROLLBACK, 0); }
+		public TerminalNode ABORT() { return getToken(SQLiteParser.ABORT, 0); }
+		public TerminalNode FAIL() { return getToken(SQLiteParser.FAIL, 0); }
+		public TerminalNode IGNORE() { return getToken(SQLiteParser.IGNORE, 0); }
+		public TerminalNode REPLACE() { return getToken(SQLiteParser.REPLACE, 0); }
 		public Conflict_clauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_conflict_clause; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterConflict_clause(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterConflict_clause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitConflict_clause(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitConflict_clause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitConflict_clause(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitConflict_clause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4705,17 +5455,24 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1111);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ON) {
 				{
-				setState(1108); match(ON);
-				setState(1109); match(CONFLICT);
+				setState(1108);
+				match(ON);
+				setState(1109);
+				match(CONFLICT);
 				setState(1110);
 				_la = _input.LA(1);
 				if ( !(_la==ABORT || ((((_la - 72)) & ~0x3f) == 0 && ((1L << (_la - 72)) & ((1L << (FAIL - 72)) | (1L << (IGNORE - 72)) | (1L << (REPLACE - 72)) | (1L << (ROLLBACK - 72)))) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
-				consume();
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				}
 			}
 
@@ -4733,30 +5490,25 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class ExprContext extends ParserRuleContext {
-		public TerminalNode AS() { return getToken(SQLiteSyntaxParser.AS, 0); }
-		public Column_nameContext column_name() {
-			return getRuleContext(Column_nameContext.class,0);
-		}
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
-		public TerminalNode REGEXP() { return getToken(SQLiteSyntaxParser.REGEXP, 0); }
-		public TerminalNode THEN(int i) {
-			return getToken(SQLiteSyntaxParser.THEN, i);
-		}
-		public TerminalNode AND() { return getToken(SQLiteSyntaxParser.AND, 0); }
-		public Type_nameContext type_name() {
-			return getRuleContext(Type_nameContext.class,0);
-		}
-		public TerminalNode IS() { return getToken(SQLiteSyntaxParser.IS, 0); }
 		public Literal_valueContext literal_value() {
 			return getRuleContext(Literal_valueContext.class,0);
 		}
-		public Raise_functionContext raise_function() {
-			return getRuleContext(Raise_functionContext.class,0);
+		public TerminalNode BIND_PARAMETER() { return getToken(SQLiteParser.BIND_PARAMETER, 0); }
+		public Column_nameContext column_name() {
+			return getRuleContext(Column_nameContext.class,0);
 		}
-		public TerminalNode IN() { return getToken(SQLiteSyntaxParser.IN, 0); }
-		public TerminalNode NOTNULL() { return getToken(SQLiteSyntaxParser.NOTNULL, 0); }
-		public Collation_nameContext collation_name() {
-			return getRuleContext(Collation_nameContext.class,0);
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
+		}
+		public List<TerminalNode> DOT() { return getTokens(SQLiteParser.DOT); }
+		public TerminalNode DOT(int i) {
+			return getToken(SQLiteParser.DOT, i);
+		}
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public Unary_operatorContext unary_operator() {
+			return getRuleContext(Unary_operatorContext.class,0);
 		}
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -4764,57 +5516,90 @@ public class SQLiteSyntaxParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode LIKE() { return getToken(SQLiteSyntaxParser.LIKE, 0); }
-		public Table_nameContext table_name() {
-			return getRuleContext(Table_nameContext.class,0);
-		}
-		public List<TerminalNode> WHEN() { return getTokens(SQLiteSyntaxParser.WHEN); }
-		public TerminalNode CAST() { return getToken(SQLiteSyntaxParser.CAST, 0); }
 		public Function_nameContext function_name() {
 			return getRuleContext(Function_nameContext.class,0);
 		}
-		public TerminalNode ESCAPE() { return getToken(SQLiteSyntaxParser.ESCAPE, 0); }
-		public List<TerminalNode> THEN() { return getTokens(SQLiteSyntaxParser.THEN); }
-		public TerminalNode ISNULL() { return getToken(SQLiteSyntaxParser.ISNULL, 0); }
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public TerminalNode STAR() { return getToken(SQLiteParser.STAR, 0); }
+		public TerminalNode DISTINCT() { return getToken(SQLiteParser.DISTINCT, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
 		}
-		public TerminalNode OR() { return getToken(SQLiteSyntaxParser.OR, 0); }
-		public Unary_operatorContext unary_operator() {
-			return getRuleContext(Unary_operatorContext.class,0);
+		public TerminalNode CAST() { return getToken(SQLiteParser.CAST, 0); }
+		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
+		public Type_nameContext type_name() {
+			return getRuleContext(Type_nameContext.class,0);
 		}
-		public TerminalNode GLOB() { return getToken(SQLiteSyntaxParser.GLOB, 0); }
-		public TerminalNode BETWEEN() { return getToken(SQLiteSyntaxParser.BETWEEN, 0); }
-		public TerminalNode MATCH() { return getToken(SQLiteSyntaxParser.MATCH, 0); }
-		public TerminalNode BIND_PARAMETER() { return getToken(SQLiteSyntaxParser.BIND_PARAMETER, 0); }
-		public TerminalNode WHEN(int i) {
-			return getToken(SQLiteSyntaxParser.WHEN, i);
-		}
-		public TerminalNode COLLATE() { return getToken(SQLiteSyntaxParser.COLLATE, 0); }
-		public TerminalNode DISTINCT() { return getToken(SQLiteSyntaxParser.DISTINCT, 0); }
-		public TerminalNode ELSE() { return getToken(SQLiteSyntaxParser.ELSE, 0); }
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
-		public TerminalNode CASE() { return getToken(SQLiteSyntaxParser.CASE, 0); }
-		public TerminalNode NULL() { return getToken(SQLiteSyntaxParser.NULL, 0); }
 		public Select_stmtContext select_stmt() {
 			return getRuleContext(Select_stmtContext.class,0);
 		}
-		public TerminalNode END() { return getToken(SQLiteSyntaxParser.END, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode CASE() { return getToken(SQLiteParser.CASE, 0); }
+		public TerminalNode END() { return getToken(SQLiteParser.END, 0); }
+		public List<TerminalNode> WHEN() { return getTokens(SQLiteParser.WHEN); }
+		public TerminalNode WHEN(int i) {
+			return getToken(SQLiteParser.WHEN, i);
+		}
+		public List<TerminalNode> THEN() { return getTokens(SQLiteParser.THEN); }
+		public TerminalNode THEN(int i) {
+			return getToken(SQLiteParser.THEN, i);
+		}
+		public TerminalNode ELSE() { return getToken(SQLiteParser.ELSE, 0); }
+		public Raise_functionContext raise_function() {
+			return getRuleContext(Raise_functionContext.class,0);
+		}
+		public TerminalNode PIPE2() { return getToken(SQLiteParser.PIPE2, 0); }
+		public TerminalNode DIV() { return getToken(SQLiteParser.DIV, 0); }
+		public TerminalNode MOD() { return getToken(SQLiteParser.MOD, 0); }
+		public TerminalNode PLUS() { return getToken(SQLiteParser.PLUS, 0); }
+		public TerminalNode MINUS() { return getToken(SQLiteParser.MINUS, 0); }
+		public TerminalNode LT2() { return getToken(SQLiteParser.LT2, 0); }
+		public TerminalNode GT2() { return getToken(SQLiteParser.GT2, 0); }
+		public TerminalNode AMP() { return getToken(SQLiteParser.AMP, 0); }
+		public TerminalNode PIPE() { return getToken(SQLiteParser.PIPE, 0); }
+		public TerminalNode LT() { return getToken(SQLiteParser.LT, 0); }
+		public TerminalNode LT_EQ() { return getToken(SQLiteParser.LT_EQ, 0); }
+		public TerminalNode GT() { return getToken(SQLiteParser.GT, 0); }
+		public TerminalNode GT_EQ() { return getToken(SQLiteParser.GT_EQ, 0); }
+		public TerminalNode ASSIGN() { return getToken(SQLiteParser.ASSIGN, 0); }
+		public TerminalNode EQ() { return getToken(SQLiteParser.EQ, 0); }
+		public TerminalNode NOT_EQ1() { return getToken(SQLiteParser.NOT_EQ1, 0); }
+		public TerminalNode NOT_EQ2() { return getToken(SQLiteParser.NOT_EQ2, 0); }
+		public TerminalNode IS() { return getToken(SQLiteParser.IS, 0); }
+		public TerminalNode IN() { return getToken(SQLiteParser.IN, 0); }
+		public TerminalNode LIKE() { return getToken(SQLiteParser.LIKE, 0); }
+		public TerminalNode GLOB() { return getToken(SQLiteParser.GLOB, 0); }
+		public TerminalNode MATCH() { return getToken(SQLiteParser.MATCH, 0); }
+		public TerminalNode REGEXP() { return getToken(SQLiteParser.REGEXP, 0); }
+		public TerminalNode AND() { return getToken(SQLiteParser.AND, 0); }
+		public TerminalNode OR() { return getToken(SQLiteParser.OR, 0); }
+		public TerminalNode BETWEEN() { return getToken(SQLiteParser.BETWEEN, 0); }
+		public TerminalNode COLLATE() { return getToken(SQLiteParser.COLLATE, 0); }
+		public Collation_nameContext collation_name() {
+			return getRuleContext(Collation_nameContext.class,0);
+		}
+		public TerminalNode ESCAPE() { return getToken(SQLiteParser.ESCAPE, 0); }
+		public TerminalNode ISNULL() { return getToken(SQLiteParser.ISNULL, 0); }
+		public TerminalNode NOTNULL() { return getToken(SQLiteParser.NOTNULL, 0); }
+		public TerminalNode NULL() { return getToken(SQLiteParser.NULL, 0); }
 		public ExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterExpr(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitExpr(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitExpr(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4836,55 +5621,66 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1189);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,165,_ctx) ) {
 			case 1:
 				{
-				setState(1114); unary_operator();
-				setState(1115); expr(21);
+				setState(1114);
+				literal_value();
 				}
 				break;
-
 			case 2:
 				{
-				setState(1117); literal_value();
+				setState(1115);
+				match(BIND_PARAMETER);
 				}
 				break;
-
 			case 3:
 				{
-				setState(1118); match(BIND_PARAMETER);
-				}
-				break;
-
-			case 4:
-				{
-				setState(1127);
+				setState(1124);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,156,_ctx) ) {
 				case 1:
 					{
-					setState(1122);
+					setState(1119);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,155,_ctx) ) {
 					case 1:
 						{
-						setState(1119); database_name();
-						setState(1120); match(DOT);
+						setState(1116);
+						database_name();
+						setState(1117);
+						match(DOT);
 						}
 						break;
 					}
-					setState(1124); table_name();
-					setState(1125); match(DOT);
+					setState(1121);
+					table_name();
+					setState(1122);
+					match(DOT);
 					}
 					break;
 				}
-				setState(1129); column_name();
+				setState(1126);
+				column_name();
 				}
 				break;
-
+			case 4:
+				{
+				setState(1127);
+				unary_operator();
+				setState(1128);
+				expr(21);
+				}
+				break;
 			case 5:
 				{
-				setState(1130); function_name();
-				setState(1131); match(OPEN_PAR);
+				setState(1130);
+				function_name();
+				setState(1131);
+				match(OPEN_PAR);
 				setState(1144);
+				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case OPEN_PAR:
 				case PLUS:
@@ -5021,22 +5817,27 @@ public class SQLiteSyntaxParser extends Parser {
 				case BLOB_LITERAL:
 					{
 					setState(1133);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,157,_ctx) ) {
 					case 1:
 						{
-						setState(1132); match(DISTINCT);
+						setState(1132);
+						match(DISTINCT);
 						}
 						break;
 					}
-					setState(1135); expr(0);
+					setState(1135);
+					expr(0);
 					setState(1140);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(1136); match(COMMA);
-						setState(1137); expr(0);
+						setState(1136);
+						match(COMMA);
+						setState(1137);
+						expr(0);
 						}
 						}
 						setState(1142);
@@ -5047,69 +5848,86 @@ public class SQLiteSyntaxParser extends Parser {
 					break;
 				case STAR:
 					{
-					setState(1143); match(STAR);
+					setState(1143);
+					match(STAR);
 					}
 					break;
 				case CLOSE_PAR:
 					break;
 				default:
-					throw new NoViableAltException(this);
+					break;
 				}
-				setState(1146); match(CLOSE_PAR);
+				setState(1146);
+				match(CLOSE_PAR);
 				}
 				break;
-
 			case 6:
 				{
-				setState(1148); match(OPEN_PAR);
-				setState(1149); expr(0);
-				setState(1150); match(CLOSE_PAR);
+				setState(1148);
+				match(OPEN_PAR);
+				setState(1149);
+				expr(0);
+				setState(1150);
+				match(CLOSE_PAR);
 				}
 				break;
-
 			case 7:
 				{
-				setState(1152); match(CAST);
-				setState(1153); match(OPEN_PAR);
-				setState(1154); expr(0);
-				setState(1155); match(AS);
-				setState(1156); type_name();
-				setState(1157); match(CLOSE_PAR);
+				setState(1152);
+				match(CAST);
+				setState(1153);
+				match(OPEN_PAR);
+				setState(1154);
+				expr(0);
+				setState(1155);
+				match(AS);
+				setState(1156);
+				type_name();
+				setState(1157);
+				match(CLOSE_PAR);
 				}
 				break;
-
 			case 8:
 				{
 				setState(1163);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==EXISTS || _la==NOT) {
 					{
 					setState(1160);
+					_errHandler.sync(this);
 					_la = _input.LA(1);
 					if (_la==NOT) {
 						{
-						setState(1159); match(NOT);
+						setState(1159);
+						match(NOT);
 						}
 					}
 
-					setState(1162); match(EXISTS);
+					setState(1162);
+					match(EXISTS);
 					}
 				}
 
-				setState(1165); match(OPEN_PAR);
-				setState(1166); select_stmt();
-				setState(1167); match(CLOSE_PAR);
+				setState(1165);
+				match(OPEN_PAR);
+				setState(1166);
+				select_stmt();
+				setState(1167);
+				match(CLOSE_PAR);
 				}
 				break;
-
 			case 9:
 				{
-				setState(1169); match(CASE);
+				setState(1169);
+				match(CASE);
 				setState(1171);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,162,_ctx) ) {
 				case 1:
 					{
-					setState(1170); expr(0);
+					setState(1170);
+					expr(0);
 					}
 					break;
 				}
@@ -5119,10 +5937,14 @@ public class SQLiteSyntaxParser extends Parser {
 				do {
 					{
 					{
-					setState(1173); match(WHEN);
-					setState(1174); expr(0);
-					setState(1175); match(THEN);
-					setState(1176); expr(0);
+					setState(1173);
+					match(WHEN);
+					setState(1174);
+					expr(0);
+					setState(1175);
+					match(THEN);
+					setState(1176);
+					expr(0);
 					}
 					}
 					setState(1180); 
@@ -5130,21 +5952,25 @@ public class SQLiteSyntaxParser extends Parser {
 					_la = _input.LA(1);
 				} while ( _la==WHEN );
 				setState(1184);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==ELSE) {
 					{
-					setState(1182); match(ELSE);
-					setState(1183); expr(0);
+					setState(1182);
+					match(ELSE);
+					setState(1183);
+					expr(0);
 					}
 				}
 
-				setState(1186); match(END);
+				setState(1186);
+				match(END);
 				}
 				break;
-
 			case 10:
 				{
-				setState(1188); raise_function();
+				setState(1188);
+				raise_function();
 				}
 				break;
 			}
@@ -5152,12 +5978,13 @@ public class SQLiteSyntaxParser extends Parser {
 			setState(1291);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,178,_ctx);
-			while ( _alt!=2 && _alt!=ATN.INVALID_ALT_NUMBER ) {
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
 					setState(1289);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,177,_ctx) ) {
 					case 1:
 						{
@@ -5165,11 +5992,12 @@ public class SQLiteSyntaxParser extends Parser {
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1191);
 						if (!(precpred(_ctx, 20))) throw new FailedPredicateException(this, "precpred(_ctx, 20)");
-						setState(1192); match(PIPE2);
-						setState(1193); expr(21);
+						setState(1192);
+						match(PIPE2);
+						setState(1193);
+						expr(21);
 						}
 						break;
-
 					case 2:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
@@ -5181,11 +6009,15 @@ public class SQLiteSyntaxParser extends Parser {
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << STAR) | (1L << DIV) | (1L << MOD))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(1196); expr(20);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(1196);
+						expr(20);
 						}
 						break;
-
 					case 3:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
@@ -5197,11 +6029,15 @@ public class SQLiteSyntaxParser extends Parser {
 						if ( !(_la==PLUS || _la==MINUS) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(1199); expr(19);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(1199);
+						expr(19);
 						}
 						break;
-
 					case 4:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
@@ -5213,11 +6049,15 @@ public class SQLiteSyntaxParser extends Parser {
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LT2) | (1L << GT2) | (1L << AMP) | (1L << PIPE))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(1202); expr(18);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(1202);
+						expr(18);
 						}
 						break;
-
 					case 5:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
@@ -5229,11 +6069,15 @@ public class SQLiteSyntaxParser extends Parser {
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LT) | (1L << LT_EQ) | (1L << GT) | (1L << GT_EQ))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(1205); expr(17);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(1205);
+						expr(17);
 						}
 						break;
-
 					case 6:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
@@ -5241,119 +6085,127 @@ public class SQLiteSyntaxParser extends Parser {
 						setState(1206);
 						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
 						setState(1219);
+						_errHandler.sync(this);
 						switch ( getInterpreter().adaptivePredict(_input,166,_ctx) ) {
 						case 1:
 							{
-							setState(1207); match(ASSIGN);
+							setState(1207);
+							match(ASSIGN);
 							}
 							break;
-
 						case 2:
 							{
-							setState(1208); match(EQ);
+							setState(1208);
+							match(EQ);
 							}
 							break;
-
 						case 3:
 							{
-							setState(1209); match(NOT_EQ1);
+							setState(1209);
+							match(NOT_EQ1);
 							}
 							break;
-
 						case 4:
 							{
-							setState(1210); match(NOT_EQ2);
+							setState(1210);
+							match(NOT_EQ2);
 							}
 							break;
-
 						case 5:
 							{
-							setState(1211); match(IS);
+							setState(1211);
+							match(IS);
 							}
 							break;
-
 						case 6:
 							{
-							setState(1212); match(IS);
-							setState(1213); match(NOT);
+							setState(1212);
+							match(IS);
+							setState(1213);
+							match(NOT);
 							}
 							break;
-
 						case 7:
 							{
-							setState(1214); match(IN);
+							setState(1214);
+							match(IN);
 							}
 							break;
-
 						case 8:
 							{
-							setState(1215); match(LIKE);
+							setState(1215);
+							match(LIKE);
 							}
 							break;
-
 						case 9:
 							{
-							setState(1216); match(GLOB);
+							setState(1216);
+							match(GLOB);
 							}
 							break;
-
 						case 10:
 							{
-							setState(1217); match(MATCH);
+							setState(1217);
+							match(MATCH);
 							}
 							break;
-
 						case 11:
 							{
-							setState(1218); match(REGEXP);
+							setState(1218);
+							match(REGEXP);
 							}
 							break;
 						}
-						setState(1221); expr(16);
+						setState(1221);
+						expr(16);
 						}
 						break;
-
 					case 7:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1222);
 						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
-						setState(1223); match(AND);
-						setState(1224); expr(15);
+						setState(1223);
+						match(AND);
+						setState(1224);
+						expr(15);
 						}
 						break;
-
 					case 8:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1225);
 						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
-						setState(1226); match(OR);
-						setState(1227); expr(14);
+						setState(1226);
+						match(OR);
+						setState(1227);
+						expr(14);
 						}
 						break;
-
 					case 9:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1228);
 						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(1229); match(IS);
+						setState(1229);
+						match(IS);
 						setState(1231);
+						_errHandler.sync(this);
 						switch ( getInterpreter().adaptivePredict(_input,167,_ctx) ) {
 						case 1:
 							{
-							setState(1230); match(NOT);
+							setState(1230);
+							match(NOT);
 							}
 							break;
 						}
-						setState(1233); expr(7);
+						setState(1233);
+						expr(7);
 						}
 						break;
-
 					case 10:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
@@ -5361,31 +6213,37 @@ public class SQLiteSyntaxParser extends Parser {
 						setState(1234);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
 						setState(1236);
+						_errHandler.sync(this);
 						_la = _input.LA(1);
 						if (_la==NOT) {
 							{
-							setState(1235); match(NOT);
+							setState(1235);
+							match(NOT);
 							}
 						}
 
-						setState(1238); match(BETWEEN);
-						setState(1239); expr(0);
-						setState(1240); match(AND);
-						setState(1241); expr(6);
+						setState(1238);
+						match(BETWEEN);
+						setState(1239);
+						expr(0);
+						setState(1240);
+						match(AND);
+						setState(1241);
+						expr(6);
 						}
 						break;
-
 					case 11:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1243);
 						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
-						setState(1244); match(COLLATE);
-						setState(1245); collation_name();
+						setState(1244);
+						match(COLLATE);
+						setState(1245);
+						collation_name();
 						}
 						break;
-
 					case 12:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
@@ -5393,10 +6251,12 @@ public class SQLiteSyntaxParser extends Parser {
 						setState(1246);
 						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
 						setState(1248);
+						_errHandler.sync(this);
 						_la = _input.LA(1);
 						if (_la==NOT) {
 							{
-							setState(1247); match(NOT);
+							setState(1247);
+							match(NOT);
 							}
 						}
 
@@ -5405,20 +6265,27 @@ public class SQLiteSyntaxParser extends Parser {
 						if ( !(((((_la - 77)) & ~0x3f) == 0 && ((1L << (_la - 77)) & ((1L << (GLOB - 77)) | (1L << (LIKE - 77)) | (1L << (MATCH - 77)) | (1L << (REGEXP - 77)))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(1251); expr(0);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(1251);
+						expr(0);
 						setState(1254);
+						_errHandler.sync(this);
 						switch ( getInterpreter().adaptivePredict(_input,170,_ctx) ) {
 						case 1:
 							{
-							setState(1252); match(ESCAPE);
-							setState(1253); expr(0);
+							setState(1252);
+							match(ESCAPE);
+							setState(1253);
+							expr(0);
 							}
 							break;
 						}
 						}
 						break;
-
 					case 13:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
@@ -5426,21 +6293,26 @@ public class SQLiteSyntaxParser extends Parser {
 						setState(1256);
 						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
 						setState(1261);
+						_errHandler.sync(this);
 						switch (_input.LA(1)) {
 						case ISNULL:
 							{
-							setState(1257); match(ISNULL);
+							setState(1257);
+							match(ISNULL);
 							}
 							break;
 						case NOTNULL:
 							{
-							setState(1258); match(NOTNULL);
+							setState(1258);
+							match(NOTNULL);
 							}
 							break;
 						case NOT:
 							{
-							setState(1259); match(NOT);
-							setState(1260); match(NULL);
+							setState(1259);
+							match(NOT);
+							setState(1260);
+							match(NULL);
 							}
 							break;
 						default:
@@ -5448,7 +6320,6 @@ public class SQLiteSyntaxParser extends Parser {
 						}
 						}
 						break;
-
 					case 14:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
@@ -5456,38 +6327,47 @@ public class SQLiteSyntaxParser extends Parser {
 						setState(1263);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
 						setState(1265);
+						_errHandler.sync(this);
 						_la = _input.LA(1);
 						if (_la==NOT) {
 							{
-							setState(1264); match(NOT);
+							setState(1264);
+							match(NOT);
 							}
 						}
 
-						setState(1267); match(IN);
+						setState(1267);
+						match(IN);
 						setState(1287);
+						_errHandler.sync(this);
 						switch ( getInterpreter().adaptivePredict(_input,176,_ctx) ) {
 						case 1:
 							{
-							setState(1268); match(OPEN_PAR);
+							setState(1268);
+							match(OPEN_PAR);
 							setState(1278);
+							_errHandler.sync(this);
 							switch ( getInterpreter().adaptivePredict(_input,174,_ctx) ) {
 							case 1:
 								{
-								setState(1269); select_stmt();
+								setState(1269);
+								select_stmt();
 								}
 								break;
-
 							case 2:
 								{
-								setState(1270); expr(0);
+								setState(1270);
+								expr(0);
 								setState(1275);
 								_errHandler.sync(this);
 								_la = _input.LA(1);
 								while (_la==COMMA) {
 									{
 									{
-									setState(1271); match(COMMA);
-									setState(1272); expr(0);
+									setState(1271);
+									match(COMMA);
+									setState(1272);
+									expr(0);
 									}
 									}
 									setState(1277);
@@ -5497,22 +6377,26 @@ public class SQLiteSyntaxParser extends Parser {
 								}
 								break;
 							}
-							setState(1280); match(CLOSE_PAR);
+							setState(1280);
+							match(CLOSE_PAR);
 							}
 							break;
-
 						case 2:
 							{
 							setState(1284);
+							_errHandler.sync(this);
 							switch ( getInterpreter().adaptivePredict(_input,175,_ctx) ) {
 							case 1:
 								{
-								setState(1281); database_name();
-								setState(1282); match(DOT);
+								setState(1281);
+								database_name();
+								setState(1282);
+								match(DOT);
 								}
 								break;
 							}
-							setState(1286); table_name();
+							setState(1286);
+							table_name();
 							}
 							break;
 						}
@@ -5539,70 +6423,76 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Foreign_key_clauseContext extends ParserRuleContext {
-		public TerminalNode DEFERRED() { return getToken(SQLiteSyntaxParser.DEFERRED, 0); }
-		public List<TerminalNode> SET() { return getTokens(SQLiteSyntaxParser.SET); }
+		public TerminalNode REFERENCES() { return getToken(SQLiteParser.REFERENCES, 0); }
+		public Foreign_tableContext foreign_table() {
+			return getRuleContext(Foreign_tableContext.class,0);
+		}
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
 		public List<Column_nameContext> column_name() {
 			return getRuleContexts(Column_nameContext.class);
 		}
-		public TerminalNode DEFERRABLE() { return getToken(SQLiteSyntaxParser.DEFERRABLE, 0); }
 		public Column_nameContext column_name(int i) {
 			return getRuleContext(Column_nameContext.class,i);
 		}
-		public TerminalNode RESTRICT(int i) {
-			return getToken(SQLiteSyntaxParser.RESTRICT, i);
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public TerminalNode DEFERRABLE() { return getToken(SQLiteParser.DEFERRABLE, 0); }
+		public List<TerminalNode> ON() { return getTokens(SQLiteParser.ON); }
+		public TerminalNode ON(int i) {
+			return getToken(SQLiteParser.ON, i);
+		}
+		public List<TerminalNode> MATCH() { return getTokens(SQLiteParser.MATCH); }
+		public TerminalNode MATCH(int i) {
+			return getToken(SQLiteParser.MATCH, i);
+		}
+		public List<NameContext> name() {
+			return getRuleContexts(NameContext.class);
 		}
 		public NameContext name(int i) {
 			return getRuleContext(NameContext.class,i);
 		}
-		public Foreign_tableContext foreign_table() {
-			return getRuleContext(Foreign_tableContext.class,0);
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
 		}
+		public List<TerminalNode> DELETE() { return getTokens(SQLiteParser.DELETE); }
 		public TerminalNode DELETE(int i) {
-			return getToken(SQLiteSyntaxParser.DELETE, i);
+			return getToken(SQLiteParser.DELETE, i);
 		}
-		public TerminalNode INITIALLY() { return getToken(SQLiteSyntaxParser.INITIALLY, 0); }
-		public List<TerminalNode> ON() { return getTokens(SQLiteSyntaxParser.ON); }
-		public List<TerminalNode> DEFAULT() { return getTokens(SQLiteSyntaxParser.DEFAULT); }
-		public TerminalNode DEFAULT(int i) {
-			return getToken(SQLiteSyntaxParser.DEFAULT, i);
-		}
-		public TerminalNode SET(int i) {
-			return getToken(SQLiteSyntaxParser.SET, i);
-		}
+		public List<TerminalNode> UPDATE() { return getTokens(SQLiteParser.UPDATE); }
 		public TerminalNode UPDATE(int i) {
-			return getToken(SQLiteSyntaxParser.UPDATE, i);
+			return getToken(SQLiteParser.UPDATE, i);
 		}
-		public List<TerminalNode> DELETE() { return getTokens(SQLiteSyntaxParser.DELETE); }
-		public TerminalNode NO(int i) {
-			return getToken(SQLiteSyntaxParser.NO, i);
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode INITIALLY() { return getToken(SQLiteParser.INITIALLY, 0); }
+		public TerminalNode DEFERRED() { return getToken(SQLiteParser.DEFERRED, 0); }
+		public TerminalNode IMMEDIATE() { return getToken(SQLiteParser.IMMEDIATE, 0); }
+		public List<TerminalNode> SET() { return getTokens(SQLiteParser.SET); }
+		public TerminalNode SET(int i) {
+			return getToken(SQLiteParser.SET, i);
 		}
-		public List<TerminalNode> UPDATE() { return getTokens(SQLiteSyntaxParser.UPDATE); }
-		public TerminalNode IMMEDIATE() { return getToken(SQLiteSyntaxParser.IMMEDIATE, 0); }
+		public List<TerminalNode> NULL() { return getTokens(SQLiteParser.NULL); }
 		public TerminalNode NULL(int i) {
-			return getToken(SQLiteSyntaxParser.NULL, i);
+			return getToken(SQLiteParser.NULL, i);
 		}
-		public TerminalNode ON(int i) {
-			return getToken(SQLiteSyntaxParser.ON, i);
+		public List<TerminalNode> DEFAULT() { return getTokens(SQLiteParser.DEFAULT); }
+		public TerminalNode DEFAULT(int i) {
+			return getToken(SQLiteParser.DEFAULT, i);
 		}
-		public List<TerminalNode> NO() { return getTokens(SQLiteSyntaxParser.NO); }
+		public List<TerminalNode> CASCADE() { return getTokens(SQLiteParser.CASCADE); }
 		public TerminalNode CASCADE(int i) {
-			return getToken(SQLiteSyntaxParser.CASCADE, i);
+			return getToken(SQLiteParser.CASCADE, i);
 		}
-		public List<TerminalNode> RESTRICT() { return getTokens(SQLiteSyntaxParser.RESTRICT); }
-		public List<NameContext> name() {
-			return getRuleContexts(NameContext.class);
+		public List<TerminalNode> RESTRICT() { return getTokens(SQLiteParser.RESTRICT); }
+		public TerminalNode RESTRICT(int i) {
+			return getToken(SQLiteParser.RESTRICT, i);
 		}
-		public TerminalNode REFERENCES() { return getToken(SQLiteSyntaxParser.REFERENCES, 0); }
-		public List<TerminalNode> CASCADE() { return getTokens(SQLiteSyntaxParser.CASCADE); }
-		public List<TerminalNode> MATCH() { return getTokens(SQLiteSyntaxParser.MATCH); }
-		public List<TerminalNode> ACTION() { return getTokens(SQLiteSyntaxParser.ACTION); }
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
-		public TerminalNode MATCH(int i) {
-			return getToken(SQLiteSyntaxParser.MATCH, i);
+		public List<TerminalNode> NO() { return getTokens(SQLiteParser.NO); }
+		public TerminalNode NO(int i) {
+			return getToken(SQLiteParser.NO, i);
 		}
-		public List<TerminalNode> NULL() { return getTokens(SQLiteSyntaxParser.NULL); }
+		public List<TerminalNode> ACTION() { return getTokens(SQLiteParser.ACTION); }
 		public TerminalNode ACTION(int i) {
-			return getToken(SQLiteSyntaxParser.ACTION, i);
+			return getToken(SQLiteParser.ACTION, i);
 		}
 		public Foreign_key_clauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -5610,15 +6500,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_foreign_key_clause; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterForeign_key_clause(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterForeign_key_clause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitForeign_key_clause(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitForeign_key_clause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitForeign_key_clause(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitForeign_key_clause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5630,29 +6520,37 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1294); match(REFERENCES);
-			setState(1295); foreign_table();
+			setState(1294);
+			match(REFERENCES);
+			setState(1295);
+			foreign_table();
 			setState(1307);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==OPEN_PAR) {
 				{
-				setState(1296); match(OPEN_PAR);
-				setState(1297); column_name();
+				setState(1296);
+				match(OPEN_PAR);
+				setState(1297);
+				column_name();
 				setState(1302);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(1298); match(COMMA);
-					setState(1299); column_name();
+					setState(1298);
+					match(COMMA);
+					setState(1299);
+					column_name();
 					}
 					}
 					setState(1304);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(1305); match(CLOSE_PAR);
+				setState(1305);
+				match(CLOSE_PAR);
 				}
 			}
 
@@ -5663,48 +6561,59 @@ public class SQLiteSyntaxParser extends Parser {
 				{
 				{
 				setState(1323);
+				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case ON:
 					{
-					setState(1309); match(ON);
+					setState(1309);
+					match(ON);
 					setState(1310);
 					_la = _input.LA(1);
 					if ( !(_la==DELETE || _la==UPDATE) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
 					setState(1319);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,181,_ctx) ) {
 					case 1:
 						{
-						setState(1311); match(SET);
-						setState(1312); match(NULL);
+						setState(1311);
+						match(SET);
+						setState(1312);
+						match(NULL);
 						}
 						break;
-
 					case 2:
 						{
-						setState(1313); match(SET);
-						setState(1314); match(DEFAULT);
+						setState(1313);
+						match(SET);
+						setState(1314);
+						match(DEFAULT);
 						}
 						break;
-
 					case 3:
 						{
-						setState(1315); match(CASCADE);
+						setState(1315);
+						match(CASCADE);
 						}
 						break;
-
 					case 4:
 						{
-						setState(1316); match(RESTRICT);
+						setState(1316);
+						match(RESTRICT);
 						}
 						break;
-
 					case 5:
 						{
-						setState(1317); match(NO);
-						setState(1318); match(ACTION);
+						setState(1317);
+						match(NO);
+						setState(1318);
+						match(ACTION);
 						}
 						break;
 					}
@@ -5712,8 +6621,10 @@ public class SQLiteSyntaxParser extends Parser {
 					break;
 				case MATCH:
 					{
-					setState(1321); match(MATCH);
-					setState(1322); name();
+					setState(1321);
+					match(MATCH);
+					setState(1322);
+					name();
 					}
 					break;
 				default:
@@ -5726,31 +6637,39 @@ public class SQLiteSyntaxParser extends Parser {
 				_la = _input.LA(1);
 			}
 			setState(1340);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,186,_ctx) ) {
 			case 1:
 				{
 				setState(1331);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==NOT) {
 					{
-					setState(1330); match(NOT);
+					setState(1330);
+					match(NOT);
 					}
 				}
 
-				setState(1333); match(DEFERRABLE);
+				setState(1333);
+				match(DEFERRABLE);
 				setState(1338);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,185,_ctx) ) {
 				case 1:
 					{
-					setState(1334); match(INITIALLY);
-					setState(1335); match(DEFERRED);
+					setState(1334);
+					match(INITIALLY);
+					setState(1335);
+					match(DEFERRED);
 					}
 					break;
-
 				case 2:
 					{
-					setState(1336); match(INITIALLY);
-					setState(1337); match(IMMEDIATE);
+					setState(1336);
+					match(INITIALLY);
+					setState(1337);
+					match(IMMEDIATE);
 					}
 					break;
 				}
@@ -5771,29 +6690,32 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Raise_functionContext extends ParserRuleContext {
-		public TerminalNode ABORT() { return getToken(SQLiteSyntaxParser.ABORT, 0); }
-		public TerminalNode ROLLBACK() { return getToken(SQLiteSyntaxParser.ROLLBACK, 0); }
-		public TerminalNode IGNORE() { return getToken(SQLiteSyntaxParser.IGNORE, 0); }
+		public TerminalNode RAISE() { return getToken(SQLiteParser.RAISE, 0); }
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public TerminalNode IGNORE() { return getToken(SQLiteParser.IGNORE, 0); }
+		public TerminalNode COMMA() { return getToken(SQLiteParser.COMMA, 0); }
 		public Error_messageContext error_message() {
 			return getRuleContext(Error_messageContext.class,0);
 		}
-		public TerminalNode RAISE() { return getToken(SQLiteSyntaxParser.RAISE, 0); }
-		public TerminalNode FAIL() { return getToken(SQLiteSyntaxParser.FAIL, 0); }
+		public TerminalNode ROLLBACK() { return getToken(SQLiteParser.ROLLBACK, 0); }
+		public TerminalNode ABORT() { return getToken(SQLiteParser.ABORT, 0); }
+		public TerminalNode FAIL() { return getToken(SQLiteParser.FAIL, 0); }
 		public Raise_functionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_raise_function; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterRaise_function(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterRaise_function(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitRaise_function(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitRaise_function(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitRaise_function(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitRaise_function(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5805,13 +6727,17 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1342); match(RAISE);
-			setState(1343); match(OPEN_PAR);
+			setState(1342);
+			match(RAISE);
+			setState(1343);
+			match(OPEN_PAR);
 			setState(1348);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IGNORE:
 				{
-				setState(1344); match(IGNORE);
+				setState(1344);
+				match(IGNORE);
 				}
 				break;
 			case ABORT:
@@ -5823,15 +6749,22 @@ public class SQLiteSyntaxParser extends Parser {
 				if ( !(_la==ABORT || _la==FAIL || _la==ROLLBACK) ) {
 				_errHandler.recoverInline(this);
 				}
-				consume();
-				setState(1346); match(COMMA);
-				setState(1347); error_message();
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
+				setState(1346);
+				match(COMMA);
+				setState(1347);
+				error_message();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(1350); match(CLOSE_PAR);
+			setState(1350);
+			match(CLOSE_PAR);
 			}
 		}
 		catch (RecognitionException re) {
@@ -5846,30 +6779,30 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Indexed_columnContext extends ParserRuleContext {
-		public TerminalNode DESC() { return getToken(SQLiteSyntaxParser.DESC, 0); }
-		public TerminalNode COLLATE() { return getToken(SQLiteSyntaxParser.COLLATE, 0); }
 		public Column_nameContext column_name() {
 			return getRuleContext(Column_nameContext.class,0);
 		}
+		public TerminalNode COLLATE() { return getToken(SQLiteParser.COLLATE, 0); }
 		public Collation_nameContext collation_name() {
 			return getRuleContext(Collation_nameContext.class,0);
 		}
-		public TerminalNode ASC() { return getToken(SQLiteSyntaxParser.ASC, 0); }
+		public TerminalNode ASC() { return getToken(SQLiteParser.ASC, 0); }
+		public TerminalNode DESC() { return getToken(SQLiteParser.DESC, 0); }
 		public Indexed_columnContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_indexed_column; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterIndexed_column(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterIndexed_column(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitIndexed_column(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitIndexed_column(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitIndexed_column(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitIndexed_column(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5881,17 +6814,22 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1352); column_name();
+			setState(1352);
+			column_name();
 			setState(1355);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==COLLATE) {
 				{
-				setState(1353); match(COLLATE);
-				setState(1354); collation_name();
+				setState(1353);
+				match(COLLATE);
+				setState(1354);
+				collation_name();
 				}
 			}
 
 			setState(1358);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ASC || _la==DESC) {
 				{
@@ -5900,7 +6838,11 @@ public class SQLiteSyntaxParser extends Parser {
 				if ( !(_la==ASC || _la==DESC) ) {
 				_errHandler.recoverInline(this);
 				}
-				consume();
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				}
 			}
 
@@ -5918,51 +6860,57 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Table_constraintContext extends ParserRuleContext {
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public List<Indexed_columnContext> indexed_column() {
+			return getRuleContexts(Indexed_columnContext.class);
+		}
 		public Indexed_columnContext indexed_column(int i) {
 			return getRuleContext(Indexed_columnContext.class,i);
 		}
-		public TerminalNode CHECK() { return getToken(SQLiteSyntaxParser.CHECK, 0); }
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public Conflict_clauseContext conflict_clause() {
+			return getRuleContext(Conflict_clauseContext.class,0);
+		}
+		public TerminalNode CHECK() { return getToken(SQLiteParser.CHECK, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode FOREIGN() { return getToken(SQLiteParser.FOREIGN, 0); }
+		public TerminalNode KEY() { return getToken(SQLiteParser.KEY, 0); }
 		public List<Column_nameContext> column_name() {
 			return getRuleContexts(Column_nameContext.class);
 		}
 		public Column_nameContext column_name(int i) {
 			return getRuleContext(Column_nameContext.class,i);
 		}
-		public TerminalNode KEY() { return getToken(SQLiteSyntaxParser.KEY, 0); }
 		public Foreign_key_clauseContext foreign_key_clause() {
 			return getRuleContext(Foreign_key_clauseContext.class,0);
 		}
-		public TerminalNode UNIQUE() { return getToken(SQLiteSyntaxParser.UNIQUE, 0); }
+		public TerminalNode CONSTRAINT() { return getToken(SQLiteParser.CONSTRAINT, 0); }
 		public NameContext name() {
 			return getRuleContext(NameContext.class,0);
 		}
-		public List<Indexed_columnContext> indexed_column() {
-			return getRuleContexts(Indexed_columnContext.class);
+		public TerminalNode PRIMARY() { return getToken(SQLiteParser.PRIMARY, 0); }
+		public TerminalNode UNIQUE() { return getToken(SQLiteParser.UNIQUE, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
 		}
-		public Conflict_clauseContext conflict_clause() {
-			return getRuleContext(Conflict_clauseContext.class,0);
-		}
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public TerminalNode PRIMARY() { return getToken(SQLiteSyntaxParser.PRIMARY, 0); }
-		public TerminalNode CONSTRAINT() { return getToken(SQLiteSyntaxParser.CONSTRAINT, 0); }
-		public TerminalNode FOREIGN() { return getToken(SQLiteSyntaxParser.FOREIGN, 0); }
 		public Table_constraintContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_table_constraint; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterTable_constraint(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterTable_constraint(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitTable_constraint(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitTable_constraint(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitTable_constraint(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitTable_constraint(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5975,85 +6923,111 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1362);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==CONSTRAINT) {
 				{
-				setState(1360); match(CONSTRAINT);
-				setState(1361); name();
+				setState(1360);
+				match(CONSTRAINT);
+				setState(1361);
+				name();
 				}
 			}
 
 			setState(1400);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case PRIMARY:
 			case UNIQUE:
 				{
 				setState(1367);
+				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case PRIMARY:
 					{
-					setState(1364); match(PRIMARY);
-					setState(1365); match(KEY);
+					setState(1364);
+					match(PRIMARY);
+					setState(1365);
+					match(KEY);
 					}
 					break;
 				case UNIQUE:
 					{
-					setState(1366); match(UNIQUE);
+					setState(1366);
+					match(UNIQUE);
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(1369); match(OPEN_PAR);
-				setState(1370); indexed_column();
+				setState(1369);
+				match(OPEN_PAR);
+				setState(1370);
+				indexed_column();
 				setState(1375);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(1371); match(COMMA);
-					setState(1372); indexed_column();
+					setState(1371);
+					match(COMMA);
+					setState(1372);
+					indexed_column();
 					}
 					}
 					setState(1377);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(1378); match(CLOSE_PAR);
-				setState(1379); conflict_clause();
+				setState(1378);
+				match(CLOSE_PAR);
+				setState(1379);
+				conflict_clause();
 				}
 				break;
 			case CHECK:
 				{
-				setState(1381); match(CHECK);
-				setState(1382); match(OPEN_PAR);
-				setState(1383); expr(0);
-				setState(1384); match(CLOSE_PAR);
+				setState(1381);
+				match(CHECK);
+				setState(1382);
+				match(OPEN_PAR);
+				setState(1383);
+				expr(0);
+				setState(1384);
+				match(CLOSE_PAR);
 				}
 				break;
 			case FOREIGN:
 				{
-				setState(1386); match(FOREIGN);
-				setState(1387); match(KEY);
-				setState(1388); match(OPEN_PAR);
-				setState(1389); column_name();
+				setState(1386);
+				match(FOREIGN);
+				setState(1387);
+				match(KEY);
+				setState(1388);
+				match(OPEN_PAR);
+				setState(1389);
+				column_name();
 				setState(1394);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(1390); match(COMMA);
-					setState(1391); column_name();
+					setState(1390);
+					match(COMMA);
+					setState(1391);
+					column_name();
 					}
 					}
 					setState(1396);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(1397); match(CLOSE_PAR);
-				setState(1398); foreign_key_clause();
+				setState(1397);
+				match(CLOSE_PAR);
+				setState(1398);
+				foreign_key_clause();
 				}
 				break;
 			default:
@@ -6073,23 +7047,35 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class With_clauseContext extends ParserRuleContext {
-		public TerminalNode AS(int i) {
-			return getToken(SQLiteSyntaxParser.AS, i);
-		}
-		public List<TerminalNode> AS() { return getTokens(SQLiteSyntaxParser.AS); }
-		public Select_stmtContext select_stmt(int i) {
-			return getRuleContext(Select_stmtContext.class,i);
-		}
-		public TerminalNode RECURSIVE() { return getToken(SQLiteSyntaxParser.RECURSIVE, 0); }
-		public TerminalNode WITH() { return getToken(SQLiteSyntaxParser.WITH, 0); }
+		public TerminalNode WITH() { return getToken(SQLiteParser.WITH, 0); }
 		public List<Cte_table_nameContext> cte_table_name() {
 			return getRuleContexts(Cte_table_nameContext.class);
 		}
 		public Cte_table_nameContext cte_table_name(int i) {
 			return getRuleContext(Cte_table_nameContext.class,i);
 		}
+		public List<TerminalNode> AS() { return getTokens(SQLiteParser.AS); }
+		public TerminalNode AS(int i) {
+			return getToken(SQLiteParser.AS, i);
+		}
+		public List<TerminalNode> OPEN_PAR() { return getTokens(SQLiteParser.OPEN_PAR); }
+		public TerminalNode OPEN_PAR(int i) {
+			return getToken(SQLiteParser.OPEN_PAR, i);
+		}
 		public List<Select_stmtContext> select_stmt() {
 			return getRuleContexts(Select_stmtContext.class);
+		}
+		public Select_stmtContext select_stmt(int i) {
+			return getRuleContext(Select_stmtContext.class,i);
+		}
+		public List<TerminalNode> CLOSE_PAR() { return getTokens(SQLiteParser.CLOSE_PAR); }
+		public TerminalNode CLOSE_PAR(int i) {
+			return getToken(SQLiteParser.CLOSE_PAR, i);
+		}
+		public TerminalNode RECURSIVE() { return getToken(SQLiteParser.RECURSIVE, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
 		}
 		public With_clauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -6097,15 +7083,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_with_clause; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterWith_clause(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterWith_clause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitWith_clause(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitWith_clause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitWith_clause(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitWith_clause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6117,32 +7103,46 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1402); match(WITH);
+			setState(1402);
+			match(WITH);
 			setState(1404);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,195,_ctx) ) {
 			case 1:
 				{
-				setState(1403); match(RECURSIVE);
+				setState(1403);
+				match(RECURSIVE);
 				}
 				break;
 			}
-			setState(1406); cte_table_name();
-			setState(1407); match(AS);
-			setState(1408); match(OPEN_PAR);
-			setState(1409); select_stmt();
-			setState(1410); match(CLOSE_PAR);
+			setState(1406);
+			cte_table_name();
+			setState(1407);
+			match(AS);
+			setState(1408);
+			match(OPEN_PAR);
+			setState(1409);
+			select_stmt();
+			setState(1410);
+			match(CLOSE_PAR);
 			setState(1420);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(1411); match(COMMA);
-				setState(1412); cte_table_name();
-				setState(1413); match(AS);
-				setState(1414); match(OPEN_PAR);
-				setState(1415); select_stmt();
-				setState(1416); match(CLOSE_PAR);
+				setState(1411);
+				match(COMMA);
+				setState(1412);
+				cte_table_name();
+				setState(1413);
+				match(AS);
+				setState(1414);
+				match(OPEN_PAR);
+				setState(1415);
+				select_stmt();
+				setState(1416);
+				match(CLOSE_PAR);
 				}
 				}
 				setState(1422);
@@ -6163,33 +7163,34 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Qualified_table_nameContext extends ParserRuleContext {
-		public TerminalNode INDEXED() { return getToken(SQLiteSyntaxParser.INDEXED, 0); }
-		public Database_nameContext database_name() {
-			return getRuleContext(Database_nameContext.class,0);
-		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
-		public Index_nameContext index_name() {
-			return getRuleContext(Index_nameContext.class,0);
-		}
 		public Table_nameContext table_name() {
 			return getRuleContext(Table_nameContext.class,0);
 		}
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public TerminalNode INDEXED() { return getToken(SQLiteParser.INDEXED, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public Index_nameContext index_name() {
+			return getRuleContext(Index_nameContext.class,0);
+		}
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
 		public Qualified_table_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_qualified_table_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterQualified_table_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterQualified_table_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitQualified_table_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitQualified_table_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitQualified_table_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitQualified_table_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6201,28 +7202,38 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1426);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,197,_ctx) ) {
 			case 1:
 				{
-				setState(1423); database_name();
-				setState(1424); match(DOT);
+				setState(1423);
+				database_name();
+				setState(1424);
+				match(DOT);
 				}
 				break;
 			}
-			setState(1428); table_name();
+			setState(1428);
+			table_name();
 			setState(1434);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INDEXED:
 				{
-				setState(1429); match(INDEXED);
-				setState(1430); match(BY);
-				setState(1431); index_name();
+				setState(1429);
+				match(INDEXED);
+				setState(1430);
+				match(BY);
+				setState(1431);
+				index_name();
 				}
 				break;
 			case NOT:
 				{
-				setState(1432); match(NOT);
-				setState(1433); match(INDEXED);
+				setState(1432);
+				match(NOT);
+				setState(1433);
+				match(INDEXED);
 				}
 				break;
 			case EOF:
@@ -6257,7 +7268,7 @@ public class SQLiteSyntaxParser extends Parser {
 			case UNEXPECTED_CHAR:
 				break;
 			default:
-				throw new NoViableAltException(this);
+				break;
 			}
 			}
 		}
@@ -6273,30 +7284,30 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Ordering_termContext extends ParserRuleContext {
-		public TerminalNode DESC() { return getToken(SQLiteSyntaxParser.DESC, 0); }
-		public TerminalNode COLLATE() { return getToken(SQLiteSyntaxParser.COLLATE, 0); }
-		public Collation_nameContext collation_name() {
-			return getRuleContext(Collation_nameContext.class,0);
-		}
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public TerminalNode ASC() { return getToken(SQLiteSyntaxParser.ASC, 0); }
+		public TerminalNode COLLATE() { return getToken(SQLiteParser.COLLATE, 0); }
+		public Collation_nameContext collation_name() {
+			return getRuleContext(Collation_nameContext.class,0);
+		}
+		public TerminalNode ASC() { return getToken(SQLiteParser.ASC, 0); }
+		public TerminalNode DESC() { return getToken(SQLiteParser.DESC, 0); }
 		public Ordering_termContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ordering_term; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterOrdering_term(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterOrdering_term(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitOrdering_term(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitOrdering_term(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitOrdering_term(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitOrdering_term(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6308,17 +7319,22 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1436); expr(0);
+			setState(1436);
+			expr(0);
 			setState(1439);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==COLLATE) {
 				{
-				setState(1437); match(COLLATE);
-				setState(1438); collation_name();
+				setState(1437);
+				match(COLLATE);
+				setState(1438);
+				collation_name();
 				}
 			}
 
 			setState(1442);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ASC || _la==DESC) {
 				{
@@ -6327,7 +7343,11 @@ public class SQLiteSyntaxParser extends Parser {
 				if ( !(_la==ASC || _la==DESC) ) {
 				_errHandler.recoverInline(this);
 				}
-				consume();
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				}
 			}
 
@@ -6345,28 +7365,28 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Pragma_valueContext extends ParserRuleContext {
-		public TerminalNode STRING_LITERAL() { return getToken(SQLiteSyntaxParser.STRING_LITERAL, 0); }
 		public Signed_numberContext signed_number() {
 			return getRuleContext(Signed_numberContext.class,0);
 		}
 		public NameContext name() {
 			return getRuleContext(NameContext.class,0);
 		}
+		public TerminalNode STRING_LITERAL() { return getToken(SQLiteParser.STRING_LITERAL, 0); }
 		public Pragma_valueContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_pragma_value; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterPragma_value(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterPragma_value(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitPragma_value(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitPragma_value(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitPragma_value(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitPragma_value(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6376,25 +7396,27 @@ public class SQLiteSyntaxParser extends Parser {
 		enterRule(_localctx, 94, RULE_pragma_value);
 		try {
 			setState(1447);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,201,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1444); signed_number();
+				setState(1444);
+				signed_number();
 				}
 				break;
-
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1445); name();
+				setState(1445);
+				name();
 				}
 				break;
-
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1446); match(STRING_LITERAL);
+				setState(1446);
+				match(STRING_LITERAL);
 				}
 				break;
 			}
@@ -6411,18 +7433,30 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Common_table_expressionContext extends ParserRuleContext {
-		public TerminalNode AS() { return getToken(SQLiteSyntaxParser.AS, 0); }
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
+		}
+		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
+		public List<TerminalNode> OPEN_PAR() { return getTokens(SQLiteParser.OPEN_PAR); }
+		public TerminalNode OPEN_PAR(int i) {
+			return getToken(SQLiteParser.OPEN_PAR, i);
+		}
+		public Select_stmtContext select_stmt() {
+			return getRuleContext(Select_stmtContext.class,0);
+		}
+		public List<TerminalNode> CLOSE_PAR() { return getTokens(SQLiteParser.CLOSE_PAR); }
+		public TerminalNode CLOSE_PAR(int i) {
+			return getToken(SQLiteParser.CLOSE_PAR, i);
+		}
 		public List<Column_nameContext> column_name() {
 			return getRuleContexts(Column_nameContext.class);
 		}
 		public Column_nameContext column_name(int i) {
 			return getRuleContext(Column_nameContext.class,i);
 		}
-		public Table_nameContext table_name() {
-			return getRuleContext(Table_nameContext.class,0);
-		}
-		public Select_stmtContext select_stmt() {
-			return getRuleContext(Select_stmtContext.class,0);
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
 		}
 		public Common_table_expressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -6430,15 +7464,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_common_table_expression; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCommon_table_expression(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCommon_table_expression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCommon_table_expression(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCommon_table_expression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCommon_table_expression(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCommon_table_expression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6450,35 +7484,46 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1449); table_name();
+			setState(1449);
+			table_name();
 			setState(1461);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==OPEN_PAR) {
 				{
-				setState(1450); match(OPEN_PAR);
-				setState(1451); column_name();
+				setState(1450);
+				match(OPEN_PAR);
+				setState(1451);
+				column_name();
 				setState(1456);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(1452); match(COMMA);
-					setState(1453); column_name();
+					setState(1452);
+					match(COMMA);
+					setState(1453);
+					column_name();
 					}
 					}
 					setState(1458);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(1459); match(CLOSE_PAR);
+				setState(1459);
+				match(CLOSE_PAR);
 				}
 			}
 
-			setState(1463); match(AS);
-			setState(1464); match(OPEN_PAR);
-			setState(1465); select_stmt();
-			setState(1466); match(CLOSE_PAR);
+			setState(1463);
+			match(AS);
+			setState(1464);
+			match(OPEN_PAR);
+			setState(1465);
+			select_stmt();
+			setState(1466);
+			match(CLOSE_PAR);
 			}
 		}
 		catch (RecognitionException re) {
@@ -6493,31 +7538,33 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Result_columnContext extends ParserRuleContext {
-		public TerminalNode AS() { return getToken(SQLiteSyntaxParser.AS, 0); }
-		public Column_aliasContext column_alias() {
-			return getRuleContext(Column_aliasContext.class,0);
-		}
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
+		public TerminalNode STAR() { return getToken(SQLiteParser.STAR, 0); }
 		public Table_nameContext table_name() {
 			return getRuleContext(Table_nameContext.class,0);
 		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public Column_aliasContext column_alias() {
+			return getRuleContext(Column_aliasContext.class,0);
+		}
+		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
 		public Result_columnContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_result_column; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterResult_column(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterResult_column(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitResult_column(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitResult_column(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitResult_column(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitResult_column(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6528,40 +7575,48 @@ public class SQLiteSyntaxParser extends Parser {
 		int _la;
 		try {
 			setState(1480);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,206,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1468); match(STAR);
+				setState(1468);
+				match(STAR);
 				}
 				break;
-
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1469); table_name();
-				setState(1470); match(DOT);
-				setState(1471); match(STAR);
+				setState(1469);
+				table_name();
+				setState(1470);
+				match(DOT);
+				setState(1471);
+				match(STAR);
 				}
 				break;
-
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1473); expr(0);
+				setState(1473);
+				expr(0);
 				setState(1478);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==AS || _la==IDENTIFIER || _la==STRING_LITERAL) {
 					{
 					setState(1475);
+					_errHandler.sync(this);
 					_la = _input.LA(1);
 					if (_la==AS) {
 						{
-						setState(1474); match(AS);
+						setState(1474);
+						match(AS);
 						}
 					}
 
-					setState(1477); column_alias();
+					setState(1477);
+					column_alias();
 					}
 				}
 
@@ -6581,33 +7636,40 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Table_or_subqueryContext extends ParserRuleContext {
-		public TerminalNode AS() { return getToken(SQLiteSyntaxParser.AS, 0); }
-		public Join_clauseContext join_clause() {
-			return getRuleContext(Join_clauseContext.class,0);
-		}
-		public TerminalNode INDEXED() { return getToken(SQLiteSyntaxParser.INDEXED, 0); }
-		public Table_aliasContext table_alias() {
-			return getRuleContext(Table_aliasContext.class,0);
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
 		}
 		public Database_nameContext database_name() {
 			return getRuleContext(Database_nameContext.class,0);
 		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
-		public Table_or_subqueryContext table_or_subquery(int i) {
-			return getRuleContext(Table_or_subqueryContext.class,i);
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public Table_aliasContext table_alias() {
+			return getRuleContext(Table_aliasContext.class,0);
 		}
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
+		public TerminalNode INDEXED() { return getToken(SQLiteParser.INDEXED, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
 		public Index_nameContext index_name() {
 			return getRuleContext(Index_nameContext.class,0);
 		}
-		public Table_nameContext table_name() {
-			return getRuleContext(Table_nameContext.class,0);
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public List<Table_or_subqueryContext> table_or_subquery() {
+			return getRuleContexts(Table_or_subqueryContext.class);
+		}
+		public Table_or_subqueryContext table_or_subquery(int i) {
+			return getRuleContext(Table_or_subqueryContext.class,i);
+		}
+		public Join_clauseContext join_clause() {
+			return getRuleContext(Join_clauseContext.class,0);
+		}
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
 		}
 		public Select_stmtContext select_stmt() {
 			return getRuleContext(Select_stmtContext.class,0);
-		}
-		public List<Table_or_subqueryContext> table_or_subquery() {
-			return getRuleContexts(Table_or_subqueryContext.class);
 		}
 		public Table_or_subqueryContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -6615,15 +7677,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_table_or_subquery; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterTable_or_subquery(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterTable_or_subquery(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitTable_or_subquery(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitTable_or_subquery(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitTable_or_subquery(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitTable_or_subquery(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6634,49 +7696,64 @@ public class SQLiteSyntaxParser extends Parser {
 		int _la;
 		try {
 			setState(1529);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,217,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(1485);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,207,_ctx) ) {
 				case 1:
 					{
-					setState(1482); database_name();
-					setState(1483); match(DOT);
+					setState(1482);
+					database_name();
+					setState(1483);
+					match(DOT);
 					}
 					break;
 				}
-				setState(1487); table_name();
+				setState(1487);
+				table_name();
 				setState(1492);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,209,_ctx) ) {
 				case 1:
 					{
 					setState(1489);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,208,_ctx) ) {
 					case 1:
 						{
-						setState(1488); match(AS);
+						setState(1488);
+						match(AS);
 						}
 						break;
 					}
-					setState(1491); table_alias();
+					setState(1491);
+					table_alias();
 					}
 					break;
 				}
 				setState(1499);
+				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case INDEXED:
 					{
-					setState(1494); match(INDEXED);
-					setState(1495); match(BY);
-					setState(1496); index_name();
+					setState(1494);
+					match(INDEXED);
+					setState(1495);
+					match(BY);
+					setState(1496);
+					index_name();
 					}
 					break;
 				case NOT:
 					{
-					setState(1497); match(NOT);
-					setState(1498); match(INDEXED);
+					setState(1497);
+					match(NOT);
+					setState(1498);
+					match(INDEXED);
 					}
 					break;
 				case EOF:
@@ -6723,28 +7800,32 @@ public class SQLiteSyntaxParser extends Parser {
 				case UNEXPECTED_CHAR:
 					break;
 				default:
-					throw new NoViableAltException(this);
+					break;
 				}
 				}
 				break;
-
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1501); match(OPEN_PAR);
+				setState(1501);
+				match(OPEN_PAR);
 				setState(1511);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,212,_ctx) ) {
 				case 1:
 					{
-					setState(1502); table_or_subquery();
+					setState(1502);
+					table_or_subquery();
 					setState(1507);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(1503); match(COMMA);
-						setState(1504); table_or_subquery();
+						setState(1503);
+						match(COMMA);
+						setState(1504);
+						table_or_subquery();
 						}
 						}
 						setState(1509);
@@ -6753,52 +7834,63 @@ public class SQLiteSyntaxParser extends Parser {
 					}
 					}
 					break;
-
 				case 2:
 					{
-					setState(1510); join_clause();
+					setState(1510);
+					join_clause();
 					}
 					break;
 				}
-				setState(1513); match(CLOSE_PAR);
+				setState(1513);
+				match(CLOSE_PAR);
 				setState(1518);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,214,_ctx) ) {
 				case 1:
 					{
 					setState(1515);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,213,_ctx) ) {
 					case 1:
 						{
-						setState(1514); match(AS);
+						setState(1514);
+						match(AS);
 						}
 						break;
 					}
-					setState(1517); table_alias();
+					setState(1517);
+					table_alias();
 					}
 					break;
 				}
 				}
 				break;
-
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1520); match(OPEN_PAR);
-				setState(1521); select_stmt();
-				setState(1522); match(CLOSE_PAR);
+				setState(1520);
+				match(OPEN_PAR);
+				setState(1521);
+				select_stmt();
+				setState(1522);
+				match(CLOSE_PAR);
 				setState(1527);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,216,_ctx) ) {
 				case 1:
 					{
 					setState(1524);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,215,_ctx) ) {
 					case 1:
 						{
-						setState(1523); match(AS);
+						setState(1523);
+						match(AS);
 						}
 						break;
 					}
-					setState(1526); table_alias();
+					setState(1526);
+					table_alias();
 					}
 					break;
 				}
@@ -6818,23 +7910,23 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Join_clauseContext extends ParserRuleContext {
-		public List<Join_operatorContext> join_operator() {
-			return getRuleContexts(Join_operatorContext.class);
-		}
-		public Join_constraintContext join_constraint(int i) {
-			return getRuleContext(Join_constraintContext.class,i);
-		}
-		public Join_operatorContext join_operator(int i) {
-			return getRuleContext(Join_operatorContext.class,i);
+		public List<Table_or_subqueryContext> table_or_subquery() {
+			return getRuleContexts(Table_or_subqueryContext.class);
 		}
 		public Table_or_subqueryContext table_or_subquery(int i) {
 			return getRuleContext(Table_or_subqueryContext.class,i);
 		}
+		public List<Join_operatorContext> join_operator() {
+			return getRuleContexts(Join_operatorContext.class);
+		}
+		public Join_operatorContext join_operator(int i) {
+			return getRuleContext(Join_operatorContext.class,i);
+		}
 		public List<Join_constraintContext> join_constraint() {
 			return getRuleContexts(Join_constraintContext.class);
 		}
-		public List<Table_or_subqueryContext> table_or_subquery() {
-			return getRuleContexts(Table_or_subqueryContext.class);
+		public Join_constraintContext join_constraint(int i) {
+			return getRuleContext(Join_constraintContext.class,i);
 		}
 		public Join_clauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -6842,15 +7934,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_join_clause; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterJoin_clause(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterJoin_clause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitJoin_clause(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitJoin_clause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitJoin_clause(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitJoin_clause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6862,16 +7954,20 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1531); table_or_subquery();
+			setState(1531);
+			table_or_subquery();
 			setState(1538);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA || _la==CROSS || ((((_la - 87)) & ~0x3f) == 0 && ((1L << (_la - 87)) & ((1L << (INNER - 87)) | (1L << (JOIN - 87)) | (1L << (LEFT - 87)) | (1L << (NATURAL - 87)))) != 0)) {
 				{
 				{
-				setState(1532); join_operator();
-				setState(1533); table_or_subquery();
-				setState(1534); join_constraint();
+				setState(1532);
+				join_operator();
+				setState(1533);
+				table_or_subquery();
+				setState(1534);
+				join_constraint();
 				}
 				}
 				setState(1540);
@@ -6892,27 +7988,28 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Join_operatorContext extends ParserRuleContext {
-		public TerminalNode OUTER() { return getToken(SQLiteSyntaxParser.OUTER, 0); }
-		public TerminalNode JOIN() { return getToken(SQLiteSyntaxParser.JOIN, 0); }
-		public TerminalNode NATURAL() { return getToken(SQLiteSyntaxParser.NATURAL, 0); }
-		public TerminalNode CROSS() { return getToken(SQLiteSyntaxParser.CROSS, 0); }
-		public TerminalNode INNER() { return getToken(SQLiteSyntaxParser.INNER, 0); }
-		public TerminalNode LEFT() { return getToken(SQLiteSyntaxParser.LEFT, 0); }
+		public TerminalNode COMMA() { return getToken(SQLiteParser.COMMA, 0); }
+		public TerminalNode JOIN() { return getToken(SQLiteParser.JOIN, 0); }
+		public TerminalNode NATURAL() { return getToken(SQLiteParser.NATURAL, 0); }
+		public TerminalNode LEFT() { return getToken(SQLiteParser.LEFT, 0); }
+		public TerminalNode INNER() { return getToken(SQLiteParser.INNER, 0); }
+		public TerminalNode CROSS() { return getToken(SQLiteParser.CROSS, 0); }
+		public TerminalNode OUTER() { return getToken(SQLiteParser.OUTER, 0); }
 		public Join_operatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_join_operator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterJoin_operator(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterJoin_operator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitJoin_operator(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitJoin_operator(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitJoin_operator(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitJoin_operator(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6923,11 +8020,13 @@ public class SQLiteSyntaxParser extends Parser {
 		int _la;
 		try {
 			setState(1554);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case COMMA:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1541); match(COMMA);
+				setState(1541);
+				match(COMMA);
 				}
 				break;
 			case CROSS:
@@ -6938,23 +8037,29 @@ public class SQLiteSyntaxParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(1543);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==NATURAL) {
 					{
-					setState(1542); match(NATURAL);
+					setState(1542);
+					match(NATURAL);
 					}
 				}
 
 				setState(1551);
+				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case LEFT:
 					{
-					setState(1545); match(LEFT);
+					setState(1545);
+					match(LEFT);
 					setState(1547);
+					_errHandler.sync(this);
 					_la = _input.LA(1);
 					if (_la==OUTER) {
 						{
-						setState(1546); match(OUTER);
+						setState(1546);
+						match(OUTER);
 						}
 					}
 
@@ -6962,20 +8067,23 @@ public class SQLiteSyntaxParser extends Parser {
 					break;
 				case INNER:
 					{
-					setState(1549); match(INNER);
+					setState(1549);
+					match(INNER);
 					}
 					break;
 				case CROSS:
 					{
-					setState(1550); match(CROSS);
+					setState(1550);
+					match(CROSS);
 					}
 					break;
 				case JOIN:
 					break;
 				default:
-					throw new NoViableAltException(this);
+					break;
 				}
-				setState(1553); match(JOIN);
+				setState(1553);
+				match(JOIN);
 				}
 				break;
 			default:
@@ -6994,32 +8102,38 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Join_constraintContext extends ParserRuleContext {
-		public TerminalNode ON() { return getToken(SQLiteSyntaxParser.ON, 0); }
-		public List<Column_nameContext> column_name() {
-			return getRuleContexts(Column_nameContext.class);
-		}
+		public TerminalNode ON() { return getToken(SQLiteParser.ON, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode USING() { return getToken(SQLiteParser.USING, 0); }
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public List<Column_nameContext> column_name() {
+			return getRuleContexts(Column_nameContext.class);
 		}
 		public Column_nameContext column_name(int i) {
 			return getRuleContext(Column_nameContext.class,i);
 		}
-		public TerminalNode USING() { return getToken(SQLiteSyntaxParser.USING, 0); }
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
 		public Join_constraintContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_join_constraint; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterJoin_constraint(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterJoin_constraint(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitJoin_constraint(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitJoin_constraint(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitJoin_constraint(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitJoin_constraint(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7032,33 +8146,42 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1570);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ON:
 				{
-				setState(1556); match(ON);
-				setState(1557); expr(0);
+				setState(1556);
+				match(ON);
+				setState(1557);
+				expr(0);
 				}
 				break;
 			case USING:
 				{
-				setState(1558); match(USING);
-				setState(1559); match(OPEN_PAR);
-				setState(1560); column_name();
+				setState(1558);
+				match(USING);
+				setState(1559);
+				match(OPEN_PAR);
+				setState(1560);
+				column_name();
 				setState(1565);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(1561); match(COMMA);
-					setState(1562); column_name();
+					setState(1561);
+					match(COMMA);
+					setState(1562);
+					column_name();
 					}
 					}
 					setState(1567);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(1568); match(CLOSE_PAR);
+				setState(1568);
+				match(CLOSE_PAR);
 				}
 				break;
 			case EOF:
@@ -7103,7 +8226,7 @@ public class SQLiteSyntaxParser extends Parser {
 			case UNEXPECTED_CHAR:
 				break;
 			default:
-				throw new NoViableAltException(this);
+				break;
 			}
 			}
 		}
@@ -7119,51 +8242,63 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Select_coreContext extends ParserRuleContext {
+		public TerminalNode SELECT() { return getToken(SQLiteParser.SELECT, 0); }
 		public List<Result_columnContext> result_column() {
 			return getRuleContexts(Result_columnContext.class);
-		}
-		public TerminalNode ALL() { return getToken(SQLiteSyntaxParser.ALL, 0); }
-		public TerminalNode SELECT() { return getToken(SQLiteSyntaxParser.SELECT, 0); }
-		public List<Table_or_subqueryContext> table_or_subquery() {
-			return getRuleContexts(Table_or_subqueryContext.class);
-		}
-		public TerminalNode WHERE() { return getToken(SQLiteSyntaxParser.WHERE, 0); }
-		public Join_clauseContext join_clause() {
-			return getRuleContext(Join_clauseContext.class,0);
 		}
 		public Result_columnContext result_column(int i) {
 			return getRuleContext(Result_columnContext.class,i);
 		}
-		public TerminalNode HAVING() { return getToken(SQLiteSyntaxParser.HAVING, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public TerminalNode FROM() { return getToken(SQLiteParser.FROM, 0); }
+		public TerminalNode WHERE() { return getToken(SQLiteParser.WHERE, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
-		public TerminalNode DISTINCT() { return getToken(SQLiteSyntaxParser.DISTINCT, 0); }
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
+		public TerminalNode GROUP() { return getToken(SQLiteParser.GROUP, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public TerminalNode DISTINCT() { return getToken(SQLiteParser.DISTINCT, 0); }
+		public TerminalNode ALL() { return getToken(SQLiteParser.ALL, 0); }
+		public List<Table_or_subqueryContext> table_or_subquery() {
+			return getRuleContexts(Table_or_subqueryContext.class);
+		}
 		public Table_or_subqueryContext table_or_subquery(int i) {
 			return getRuleContext(Table_or_subqueryContext.class,i);
 		}
-		public TerminalNode VALUES() { return getToken(SQLiteSyntaxParser.VALUES, 0); }
-		public TerminalNode FROM() { return getToken(SQLiteSyntaxParser.FROM, 0); }
-		public TerminalNode GROUP() { return getToken(SQLiteSyntaxParser.GROUP, 0); }
+		public Join_clauseContext join_clause() {
+			return getRuleContext(Join_clauseContext.class,0);
+		}
+		public TerminalNode HAVING() { return getToken(SQLiteParser.HAVING, 0); }
+		public TerminalNode VALUES() { return getToken(SQLiteParser.VALUES, 0); }
+		public List<TerminalNode> OPEN_PAR() { return getTokens(SQLiteParser.OPEN_PAR); }
+		public TerminalNode OPEN_PAR(int i) {
+			return getToken(SQLiteParser.OPEN_PAR, i);
+		}
+		public List<TerminalNode> CLOSE_PAR() { return getTokens(SQLiteParser.CLOSE_PAR); }
+		public TerminalNode CLOSE_PAR(int i) {
+			return getToken(SQLiteParser.CLOSE_PAR, i);
+		}
 		public Select_coreContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_select_core; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterSelect_core(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterSelect_core(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitSelect_core(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitSelect_core(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitSelect_core(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitSelect_core(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7174,12 +8309,15 @@ public class SQLiteSyntaxParser extends Parser {
 		int _la;
 		try {
 			setState(1646);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SELECT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1572); match(SELECT);
+				setState(1572);
+				match(SELECT);
 				setState(1574);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,225,_ctx) ) {
 				case 1:
 					{
@@ -7188,19 +8326,26 @@ public class SQLiteSyntaxParser extends Parser {
 					if ( !(_la==ALL || _la==DISTINCT) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
 					}
 					break;
 				}
-				setState(1576); result_column();
+				setState(1576);
+				result_column();
 				setState(1581);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(1577); match(COMMA);
-					setState(1578); result_column();
+					setState(1577);
+					match(COMMA);
+					setState(1578);
+					result_column();
 					}
 					}
 					setState(1583);
@@ -7208,23 +8353,29 @@ public class SQLiteSyntaxParser extends Parser {
 					_la = _input.LA(1);
 				}
 				setState(1596);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==FROM) {
 					{
-					setState(1584); match(FROM);
+					setState(1584);
+					match(FROM);
 					setState(1594);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,228,_ctx) ) {
 					case 1:
 						{
-						setState(1585); table_or_subquery();
+						setState(1585);
+						table_or_subquery();
 						setState(1590);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 						while (_la==COMMA) {
 							{
 							{
-							setState(1586); match(COMMA);
-							setState(1587); table_or_subquery();
+							setState(1586);
+							match(COMMA);
+							setState(1587);
+							table_or_subquery();
 							}
 							}
 							setState(1592);
@@ -7233,10 +8384,10 @@ public class SQLiteSyntaxParser extends Parser {
 						}
 						}
 						break;
-
 					case 2:
 						{
-						setState(1593); join_clause();
+						setState(1593);
+						join_clause();
 						}
 						break;
 					}
@@ -7244,29 +8395,38 @@ public class SQLiteSyntaxParser extends Parser {
 				}
 
 				setState(1600);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==WHERE) {
 					{
-					setState(1598); match(WHERE);
-					setState(1599); expr(0);
+					setState(1598);
+					match(WHERE);
+					setState(1599);
+					expr(0);
 					}
 				}
 
 				setState(1616);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==GROUP) {
 					{
-					setState(1602); match(GROUP);
-					setState(1603); match(BY);
-					setState(1604); expr(0);
+					setState(1602);
+					match(GROUP);
+					setState(1603);
+					match(BY);
+					setState(1604);
+					expr(0);
 					setState(1609);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(1605); match(COMMA);
-						setState(1606); expr(0);
+						setState(1605);
+						match(COMMA);
+						setState(1606);
+						expr(0);
 						}
 						}
 						setState(1611);
@@ -7274,11 +8434,14 @@ public class SQLiteSyntaxParser extends Parser {
 						_la = _input.LA(1);
 					}
 					setState(1614);
+					_errHandler.sync(this);
 					_la = _input.LA(1);
 					if (_la==HAVING) {
 						{
-						setState(1612); match(HAVING);
-						setState(1613); expr(0);
+						setState(1612);
+						match(HAVING);
+						setState(1613);
+						expr(0);
 						}
 					}
 
@@ -7290,48 +8453,60 @@ public class SQLiteSyntaxParser extends Parser {
 			case VALUES:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1618); match(VALUES);
-				setState(1619); match(OPEN_PAR);
-				setState(1620); expr(0);
+				setState(1618);
+				match(VALUES);
+				setState(1619);
+				match(OPEN_PAR);
+				setState(1620);
+				expr(0);
 				setState(1625);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(1621); match(COMMA);
-					setState(1622); expr(0);
+					setState(1621);
+					match(COMMA);
+					setState(1622);
+					expr(0);
 					}
 					}
 					setState(1627);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(1628); match(CLOSE_PAR);
+				setState(1628);
+				match(CLOSE_PAR);
 				setState(1643);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(1629); match(COMMA);
-					setState(1630); match(OPEN_PAR);
-					setState(1631); expr(0);
+					setState(1629);
+					match(COMMA);
+					setState(1630);
+					match(OPEN_PAR);
+					setState(1631);
+					expr(0);
 					setState(1636);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					while (_la==COMMA) {
 						{
 						{
-						setState(1632); match(COMMA);
-						setState(1633); expr(0);
+						setState(1632);
+						match(COMMA);
+						setState(1633);
+						expr(0);
 						}
 						}
 						setState(1638);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 					}
-					setState(1639); match(CLOSE_PAR);
+					setState(1639);
+					match(CLOSE_PAR);
 					}
 					}
 					setState(1645);
@@ -7356,25 +8531,25 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Compound_operatorContext extends ParserRuleContext {
-		public TerminalNode EXCEPT() { return getToken(SQLiteSyntaxParser.EXCEPT, 0); }
-		public TerminalNode UNION() { return getToken(SQLiteSyntaxParser.UNION, 0); }
-		public TerminalNode ALL() { return getToken(SQLiteSyntaxParser.ALL, 0); }
-		public TerminalNode INTERSECT() { return getToken(SQLiteSyntaxParser.INTERSECT, 0); }
+		public TerminalNode UNION() { return getToken(SQLiteParser.UNION, 0); }
+		public TerminalNode ALL() { return getToken(SQLiteParser.ALL, 0); }
+		public TerminalNode INTERSECT() { return getToken(SQLiteParser.INTERSECT, 0); }
+		public TerminalNode EXCEPT() { return getToken(SQLiteParser.EXCEPT, 0); }
 		public Compound_operatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_compound_operator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCompound_operator(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCompound_operator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCompound_operator(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCompound_operator(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCompound_operator(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCompound_operator(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7384,33 +8559,36 @@ public class SQLiteSyntaxParser extends Parser {
 		enterRule(_localctx, 110, RULE_compound_operator);
 		try {
 			setState(1653);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,238,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1648); match(UNION);
+				setState(1648);
+				match(UNION);
 				}
 				break;
-
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1649); match(UNION);
-				setState(1650); match(ALL);
+				setState(1649);
+				match(UNION);
+				setState(1650);
+				match(ALL);
 				}
 				break;
-
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1651); match(INTERSECT);
+				setState(1651);
+				match(INTERSECT);
 				}
 				break;
-
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(1652); match(EXCEPT);
+				setState(1652);
+				match(EXCEPT);
 				}
 				break;
 			}
@@ -7427,14 +8605,20 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Cte_table_nameContext extends ParserRuleContext {
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
+		}
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
 		public List<Column_nameContext> column_name() {
 			return getRuleContexts(Column_nameContext.class);
 		}
 		public Column_nameContext column_name(int i) {
 			return getRuleContext(Column_nameContext.class,i);
 		}
-		public Table_nameContext table_name() {
-			return getRuleContext(Table_nameContext.class,0);
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
 		}
 		public Cte_table_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -7442,15 +8626,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_cte_table_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCte_table_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCte_table_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCte_table_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCte_table_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCte_table_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCte_table_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7462,28 +8646,35 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1655); table_name();
+			setState(1655);
+			table_name();
 			setState(1667);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==OPEN_PAR) {
 				{
-				setState(1656); match(OPEN_PAR);
-				setState(1657); column_name();
+				setState(1656);
+				match(OPEN_PAR);
+				setState(1657);
+				column_name();
 				setState(1662);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(1658); match(COMMA);
-					setState(1659); column_name();
+					setState(1658);
+					match(COMMA);
+					setState(1659);
+					column_name();
 					}
 					}
 					setState(1664);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(1665); match(CLOSE_PAR);
+				setState(1665);
+				match(CLOSE_PAR);
 				}
 			}
 
@@ -7501,22 +8692,24 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Signed_numberContext extends ParserRuleContext {
-		public TerminalNode NUMERIC_LITERAL() { return getToken(SQLiteSyntaxParser.NUMERIC_LITERAL, 0); }
+		public TerminalNode NUMERIC_LITERAL() { return getToken(SQLiteParser.NUMERIC_LITERAL, 0); }
+		public TerminalNode PLUS() { return getToken(SQLiteParser.PLUS, 0); }
+		public TerminalNode MINUS() { return getToken(SQLiteParser.MINUS, 0); }
 		public Signed_numberContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_signed_number; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterSigned_number(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterSigned_number(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitSigned_number(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitSigned_number(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitSigned_number(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitSigned_number(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7529,6 +8722,7 @@ public class SQLiteSyntaxParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1670);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==PLUS || _la==MINUS) {
 				{
@@ -7537,11 +8731,16 @@ public class SQLiteSyntaxParser extends Parser {
 				if ( !(_la==PLUS || _la==MINUS) ) {
 				_errHandler.recoverInline(this);
 				}
-				consume();
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				}
 			}
 
-			setState(1672); match(NUMERIC_LITERAL);
+			setState(1672);
+			match(NUMERIC_LITERAL);
 			}
 		}
 		catch (RecognitionException re) {
@@ -7556,28 +8755,28 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Literal_valueContext extends ParserRuleContext {
-		public TerminalNode CURRENT_TIMESTAMP() { return getToken(SQLiteSyntaxParser.CURRENT_TIMESTAMP, 0); }
-		public TerminalNode CURRENT_DATE() { return getToken(SQLiteSyntaxParser.CURRENT_DATE, 0); }
-		public TerminalNode NUMERIC_LITERAL() { return getToken(SQLiteSyntaxParser.NUMERIC_LITERAL, 0); }
-		public TerminalNode STRING_LITERAL() { return getToken(SQLiteSyntaxParser.STRING_LITERAL, 0); }
-		public TerminalNode BLOB_LITERAL() { return getToken(SQLiteSyntaxParser.BLOB_LITERAL, 0); }
-		public TerminalNode CURRENT_TIME() { return getToken(SQLiteSyntaxParser.CURRENT_TIME, 0); }
-		public TerminalNode NULL() { return getToken(SQLiteSyntaxParser.NULL, 0); }
+		public TerminalNode NUMERIC_LITERAL() { return getToken(SQLiteParser.NUMERIC_LITERAL, 0); }
+		public TerminalNode STRING_LITERAL() { return getToken(SQLiteParser.STRING_LITERAL, 0); }
+		public TerminalNode BLOB_LITERAL() { return getToken(SQLiteParser.BLOB_LITERAL, 0); }
+		public TerminalNode NULL() { return getToken(SQLiteParser.NULL, 0); }
+		public TerminalNode CURRENT_TIME() { return getToken(SQLiteParser.CURRENT_TIME, 0); }
+		public TerminalNode CURRENT_DATE() { return getToken(SQLiteParser.CURRENT_DATE, 0); }
+		public TerminalNode CURRENT_TIMESTAMP() { return getToken(SQLiteParser.CURRENT_TIMESTAMP, 0); }
 		public Literal_valueContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_literal_value; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterLiteral_value(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterLiteral_value(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitLiteral_value(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitLiteral_value(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitLiteral_value(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitLiteral_value(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7594,7 +8793,11 @@ public class SQLiteSyntaxParser extends Parser {
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << CURRENT_DATE) | (1L << CURRENT_TIME) | (1L << CURRENT_TIMESTAMP))) != 0) || ((((_la - 104)) & ~0x3f) == 0 && ((1L << (_la - 104)) & ((1L << (NULL - 104)) | (1L << (NUMERIC_LITERAL - 104)) | (1L << (STRING_LITERAL - 104)) | (1L << (BLOB_LITERAL - 104)))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -7609,22 +8812,25 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Unary_operatorContext extends ParserRuleContext {
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
+		public TerminalNode MINUS() { return getToken(SQLiteParser.MINUS, 0); }
+		public TerminalNode PLUS() { return getToken(SQLiteParser.PLUS, 0); }
+		public TerminalNode TILDE() { return getToken(SQLiteParser.TILDE, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
 		public Unary_operatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_unary_operator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterUnary_operator(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterUnary_operator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitUnary_operator(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitUnary_operator(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitUnary_operator(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitUnary_operator(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7641,7 +8847,11 @@ public class SQLiteSyntaxParser extends Parser {
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PLUS) | (1L << MINUS) | (1L << TILDE))) != 0) || _la==NOT) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -7656,22 +8866,22 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Error_messageContext extends ParserRuleContext {
-		public TerminalNode STRING_LITERAL() { return getToken(SQLiteSyntaxParser.STRING_LITERAL, 0); }
+		public TerminalNode STRING_LITERAL() { return getToken(SQLiteParser.STRING_LITERAL, 0); }
 		public Error_messageContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_error_message; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterError_message(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterError_message(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitError_message(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitError_message(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitError_message(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitError_message(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7682,7 +8892,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1678); match(STRING_LITERAL);
+			setState(1678);
+			match(STRING_LITERAL);
 			}
 		}
 		catch (RecognitionException re) {
@@ -7709,15 +8920,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_module_argument; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterModule_argument(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterModule_argument(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitModule_argument(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitModule_argument(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitModule_argument(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitModule_argument(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7727,18 +8938,20 @@ public class SQLiteSyntaxParser extends Parser {
 		enterRule(_localctx, 122, RULE_module_argument);
 		try {
 			setState(1682);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,242,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1680); expr(0);
+				setState(1680);
+				expr(0);
 				}
 				break;
-
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1681); column_def();
+				setState(1681);
+				column_def();
 				}
 				break;
 			}
@@ -7755,23 +8968,23 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Column_aliasContext extends ParserRuleContext {
-		public TerminalNode IDENTIFIER() { return getToken(SQLiteSyntaxParser.IDENTIFIER, 0); }
-		public TerminalNode STRING_LITERAL() { return getToken(SQLiteSyntaxParser.STRING_LITERAL, 0); }
+		public TerminalNode IDENTIFIER() { return getToken(SQLiteParser.IDENTIFIER, 0); }
+		public TerminalNode STRING_LITERAL() { return getToken(SQLiteParser.STRING_LITERAL, 0); }
 		public Column_aliasContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_column_alias; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterColumn_alias(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterColumn_alias(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitColumn_alias(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitColumn_alias(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitColumn_alias(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitColumn_alias(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7788,7 +9001,11 @@ public class SQLiteSyntaxParser extends Parser {
 			if ( !(_la==IDENTIFIER || _la==STRING_LITERAL) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -7803,145 +9020,145 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class KeywordContext extends ParserRuleContext {
-		public TerminalNode DEFERRED() { return getToken(SQLiteSyntaxParser.DEFERRED, 0); }
-		public TerminalNode OUTER() { return getToken(SQLiteSyntaxParser.OUTER, 0); }
-		public TerminalNode CURRENT_DATE() { return getToken(SQLiteSyntaxParser.CURRENT_DATE, 0); }
-		public TerminalNode ABORT() { return getToken(SQLiteSyntaxParser.ABORT, 0); }
-		public TerminalNode DEFERRABLE() { return getToken(SQLiteSyntaxParser.DEFERRABLE, 0); }
-		public TerminalNode BEFORE() { return getToken(SQLiteSyntaxParser.BEFORE, 0); }
-		public TerminalNode CURRENT_TIME() { return getToken(SQLiteSyntaxParser.CURRENT_TIME, 0); }
-		public TerminalNode RENAME() { return getToken(SQLiteSyntaxParser.RENAME, 0); }
-		public TerminalNode DETACH() { return getToken(SQLiteSyntaxParser.DETACH, 0); }
-		public TerminalNode IS() { return getToken(SQLiteSyntaxParser.IS, 0); }
-		public TerminalNode EACH() { return getToken(SQLiteSyntaxParser.EACH, 0); }
-		public TerminalNode ADD() { return getToken(SQLiteSyntaxParser.ADD, 0); }
-		public TerminalNode INITIALLY() { return getToken(SQLiteSyntaxParser.INITIALLY, 0); }
-		public TerminalNode ATTACH() { return getToken(SQLiteSyntaxParser.ATTACH, 0); }
-		public TerminalNode RELEASE() { return getToken(SQLiteSyntaxParser.RELEASE, 0); }
-		public TerminalNode AUTOINCREMENT() { return getToken(SQLiteSyntaxParser.AUTOINCREMENT, 0); }
-		public TerminalNode ROLLBACK() { return getToken(SQLiteSyntaxParser.ROLLBACK, 0); }
-		public TerminalNode TABLE() { return getToken(SQLiteSyntaxParser.TABLE, 0); }
-		public TerminalNode DELETE() { return getToken(SQLiteSyntaxParser.DELETE, 0); }
-		public TerminalNode RAISE() { return getToken(SQLiteSyntaxParser.RAISE, 0); }
-		public TerminalNode WHEN() { return getToken(SQLiteSyntaxParser.WHEN, 0); }
-		public TerminalNode THEN() { return getToken(SQLiteSyntaxParser.THEN, 0); }
-		public TerminalNode ESCAPE() { return getToken(SQLiteSyntaxParser.ESCAPE, 0); }
-		public TerminalNode ANALYZE() { return getToken(SQLiteSyntaxParser.ANALYZE, 0); }
-		public TerminalNode OR() { return getToken(SQLiteSyntaxParser.OR, 0); }
-		public TerminalNode WITH() { return getToken(SQLiteSyntaxParser.WITH, 0); }
-		public TerminalNode NO() { return getToken(SQLiteSyntaxParser.NO, 0); }
-		public TerminalNode DROP() { return getToken(SQLiteSyntaxParser.DROP, 0); }
-		public TerminalNode GLOB() { return getToken(SQLiteSyntaxParser.GLOB, 0); }
-		public TerminalNode COLUMN() { return getToken(SQLiteSyntaxParser.COLUMN, 0); }
-		public TerminalNode CONFLICT() { return getToken(SQLiteSyntaxParser.CONFLICT, 0); }
-		public TerminalNode DESC() { return getToken(SQLiteSyntaxParser.DESC, 0); }
-		public TerminalNode CASCADE() { return getToken(SQLiteSyntaxParser.CASCADE, 0); }
-		public TerminalNode COLLATE() { return getToken(SQLiteSyntaxParser.COLLATE, 0); }
-		public TerminalNode ELSE() { return getToken(SQLiteSyntaxParser.ELSE, 0); }
-		public TerminalNode DISTINCT() { return getToken(SQLiteSyntaxParser.DISTINCT, 0); }
-		public TerminalNode CASE() { return getToken(SQLiteSyntaxParser.CASE, 0); }
-		public TerminalNode INNER() { return getToken(SQLiteSyntaxParser.INNER, 0); }
-		public TerminalNode PRIMARY() { return getToken(SQLiteSyntaxParser.PRIMARY, 0); }
-		public TerminalNode NULL() { return getToken(SQLiteSyntaxParser.NULL, 0); }
-		public TerminalNode FOREIGN() { return getToken(SQLiteSyntaxParser.FOREIGN, 0); }
-		public TerminalNode AS() { return getToken(SQLiteSyntaxParser.AS, 0); }
-		public TerminalNode CHECK() { return getToken(SQLiteSyntaxParser.CHECK, 0); }
-		public TerminalNode LIMIT() { return getToken(SQLiteSyntaxParser.LIMIT, 0); }
-		public TerminalNode EXPLAIN() { return getToken(SQLiteSyntaxParser.EXPLAIN, 0); }
-		public TerminalNode LEFT() { return getToken(SQLiteSyntaxParser.LEFT, 0); }
-		public TerminalNode IN() { return getToken(SQLiteSyntaxParser.IN, 0); }
-		public TerminalNode OFFSET() { return getToken(SQLiteSyntaxParser.OFFSET, 0); }
-		public TerminalNode HAVING() { return getToken(SQLiteSyntaxParser.HAVING, 0); }
-		public TerminalNode ORDER() { return getToken(SQLiteSyntaxParser.ORDER, 0); }
-		public TerminalNode TEMP() { return getToken(SQLiteSyntaxParser.TEMP, 0); }
-		public TerminalNode IMMEDIATE() { return getToken(SQLiteSyntaxParser.IMMEDIATE, 0); }
-		public TerminalNode BETWEEN() { return getToken(SQLiteSyntaxParser.BETWEEN, 0); }
-		public TerminalNode COMMIT() { return getToken(SQLiteSyntaxParser.COMMIT, 0); }
-		public TerminalNode SAVEPOINT() { return getToken(SQLiteSyntaxParser.SAVEPOINT, 0); }
-		public TerminalNode REINDEX() { return getToken(SQLiteSyntaxParser.REINDEX, 0); }
-		public TerminalNode RIGHT() { return getToken(SQLiteSyntaxParser.RIGHT, 0); }
-		public TerminalNode BEGIN() { return getToken(SQLiteSyntaxParser.BEGIN, 0); }
-		public TerminalNode EXCEPT() { return getToken(SQLiteSyntaxParser.EXCEPT, 0); }
-		public TerminalNode JOIN() { return getToken(SQLiteSyntaxParser.JOIN, 0); }
-		public TerminalNode VIEW() { return getToken(SQLiteSyntaxParser.VIEW, 0); }
-		public TerminalNode CURRENT_TIMESTAMP() { return getToken(SQLiteSyntaxParser.CURRENT_TIMESTAMP, 0); }
-		public TerminalNode EXISTS() { return getToken(SQLiteSyntaxParser.EXISTS, 0); }
-		public TerminalNode FULL() { return getToken(SQLiteSyntaxParser.FULL, 0); }
-		public TerminalNode KEY() { return getToken(SQLiteSyntaxParser.KEY, 0); }
-		public TerminalNode INSERT() { return getToken(SQLiteSyntaxParser.INSERT, 0); }
-		public TerminalNode FAIL() { return getToken(SQLiteSyntaxParser.FAIL, 0); }
-		public TerminalNode UNION() { return getToken(SQLiteSyntaxParser.UNION, 0); }
-		public TerminalNode IF() { return getToken(SQLiteSyntaxParser.IF, 0); }
-		public TerminalNode DEFAULT() { return getToken(SQLiteSyntaxParser.DEFAULT, 0); }
-		public TerminalNode INDEXED() { return getToken(SQLiteSyntaxParser.INDEXED, 0); }
-		public TerminalNode ROW() { return getToken(SQLiteSyntaxParser.ROW, 0); }
-		public TerminalNode BY() { return getToken(SQLiteSyntaxParser.BY, 0); }
-		public TerminalNode INSTEAD() { return getToken(SQLiteSyntaxParser.INSTEAD, 0); }
-		public TerminalNode RECURSIVE() { return getToken(SQLiteSyntaxParser.RECURSIVE, 0); }
-		public TerminalNode PLAN() { return getToken(SQLiteSyntaxParser.PLAN, 0); }
-		public TerminalNode VALUES() { return getToken(SQLiteSyntaxParser.VALUES, 0); }
-		public TerminalNode TO() { return getToken(SQLiteSyntaxParser.TO, 0); }
-		public TerminalNode LIKE() { return getToken(SQLiteSyntaxParser.LIKE, 0); }
-		public TerminalNode ALL() { return getToken(SQLiteSyntaxParser.ALL, 0); }
-		public TerminalNode ALTER() { return getToken(SQLiteSyntaxParser.ALTER, 0); }
-		public TerminalNode ASC() { return getToken(SQLiteSyntaxParser.ASC, 0); }
-		public TerminalNode RESTRICT() { return getToken(SQLiteSyntaxParser.RESTRICT, 0); }
-		public TerminalNode UNIQUE() { return getToken(SQLiteSyntaxParser.UNIQUE, 0); }
-		public TerminalNode VIRTUAL() { return getToken(SQLiteSyntaxParser.VIRTUAL, 0); }
-		public TerminalNode REFERENCES() { return getToken(SQLiteSyntaxParser.REFERENCES, 0); }
-		public TerminalNode WHERE() { return getToken(SQLiteSyntaxParser.WHERE, 0); }
-		public TerminalNode TRIGGER() { return getToken(SQLiteSyntaxParser.TRIGGER, 0); }
-		public TerminalNode NOT() { return getToken(SQLiteSyntaxParser.NOT, 0); }
-		public TerminalNode USING() { return getToken(SQLiteSyntaxParser.USING, 0); }
-		public TerminalNode SET() { return getToken(SQLiteSyntaxParser.SET, 0); }
-		public TerminalNode REGEXP() { return getToken(SQLiteSyntaxParser.REGEXP, 0); }
-		public TerminalNode TRANSACTION() { return getToken(SQLiteSyntaxParser.TRANSACTION, 0); }
-		public TerminalNode AND() { return getToken(SQLiteSyntaxParser.AND, 0); }
-		public TerminalNode INTO() { return getToken(SQLiteSyntaxParser.INTO, 0); }
-		public TerminalNode IGNORE() { return getToken(SQLiteSyntaxParser.IGNORE, 0); }
-		public TerminalNode EXCLUSIVE() { return getToken(SQLiteSyntaxParser.EXCLUSIVE, 0); }
-		public TerminalNode NATURAL() { return getToken(SQLiteSyntaxParser.NATURAL, 0); }
-		public TerminalNode ON() { return getToken(SQLiteSyntaxParser.ON, 0); }
-		public TerminalNode PRAGMA() { return getToken(SQLiteSyntaxParser.PRAGMA, 0); }
-		public TerminalNode NOTNULL() { return getToken(SQLiteSyntaxParser.NOTNULL, 0); }
-		public TerminalNode QUERY() { return getToken(SQLiteSyntaxParser.QUERY, 0); }
-		public TerminalNode OF() { return getToken(SQLiteSyntaxParser.OF, 0); }
-		public TerminalNode CONSTRAINT() { return getToken(SQLiteSyntaxParser.CONSTRAINT, 0); }
-		public TerminalNode UPDATE() { return getToken(SQLiteSyntaxParser.UPDATE, 0); }
-		public TerminalNode WITHOUT() { return getToken(SQLiteSyntaxParser.WITHOUT, 0); }
-		public TerminalNode FROM() { return getToken(SQLiteSyntaxParser.FROM, 0); }
-		public TerminalNode CAST() { return getToken(SQLiteSyntaxParser.CAST, 0); }
-		public TerminalNode GROUP() { return getToken(SQLiteSyntaxParser.GROUP, 0); }
-		public TerminalNode DATABASE() { return getToken(SQLiteSyntaxParser.DATABASE, 0); }
-		public TerminalNode CREATE() { return getToken(SQLiteSyntaxParser.CREATE, 0); }
-		public TerminalNode INTERSECT() { return getToken(SQLiteSyntaxParser.INTERSECT, 0); }
-		public TerminalNode ISNULL() { return getToken(SQLiteSyntaxParser.ISNULL, 0); }
-		public TerminalNode TEMPORARY() { return getToken(SQLiteSyntaxParser.TEMPORARY, 0); }
-		public TerminalNode VACUUM() { return getToken(SQLiteSyntaxParser.VACUUM, 0); }
-		public TerminalNode SELECT() { return getToken(SQLiteSyntaxParser.SELECT, 0); }
-		public TerminalNode MATCH() { return getToken(SQLiteSyntaxParser.MATCH, 0); }
-		public TerminalNode ACTION() { return getToken(SQLiteSyntaxParser.ACTION, 0); }
-		public TerminalNode CROSS() { return getToken(SQLiteSyntaxParser.CROSS, 0); }
-		public TerminalNode FOR() { return getToken(SQLiteSyntaxParser.FOR, 0); }
-		public TerminalNode REPLACE() { return getToken(SQLiteSyntaxParser.REPLACE, 0); }
-		public TerminalNode AFTER() { return getToken(SQLiteSyntaxParser.AFTER, 0); }
-		public TerminalNode INDEX() { return getToken(SQLiteSyntaxParser.INDEX, 0); }
-		public TerminalNode END() { return getToken(SQLiteSyntaxParser.END, 0); }
+		public TerminalNode ABORT() { return getToken(SQLiteParser.ABORT, 0); }
+		public TerminalNode ACTION() { return getToken(SQLiteParser.ACTION, 0); }
+		public TerminalNode ADD() { return getToken(SQLiteParser.ADD, 0); }
+		public TerminalNode AFTER() { return getToken(SQLiteParser.AFTER, 0); }
+		public TerminalNode ALL() { return getToken(SQLiteParser.ALL, 0); }
+		public TerminalNode ALTER() { return getToken(SQLiteParser.ALTER, 0); }
+		public TerminalNode ANALYZE() { return getToken(SQLiteParser.ANALYZE, 0); }
+		public TerminalNode AND() { return getToken(SQLiteParser.AND, 0); }
+		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
+		public TerminalNode ASC() { return getToken(SQLiteParser.ASC, 0); }
+		public TerminalNode ATTACH() { return getToken(SQLiteParser.ATTACH, 0); }
+		public TerminalNode AUTOINCREMENT() { return getToken(SQLiteParser.AUTOINCREMENT, 0); }
+		public TerminalNode BEFORE() { return getToken(SQLiteParser.BEFORE, 0); }
+		public TerminalNode BEGIN() { return getToken(SQLiteParser.BEGIN, 0); }
+		public TerminalNode BETWEEN() { return getToken(SQLiteParser.BETWEEN, 0); }
+		public TerminalNode BY() { return getToken(SQLiteParser.BY, 0); }
+		public TerminalNode CASCADE() { return getToken(SQLiteParser.CASCADE, 0); }
+		public TerminalNode CASE() { return getToken(SQLiteParser.CASE, 0); }
+		public TerminalNode CAST() { return getToken(SQLiteParser.CAST, 0); }
+		public TerminalNode CHECK() { return getToken(SQLiteParser.CHECK, 0); }
+		public TerminalNode COLLATE() { return getToken(SQLiteParser.COLLATE, 0); }
+		public TerminalNode COLUMN() { return getToken(SQLiteParser.COLUMN, 0); }
+		public TerminalNode COMMIT() { return getToken(SQLiteParser.COMMIT, 0); }
+		public TerminalNode CONFLICT() { return getToken(SQLiteParser.CONFLICT, 0); }
+		public TerminalNode CONSTRAINT() { return getToken(SQLiteParser.CONSTRAINT, 0); }
+		public TerminalNode CREATE() { return getToken(SQLiteParser.CREATE, 0); }
+		public TerminalNode CROSS() { return getToken(SQLiteParser.CROSS, 0); }
+		public TerminalNode CURRENT_DATE() { return getToken(SQLiteParser.CURRENT_DATE, 0); }
+		public TerminalNode CURRENT_TIME() { return getToken(SQLiteParser.CURRENT_TIME, 0); }
+		public TerminalNode CURRENT_TIMESTAMP() { return getToken(SQLiteParser.CURRENT_TIMESTAMP, 0); }
+		public TerminalNode DATABASE() { return getToken(SQLiteParser.DATABASE, 0); }
+		public TerminalNode DEFAULT() { return getToken(SQLiteParser.DEFAULT, 0); }
+		public TerminalNode DEFERRABLE() { return getToken(SQLiteParser.DEFERRABLE, 0); }
+		public TerminalNode DEFERRED() { return getToken(SQLiteParser.DEFERRED, 0); }
+		public TerminalNode DELETE() { return getToken(SQLiteParser.DELETE, 0); }
+		public TerminalNode DESC() { return getToken(SQLiteParser.DESC, 0); }
+		public TerminalNode DETACH() { return getToken(SQLiteParser.DETACH, 0); }
+		public TerminalNode DISTINCT() { return getToken(SQLiteParser.DISTINCT, 0); }
+		public TerminalNode DROP() { return getToken(SQLiteParser.DROP, 0); }
+		public TerminalNode EACH() { return getToken(SQLiteParser.EACH, 0); }
+		public TerminalNode ELSE() { return getToken(SQLiteParser.ELSE, 0); }
+		public TerminalNode END() { return getToken(SQLiteParser.END, 0); }
+		public TerminalNode ESCAPE() { return getToken(SQLiteParser.ESCAPE, 0); }
+		public TerminalNode EXCEPT() { return getToken(SQLiteParser.EXCEPT, 0); }
+		public TerminalNode EXCLUSIVE() { return getToken(SQLiteParser.EXCLUSIVE, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public TerminalNode EXPLAIN() { return getToken(SQLiteParser.EXPLAIN, 0); }
+		public TerminalNode FAIL() { return getToken(SQLiteParser.FAIL, 0); }
+		public TerminalNode FOR() { return getToken(SQLiteParser.FOR, 0); }
+		public TerminalNode FOREIGN() { return getToken(SQLiteParser.FOREIGN, 0); }
+		public TerminalNode FROM() { return getToken(SQLiteParser.FROM, 0); }
+		public TerminalNode FULL() { return getToken(SQLiteParser.FULL, 0); }
+		public TerminalNode GLOB() { return getToken(SQLiteParser.GLOB, 0); }
+		public TerminalNode GROUP() { return getToken(SQLiteParser.GROUP, 0); }
+		public TerminalNode HAVING() { return getToken(SQLiteParser.HAVING, 0); }
+		public TerminalNode IF() { return getToken(SQLiteParser.IF, 0); }
+		public TerminalNode IGNORE() { return getToken(SQLiteParser.IGNORE, 0); }
+		public TerminalNode IMMEDIATE() { return getToken(SQLiteParser.IMMEDIATE, 0); }
+		public TerminalNode IN() { return getToken(SQLiteParser.IN, 0); }
+		public TerminalNode INDEX() { return getToken(SQLiteParser.INDEX, 0); }
+		public TerminalNode INDEXED() { return getToken(SQLiteParser.INDEXED, 0); }
+		public TerminalNode INITIALLY() { return getToken(SQLiteParser.INITIALLY, 0); }
+		public TerminalNode INNER() { return getToken(SQLiteParser.INNER, 0); }
+		public TerminalNode INSERT() { return getToken(SQLiteParser.INSERT, 0); }
+		public TerminalNode INSTEAD() { return getToken(SQLiteParser.INSTEAD, 0); }
+		public TerminalNode INTERSECT() { return getToken(SQLiteParser.INTERSECT, 0); }
+		public TerminalNode INTO() { return getToken(SQLiteParser.INTO, 0); }
+		public TerminalNode IS() { return getToken(SQLiteParser.IS, 0); }
+		public TerminalNode ISNULL() { return getToken(SQLiteParser.ISNULL, 0); }
+		public TerminalNode JOIN() { return getToken(SQLiteParser.JOIN, 0); }
+		public TerminalNode KEY() { return getToken(SQLiteParser.KEY, 0); }
+		public TerminalNode LEFT() { return getToken(SQLiteParser.LEFT, 0); }
+		public TerminalNode LIKE() { return getToken(SQLiteParser.LIKE, 0); }
+		public TerminalNode LIMIT() { return getToken(SQLiteParser.LIMIT, 0); }
+		public TerminalNode MATCH() { return getToken(SQLiteParser.MATCH, 0); }
+		public TerminalNode NATURAL() { return getToken(SQLiteParser.NATURAL, 0); }
+		public TerminalNode NO() { return getToken(SQLiteParser.NO, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode NOTNULL() { return getToken(SQLiteParser.NOTNULL, 0); }
+		public TerminalNode NULL() { return getToken(SQLiteParser.NULL, 0); }
+		public TerminalNode OF() { return getToken(SQLiteParser.OF, 0); }
+		public TerminalNode OFFSET() { return getToken(SQLiteParser.OFFSET, 0); }
+		public TerminalNode ON() { return getToken(SQLiteParser.ON, 0); }
+		public TerminalNode OR() { return getToken(SQLiteParser.OR, 0); }
+		public TerminalNode ORDER() { return getToken(SQLiteParser.ORDER, 0); }
+		public TerminalNode OUTER() { return getToken(SQLiteParser.OUTER, 0); }
+		public TerminalNode PLAN() { return getToken(SQLiteParser.PLAN, 0); }
+		public TerminalNode PRAGMA() { return getToken(SQLiteParser.PRAGMA, 0); }
+		public TerminalNode PRIMARY() { return getToken(SQLiteParser.PRIMARY, 0); }
+		public TerminalNode QUERY() { return getToken(SQLiteParser.QUERY, 0); }
+		public TerminalNode RAISE() { return getToken(SQLiteParser.RAISE, 0); }
+		public TerminalNode RECURSIVE() { return getToken(SQLiteParser.RECURSIVE, 0); }
+		public TerminalNode REFERENCES() { return getToken(SQLiteParser.REFERENCES, 0); }
+		public TerminalNode REGEXP() { return getToken(SQLiteParser.REGEXP, 0); }
+		public TerminalNode REINDEX() { return getToken(SQLiteParser.REINDEX, 0); }
+		public TerminalNode RELEASE() { return getToken(SQLiteParser.RELEASE, 0); }
+		public TerminalNode RENAME() { return getToken(SQLiteParser.RENAME, 0); }
+		public TerminalNode REPLACE() { return getToken(SQLiteParser.REPLACE, 0); }
+		public TerminalNode RESTRICT() { return getToken(SQLiteParser.RESTRICT, 0); }
+		public TerminalNode RIGHT() { return getToken(SQLiteParser.RIGHT, 0); }
+		public TerminalNode ROLLBACK() { return getToken(SQLiteParser.ROLLBACK, 0); }
+		public TerminalNode ROW() { return getToken(SQLiteParser.ROW, 0); }
+		public TerminalNode SAVEPOINT() { return getToken(SQLiteParser.SAVEPOINT, 0); }
+		public TerminalNode SELECT() { return getToken(SQLiteParser.SELECT, 0); }
+		public TerminalNode SET() { return getToken(SQLiteParser.SET, 0); }
+		public TerminalNode TABLE() { return getToken(SQLiteParser.TABLE, 0); }
+		public TerminalNode TEMP() { return getToken(SQLiteParser.TEMP, 0); }
+		public TerminalNode TEMPORARY() { return getToken(SQLiteParser.TEMPORARY, 0); }
+		public TerminalNode THEN() { return getToken(SQLiteParser.THEN, 0); }
+		public TerminalNode TO() { return getToken(SQLiteParser.TO, 0); }
+		public TerminalNode TRANSACTION() { return getToken(SQLiteParser.TRANSACTION, 0); }
+		public TerminalNode TRIGGER() { return getToken(SQLiteParser.TRIGGER, 0); }
+		public TerminalNode UNION() { return getToken(SQLiteParser.UNION, 0); }
+		public TerminalNode UNIQUE() { return getToken(SQLiteParser.UNIQUE, 0); }
+		public TerminalNode UPDATE() { return getToken(SQLiteParser.UPDATE, 0); }
+		public TerminalNode USING() { return getToken(SQLiteParser.USING, 0); }
+		public TerminalNode VACUUM() { return getToken(SQLiteParser.VACUUM, 0); }
+		public TerminalNode VALUES() { return getToken(SQLiteParser.VALUES, 0); }
+		public TerminalNode VIEW() { return getToken(SQLiteParser.VIEW, 0); }
+		public TerminalNode VIRTUAL() { return getToken(SQLiteParser.VIRTUAL, 0); }
+		public TerminalNode WHEN() { return getToken(SQLiteParser.WHEN, 0); }
+		public TerminalNode WHERE() { return getToken(SQLiteParser.WHERE, 0); }
+		public TerminalNode WITH() { return getToken(SQLiteParser.WITH, 0); }
+		public TerminalNode WITHOUT() { return getToken(SQLiteParser.WITHOUT, 0); }
 		public KeywordContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_keyword; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterKeyword(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterKeyword(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitKeyword(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitKeyword(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitKeyword(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitKeyword(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7958,7 +9175,11 @@ public class SQLiteSyntaxParser extends Parser {
 			if ( !(((((_la - 25)) & ~0x3f) == 0 && ((1L << (_la - 25)) & ((1L << (ABORT - 25)) | (1L << (ACTION - 25)) | (1L << (ADD - 25)) | (1L << (AFTER - 25)) | (1L << (ALL - 25)) | (1L << (ALTER - 25)) | (1L << (ANALYZE - 25)) | (1L << (AND - 25)) | (1L << (AS - 25)) | (1L << (ASC - 25)) | (1L << (ATTACH - 25)) | (1L << (AUTOINCREMENT - 25)) | (1L << (BEFORE - 25)) | (1L << (BEGIN - 25)) | (1L << (BETWEEN - 25)) | (1L << (BY - 25)) | (1L << (CASCADE - 25)) | (1L << (CASE - 25)) | (1L << (CAST - 25)) | (1L << (CHECK - 25)) | (1L << (COLLATE - 25)) | (1L << (COLUMN - 25)) | (1L << (COMMIT - 25)) | (1L << (CONFLICT - 25)) | (1L << (CONSTRAINT - 25)) | (1L << (CREATE - 25)) | (1L << (CROSS - 25)) | (1L << (CURRENT_DATE - 25)) | (1L << (CURRENT_TIME - 25)) | (1L << (CURRENT_TIMESTAMP - 25)) | (1L << (DATABASE - 25)) | (1L << (DEFAULT - 25)) | (1L << (DEFERRABLE - 25)) | (1L << (DEFERRED - 25)) | (1L << (DELETE - 25)) | (1L << (DESC - 25)) | (1L << (DETACH - 25)) | (1L << (DISTINCT - 25)) | (1L << (DROP - 25)) | (1L << (EACH - 25)) | (1L << (ELSE - 25)) | (1L << (END - 25)) | (1L << (ESCAPE - 25)) | (1L << (EXCEPT - 25)) | (1L << (EXCLUSIVE - 25)) | (1L << (EXISTS - 25)) | (1L << (EXPLAIN - 25)) | (1L << (FAIL - 25)) | (1L << (FOR - 25)) | (1L << (FOREIGN - 25)) | (1L << (FROM - 25)) | (1L << (FULL - 25)) | (1L << (GLOB - 25)) | (1L << (GROUP - 25)) | (1L << (HAVING - 25)) | (1L << (IF - 25)) | (1L << (IGNORE - 25)) | (1L << (IMMEDIATE - 25)) | (1L << (IN - 25)) | (1L << (INDEX - 25)) | (1L << (INDEXED - 25)) | (1L << (INITIALLY - 25)) | (1L << (INNER - 25)) | (1L << (INSERT - 25)))) != 0) || ((((_la - 89)) & ~0x3f) == 0 && ((1L << (_la - 89)) & ((1L << (INSTEAD - 89)) | (1L << (INTERSECT - 89)) | (1L << (INTO - 89)) | (1L << (IS - 89)) | (1L << (ISNULL - 89)) | (1L << (JOIN - 89)) | (1L << (KEY - 89)) | (1L << (LEFT - 89)) | (1L << (LIKE - 89)) | (1L << (LIMIT - 89)) | (1L << (MATCH - 89)) | (1L << (NATURAL - 89)) | (1L << (NO - 89)) | (1L << (NOT - 89)) | (1L << (NOTNULL - 89)) | (1L << (NULL - 89)) | (1L << (OF - 89)) | (1L << (OFFSET - 89)) | (1L << (ON - 89)) | (1L << (OR - 89)) | (1L << (ORDER - 89)) | (1L << (OUTER - 89)) | (1L << (PLAN - 89)) | (1L << (PRAGMA - 89)) | (1L << (PRIMARY - 89)) | (1L << (QUERY - 89)) | (1L << (RAISE - 89)) | (1L << (RECURSIVE - 89)) | (1L << (REFERENCES - 89)) | (1L << (REGEXP - 89)) | (1L << (REINDEX - 89)) | (1L << (RELEASE - 89)) | (1L << (RENAME - 89)) | (1L << (REPLACE - 89)) | (1L << (RESTRICT - 89)) | (1L << (RIGHT - 89)) | (1L << (ROLLBACK - 89)) | (1L << (ROW - 89)) | (1L << (SAVEPOINT - 89)) | (1L << (SELECT - 89)) | (1L << (SET - 89)) | (1L << (TABLE - 89)) | (1L << (TEMP - 89)) | (1L << (TEMPORARY - 89)) | (1L << (THEN - 89)) | (1L << (TO - 89)) | (1L << (TRANSACTION - 89)) | (1L << (TRIGGER - 89)) | (1L << (UNION - 89)) | (1L << (UNIQUE - 89)) | (1L << (UPDATE - 89)) | (1L << (USING - 89)) | (1L << (VACUUM - 89)) | (1L << (VALUES - 89)) | (1L << (VIEW - 89)) | (1L << (VIRTUAL - 89)) | (1L << (WHEN - 89)) | (1L << (WHERE - 89)) | (1L << (WITH - 89)) | (1L << (WITHOUT - 89)))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -7982,15 +9203,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterName(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitName(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitName(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8001,7 +9222,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1688); any_name();
+			setState(1688);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8025,15 +9247,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_function_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterFunction_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterFunction_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitFunction_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitFunction_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitFunction_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitFunction_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8044,7 +9266,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1690); any_name();
+			setState(1690);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8068,15 +9291,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_database_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterDatabase_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterDatabase_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitDatabase_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitDatabase_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitDatabase_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitDatabase_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8087,7 +9310,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1692); any_name();
+			setState(1692);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8111,15 +9335,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_table_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterTable_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterTable_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitTable_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitTable_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitTable_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitTable_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8130,7 +9354,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1694); any_name();
+			setState(1694);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8154,15 +9379,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_table_or_index_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterTable_or_index_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterTable_or_index_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitTable_or_index_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitTable_or_index_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitTable_or_index_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitTable_or_index_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8173,7 +9398,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1696); any_name();
+			setState(1696);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8197,15 +9423,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_new_table_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterNew_table_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterNew_table_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitNew_table_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitNew_table_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitNew_table_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitNew_table_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8216,7 +9442,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1698); any_name();
+			setState(1698);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8240,15 +9467,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_column_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterColumn_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterColumn_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitColumn_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitColumn_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitColumn_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitColumn_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8259,7 +9486,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1700); any_name();
+			setState(1700);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8283,15 +9511,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_collation_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterCollation_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterCollation_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitCollation_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitCollation_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitCollation_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitCollation_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8302,7 +9530,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1702); any_name();
+			setState(1702);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8326,15 +9555,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_foreign_table; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterForeign_table(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterForeign_table(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitForeign_table(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitForeign_table(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitForeign_table(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitForeign_table(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8345,7 +9574,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1704); any_name();
+			setState(1704);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8369,15 +9599,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_index_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterIndex_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterIndex_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitIndex_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitIndex_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitIndex_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitIndex_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8388,7 +9618,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1706); any_name();
+			setState(1706);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8412,15 +9643,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_trigger_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterTrigger_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterTrigger_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitTrigger_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitTrigger_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitTrigger_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitTrigger_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8431,7 +9662,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1708); any_name();
+			setState(1708);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8455,15 +9687,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_view_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterView_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterView_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitView_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitView_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitView_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitView_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8474,7 +9706,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1710); any_name();
+			setState(1710);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8498,15 +9731,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_module_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterModule_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterModule_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitModule_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitModule_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitModule_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitModule_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8517,7 +9750,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1712); any_name();
+			setState(1712);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8541,15 +9775,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_pragma_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterPragma_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterPragma_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitPragma_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitPragma_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitPragma_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitPragma_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8560,7 +9794,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1714); any_name();
+			setState(1714);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8584,15 +9819,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_savepoint_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterSavepoint_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterSavepoint_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitSavepoint_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitSavepoint_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitSavepoint_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitSavepoint_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8603,7 +9838,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1716); any_name();
+			setState(1716);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8627,15 +9863,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_table_alias; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterTable_alias(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterTable_alias(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitTable_alias(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitTable_alias(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitTable_alias(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitTable_alias(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8646,7 +9882,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1718); any_name();
+			setState(1718);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8670,15 +9907,15 @@ public class SQLiteSyntaxParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_transaction_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterTransaction_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterTransaction_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitTransaction_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitTransaction_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitTransaction_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitTransaction_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8689,7 +9926,8 @@ public class SQLiteSyntaxParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1720); any_name();
+			setState(1720);
+			any_name();
 			}
 		}
 		catch (RecognitionException re) {
@@ -8704,29 +9942,31 @@ public class SQLiteSyntaxParser extends Parser {
 	}
 
 	public static class Any_nameContext extends ParserRuleContext {
-		public Any_nameContext any_name() {
-			return getRuleContext(Any_nameContext.class,0);
-		}
+		public TerminalNode IDENTIFIER() { return getToken(SQLiteParser.IDENTIFIER, 0); }
 		public KeywordContext keyword() {
 			return getRuleContext(KeywordContext.class,0);
 		}
-		public TerminalNode IDENTIFIER() { return getToken(SQLiteSyntaxParser.IDENTIFIER, 0); }
-		public TerminalNode STRING_LITERAL() { return getToken(SQLiteSyntaxParser.STRING_LITERAL, 0); }
+		public TerminalNode STRING_LITERAL() { return getToken(SQLiteParser.STRING_LITERAL, 0); }
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public Any_nameContext any_name() {
+			return getRuleContext(Any_nameContext.class,0);
+		}
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
 		public Any_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_any_name; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).enterAny_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterAny_name(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteSyntaxListener ) ((SQLiteSyntaxListener)listener).exitAny_name(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitAny_name(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteSyntaxVisitor ) return ((SQLiteSyntaxVisitor<? extends T>)visitor).visitAny_name(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitAny_name(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8736,11 +9976,13 @@ public class SQLiteSyntaxParser extends Parser {
 		enterRule(_localctx, 162, RULE_any_name);
 		try {
 			setState(1729);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IDENTIFIER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1722); match(IDENTIFIER);
+				setState(1722);
+				match(IDENTIFIER);
 				}
 				break;
 			case ABORT:
@@ -8869,21 +10111,26 @@ public class SQLiteSyntaxParser extends Parser {
 			case WITHOUT:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1723); keyword();
+				setState(1723);
+				keyword();
 				}
 				break;
 			case STRING_LITERAL:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1724); match(STRING_LITERAL);
+				setState(1724);
+				match(STRING_LITERAL);
 				}
 				break;
 			case OPEN_PAR:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(1725); match(OPEN_PAR);
-				setState(1726); any_name();
-				setState(1727); match(CLOSE_PAR);
+				setState(1725);
+				match(OPEN_PAR);
+				setState(1726);
+				any_name();
+				setState(1727);
+				match(CLOSE_PAR);
 				}
 				break;
 			default:
@@ -8903,45 +10150,47 @@ public class SQLiteSyntaxParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 39: return expr_sempred((ExprContext)_localctx, predIndex);
+		case 39:
+			return expr_sempred((ExprContext)_localctx, predIndex);
 		}
 		return true;
 	}
 	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 0: return precpred(_ctx, 20);
-
-		case 1: return precpred(_ctx, 19);
-
-		case 2: return precpred(_ctx, 18);
-
-		case 3: return precpred(_ctx, 17);
-
-		case 4: return precpred(_ctx, 16);
-
-		case 5: return precpred(_ctx, 15);
-
-		case 6: return precpred(_ctx, 14);
-
-		case 7: return precpred(_ctx, 13);
-
-		case 8: return precpred(_ctx, 6);
-
-		case 9: return precpred(_ctx, 5);
-
-		case 10: return precpred(_ctx, 9);
-
-		case 11: return precpred(_ctx, 8);
-
-		case 12: return precpred(_ctx, 7);
-
-		case 13: return precpred(_ctx, 4);
+		case 0:
+			return precpred(_ctx, 20);
+		case 1:
+			return precpred(_ctx, 19);
+		case 2:
+			return precpred(_ctx, 18);
+		case 3:
+			return precpred(_ctx, 17);
+		case 4:
+			return precpred(_ctx, 16);
+		case 5:
+			return precpred(_ctx, 15);
+		case 6:
+			return precpred(_ctx, 14);
+		case 7:
+			return precpred(_ctx, 13);
+		case 8:
+			return precpred(_ctx, 6);
+		case 9:
+			return precpred(_ctx, 5);
+		case 10:
+			return precpred(_ctx, 9);
+		case 11:
+			return precpred(_ctx, 8);
+		case 12:
+			return precpred(_ctx, 7);
+		case 13:
+			return precpred(_ctx, 4);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\u009f\u06c6\4\2\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\u009f\u06c6\4\2\t"+
 		"\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -9026,21 +10275,21 @@ public class SQLiteSyntaxParser extends Parser {
 		"\3&\3&\3&\3&\3&\3&\3&\5&\u042e\n&\3\'\3\'\5\'\u0432\n\'\3\'\3\'\3\'\5"+
 		"\'\u0437\n\'\3\'\3\'\5\'\u043b\n\'\3\'\5\'\u043e\n\'\3\'\3\'\3\'\3\'\3"+
 		"\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\5\'\u0450\n\'\3\'\3\'\3"+
-		"\'\5\'\u0455\n\'\3(\3(\3(\5(\u045a\n(\3)\3)\3)\3)\3)\3)\3)\3)\3)\5)\u0465"+
-		"\n)\3)\3)\3)\5)\u046a\n)\3)\3)\3)\3)\5)\u0470\n)\3)\3)\3)\7)\u0475\n)"+
-		"\f)\16)\u0478\13)\3)\5)\u047b\n)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3"+
-		")\3)\5)\u048b\n)\3)\5)\u048e\n)\3)\3)\3)\3)\3)\3)\5)\u0496\n)\3)\3)\3"+
-		")\3)\3)\6)\u049d\n)\r)\16)\u049e\3)\3)\5)\u04a3\n)\3)\3)\3)\5)\u04a8\n"+
-		")\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3"+
-		")\3)\3)\3)\3)\3)\5)\u04c6\n)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\5)\u04d2\n"+
-		")\3)\3)\3)\5)\u04d7\n)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\5)\u04e3\n)\3)\3"+
-		")\3)\3)\5)\u04e9\n)\3)\3)\3)\3)\3)\5)\u04f0\n)\3)\3)\5)\u04f4\n)\3)\3"+
-		")\3)\3)\3)\3)\7)\u04fc\n)\f)\16)\u04ff\13)\5)\u0501\n)\3)\3)\3)\3)\5)"+
-		"\u0507\n)\3)\5)\u050a\n)\7)\u050c\n)\f)\16)\u050f\13)\3*\3*\3*\3*\3*\3"+
-		"*\7*\u0517\n*\f*\16*\u051a\13*\3*\3*\5*\u051e\n*\3*\3*\3*\3*\3*\3*\3*"+
-		"\3*\3*\3*\5*\u052a\n*\3*\3*\5*\u052e\n*\7*\u0530\n*\f*\16*\u0533\13*\3"+
-		"*\5*\u0536\n*\3*\3*\3*\3*\3*\5*\u053d\n*\5*\u053f\n*\3+\3+\3+\3+\3+\3"+
-		"+\5+\u0547\n+\3+\3+\3,\3,\3,\5,\u054e\n,\3,\5,\u0551\n,\3-\3-\5-\u0555"+
+		"\'\5\'\u0455\n\'\3(\3(\3(\5(\u045a\n(\3)\3)\3)\3)\3)\3)\5)\u0462\n)\3"+
+		")\3)\3)\5)\u0467\n)\3)\3)\3)\3)\3)\3)\3)\5)\u0470\n)\3)\3)\3)\7)\u0475"+
+		"\n)\f)\16)\u0478\13)\3)\5)\u047b\n)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3"+
+		")\3)\3)\5)\u048b\n)\3)\5)\u048e\n)\3)\3)\3)\3)\3)\3)\5)\u0496\n)\3)\3"+
+		")\3)\3)\3)\6)\u049d\n)\r)\16)\u049e\3)\3)\5)\u04a3\n)\3)\3)\3)\5)\u04a8"+
+		"\n)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)"+
+		"\3)\3)\3)\3)\3)\3)\5)\u04c6\n)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\5)\u04d2"+
+		"\n)\3)\3)\3)\5)\u04d7\n)\3)\3)\3)\3)\3)\3)\3)\3)\3)\3)\5)\u04e3\n)\3)"+
+		"\3)\3)\3)\5)\u04e9\n)\3)\3)\3)\3)\3)\5)\u04f0\n)\3)\3)\5)\u04f4\n)\3)"+
+		"\3)\3)\3)\3)\3)\7)\u04fc\n)\f)\16)\u04ff\13)\5)\u0501\n)\3)\3)\3)\3)\5"+
+		")\u0507\n)\3)\5)\u050a\n)\7)\u050c\n)\f)\16)\u050f\13)\3*\3*\3*\3*\3*"+
+		"\3*\7*\u0517\n*\f*\16*\u051a\13*\3*\3*\5*\u051e\n*\3*\3*\3*\3*\3*\3*\3"+
+		"*\3*\3*\3*\5*\u052a\n*\3*\3*\5*\u052e\n*\7*\u0530\n*\f*\16*\u0533\13*"+
+		"\3*\5*\u0536\n*\3*\3*\3*\3*\3*\5*\u053d\n*\5*\u053f\n*\3+\3+\3+\3+\3+"+
+		"\3+\5+\u0547\n+\3+\3+\3,\3,\3,\5,\u054e\n,\3,\5,\u0551\n,\3-\3-\5-\u0555"+
 		"\n-\3-\3-\3-\5-\u055a\n-\3-\3-\3-\3-\7-\u0560\n-\f-\16-\u0563\13-\3-\3"+
 		"-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\7-\u0573\n-\f-\16-\u0576\13-\3-"+
 		"\3-\3-\5-\u057b\n-\3.\3.\5.\u057f\n.\3.\3.\3.\3.\3.\3.\3.\3.\3.\3.\3."+
@@ -9073,14 +10322,14 @@ public class SQLiteSyntaxParser extends Parser {
 		"\4\2\61\61DD\4\2\7\7ll\3\2\u0085\u0086\4\2\37\37@@\4\2$$>>\7\2\33\33J"+
 		"JSS||\177\177\4\2\t\t\16\17\3\2\n\13\3\2\20\23\3\2\24\27\6\2OOcceexx\4"+
 		"\2==\u008d\u008d\5\2\33\33JJ\177\177\6\2\668jj\u0098\u0098\u009a\u009b"+
-		"\4\2\n\fhh\4\2\u0097\u0097\u009a\u009a\3\2\33\u0096\u07d3\2\u00aa\3\2"+
-		"\2\2\4\u00af\3\2\2\2\6\u00b5\3\2\2\2\b\u00cf\3\2\2\2\n\u00f1\3\2\2\2\f"+
-		"\u0103\3\2\2\2\16\u010c\3\2\2\2\20\u0114\3\2\2\2\22\u011e\3\2\2\2\24\u0131"+
-		"\3\2\2\2\26\u0155\3\2\2\2\30\u0175\3\2\2\2\32\u019e\3\2\2\2\34\u01e3\3"+
-		"\2\2\2\36\u01f6\3\2\2\2 \u0214\3\2\2\2\"\u021e\3\2\2\2$\u023b\3\2\2\2"+
-		"&\u0241\3\2\2\2(\u024e\3\2\2\2*\u025b\3\2\2\2,\u0268\3\2\2\2.\u0281\3"+
-		"\2\2\2\60\u02a1\3\2\2\2\62\u02eb\3\2\2\2\64\u02fa\3\2\2\2\66\u0307\3\2"+
-		"\2\28\u030d\3\2\2\2:\u031b\3\2\2\2<\u032a\3\2\2\2>\u034d\3\2\2\2@\u03b6"+
+		"\4\2\n\fhh\4\2\u0097\u0097\u009a\u009a\3\2\33\u0096\2\u07d3\2\u00aa\3"+
+		"\2\2\2\4\u00af\3\2\2\2\6\u00b5\3\2\2\2\b\u00cf\3\2\2\2\n\u00f1\3\2\2\2"+
+		"\f\u0103\3\2\2\2\16\u010c\3\2\2\2\20\u0114\3\2\2\2\22\u011e\3\2\2\2\24"+
+		"\u0131\3\2\2\2\26\u0155\3\2\2\2\30\u0175\3\2\2\2\32\u019e\3\2\2\2\34\u01e3"+
+		"\3\2\2\2\36\u01f6\3\2\2\2 \u0214\3\2\2\2\"\u021e\3\2\2\2$\u023b\3\2\2"+
+		"\2&\u0241\3\2\2\2(\u024e\3\2\2\2*\u025b\3\2\2\2,\u0268\3\2\2\2.\u0281"+
+		"\3\2\2\2\60\u02a1\3\2\2\2\62\u02eb\3\2\2\2\64\u02fa\3\2\2\2\66\u0307\3"+
+		"\2\2\28\u030d\3\2\2\2:\u031b\3\2\2\2<\u032a\3\2\2\2>\u034d\3\2\2\2@\u03b6"+
 		"\3\2\2\2B\u03b9\3\2\2\2D\u03dc\3\2\2\2F\u0412\3\2\2\2H\u0414\3\2\2\2J"+
 		"\u041f\3\2\2\2L\u0431\3\2\2\2N\u0459\3\2\2\2P\u04a7\3\2\2\2R\u0510\3\2"+
 		"\2\2T\u0540\3\2\2\2V\u054a\3\2\2\2X\u0554\3\2\2\2Z\u057c\3\2\2\2\\\u0594"+
@@ -9419,13 +10668,13 @@ public class SQLiteSyntaxParser extends Parser {
 		"\2\2\u0454\u043d\3\2\2\2\u0454\u0441\3\2\2\2\u0454\u0443\3\2\2\2\u0454"+
 		"\u0448\3\2\2\2\u0454\u0451\3\2\2\2\u0454\u0453\3\2\2\2\u0455M\3\2\2\2"+
 		"\u0456\u0457\7m\2\2\u0457\u0458\7\62\2\2\u0458\u045a\t\b\2\2\u0459\u0456"+
-		"\3\2\2\2\u0459\u045a\3\2\2\2\u045aO\3\2\2\2\u045b\u045c\b)\1\2\u045c\u045d"+
-		"\5x=\2\u045d\u045e\5P)\27\u045e\u04a8\3\2\2\2\u045f\u04a8\5v<\2\u0460"+
-		"\u04a8\7\u0099\2\2\u0461\u0462\5\u0086D\2\u0462\u0463\7\4\2\2\u0463\u0465"+
-		"\3\2\2\2\u0464\u0461\3\2\2\2\u0464\u0465\3\2\2\2\u0465\u0466\3\2\2\2\u0466"+
-		"\u0467\5\u0088E\2\u0467\u0468\7\4\2\2\u0468\u046a\3\2\2\2\u0469\u0464"+
-		"\3\2\2\2\u0469\u046a\3\2\2\2\u046a\u046b\3\2\2\2\u046b\u04a8\5\u008eH"+
-		"\2\u046c\u046d\5\u0084C\2\u046d\u047a\7\5\2\2\u046e\u0470\7@\2\2\u046f"+
+		"\3\2\2\2\u0459\u045a\3\2\2\2\u045aO\3\2\2\2\u045b\u045c\b)\1\2\u045c\u04a8"+
+		"\5v<\2\u045d\u04a8\7\u0099\2\2\u045e\u045f\5\u0086D\2\u045f\u0460\7\4"+
+		"\2\2\u0460\u0462\3\2\2\2\u0461\u045e\3\2\2\2\u0461\u0462\3\2\2\2\u0462"+
+		"\u0463\3\2\2\2\u0463\u0464\5\u0088E\2\u0464\u0465\7\4\2\2\u0465\u0467"+
+		"\3\2\2\2\u0466\u0461\3\2\2\2\u0466\u0467\3\2\2\2\u0467\u0468\3\2\2\2\u0468"+
+		"\u04a8\5\u008eH\2\u0469\u046a\5x=\2\u046a\u046b\5P)\27\u046b\u04a8\3\2"+
+		"\2\2\u046c\u046d\5\u0084C\2\u046d\u047a\7\5\2\2\u046e\u0470\7@\2\2\u046f"+
 		"\u046e\3\2\2\2\u046f\u0470\3\2\2\2\u0470\u0471\3\2\2\2\u0471\u0476\5P"+
 		")\2\u0472\u0473\7\7\2\2\u0473\u0475\5P)\2\u0474\u0472\3\2\2\2\u0475\u0478"+
 		"\3\2\2\2\u0476\u0474\3\2\2\2\u0476\u0477\3\2\2\2\u0477\u047b\3\2\2\2\u0478"+
@@ -9444,7 +10693,7 @@ public class SQLiteSyntaxParser extends Parser {
 		"\u049c\3\2\2\2\u049e\u049f\3\2\2\2\u049f\u04a2\3\2\2\2\u04a0\u04a1\7C"+
 		"\2\2\u04a1\u04a3\5P)\2\u04a2\u04a0\3\2\2\2\u04a2\u04a3\3\2\2\2\u04a3\u04a4"+
 		"\3\2\2\2\u04a4\u04a5\7D\2\2\u04a5\u04a8\3\2\2\2\u04a6\u04a8\5T+\2\u04a7"+
-		"\u045b\3\2\2\2\u04a7\u045f\3\2\2\2\u04a7\u0460\3\2\2\2\u04a7\u0469\3\2"+
+		"\u045b\3\2\2\2\u04a7\u045d\3\2\2\2\u04a7\u0466\3\2\2\2\u04a7\u0469\3\2"+
 		"\2\2\u04a7\u046c\3\2\2\2\u04a7\u047e\3\2\2\2\u04a7\u0482\3\2\2\2\u04a7"+
 		"\u048d\3\2\2\2\u04a7\u0493\3\2\2\2\u04a7\u04a6\3\2\2\2\u04a8\u050d\3\2"+
 		"\2\2\u04a9\u04aa\f\26\2\2\u04aa\u04ab\7\r\2\2\u04ab\u050c\5P)\27\u04ac"+
@@ -9645,7 +10894,7 @@ public class SQLiteSyntaxParser extends Parser {
 		"\u035f\u0362\u0368\u036a\u036e\u0375\u037e\u0382\u0384\u0388\u0391\u0396"+
 		"\u0398\u03a1\u03ac\u03b3\u03b6\u03b9\u03c6\u03d4\u03d9\u03dc\u03e9\u03f7"+
 		"\u03fc\u0405\u0408\u040e\u0410\u0416\u041b\u0421\u042d\u0431\u0436\u043a"+
-		"\u043d\u044f\u0454\u0459\u0464\u0469\u046f\u0476\u047a\u048a\u048d\u0495"+
+		"\u043d\u044f\u0454\u0459\u0461\u0466\u046f\u0476\u047a\u048a\u048d\u0495"+
 		"\u049e\u04a2\u04a7\u04c5\u04d1\u04d6\u04e2\u04e8\u04ef\u04f3\u04fd\u0500"+
 		"\u0506\u0509\u050b\u050d\u0518\u051d\u0529\u052d\u0531\u0535\u053c\u053e"+
 		"\u0546\u054d\u0550\u0554\u0559\u0561\u0574\u057a\u057e\u058e\u0594\u059c"+
