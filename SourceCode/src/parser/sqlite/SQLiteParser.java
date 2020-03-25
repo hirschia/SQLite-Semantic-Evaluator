@@ -5490,10 +5490,69 @@ public class SQLiteParser extends Parser {
 	}
 
 	public static class ExprContext extends ParserRuleContext {
+		public ExprContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_expr; }
+	 
+		public ExprContext() { }
+		public void copyFrom(ExprContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class Expr_literal_valueContext extends ExprContext {
 		public Literal_valueContext literal_value() {
 			return getRuleContext(Literal_valueContext.class,0);
 		}
-		public TerminalNode BIND_PARAMETER() { return getToken(SQLiteParser.BIND_PARAMETER, 0); }
+		public Expr_literal_valueContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_literal_value(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_literal_value(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_literal_value(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_caseContext extends ExprContext {
+		public TerminalNode CASE() { return getToken(SQLiteParser.CASE, 0); }
+		public TerminalNode END() { return getToken(SQLiteParser.END, 0); }
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public List<TerminalNode> WHEN() { return getTokens(SQLiteParser.WHEN); }
+		public TerminalNode WHEN(int i) {
+			return getToken(SQLiteParser.WHEN, i);
+		}
+		public List<TerminalNode> THEN() { return getTokens(SQLiteParser.THEN); }
+		public TerminalNode THEN(int i) {
+			return getToken(SQLiteParser.THEN, i);
+		}
+		public TerminalNode ELSE() { return getToken(SQLiteParser.ELSE, 0); }
+		public Expr_caseContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_case(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_case(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_case(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_column_nameContext extends ExprContext {
 		public Column_nameContext column_name() {
 			return getRuleContext(Column_nameContext.class,0);
 		}
@@ -5507,51 +5566,178 @@ public class SQLiteParser extends Parser {
 		public Database_nameContext database_name() {
 			return getRuleContext(Database_nameContext.class,0);
 		}
-		public Unary_operatorContext unary_operator() {
-			return getRuleContext(Unary_operatorContext.class,0);
+		public Expr_column_nameContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_column_name(this);
 		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_column_name(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_column_name(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_braceContext extends ExprContext {
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public Expr_braceContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_brace(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_brace(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_brace(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_raise_functionContext extends ExprContext {
+		public Raise_functionContext raise_function() {
+			return getRuleContext(Raise_functionContext.class,0);
+		}
+		public Expr_raise_functionContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_raise_function(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_raise_function(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_raise_function(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_nullcheckContext extends ExprContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode ISNULL() { return getToken(SQLiteParser.ISNULL, 0); }
+		public TerminalNode NOTNULL() { return getToken(SQLiteParser.NOTNULL, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode NULL() { return getToken(SQLiteParser.NULL, 0); }
+		public Expr_nullcheckContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_nullcheck(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_nullcheck(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_nullcheck(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_string_operationContext extends ExprContext {
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
+		public TerminalNode LIKE() { return getToken(SQLiteParser.LIKE, 0); }
+		public TerminalNode GLOB() { return getToken(SQLiteParser.GLOB, 0); }
+		public TerminalNode REGEXP() { return getToken(SQLiteParser.REGEXP, 0); }
+		public TerminalNode MATCH() { return getToken(SQLiteParser.MATCH, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public TerminalNode ESCAPE() { return getToken(SQLiteParser.ESCAPE, 0); }
+		public Expr_string_operationContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_string_operation(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_string_operation(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_string_operation(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_functionContext extends ExprContext {
 		public Function_nameContext function_name() {
 			return getRuleContext(Function_nameContext.class,0);
 		}
 		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
 		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
 		public TerminalNode STAR() { return getToken(SQLiteParser.STAR, 0); }
 		public TerminalNode DISTINCT() { return getToken(SQLiteParser.DISTINCT, 0); }
 		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
 		public TerminalNode COMMA(int i) {
 			return getToken(SQLiteParser.COMMA, i);
 		}
-		public TerminalNode CAST() { return getToken(SQLiteParser.CAST, 0); }
-		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
-		public Type_nameContext type_name() {
-			return getRuleContext(Type_nameContext.class,0);
+		public Expr_functionContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_function(this);
 		}
-		public Select_stmtContext select_stmt() {
-			return getRuleContext(Select_stmtContext.class,0);
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_function(this);
 		}
-		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_function(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_isContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode IS() { return getToken(SQLiteParser.IS, 0); }
 		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
-		public TerminalNode CASE() { return getToken(SQLiteParser.CASE, 0); }
-		public TerminalNode END() { return getToken(SQLiteParser.END, 0); }
-		public List<TerminalNode> WHEN() { return getTokens(SQLiteParser.WHEN); }
-		public TerminalNode WHEN(int i) {
-			return getToken(SQLiteParser.WHEN, i);
+		public Expr_isContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_is(this);
 		}
-		public List<TerminalNode> THEN() { return getTokens(SQLiteParser.THEN); }
-		public TerminalNode THEN(int i) {
-			return getToken(SQLiteParser.THEN, i);
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_is(this);
 		}
-		public TerminalNode ELSE() { return getToken(SQLiteParser.ELSE, 0); }
-		public Raise_functionContext raise_function() {
-			return getRuleContext(Raise_functionContext.class,0);
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_is(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_binaryContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
 		}
 		public TerminalNode PIPE2() { return getToken(SQLiteParser.PIPE2, 0); }
+		public TerminalNode STAR() { return getToken(SQLiteParser.STAR, 0); }
 		public TerminalNode DIV() { return getToken(SQLiteParser.DIV, 0); }
 		public TerminalNode MOD() { return getToken(SQLiteParser.MOD, 0); }
 		public TerminalNode PLUS() { return getToken(SQLiteParser.PLUS, 0); }
@@ -5569,6 +5755,7 @@ public class SQLiteParser extends Parser {
 		public TerminalNode NOT_EQ1() { return getToken(SQLiteParser.NOT_EQ1, 0); }
 		public TerminalNode NOT_EQ2() { return getToken(SQLiteParser.NOT_EQ2, 0); }
 		public TerminalNode IS() { return getToken(SQLiteParser.IS, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
 		public TerminalNode IN() { return getToken(SQLiteParser.IN, 0); }
 		public TerminalNode LIKE() { return getToken(SQLiteParser.LIKE, 0); }
 		public TerminalNode GLOB() { return getToken(SQLiteParser.GLOB, 0); }
@@ -5576,30 +5763,194 @@ public class SQLiteParser extends Parser {
 		public TerminalNode REGEXP() { return getToken(SQLiteParser.REGEXP, 0); }
 		public TerminalNode AND() { return getToken(SQLiteParser.AND, 0); }
 		public TerminalNode OR() { return getToken(SQLiteParser.OR, 0); }
+		public Expr_binaryContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_binary(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_binary(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_binary(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_castContext extends ExprContext {
+		public TerminalNode CAST() { return getToken(SQLiteParser.CAST, 0); }
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode AS() { return getToken(SQLiteParser.AS, 0); }
+		public Type_nameContext type_name() {
+			return getRuleContext(Type_nameContext.class,0);
+		}
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public Expr_castContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_cast(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_cast(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_cast(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_betweenContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
 		public TerminalNode BETWEEN() { return getToken(SQLiteParser.BETWEEN, 0); }
+		public TerminalNode AND() { return getToken(SQLiteParser.AND, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public Expr_betweenContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_between(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_between(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_between(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_inContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public TerminalNode IN() { return getToken(SQLiteParser.IN, 0); }
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public Table_nameContext table_name() {
+			return getRuleContext(Table_nameContext.class,0);
+		}
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public Select_stmtContext select_stmt() {
+			return getRuleContext(Select_stmtContext.class,0);
+		}
+		public Database_nameContext database_name() {
+			return getRuleContext(Database_nameContext.class,0);
+		}
+		public TerminalNode DOT() { return getToken(SQLiteParser.DOT, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(SQLiteParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SQLiteParser.COMMA, i);
+		}
+		public Expr_inContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_in(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_in(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_in(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_collateContext extends ExprContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
 		public TerminalNode COLLATE() { return getToken(SQLiteParser.COLLATE, 0); }
 		public Collation_nameContext collation_name() {
 			return getRuleContext(Collation_nameContext.class,0);
 		}
-		public TerminalNode ESCAPE() { return getToken(SQLiteParser.ESCAPE, 0); }
-		public TerminalNode ISNULL() { return getToken(SQLiteParser.ISNULL, 0); }
-		public TerminalNode NOTNULL() { return getToken(SQLiteParser.NOTNULL, 0); }
-		public TerminalNode NULL() { return getToken(SQLiteParser.NULL, 0); }
-		public ExprContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_expr; }
+		public Expr_collateContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_collate(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr(this);
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_collate(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr(this);
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_collate(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_subqueryContext extends ExprContext {
+		public TerminalNode OPEN_PAR() { return getToken(SQLiteParser.OPEN_PAR, 0); }
+		public Select_stmtContext select_stmt() {
+			return getRuleContext(Select_stmtContext.class,0);
+		}
+		public TerminalNode CLOSE_PAR() { return getToken(SQLiteParser.CLOSE_PAR, 0); }
+		public TerminalNode EXISTS() { return getToken(SQLiteParser.EXISTS, 0); }
+		public TerminalNode NOT() { return getToken(SQLiteParser.NOT, 0); }
+		public Expr_subqueryContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_subquery(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_subquery(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_subquery(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_unaryContext extends ExprContext {
+		public Unary_operatorContext unary_operator() {
+			return getRuleContext(Unary_operatorContext.class,0);
+		}
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public Expr_unaryContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_unary(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_unary(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_unary(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Expr_bindContext extends ExprContext {
+		public TerminalNode BIND_PARAMETER() { return getToken(SQLiteParser.BIND_PARAMETER, 0); }
+		public Expr_bindContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).enterExpr_bind(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SQLiteListener ) ((SQLiteListener)listener).exitExpr_bind(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SQLiteVisitor ) return ((SQLiteVisitor<? extends T>)visitor).visitExpr_bind(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5625,18 +5976,28 @@ public class SQLiteParser extends Parser {
 			switch ( getInterpreter().adaptivePredict(_input,165,_ctx) ) {
 			case 1:
 				{
+				_localctx = new Expr_literal_valueContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
 				setState(1114);
 				literal_value();
 				}
 				break;
 			case 2:
 				{
+				_localctx = new Expr_bindContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1115);
 				match(BIND_PARAMETER);
 				}
 				break;
 			case 3:
 				{
+				_localctx = new Expr_column_nameContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1124);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,156,_ctx) ) {
@@ -5667,6 +6028,9 @@ public class SQLiteParser extends Parser {
 				break;
 			case 4:
 				{
+				_localctx = new Expr_unaryContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1127);
 				unary_operator();
 				setState(1128);
@@ -5675,6 +6039,9 @@ public class SQLiteParser extends Parser {
 				break;
 			case 5:
 				{
+				_localctx = new Expr_functionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1130);
 				function_name();
 				setState(1131);
@@ -5863,6 +6230,9 @@ public class SQLiteParser extends Parser {
 				break;
 			case 6:
 				{
+				_localctx = new Expr_braceContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1148);
 				match(OPEN_PAR);
 				setState(1149);
@@ -5873,6 +6243,9 @@ public class SQLiteParser extends Parser {
 				break;
 			case 7:
 				{
+				_localctx = new Expr_castContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1152);
 				match(CAST);
 				setState(1153);
@@ -5889,6 +6262,9 @@ public class SQLiteParser extends Parser {
 				break;
 			case 8:
 				{
+				_localctx = new Expr_subqueryContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1163);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
@@ -5919,6 +6295,9 @@ public class SQLiteParser extends Parser {
 				break;
 			case 9:
 				{
+				_localctx = new Expr_caseContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1169);
 				match(CASE);
 				setState(1171);
@@ -5969,6 +6348,9 @@ public class SQLiteParser extends Parser {
 				break;
 			case 10:
 				{
+				_localctx = new Expr_raise_functionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1188);
 				raise_function();
 				}
@@ -5988,7 +6370,7 @@ public class SQLiteParser extends Parser {
 					switch ( getInterpreter().adaptivePredict(_input,177,_ctx) ) {
 					case 1:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_binaryContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1191);
 						if (!(precpred(_ctx, 20))) throw new FailedPredicateException(this, "precpred(_ctx, 20)");
@@ -6000,7 +6382,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 2:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_binaryContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1194);
 						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
@@ -6020,7 +6402,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 3:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_binaryContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1197);
 						if (!(precpred(_ctx, 18))) throw new FailedPredicateException(this, "precpred(_ctx, 18)");
@@ -6040,7 +6422,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 4:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_binaryContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1200);
 						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
@@ -6060,7 +6442,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 5:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_binaryContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1203);
 						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
@@ -6080,7 +6462,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 6:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_binaryContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1206);
 						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
@@ -6162,7 +6544,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 7:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_binaryContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1222);
 						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
@@ -6174,7 +6556,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 8:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_binaryContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1225);
 						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
@@ -6186,7 +6568,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 9:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_isContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1228);
 						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
@@ -6208,7 +6590,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 10:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_betweenContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1234);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
@@ -6234,7 +6616,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 11:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_collateContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1243);
 						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
@@ -6246,7 +6628,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 12:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_string_operationContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1246);
 						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
@@ -6288,7 +6670,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 13:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_nullcheckContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1256);
 						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
@@ -6322,7 +6704,7 @@ public class SQLiteParser extends Parser {
 						break;
 					case 14:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new Expr_inContext(new ExprContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(1263);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");

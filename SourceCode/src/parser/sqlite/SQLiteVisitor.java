@@ -247,11 +247,124 @@ public interface SQLiteVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitConflict_clause(SQLiteParser.Conflict_clauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SQLiteParser#expr}.
+	 * Visit a parse tree produced by the {@code expr_literal_value}
+	 * labeled alternative in {@link SQLiteParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpr(SQLiteParser.ExprContext ctx);
+	T visitExpr_literal_value(SQLiteParser.Expr_literal_valueContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_case}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_case(SQLiteParser.Expr_caseContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_column_name}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_column_name(SQLiteParser.Expr_column_nameContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_brace}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_brace(SQLiteParser.Expr_braceContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_raise_function}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_raise_function(SQLiteParser.Expr_raise_functionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_nullcheck}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_nullcheck(SQLiteParser.Expr_nullcheckContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_string_operation}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_string_operation(SQLiteParser.Expr_string_operationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_function}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_function(SQLiteParser.Expr_functionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_is}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_is(SQLiteParser.Expr_isContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_binary}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_binary(SQLiteParser.Expr_binaryContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_cast}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_cast(SQLiteParser.Expr_castContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_between}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_between(SQLiteParser.Expr_betweenContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_in}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_in(SQLiteParser.Expr_inContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_collate}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_collate(SQLiteParser.Expr_collateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_subquery}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_subquery(SQLiteParser.Expr_subqueryContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_unary}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_unary(SQLiteParser.Expr_unaryContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expr_bind}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_bind(SQLiteParser.Expr_bindContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SQLiteParser#foreign_key_clause}.
 	 * @param ctx the parse tree

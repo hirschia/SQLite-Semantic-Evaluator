@@ -400,15 +400,209 @@ public interface SQLiteListener extends ParseTreeListener {
 	 */
 	void exitConflict_clause(SQLiteParser.Conflict_clauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteParser#expr}.
+	 * Enter a parse tree produced by the {@code expr_literal_value}
+	 * labeled alternative in {@link SQLiteParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(SQLiteParser.ExprContext ctx);
+	void enterExpr_literal_value(SQLiteParser.Expr_literal_valueContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteParser#expr}.
+	 * Exit a parse tree produced by the {@code expr_literal_value}
+	 * labeled alternative in {@link SQLiteParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(SQLiteParser.ExprContext ctx);
+	void exitExpr_literal_value(SQLiteParser.Expr_literal_valueContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_case}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_case(SQLiteParser.Expr_caseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_case}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_case(SQLiteParser.Expr_caseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_column_name}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_column_name(SQLiteParser.Expr_column_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_column_name}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_column_name(SQLiteParser.Expr_column_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_brace}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_brace(SQLiteParser.Expr_braceContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_brace}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_brace(SQLiteParser.Expr_braceContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_raise_function}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_raise_function(SQLiteParser.Expr_raise_functionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_raise_function}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_raise_function(SQLiteParser.Expr_raise_functionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_nullcheck}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_nullcheck(SQLiteParser.Expr_nullcheckContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_nullcheck}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_nullcheck(SQLiteParser.Expr_nullcheckContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_string_operation}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_string_operation(SQLiteParser.Expr_string_operationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_string_operation}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_string_operation(SQLiteParser.Expr_string_operationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_function}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_function(SQLiteParser.Expr_functionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_function}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_function(SQLiteParser.Expr_functionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_is}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_is(SQLiteParser.Expr_isContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_is}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_is(SQLiteParser.Expr_isContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_binary}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_binary(SQLiteParser.Expr_binaryContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_binary}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_binary(SQLiteParser.Expr_binaryContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_cast}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_cast(SQLiteParser.Expr_castContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_cast}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_cast(SQLiteParser.Expr_castContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_between}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_between(SQLiteParser.Expr_betweenContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_between}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_between(SQLiteParser.Expr_betweenContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_in}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_in(SQLiteParser.Expr_inContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_in}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_in(SQLiteParser.Expr_inContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_collate}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_collate(SQLiteParser.Expr_collateContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_collate}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_collate(SQLiteParser.Expr_collateContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_subquery}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_subquery(SQLiteParser.Expr_subqueryContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_subquery}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_subquery(SQLiteParser.Expr_subqueryContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_unary}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_unary(SQLiteParser.Expr_unaryContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_unary}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_unary(SQLiteParser.Expr_unaryContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expr_bind}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_bind(SQLiteParser.Expr_bindContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expr_bind}
+	 * labeled alternative in {@link SQLiteParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_bind(SQLiteParser.Expr_bindContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SQLiteParser#foreign_key_clause}.
 	 * @param ctx the parse tree

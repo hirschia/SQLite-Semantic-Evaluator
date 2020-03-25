@@ -1,11 +1,4 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-grammar SQLite;
-/*
  * The MIT License (MIT)
  *
  * Copyright (c) 2014 by Bart Kiers
@@ -35,6 +28,7 @@ grammar SQLite;
  *                https://github.com/bkiers/sqlite-parser
  * Developed by : Bart Kiers, bart@big-o.nl
  */
+grammar SQLite;
 
 parse
  : ( sql_stmt_list | error )* EOF
@@ -316,34 +310,34 @@ conflict_clause
     OR
 */
 expr
- : literal_value
- | BIND_PARAMETER
- | ( ( database_name '.' )? table_name '.' )? column_name
- | unary_operator expr
- | expr '||' expr
- | expr ( '*' | '/' | '%' ) expr
- | expr ( '+' | '-' ) expr
- | expr ( '<<' | '>>' | '&' | '|' ) expr
- | expr ( '<' | '<=' | '>' | '>=' ) expr
- | expr ( '=' | '==' | '!=' | '<>' | IS | IS NOT | IN | LIKE | GLOB | MATCH | REGEXP ) expr
- | expr AND expr
- | expr OR expr
- | function_name '(' ( DISTINCT? expr ( ',' expr )* | '*' )? ')'
- | '(' expr ')'
- | CAST '(' expr AS type_name ')'
- | expr COLLATE collation_name
- | expr NOT? ( LIKE | GLOB | REGEXP | MATCH ) expr ( ESCAPE expr )?
- | expr ( ISNULL | NOTNULL | NOT NULL )
- | expr IS NOT? expr
- | expr NOT? BETWEEN expr AND expr
+ : literal_value																				#expr_literal_value
+ | BIND_PARAMETER																				#expr_bind
+ | ( ( database_name '.' )? table_name '.' )? column_name										#expr_column_name
+ | unary_operator expr																			#expr_unary
+ | expr '||' expr																				#expr_binary
+ | expr ( '*' | '/' | '%' ) expr																#expr_binary
+ | expr ( '+' | '-' ) expr																		#expr_binary
+ | expr ( '<<' | '>>' | '&' | '|' ) expr														#expr_binary
+ | expr ( '<' | '<=' | '>' | '>=' ) expr														#expr_binary
+ | expr ( '=' | '==' | '!=' | '<>' | IS | IS NOT | IN | LIKE | GLOB | MATCH | REGEXP ) expr		#expr_binary
+ | expr AND expr																				#expr_binary
+ | expr OR expr																					#expr_binary
+ | function_name '(' ( DISTINCT? expr ( ',' expr )* | '*' )? ')'								#expr_function
+ | '(' expr ')'																					#expr_brace
+ | CAST '(' expr AS type_name ')'																#expr_cast
+ | expr COLLATE collation_name																	#expr_collate
+ | expr NOT? ( LIKE | GLOB | REGEXP | MATCH ) expr ( ESCAPE expr )?								#expr_string_operation
+ | expr ( ISNULL | NOTNULL | NOT NULL )															#expr_nullcheck
+ | expr IS NOT? expr																			#expr_is
+ | expr NOT? BETWEEN expr AND expr																#expr_between
  | expr NOT? IN ( '(' ( select_stmt
                           | expr ( ',' expr )*
                           )? 
                       ')'
-                    | ( database_name '.' )? table_name )
- | ( ( NOT )? EXISTS )? '(' select_stmt ')'
- | CASE expr? ( WHEN expr THEN expr )+ ( ELSE expr )? END
- | raise_function
+                    | ( database_name '.' )? table_name )										#expr_in
+ | ( ( NOT )? EXISTS )? '(' select_stmt ')'														#expr_subquery
+ | CASE expr? ( WHEN expr THEN expr )+ ( ELSE expr )? END										#expr_case
+ | raise_function																				#expr_raise_function
  ;
 
 foreign_key_clause
