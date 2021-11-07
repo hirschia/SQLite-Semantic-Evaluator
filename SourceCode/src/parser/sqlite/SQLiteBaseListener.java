@@ -857,13 +857,13 @@ public class SQLiteBaseListener implements SQLiteListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSelect_core(SQLiteParser.Select_coreContext ctx) { }
+	@Override public void enterValues_expr(SQLiteParser.Values_exprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSelect_core(SQLiteParser.Select_coreContext ctx) { }
+	@Override public void exitValues_expr(SQLiteParser.Values_exprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

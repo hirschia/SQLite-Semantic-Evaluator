@@ -18,7 +18,7 @@ class SymbolicExecutionTest {
 	
 	@BeforeEach
 	void setUp() {
-		se = new SymbolicExecution();
+		se = new SymbolicExecution("SQLite");
 	}
 	
 	@AfterEach
@@ -39,9 +39,9 @@ class SymbolicExecutionTest {
 	@Test
 	@DisplayName("Integer literal tests")
 	void testIntegerLiterals() {
-		int isZero = SymbolicExecution.STATUS_ZERO, 
-			isNotZero = SymbolicExecution.STATUS_NONZERO,
-			isOne = SymbolicExecution.STATUS_NONZERO | SymbolicExecution.STATUS_ONE;
+		int isZero = Fact.ZERO, 
+			isNotZero = Fact.NONZERO,
+			isOne = Fact.NONZERO | Fact.ONE;
 		assertAll("Status codes", 
 			() -> assertEquals(isZero, se.nummericLiteral(0).getStatusCode()),
 			() -> assertEquals(isZero, se.nummericLiteral("0").getStatusCode()),
@@ -62,8 +62,8 @@ class SymbolicExecutionTest {
 			lit_1 = se.nummericLiteral("1").getIdentifier(),
 			lit_5 = se.nummericLiteral("5").getIdentifier(),
 			lit_minus_1 = se.nummericLiteral("-1").getIdentifier();
-		int isTaut = SymbolicExecution.STATUS_TAUTOLOGY,
-			isUnsat = SymbolicExecution.STATUS_UNSATISFIABLE;
+		int isTaut = Fact.TAUTOLOGY,
+			isUnsat = Fact.UNSATISFIABLE;
 		
 		assertAll("Equality",
 			() -> assertEquals(isTaut, se.binaryOperation(lit_0, lit_0, "==").getStatusCode()),

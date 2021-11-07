@@ -509,7 +509,7 @@ public class SQLiteBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSelect_core(SQLiteParser.Select_coreContext ctx) { return visitChildren(ctx); }
+	@Override public T visitValues_expr(SQLiteParser.Values_exprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -103,7 +103,7 @@ commit_stmt
 
 compound_select_stmt
  : ( WITH RECURSIVE? common_table_expression ( ',' common_table_expression )* )?
-   select_core ( ( UNION ALL? | INTERSECT | EXCEPT ) select_core )+
+   select_or_values ( ( UNION ALL? | INTERSECT | EXCEPT ) select_or_values )+
    ( ORDER BY ordering_term ( ',' ordering_term )* )?
    ( LIMIT expr ( ( OFFSET | ',' ) expr )? )?
  ;
@@ -176,7 +176,7 @@ drop_view_stmt
 
 factored_select_stmt
  : ( WITH RECURSIVE? common_table_expression ( ',' common_table_expression )* )?
-   select_core ( compound_operator select_core )*
+   select_or_values ( compound_operator select_or_values )*
    ( ORDER BY ordering_term ( ',' ordering_term )* )?
    ( LIMIT expr ( ( OFFSET | ',' ) expr )? )?
  ;
@@ -190,7 +190,7 @@ insert_stmt
                 | INSERT OR FAIL
                 | INSERT OR IGNORE ) INTO
    ( database_name '.' )? table_name ( '(' column_name ( ',' column_name )* ')' )?
-   ( VALUES '(' expr ( ',' expr )* ')' ( ',' '(' expr ( ',' expr )* ')' )*
+   ( VALUES values_expr ( ',' values_expr )*
    | select_stmt
    | DEFAULT VALUES
    )
@@ -221,7 +221,7 @@ savepoint_stmt
 
 simple_select_stmt
  : ( WITH RECURSIVE? common_table_expression ( ',' common_table_expression )* )?
-   select_core ( ORDER BY ordering_term ( ',' ordering_term )* )?
+   select_or_values ( ORDER BY ordering_term ( ',' ordering_term )* )?
    ( LIMIT expr ( ( OFFSET | ',' ) expr )? )?
  ;
 
@@ -237,7 +237,7 @@ select_or_values
    ( FROM ( table_or_subquery ( ',' table_or_subquery )* | join_clause ) )?
    ( WHERE expr )?
    ( GROUP BY expr ( ',' expr )* ( HAVING expr )? )?
- | VALUES '(' expr ( ',' expr )* ')' ( ',' '(' expr ( ',' expr )* ')' )*
+ | VALUES values_expr ( ',' values_expr )*
  ;
 
 update_stmt
@@ -424,12 +424,16 @@ join_constraint
    | USING '(' column_name ( ',' column_name )* ')' )?
  ;
 
-select_core
- : SELECT ( DISTINCT | ALL )? result_column ( ',' result_column )*
-   ( FROM ( table_or_subquery ( ',' table_or_subquery )* | join_clause ) )?
-   ( WHERE expr )?
-   ( GROUP BY expr ( ',' expr )* ( HAVING expr )? )?
- | VALUES '(' expr ( ',' expr )* ')' ( ',' '(' expr ( ',' expr )* ')' )*
+//select_core
+// : SELECT ( DISTINCT | ALL )? result_column ( ',' result_column )*
+//   ( FROM ( table_or_subquery ( ',' table_or_subquery )* | join_clause ) )?
+//   ( WHERE expr )?
+//   ( GROUP BY expr ( ',' expr )* ( HAVING expr )? )?
+// | VALUES values_expr ( ',' values_expr )*
+// ;
+ 
+values_expr
+ : '(' expr ( ',' expr )* ')'
  ;
 
 compound_operator

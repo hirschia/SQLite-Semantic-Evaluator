@@ -33,6 +33,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import jsyntaxpane.DefaultSyntaxKit;
+import symbolicexecution.Verifier;
 
 /**
  *
@@ -53,6 +54,9 @@ public class SqlEditor extends javax.swing.JFrame implements ActionListener {
      */
     public SqlEditor() {
         initComponents();
+        initComponentsSemanticVerification();
+        // TODO: Might want to add option to select database from a file explorer
+        
         //this.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("/gui/luffy.png"));
         this.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(getClass().getResource("/gui/luffy.png")));
         
@@ -127,7 +131,7 @@ public class SqlEditor extends javax.swing.JFrame implements ActionListener {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("SQLite Editor and Parser");
+        setTitle("SQLite Editor");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 myCloseOp(evt);
@@ -325,6 +329,38 @@ public class SqlEditor extends javax.swing.JFrame implements ActionListener {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void initComponentsSemanticVerification() {
+    	javax.swing.JButton bVerify = new javax.swing.JButton("Verify");
+    	bVerify.setFocusable(false);
+    	bVerify.setToolTipText("Evaluates queries for semantic errors.");
+        bVerify.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bVerify.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bVerify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dispatchSemanticVerification();
+            }
+        });
+        jToolBar1.add(new javax.swing.JToolBar.Separator());
+        jToolBar1.add(bVerify);
+    }
+    
+    private void dispatchSemanticVerification() {
+    	String queries = jEditorPane1.getText();
+    	JTextArea textarea = new JTextArea("****************SEMANTIC EVALUATION*******************\n\n");
+    	textarea.setEditable(false);
+        textarea.setOpaque(false);
+        textarea.setLineWrap(true);
+        textarea.setFont(new java.awt.Font("Consolas", 0, 12));
+        jScrollPane2.setViewportView(textarea);
+        
+        // TODO: Utilize Hint/Status field
+        // Also: maybe want to consider adding a button to stop the verification
+        // and import existing tables where necessary
+        jTextArea1.setText("");
+        
+    	Verifier.startVerification(queries, (String feedback) -> textarea.append(feedback));
+    }
+    
     private void myCloseOp(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_myCloseOp
         int confirm = JOptionPane.showOptionDialog(null, "Are You Sure to Close Application?", "Exit Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
         if (confirm == 0) {

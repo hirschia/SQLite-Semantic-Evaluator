@@ -1,0 +1,277 @@
+*************************
+Query q1:
+*************************    
+Query:
+CREATE TABLE T (
+x,
+y,
+z,
+CHECK(y < 42 AND (z NOTNULL))
+)
+
+SELECT *
+FROM T
+WHERE x < 0 AND
+x > 5
+
+Results:
+At 10:6-10:10: x < 0
+Expression is unsatisfiable. Replace with "0"
+
+
+At 11:0-11:4: x > 5
+Expression is unsatisfiable. Replace with "0"
+
+
+At 10:0-11:4: WHERE x < 0 AND x > 5
+The where condition is unsatisfiable. Correct the where clause or remove the whole statement.
+
+
+Timing:
+Parsing: 392ms
+Evaluation: 95ms
+Total: 487ms
+
+*************************
+Query q8b:
+*************************
+Query:
+CREATE TABLE T (
+x,
+y,
+z,
+CHECK(y < 42 AND (z NOTNULL))
+)
+
+SELECT *
+FROM T
+WHERE z < 5 OR
+z > 0
+
+Results:
+At 10:0-11:4: WHERE z < 5 OR z > 0
+The where condition is a tautology. Remove the where clause.
+
+
+Timing:
+Parsing: 16ms
+Evaluation: 35ms
+Total: 51ms
+
+*************************
+Query q8c:
+*************************
+Query:
+CREATE TABLE T (
+x,
+y,
+z,
+CHECK(y < 42 AND (z NOTNULL))
+)
+
+SELECT *
+FROM T
+WHERE x > 5 OR
+x > 0
+
+Results:
+At 10:6-11:4: x > 5 OR x > 0
+The left expression is unnecessary. Replace this statement with "x > 0".
+
+
+Timing:
+Parsing: 15ms
+Evaluation: 32ms
+Total: 47ms
+
+*************************
+Query q8d:
+*************************
+Query:
+CREATE TABLE T (
+x,
+y,
+z,
+CHECK(y < 42 AND (z NOTNULL))
+)
+
+SELECT *
+FROM T
+WHERE x = 0 OR
+y < 200
+
+Results:
+At 11:0-11:6: y < 200
+This expression is a tautology. Replace with "1".
+
+
+At 10:0-11:6: WHERE x = 0 OR y < 200
+The where condition is a tautology. Remove the where clause.
+
+
+Timing:
+Parsing: 18ms
+Evaluation: 35ms
+Total: 53ms
+
+*************************
+Query q8e:
+*************************
+Query:
+CREATE TABLE T (
+x,
+y,
+z,
+CHECK(y < 42 AND (z NOTNULL))
+)
+
+SELECT *
+FROM T
+WHERE x < 0 AND
+y = 42
+
+Results:
+At 10:6-10:10: x < 0
+Expression is unsatisfiable or NULL.
+
+
+At 11:0-11:5: y = 42
+Expression is unsatisfiable. Replace with "0"
+
+
+At 10:0-11:5: WHERE x < 0 AND y = 42
+The where condition is unsatisfiable. Correct the where clause or remove the whole statement.
+
+
+Timing:
+Parsing: 21ms
+Evaluation: 35ms
+Total: 56ms
+
+*************************
+Query q8f:
+*************************
+Query:
+CREATE TABLE T (
+x,
+y,
+z,
+CHECK(y < 42 AND (z NOTNULL))
+)
+
+SELECT *
+FROM T
+WHERE z < 0 AND
+y < 200
+
+Results:
+At 11:0-11:6: y < 200
+This expression is a tautology. Replace with "1".
+
+
+At 10:0-11:10: z < 0 AND y < 200
+Right side of conjunction is tautology. Remove right expression.
+
+
+Timing:
+Parsing: 10ms
+Evaluation: 45ms
+Total: 55ms
+
+*************************
+Query q9:
+*************************
+Query:
+CREATE TABLE T (
+x,
+y,
+z,
+CHECK(y < 42 AND (z NOTNULL))
+)
+
+SELECT *
+FROM T
+WHERE x != NULL
+
+Results:
+At 10:0-10:14: WHERE x != NULL
+The where condition is unsatisfiable. Correct the where clause or remove the whole statement.
+
+
+Timing:
+Parsing: 12ms
+Evaluation: 21ms
+Total: 33ms
+
+*************************
+Query q11:
+*************************
+Query:
+CREATE TABLE T (
+x,
+y,
+z,
+CHECK(y < 42 AND (z NOTNULL))
+)
+
+SELECT *
+FROM T
+WHERE z >= 0 AND
+z <= 0
+
+Results:
+At 10:6-10:11: z >= 0
+This inequality is a strict equality. Replace operator with "=".
+
+
+At 11:0-11:5: z <= 0
+This inequality is a strict equality. Replace operator with "=".
+
+
+Timing:
+Parsing: 18ms
+Evaluation: 40ms
+Total: 58ms
+
+*************************
+Query q43:
+*************************
+Query:
+CREATE TABLE T (
+x,
+y,
+z,
+CHECK(y < 42 AND (z NOTNULL))
+)
+
+UPDATE T
+SET y = y + 2
+
+Results:
+At 9:0-9:12: SET y = y + 2
+This update might result in an error. Adjust the where clause to catch edge cases.
+
+
+Timing:
+Parsing: 8ms
+Evaluation: 31ms
+Total: 39ms
+
+*************************
+Query integer_truncated:
+*************************
+Query:
+CREATE TABLE employee (salary int);
+
+UPDATE employee
+SET salary = salary * (5/4);
+
+Results:
+At 4:13-4:26: salary * ( 5 / 4 )
+The right expression is unnecessary. Replace this statement with "salary".
+
+
+Timing:
+Parsing: 12ms
+Evaluation: 22ms
+Total: 34ms

@@ -744,15 +744,15 @@ public interface SQLiteListener extends ParseTreeListener {
 	 */
 	void exitJoin_constraint(SQLiteParser.Join_constraintContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLiteParser#select_core}.
+	 * Enter a parse tree produced by {@link SQLiteParser#values_expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterSelect_core(SQLiteParser.Select_coreContext ctx);
+	void enterValues_expr(SQLiteParser.Values_exprContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLiteParser#select_core}.
+	 * Exit a parse tree produced by {@link SQLiteParser#values_expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitSelect_core(SQLiteParser.Select_coreContext ctx);
+	void exitValues_expr(SQLiteParser.Values_exprContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SQLiteParser#compound_operator}.
 	 * @param ctx the parse tree
